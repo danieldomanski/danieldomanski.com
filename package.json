@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-tailwind-styled-components-starter",
-  "description": "A Gatsby Starter With Tailwind CSS + Emotion Js",
+  "name": "ddev",
+  "description": "Daniel's personal website",
   "version": "1.0.0",
-  "author": "Muhammad Muhajir <muhajirframe@gmail.com>",
+  "author": "Daniel Domański <av3ng3roo@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "gatsby": "^2.0.0",
@@ -33,9 +33,5 @@
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
     "prettier": "^1.14.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-tailwind-emotion-starter"
   }
 }
