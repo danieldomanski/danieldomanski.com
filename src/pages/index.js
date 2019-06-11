@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
 
-const IndexPage = () => <div>abc</div>
+const Index = () => <div>Index page</div>
 
-export default IndexPage
+export default Index
