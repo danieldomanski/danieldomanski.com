@@ -126,6 +126,21 @@ const colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
+
+  // theme colors
+  'primary-100': '#F4F4F4',
+  'primary-200': '#E9E9E9',
+  'primary-300': '#D4D4D4',
+  'primary-400': '#CECECE',
+  'primary-500': '#C4C4C4',
+  'primary-600': '#A1A1A1',
+  'primary-700': '#8F8F8F',
+  'primary-800': '#5A5A5A',
+  'primary-900': '#363636',
+
+  // background
+  'bg-stop-1': '#F0F0F0',
+  'bg-stop-2': '#FFF',
 }
 
 module.exports = {
@@ -254,6 +269,8 @@ module.exports = {
     '3xl': '1.875rem', // 30px
     '4xl': '2.25rem', // 36px
     '5xl': '3rem', // 48px
+    '6xl': '4rem', // 64px
+    '8xl': '6rem', // 96px
   },
 
   /*
