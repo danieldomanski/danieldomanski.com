@@ -8,7 +8,7 @@ import NavigationHamburger from '../../atoms/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
 
 const Container = styled.header`
-  ${tw`absolute flex items-center justify-between z-100 py-8 text-primary-700 pin-x m-auto mx-8 xl:mx-16`};
+  ${tw`flex items-center justify-between z-100 py-12 text-primary-700 mx-8 md:mx-12 xl:mx-24`};
 `
 
 const InnerContainer = styled.div`

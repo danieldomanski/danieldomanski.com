@@ -1,11 +1,7 @@
 import React from 'react'
-import Header from '../components/organisms/Header'
+
 import Layout from '../components/templates/Layout'
 
-const Index = () => (
-  <Layout>
-    <Header />
-  </Layout>
-)
+const Index = () => <Layout>Content ;)</Layout>
 
 export default Index
