@@ -205,6 +205,7 @@ module.exports = {
 
   fonts: {
     sans: [
+      'Playfair Display',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',

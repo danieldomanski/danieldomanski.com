@@ -1,13 +1,11 @@
 import React from 'react'
 import Header from '../components/organisms/Header'
+import Layout from '../components/templates/Layout'
 
 const Index = () => (
-  <>
-    <Header size="6xl" weight="bold">
-      ddev
-    </Header>
-    <div>content</div>
-  </>
+  <Layout>
+    <Header />
+  </Layout>
 )
 
 export default Index

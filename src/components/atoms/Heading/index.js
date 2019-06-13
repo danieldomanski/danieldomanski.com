@@ -8,9 +8,9 @@ const fontSize = size => theme.textSizes[size]
 const fontWeight = weight => theme.fontWeights[weight]
 
 const HeadingContainer = styled.h1`
-  ${tw`flex m-0 mb-2 h-auto overflow-hidden text-6xl `};
-  font-size: ${props => fontSize(props.size)}
-  font-weight: ${props => fontWeight(props.weight)}
+  ${tw`mx-4 my-0 h-auto overflow-hidden text-primary-900`};
+  font-size: ${props => fontSize(props.size)};
+  font-weight: ${props => fontWeight(props.weight)};
 `
 
 const Heading = ({ children, size, weight }) => (
@@ -20,9 +20,9 @@ const Heading = ({ children, size, weight }) => (
 )
 
 Heading.propTypes = {
-  size: PropTypes.oneOf(['2xl', '4xl', '6xl']),
+  size: PropTypes.oneOf(['xl', '2xl', '4xl', '6xl']),
   children: PropTypes.node.isRequired,
-  weight: PropTypes.oneOf(['medium', 'bold']),
+  weight: PropTypes.oneOf(['medium', 'bold', 'black']),
 }
 
 Heading.defaultProps = {
