@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Tailwind Styled Components Starter',
+    title: 'ddomanski.dev',
   },
   plugins: [
     'gatsby-plugin-tailwindcss',

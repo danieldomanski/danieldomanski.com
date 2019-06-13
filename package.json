@@ -5,15 +5,14 @@
   "author": "Daniel Domański <av3ng3roo@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.0",
+    "gatsby": "^2.9.0",
     "gatsby-plugin-manifest": "^2.0.2",
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.0.3",
     "gatsby-plugin-tailwindcss": "^1.0.3",
-    "prop-types": "^15.6.2",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "styled-components": "^4.1.1",
     "tailwindcss": "^0.6.6"
@@ -24,14 +23,27 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write '**/*.js'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
+    "@testing-library/dom": "^5.2.0",
+    "@testing-library/react": "^8.0.1",
+    "babel-jest": "^24.8.0",
+    "babel-plugin-macros": "^2.5.0",
+    "babel-preset-gatsby": "^0.1.11",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "prettier": "^1.14.2"
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "jest-dom": "^3.5.0",
+    "prettier": "^1.14.2",
+    "prop-types": "^15.7.2",
+    "react-test-renderer": "^16.8.6",
+    "tailwind.macro": "^0.5.10",
+    "tailwindcss": "^0.7.4",
+    "tailwindcss-plugins": "^0.1.4"
   }
 }
