@@ -15,6 +15,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.25",
     "styled-components": "^4.1.1",
     "tailwindcss": "^0.6.6",
     "typeface-playfair-display": "0.0.72"

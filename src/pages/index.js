@@ -3,6 +3,7 @@ import React from 'react'
 import Layout from '../components/templates/Layout'
 import useThrottledScroll from '../hooks/useThrottledScroll'
 import AsideNavigation from '../components/organisms/AsideNavigation'
+import IndexSlides from '../components/templates/IndexSlides'
 
 import {
   IndexSlidesWrapper,
@@ -18,6 +19,7 @@ const Index = () => {
     <Layout>
       <IndexSlidesWrapper>
         <IndexSlidesAbsoluteWrapper>
+          <IndexSlides activeSlide={activeSlide} />
           <AsideNavigation
             items={SLIDE_ITEMS}
             activeSlide={activeSlide}

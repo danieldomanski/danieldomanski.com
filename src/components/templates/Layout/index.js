@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const ColumnSpacedBetween = styled.div`
-  ${tw`h-full relative flex flex-col justify-between`};
+  ${tw`h-full relative flex flex-col justify-between  overflow-hidden`};
 `
 
 const Layout = ({ children }) => (
