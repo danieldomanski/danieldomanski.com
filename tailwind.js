@@ -205,7 +205,6 @@ module.exports = {
 
   fonts: {
     sans: [
-      'Playfair Display',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
@@ -220,12 +219,13 @@ module.exports = {
       'sans-serif',
     ],
     serif: [
-      'Constantia',
-      'Lucida Bright',
+      'Playfair Display',
+      'DejaVu Serif',
       'Lucidabright',
+      'Lucida Bright',
+      'Constantia',
       'Lucida Serif',
       'Lucida',
-      'DejaVu Serif',
       'Bitstream Vera Serif',
       'Liberation Serif',
       'Georgia',

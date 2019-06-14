@@ -9,6 +9,7 @@ const Container = styled.span`
 
 const LocaleSpan = styled.span`
   ${tw`mx-2 cursor-pointer`}
+  color: ${props => (props.active ? '#000' : '#C4C4C4')};
   font-weight: ${props => (props.active ? 600 : 500)};
 `
 

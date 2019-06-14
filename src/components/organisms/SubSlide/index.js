@@ -11,7 +11,6 @@ const Box = styled.div`
   font-family: sans-serif;
   position: absolute;
   font-family: 'Playfair Display', serif;
-  padding-left: 4em;
 `
 
 const BeforeNumber = styled.span`

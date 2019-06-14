@@ -4,14 +4,13 @@ import tw from 'tailwind.macro'
 import Header from '../../organisms/Header'
 import Footer from '../../organisms/Footer'
 import LocaleProvider from '../../../context/LocaleContext'
-import 'typeface-playfair-display'
 
 const GlobalStyle = createGlobalStyle`
   body, html {
     height: 100vh;
     width: 100vw;
     margin: 0;
-    ${tw`font-sans`}
+    ${tw`font-serif`}
   }
 
   #___gatsby, #___gatsby > div {

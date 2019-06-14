@@ -6,7 +6,7 @@ const config = { mass: 5, tension: 3000, friction: 500 }
 
 const DescriptionText = styled.div`
   margin: 1em 0;
-  max-width: 600px;
+  max-width: 660px;
   font-size: 21px;
   overflow: hidden;
   color: #636363;

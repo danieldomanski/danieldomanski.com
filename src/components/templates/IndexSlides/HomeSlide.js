@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Title, Description } from '../../atoms/AnimatedText'
+import { CenteredAbsoluteWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.div`
   position: absolute;
@@ -15,12 +16,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   margin: auto;
-`
-
-const AbsoluteWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
 `
 
 const TitleSpan = styled.span`
@@ -55,8 +50,8 @@ const HighlightedText = styled.span`
 const HomeSlide = ({ active }) => (
   <Container>
     <Wrapper>
-      <AbsoluteWrapper>
-        <Title active={active} weight={500}>
+      <CenteredAbsoluteWrapper active={active}>
+        <Title active={active} weight={400}>
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>
@@ -71,7 +66,7 @@ const HomeSlide = ({ active }) => (
             modern digital products.
           </DescSpan>
         </Description>
-      </AbsoluteWrapper>
+      </CenteredAbsoluteWrapper>
     </Wrapper>
   </Container>
 )

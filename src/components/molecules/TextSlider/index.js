@@ -8,7 +8,7 @@ const RowAlligned = styled.nav`
   font-family: sans-serif;
   position: absolute;
   bottom: 7.5%;
-  left: 2em;
+  left: 0;
 `
 
 const Rect = styled.div`
@@ -17,7 +17,7 @@ const Rect = styled.div`
   padding-left: 2em;
   color: #393939;
   cursor: pointer;
-  margin: 0 2em;
+  margin-right: 3em;
   font-family: 'Playfair Display', serif;
 
   &:before {
@@ -45,7 +45,6 @@ const RowNumber = styled.span`
   font-weight: 900;
   z-index: -1;
   color: #eeeeee;
-  font-family: 'Playfair Display', serif;
 `
 
 const RowText = styled.p`

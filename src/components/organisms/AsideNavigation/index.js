@@ -18,6 +18,7 @@ const NavListItem = styled.li`
   ${tw`cursor-pointer py-4 text-sm xl:text-base`};
   transition: 0.25s;
   color: ${props => (props.active ? '#000' : '#C4C4C4')};
+  font-weight: ${props => (props.active ? 900 : 500)};
 `
 
 const Line = styled.div`

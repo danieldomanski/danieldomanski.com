@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react'
 import styled from 'styled-components'
 import TextSlider from '../../molecules/TextSlider'
 import SubSlide from '../../organisms/SubSlide'
+import { CenteredAbsoluteWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.div`
   position: relative;
@@ -47,12 +48,12 @@ const slides = [
   },
 ]
 
-const ServicesSlide = () => {
+const ServicesSlide = ({ active }) => {
   const [activeService, set] = useState(0)
 
   return (
     <Container>
-      <SlidesWrapper>
+      <CenteredAbsoluteWrapper active={active}>
         <Slides>
           {slides.map((slide, idx) => {
             const { title, description } = slide
@@ -61,8 +62,8 @@ const ServicesSlide = () => {
             return <SubSlide active={activeService === idx} config={config} />
           })}
         </Slides>
-      </SlidesWrapper>
-      <TextSlider active={activeService} set={set} />
+        <TextSlider active={activeService} set={set} />
+      </CenteredAbsoluteWrapper>
     </Container>
   )
 }
