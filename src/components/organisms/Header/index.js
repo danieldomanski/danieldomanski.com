@@ -34,7 +34,7 @@ const Header = () => {
     <Container>
       <LogoContainer>
         <Logo />
-        <Heading size="xl" weight="black">
+        <Heading size="lg" weight="black">
           ddomanski.dev
         </Heading>
       </LogoContainer>

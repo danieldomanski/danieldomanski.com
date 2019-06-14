@@ -1,10 +1,10 @@
 import React, { useContext, useCallback } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { LocaleContext } from '../../context/LocaleContext'
+import { LocaleContext } from '../../../context/LocaleContext'
 
 const Container = styled.span`
-  ${tw`hidden md:block text-lg mx-12`};
+  ${tw`hidden md:block mx-12`};
 `
 
 const LocaleSpan = styled.span`
