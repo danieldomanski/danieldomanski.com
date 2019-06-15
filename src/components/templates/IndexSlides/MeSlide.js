@@ -41,10 +41,10 @@ const PositionItem = styled.li`
   }
 `
 
-const MeSlide = ({ active }) => (
+const MeSlide = ({ active, hide }) => (
   <Container>
     <Wrapper>
-      <CenteredAbsoluteWrapper active={active}>
+      <CenteredAbsoluteWrapper active={active} hide={hide}>
         <Title active={active}>Me</Title>
         <Description active={active}>
           I am 24 years old web developer with 5 years experience in Computer

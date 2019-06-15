@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   margin: auto;
 `
 
-const ProjectsSlide = ({ active }) => (
+const ProjectsSlide = ({ active, hide }) => (
   <Container>
     <Wrapper>
       <CenteredAbsoluteWrapper active={active}>

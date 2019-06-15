@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
-const LogoContainer = styled.div`
+const LogoContainer = styled.span`
   ${tw`flex justify-center items-center relative w-10 h-10 text-primary-900 font-black text-xl`} border: 1.5px solid #353535;
 
   &:after {

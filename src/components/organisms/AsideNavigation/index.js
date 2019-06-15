@@ -36,25 +36,32 @@ const Before = styled.div`
   ${tw`flex flex-col items-center`};
 `
 
-const AsideNav = ({ items, activeSlide, set }) => (
-  <AsideContainer idx={activeSlide}>
-    <Before>
-      <BeforeText active={activeSlide === 0} onClick={() => set(0)}>
-        ddev
-      </BeforeText>
-      <Line />
-    </Before>
-    <NavList>
-      {items.map((item, idx) => (
-        <NavListItem
-          active={activeSlide === idx + 1}
-          onClick={() => set(idx + 1)}
-        >
-          {item}
-        </NavListItem>
-      ))}
-    </NavList>
-  </AsideContainer>
-)
+const AsideNav = ({ items, slide, position }) => {
+  const { activeSlide, setSlide } = slide
+  const { slidePosition, setPosition } = position
+
+  return (
+    <AsideContainer idx={activeSlide}>
+      <Before>
+        <BeforeText active={activeSlide === 0} onClick={() => setSlide(0)}>
+          ddev
+        </BeforeText>
+        <Line />
+      </Before>
+      <NavList>
+        {items.map((item, idx) => (
+          <NavListItem
+            active={activeSlide === idx + 1}
+            onClick={() => {
+              setSlide(idx)
+            }}
+          >
+            {item}
+          </NavListItem>
+        ))}
+      </NavList>
+    </AsideContainer>
+  )
+}
 
 export default AsideNav

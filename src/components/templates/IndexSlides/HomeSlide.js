@@ -47,10 +47,10 @@ const HighlightedText = styled.span`
   }
 `
 
-const HomeSlide = ({ active }) => (
+const HomeSlide = ({ active, hide }) => (
   <Container>
     <Wrapper>
-      <CenteredAbsoluteWrapper active={active}>
+      <CenteredAbsoluteWrapper active={active} hide={hide}>
         <Title active={active} weight={400}>
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>

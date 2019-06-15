@@ -48,12 +48,12 @@ const slides = [
   },
 ]
 
-const ServicesSlide = ({ active }) => {
+const ServicesSlide = ({ active, hide }) => {
   const [activeService, set] = useState(0)
 
   return (
     <Container>
-      <CenteredAbsoluteWrapper active={active}>
+      <CenteredAbsoluteWrapper active={active} hide={hide}>
         <Slides>
           {slides.map((slide, idx) => {
             const { title, description } = slide
@@ -62,8 +62,8 @@ const ServicesSlide = ({ active }) => {
             return <SubSlide active={activeService === idx} config={config} />
           })}
         </Slides>
-        <TextSlider active={activeService} set={set} />
       </CenteredAbsoluteWrapper>
+      <TextSlider active={activeService} set={set} />
     </Container>
   )
 }

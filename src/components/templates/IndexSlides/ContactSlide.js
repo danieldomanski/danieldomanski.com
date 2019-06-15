@@ -26,10 +26,10 @@ const AbsoluteWrapper = styled.div`
   transform: translateY(-50%);
 `
 
-const ContactSlide = ({ active }) => (
+const ContactSlide = ({ active, hide }) => (
   <Container>
     <Wrapper>
-      <CenteredAbsoluteWrapper active={active}>
+      <CenteredAbsoluteWrapper active={active} hide={hide}>
         <Title active={active}>Contact</Title>
       </CenteredAbsoluteWrapper>
     </Wrapper>

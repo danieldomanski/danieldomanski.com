@@ -20,7 +20,7 @@ export default ({ children, active, weight }) => {
     opacity: active ? 1 : 0,
     x: active ? 0 : 80,
     height: active ? 120 : 0,
-    delay: active ? 500 : 100,
+    delay: active ? 750 : 250,
     from: { opacity: 0, x: 0, height: 0 },
   })
   return (
