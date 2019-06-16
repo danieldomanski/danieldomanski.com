@@ -1,13 +1,14 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useContext } from 'react'
 import _throttle from 'lodash.throttle'
+import { SlidesContext } from '../context/SlidesContext'
 
 function useThrottledScroll(slidesCount) {
-  const [activeSlide, set] = useState(0)
+  const [activeSlide, setActive] = useContext(SlidesContext)
 
   const setSlide = useRef(
     _throttle(
       idx => {
-        set(idx)
+        setActive(idx)
       },
       1500,
       { leading: true, trailing: false }
@@ -34,8 +35,6 @@ function useThrottledScroll(slidesCount) {
     },
     [activeSlide]
   )
-
-  return [activeSlide, set]
 }
 
 export default useThrottledScroll

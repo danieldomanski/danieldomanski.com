@@ -1,38 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef, useContext } from 'react'
 
 import Layout from '../components/templates/Layout'
 import useThrottledScroll from '../hooks/useThrottledScroll'
 import AsideNavigation from '../components/organisms/AsideNavigation'
 import IndexSlides from '../components/templates/IndexSlides'
+import SlidesProvider, { SlidesContext } from '../context/SlidesContext'
 
 import {
   IndexSlidesWrapper,
   IndexSlidesAbsoluteWrapper,
 } from '../components/atoms/Wrapper'
 
-const SLIDE_ITEMS = ['services', 'projects', 'me', 'contact']
+const SLIDE_ITEMS = ['ddev', 'services', 'projects', 'me', 'contact']
 
-const Index = () => {
-  const [activeSlide, setSlide] = useThrottledScroll(SLIDE_ITEMS.length)
-  const [slidePosition, setPosition] = useState(0)
-
-  return (
+const Index = () => (
     <Layout>
       <IndexSlidesWrapper>
         <IndexSlidesAbsoluteWrapper>
-          <IndexSlides
-            activeSlide={activeSlide}
-            slidePosition={slidePosition}
-          />
-          <AsideNavigation
-            items={SLIDE_ITEMS}
-            slide={{ activeSlide, setSlide }}
-            position={{ slidePosition, setPosition }}
-          />
+          <SlidesProvider>
+            <IndexSlides />
+            <AsideNavigation items={SLIDE_ITEMS} />
+          </SlidesProvider>
         </IndexSlidesAbsoluteWrapper>
       </IndexSlidesWrapper>
     </Layout>
   )
-}
 
 export default Index

@@ -37,7 +37,7 @@ const Icon = ({ icon, ...props }) => (
 Icon.propTypes = {
   stroke: PropTypes.string,
   fill: PropTypes.string,
-  width: PropTypes.number,
+  width: PropTypes.string,
   icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
 }
 

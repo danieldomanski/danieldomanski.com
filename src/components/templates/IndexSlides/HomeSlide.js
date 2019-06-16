@@ -3,21 +3,6 @@ import styled from 'styled-components'
 import { Title, Description } from '../../atoms/AnimatedText'
 import { CenteredAbsoluteWrapper } from '../../atoms/Wrapper'
 
-const Container = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  left: 0vw;
-  top: 0vh;
-`
-
-const Wrapper = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-`
-
 const TitleSpan = styled.span`
   display: block;
 
@@ -47,28 +32,23 @@ const HighlightedText = styled.span`
   }
 `
 
-const HomeSlide = ({ active, hide }) => (
-  <Container>
-    <Wrapper>
-      <CenteredAbsoluteWrapper active={active} hide={hide}>
-        <Title active={active} weight={400}>
-          <TitleSpan>Hi,</TitleSpan>
-          <TitleSpan>I’m Daniel Domański.</TitleSpan>
-        </Title>
-        <Description active={active}>
-          <DescSpan>
-            I’m a web developer currently based in{' '}
-            <HighlightedText>Szczecin, Poland.</HighlightedText>
-          </DescSpan>
-          <DescSpan>
-            My job is to help{' '}
-            <HighlightedText>your business grow</HighlightedText> by providing
-            modern digital products.
-          </DescSpan>
-        </Description>
-      </CenteredAbsoluteWrapper>
-    </Wrapper>
-  </Container>
+const HomeSlide = ({ active }) => (
+  <>
+    <Title active={active} weight={400}>
+      <TitleSpan>Hi,</TitleSpan>
+      <TitleSpan>I’m Daniel Domański.</TitleSpan>
+    </Title>
+    <Description active={active}>
+      <DescSpan>
+        I’m a web developer currently based in{' '}
+        <HighlightedText>Szczecin, Poland.</HighlightedText>
+      </DescSpan>
+      <DescSpan>
+        My job is to help <HighlightedText>your business grow</HighlightedText>{' '}
+        by providing modern digital products.
+      </DescSpan>
+    </Description>
+  </>
 )
 
 export default HomeSlide

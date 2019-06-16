@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { SlidesContext } from '../../../context/SlidesContext'
 
 const AsideContainer = styled.aside`
   ${tw`absolute pin-r m-0 flex flex-col items-center`};
@@ -36,29 +37,37 @@ const Before = styled.div`
   ${tw`flex flex-col items-center`};
 `
 
-const AsideNav = ({ items, slide, position }) => {
-  const { activeSlide, setSlide } = slide
-  const { slidePosition, setPosition } = position
+const AsideNav = ({ items, onSlideClick }) => {
+  const activeSlide = useContext(SlidesContext)
 
   return (
     <AsideContainer idx={activeSlide}>
-      <Before>
-        <BeforeText active={activeSlide === 0} onClick={() => setSlide(0)}>
-          ddev
-        </BeforeText>
-        <Line />
-      </Before>
       <NavList>
-        {items.map((item, idx) => (
-          <NavListItem
-            active={activeSlide === idx + 1}
-            onClick={() => {
-              setSlide(idx)
-            }}
-          >
-            {item}
-          </NavListItem>
-        ))}
+        {items.map((item, idx) => {
+          if (idx === 0) {
+            return (
+              <Before>
+                <BeforeText
+                  active={activeSlide === 0}
+                  onClick={() => onSlideClick(0)}
+                >
+                  {item}
+                </BeforeText>
+                <Line />
+              </Before>
+            )
+          }
+          return (
+            <NavListItem
+              active={activeSlide === idx}
+              onClick={() => {
+                onSlideClick(idx)
+              }}
+            >
+              {item}
+            </NavListItem>
+          )
+        })}
       </NavList>
     </AsideContainer>
   )

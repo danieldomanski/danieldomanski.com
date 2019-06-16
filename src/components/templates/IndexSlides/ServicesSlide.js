@@ -1,26 +1,8 @@
-import React, { useState, createContext } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import TextSlider from '../../molecules/TextSlider'
 import SubSlide from '../../organisms/SubSlide'
-import { CenteredAbsoluteWrapper } from '../../atoms/Wrapper'
 
-const Container = styled.div`
-  position: relative;
-  left: 0vw;
-  top: 100vh;
-  width: 100%;
-  height: 100%;
-`
-
-const SlidesWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 100%;
-  height: 100%;
-`
-
-const Slides = styled.section`
+const SlidesContainer = styled.section`
   width: 100%;
   height: 100%;
   margin: auto;
@@ -48,23 +30,20 @@ const slides = [
   },
 ]
 
-const ServicesSlide = ({ active, hide }) => {
+const ServicesSlide = ({ active }) => {
   const [activeService, set] = useState(0)
 
   return (
-    <Container>
-      <CenteredAbsoluteWrapper active={active} hide={hide}>
-        <Slides>
-          {slides.map((slide, idx) => {
-            const { title, description } = slide
-            const config = { title, description, idx }
+    <>
+      <SlidesContainer>
+        {slides.map((slide, idx) => {
+          const { title, description } = slide
+          const config = { title, description, idx }
 
-            return <SubSlide active={activeService === idx} config={config} />
-          })}
-        </Slides>
-      </CenteredAbsoluteWrapper>
-      <TextSlider active={activeService} set={set} />
-    </Container>
+          return <SubSlide active={activeService === idx} config={config} />
+        })}
+      </SlidesContainer>
+    </>
   )
 }
 
