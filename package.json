@@ -11,11 +11,15 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-styled-components": "^3.0.3",
     "gatsby-plugin-tailwindcss": "^1.0.3",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "lodash.throttle": "^4.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.25",
     "styled-components": "^4.1.1",
-    "tailwindcss": "^0.6.6"
+    "tailwindcss": "^0.6.6",
+    "typeface-playfair-display": "0.0.72"
   },
   "keywords": [
     "gatsby"

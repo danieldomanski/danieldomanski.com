@@ -20,7 +20,7 @@ const Heading = ({ children, size, weight }) => (
 )
 
 Heading.propTypes = {
-  size: PropTypes.oneOf(['xl', '2xl', '4xl', '6xl']),
+  size: PropTypes.oneOf(['lg', 'xl', '2xl', '4xl', '6xl']),
   children: PropTypes.node.isRequired,
   weight: PropTypes.oneOf(['medium', 'bold', 'black']),
 }
