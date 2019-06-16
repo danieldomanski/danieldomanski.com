@@ -12,7 +12,7 @@ import MeSlide from './MeSlide'
 import ContactSlide from './ContactSlide'
 import ProjectsSlide from './ProjectsSlide'
 import Slide from './Slide'
-import useThrottledScroll from '../../../hooks/useThrottledScroll'
+import useSlidesScroll from '../../../hooks/useSlidesScroll'
 import { SlidesContext } from '../../../context/SlidesContext'
 
 const Slider = styled.section`
@@ -23,50 +23,27 @@ ${tw`h-full absolute pin-t pin-l m-auto`}
 `
 
 const SliderContent = () => {
-  useThrottledScroll(5)
-  const [activeSlide] = useContext(SlidesContext)
+  useSlidesScroll(5)
+  const [slidesData] = useContext(SlidesContext)
+  const { active, positions } = slidesData
 
-  const [slidesPositions, set] = useState({
-    0: 0,
-    1: 100,
-    2: 200,
-    3: 300,
-    4: 400,
-  })
+  const isActive = useCallback(idx => active === idx, [active])
 
-  const prevSlide = useRef(0)
-
-  useEffect(
-    () => {
-      if (prevSlide.current === activeSlide) return
-
-      const positionDiff = activeSlide < prevSlide.current ? -100 : 100
-      set({
-        ...slidesPositions,
-        [activeSlide]: slidesPositions[prevSlide.current] + positionDiff,
-      })
-      prevSlide.current = activeSlide
-    },
-    [activeSlide]
-  )
-
-  const isActive = useCallback(idx => activeSlide === idx, [activeSlide])
-  console.log({ activeSlide, slidesPositions })
   return (
-    <Slider position={slidesPositions[activeSlide]}>
-      <Slide position={slidesPositions[0]} active={isActive(0)}>
+    <Slider position={positions[active]}>
+      <Slide position={positions[0]} active={isActive(0)}>
         <HomeSlide active={isActive(0)} />
       </Slide>
-      <Slide position={slidesPositions[1]} active={isActive(1)}>
+      <Slide position={positions[1]} active={isActive(1)}>
         <ServicesSlide active={isActive(1)} />
       </Slide>
-      <Slide position={slidesPositions[2]} active={isActive(2)}>
+      <Slide position={positions[2]} active={isActive(2)}>
         <ProjectsSlide active={isActive(2)} />
       </Slide>
-      <Slide position={slidesPositions[3]} active={isActive(3)}>
+      <Slide position={positions[3]} active={isActive(3)}>
         <MeSlide active={isActive(3)} />
       </Slide>
-      <Slide position={slidesPositions[4]} active={isActive(4)}>
+      <Slide position={positions[4]} active={isActive(4)}>
         <ContactSlide active={isActive(4)} />
       </Slide>
     </Slider>

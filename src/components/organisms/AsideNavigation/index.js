@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { SlidesContext } from '../../../context/SlidesContext'
+import useSlidesClick from '../../../hooks/useSlidesClick'
 
 const AsideContainer = styled.aside`
   ${tw`absolute pin-r m-0 flex flex-col items-center`};
@@ -38,18 +38,18 @@ const Before = styled.div`
 `
 
 const AsideNav = ({ items, onSlideClick }) => {
-  const activeSlide = useContext(SlidesContext)
+  const [active, clickHandler] = useSlidesClick()
 
   return (
-    <AsideContainer idx={activeSlide}>
+    <AsideContainer idx={active}>
       <NavList>
         {items.map((item, idx) => {
           if (idx === 0) {
             return (
               <Before>
                 <BeforeText
-                  active={activeSlide === 0}
-                  onClick={() => onSlideClick(0)}
+                  active={active === 0}
+                  onClick={() => clickHandler(0)}
                 >
                   {item}
                 </BeforeText>
@@ -59,9 +59,9 @@ const AsideNav = ({ items, onSlideClick }) => {
           }
           return (
             <NavListItem
-              active={activeSlide === idx}
+              active={active === idx}
               onClick={() => {
-                onSlideClick(idx)
+                clickHandler(idx)
               }}
             >
               {item}
