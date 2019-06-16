@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import SubSlide from '../../organisms/SubSlide'
+import TextSlider from '../../molecules/TextSlider'
 
 const SlidesContainer = styled.section`
   width: 100%;
@@ -30,9 +31,9 @@ const slides = [
   },
 ]
 
-const ServicesSlide = ({ active }) => {
+const ServicesSlide = () => {
   const [activeService, set] = useState(0)
-
+  console.log({ activeService })
   return (
     <>
       <SlidesContainer>
@@ -42,6 +43,7 @@ const ServicesSlide = ({ active }) => {
 
           return <SubSlide active={activeService === idx} config={config} />
         })}
+        <TextSlider active={activeService} set={set} />
       </SlidesContainer>
     </>
   )

@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useCallback,
-  useContext,
-} from 'react'
+import React, { useCallback, useContext } from 'react'
 import styled from 'styled-components'
 import HomeSlide from './HomeSlide'
 import ServicesSlide from './ServicesSlide'

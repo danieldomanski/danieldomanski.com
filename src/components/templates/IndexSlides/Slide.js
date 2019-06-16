@@ -21,12 +21,12 @@ const Wrapper = styled.div`
   margin: auto;
 `
 
-const Slide = ({ children, active, position }) => (
+const Slide = React.memo(({ children, active, position }) => (
   <Container position={position} active={active}>
     <Wrapper>
       <CenteredAbsoluteWrapper>{children}</CenteredAbsoluteWrapper>
     </Wrapper>
   </Container>
-)
+))
 
 export default Slide

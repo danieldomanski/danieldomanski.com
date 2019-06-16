@@ -24,7 +24,7 @@ const BeforeNumber = styled.span`
   color: #d1d1d1;
 `
 
-const SubSlide = ({ active, config }) => {
+const SubSlide = React.memo(({ active, config }) => {
   const { title, description, idx } = config
 
   return (
@@ -34,6 +34,6 @@ const SubSlide = ({ active, config }) => {
       <BeforeNumber active={active}>{`0${idx + 1}`}</BeforeNumber>
     </Box>
   )
-}
+})
 
 export default SubSlide

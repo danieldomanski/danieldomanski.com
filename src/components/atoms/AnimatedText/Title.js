@@ -14,7 +14,7 @@ const TitleText = styled.h1`
   margin-bottom: 0.625em;
 `
 
-export default ({ children, active, weight }) => {
+export default React.memo(({ children, active, weight }) => {
   const trailTitle = useTrail(1, {
     config,
     opacity: active ? 1 : 0,
@@ -40,4 +40,4 @@ export default ({ children, active, weight }) => {
       ))}
     </>
   )
-}
+})

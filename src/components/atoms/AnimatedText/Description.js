@@ -13,7 +13,7 @@ const DescriptionText = styled.div`
   line-height: 175%;
 `
 
-export default ({ children, active }) => {
+export default React.memo(({ children, active }) => {
   const trailDescription = useTrail(1, {
     config,
     opacity: active ? 1 : 0,
@@ -27,7 +27,7 @@ export default ({ children, active }) => {
     <DescriptionText active={active}>
       {trailDescription.map(({ x, height, ...rest }, index) => (
         <animated.div
-          key={1}
+          key={`0${index}`}
           style={{
             ...rest,
             transform: x.interpolate(x => `translate3d(${x}px,0,0)`),
@@ -38,4 +38,4 @@ export default ({ children, active }) => {
       ))}
     </DescriptionText>
   )
-}
+})

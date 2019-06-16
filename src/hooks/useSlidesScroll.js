@@ -24,19 +24,19 @@ function useSlidesScroll(slidesCount) {
   )
 
   const handleScroll = e => {
-    if (e.deltaY < 0) {
-      return active === 0 ? null : setSlide.current(active - 1, 100)
-    }
+    const diff = e.deltaY < 0 ? -1 : 1
 
-    return active === slidesCount ? null : setSlide.current(active + 1, -100)
+    if (active + diff === -1 || active + diff === slidesCount) return
+
+    setSlide.current(active + diff, 100 * -diff)
   }
 
   useEffect(
     () => {
-      window.addEventListener('wheel', handleScroll)
+      window.addEventListener('wheel', handleScroll, { passive: true })
 
       return () => {
-        window.removeEventListener('wheel', handleScroll)
+        window.removeEventListener('wheel', handleScroll, { passive: true })
       }
     },
     [active]
