@@ -8,11 +8,7 @@ import NavigationHamburger from '../../atoms/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
 
 const Container = styled.header`
-  ${tw`flex items-center justify-between z-100 py-12 text-primary-700 mx-8 md:mx-12 xl:mx-24`};
-`
-
-const InnerContainer = styled.div`
-  ${tw`flex`};
+  ${tw`flex items-center justify-between z-100 py-8 lg:py-12 text-primary-700 mx-8 md:mx-12 xl:mx-24`};
 `
 
 const LogoContainer = styled.div`
@@ -34,16 +30,16 @@ const Header = () => {
     <Container>
       <LogoContainer>
         <Logo />
-        <Heading size="lg" weight="black">
+        <Heading size="lg" weight="black" hiddenOnMobile>
           ddomanski.dev
         </Heading>
       </LogoContainer>
-      <InnerContainer>
-        <LocaleSwitcher />
-        <NavMenu onClick={toggleNav} data-testid="nav-hamburger">
-          <NavigationHamburger isNavOpen={isNavOpen} />
-        </NavMenu>
-      </InnerContainer>
+
+      <LocaleSwitcher />
+      <NavMenu onClick={toggleNav} data-testid="nav-hamburger">
+        <NavigationHamburger isNavOpen={isNavOpen} />
+      </NavMenu>
+
       <NavigationCover isNavOpen={isNavOpen} />
     </Container>
   )

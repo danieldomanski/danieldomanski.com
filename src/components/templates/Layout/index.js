@@ -14,12 +14,13 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #___gatsby, #___gatsby > div {
+    ${tw`h-auto md:h-full`}
     height: 100%;
   }
 `
 
 const ColumnSpacedBetween = styled.div`
-  ${tw`h-full relative flex flex-col justify-between  overflow-hidden`};
+  ${tw`h-full relative flex flex-col justify-between  md:overflow-hidden`};
 `
 
 const Layout = ({ children }) => (

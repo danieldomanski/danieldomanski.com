@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import { IconLink } from '../../atoms/Link'
 
 const Container = styled.ul`
-  ${tw`inline-flex align-items list-no-style p-0 m-0`};
+  ${tw`inline-flex align-items list-no-style p-0 m-0 py-2 md:py-0`};
 `
 
 const FooterSocialIcons = () => (

@@ -1,4 +1,3 @@
-// website theming (in addition to tailwind config)
 export default {
   textSizes: {
     xs: '.75rem', // 12px
@@ -13,7 +12,6 @@ export default {
     '6xl': '4rem', // 64px
     '8xl': '6rem', // 96px
   },
-
   fontWeights: {
     hairline: 100,
     thin: 200,
@@ -24,5 +22,13 @@ export default {
     bold: 700,
     extrabold: 800,
     black: 900,
+  },
+  leading: {
+    none: 1,
+    tight: 1.25,
+    snug: 1.375,
+    normal: 1.5,
+    relaxed: 1.625,
+    loose: 2,
   },
 }
