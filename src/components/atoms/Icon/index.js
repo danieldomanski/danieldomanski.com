@@ -31,7 +31,9 @@ const icons = {
 }
 
 const Icon = ({ icon, ...props }) => (
-  <Wrapper {...props}>{icons[icon].shape}</Wrapper>
+  <Wrapper {...props} viewBox={icons[icon].viewBox} preserveAspectRatio="none">
+    {icons[icon].shape}
+  </Wrapper>
 )
 
 Icon.propTypes = {
@@ -43,7 +45,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   stroke: 'transparent',
-  width: '24px',
+  width: '18px',
   fill: '#353535',
 }
 

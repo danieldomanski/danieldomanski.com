@@ -8,7 +8,7 @@ const Hamburger = styled.div`
   height: 18px;
   
   & span {
-    ${tw`block mb-2 bg-primary-700`}
+    ${tw`block mb-2 bg-primary-900`}
 
     width:  ${props => (props.toggled ? 0 : '24px')};
     height: 2px;
@@ -42,7 +42,7 @@ const Cross = styled.div`
   }
 
   & span:nth-child(1) {
-     ${tw`absolute bg-primary-700`}
+     ${tw`absolute bg-primary-900`}
     height: ${props => (props.toggled ? '24px' : 0)};
     width: 2px;
     top: -3px;
