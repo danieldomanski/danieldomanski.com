@@ -4,8 +4,9 @@ import Layout from '../components/templates/Layout'
 import AsideNavigation from '../components/organisms/AsideNavigation'
 import IndexSlides from '../components/templates/IndexSlides'
 import SlidesProvider from '../context/SlidesContext'
-import IndexHeroMobile from '../components/molecules/IndexHeroMobile'
+import IndexHero from '../components/organisms/IndexHero'
 import IndexProjects from '../components/organisms/IndexProjects'
+import IndexContact from '../components/organisms/IndexContact'
 import useWindowSize from '../hooks/useWindowSize'
 
 import {
@@ -23,8 +24,9 @@ const Index = () => {
     return (
       <Layout>
         <IndexMobileWrapper>
-          <IndexHeroMobile />
+          <IndexHero />
           <IndexProjects />
+          <IndexContact />
         </IndexMobileWrapper>
       </Layout>
     )

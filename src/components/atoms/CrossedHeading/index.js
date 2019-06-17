@@ -8,13 +8,13 @@ const fontSize = size => theme.textSizes[size]
 const fontWeight = weight => theme.fontWeights[weight]
 
 const HeadingContainer = styled.h1`
-  ${tw`relative inline-block my-0 h-auto text-primary-900 px-2`};
+  ${tw`relative inline-block my-0 h-auto text-primary-900 px-2 mb-8`};
   font-size: ${props => fontSize(props.size)};
   font-weight: ${props => fontWeight(props.weight)};
 
   &:after {
     ${tw`absolute inline-block bg-primary-200 pin-l pin-b`};
-    border-top: 2px solid #c4c4c4;
+    border-top: 1px solid #c4c4c4;
     height: 36%;
     content: '';
     width: 100%;

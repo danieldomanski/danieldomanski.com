@@ -5,7 +5,7 @@ import tw from 'tailwind.macro'
 import { MobileNavLink } from '../../atoms/Link'
 
 const NavCover = styled.div`
-${tw`fixed pin-t pin-l h-screen w-screen z-10 bg-primary-100`}
+${tw`fixed pin-t pin-l h-screen w-screen z-20 bg-primary-100`}
 
 visibility: ${props => (props.isNavOpen ? 'visible' : 'hidden')};
 opacity: ${props => (props.isNavOpen ? 1 : 0)};

@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
 
   #___gatsby, #___gatsby > div {
     ${tw`h-auto md:h-full`}
-    height: 100%;
   }
 `
 

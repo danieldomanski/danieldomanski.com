@@ -31,7 +31,9 @@ const icons = {
 }
 
 const Icon = ({ icon, ...props }) => (
-  <Wrapper {...props}>{icons[icon].shape}</Wrapper>
+  <Wrapper {...props} preserveAspectRatio="none">
+    {icons[icon].shape}
+  </Wrapper>
 )
 
 Icon.propTypes = {
