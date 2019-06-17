@@ -6,7 +6,7 @@ import TextHighlight from '../../atoms/TextHighlight'
 import FooterSocialIcons from '../../molecules/FooterSocialIcons'
 
 const Container = styled.section`
-  ${tw`w-full inline-flex flex-col items-center mb-8`};
+  ${tw`w-full inline-flex flex-col items-center`};
   box-sizing: border-box;
 `
 

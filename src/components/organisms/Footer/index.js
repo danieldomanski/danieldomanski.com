@@ -9,7 +9,7 @@ const Link = styled.a`
 `
 
 const FooterContainer = styled.footer`
-  ${tw`inline-flex flex-col md:flex-row items-center justify-between py-4 lg:py-12 mx-8 xl:mx-24`};
+  ${tw`inline-flex flex-col md:flex-row items-center justify-between py-8 lg:py-12 mx-8 xl:mx-24`};
 `
 
 const Footer = () => (

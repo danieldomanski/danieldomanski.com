@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import Icon from '../Icon'
 
 const IconWrapper = styled.a`
-  ${tw`cursor-pointer`};
+  ${tw`cursor-pointer ml-2`};
 `
 const IconLink = ({ icon, to, ...props }) => (
   <IconWrapper href={to} target="_blank" rel="noopener noreferrer">

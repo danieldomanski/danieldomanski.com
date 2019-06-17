@@ -15,8 +15,8 @@ const Container = styled.ul`
 
 const FooterSocialIcons = ({ hiddenOnMobile }) => (
   <Container hiddenOnMobile={hiddenOnMobile}>
-    <IconLink icon="github" to="http://github.com" />
-    <IconLink icon="linkedin" to="http://linkedin.com" />
+    <IconLink icon="github" to="http://github.com" width="21px" />
+    <IconLink icon="linkedin" to="http://linkedin.com" width="21px" />
   </Container>
 )
 
