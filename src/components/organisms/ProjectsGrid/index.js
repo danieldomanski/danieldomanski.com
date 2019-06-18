@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import ProjectGridItem from '../../molecules/ProjectGridItem'
+import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
   ${tw`my-8 w-full`} display: grid;
@@ -24,13 +25,26 @@ const Grid = styled.ul`
   }
 `
 
-const ProjectsGrid = ({ items }) => (
-  <Grid>
-    <ProjectGridItem area="primary" />
-    <ProjectGridItem area="secondary-1" />
-    <ProjectGridItem area="secondary-2" />
-    <ProjectGridItem area="tertiary" />
-  </Grid>
-)
+const gridTemplates = {
+  0: 'primary',
+  1: 'secondary-1',
+  2: 'secondary-2',
+  3: 'tertiary',
+}
+
+const ProjectsGrid = () => {
+  const [projects, setProjects] = useContext(ProjectsContext)
+  console.log({ projects })
+  return (
+    <Grid>
+      {projects.map((project, idx) => (
+        <ProjectGridItem
+          project={project}
+          area={gridTemplates[idx]}
+         />
+      ))}
+    </Grid>
+  )
+}
 
 export default ProjectsGrid
