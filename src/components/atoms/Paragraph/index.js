@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import theme from '../../../config/theme'
-
-const fontSize = value => theme.textSizes[value]
-const lineHeight = value => theme.leading[value]
+import { fontSize, lineHeight } from '../../helpers/styles'
 
 const ParagraphContainer = styled.p`
   ${tw`my-6 text-primary-900`};

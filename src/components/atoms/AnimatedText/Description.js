@@ -1,19 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useTrail, animated } from 'react-spring'
 import styled from 'styled-components'
+import { fontSize } from '../../helpers/styles'
 
 const config = { mass: 5, tension: 3000, friction: 500 }
 
 const DescriptionText = styled.div`
-  margin: 1em 0;
+  ${tw`my-4 overflow-hidden text-primary-800`}
   max-width: 660px;
-  font-size: 21px;
-  overflow: hidden;
-  color: #636363;
   line-height: 175%;
+  font-size: ${props => fontSize(props.size)};
 `
 
-export default React.memo(({ children, active }) => {
+const Description = React.memo(({ children, active, size }) => {
   const trailDescription = useTrail(1, {
     config,
     opacity: active ? 1 : 0,
@@ -39,3 +39,15 @@ export default React.memo(({ children, active }) => {
     </DescriptionText>
   )
 })
+
+export default Description
+
+Description.propTypes = {
+  size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
+  active: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
+}
+
+Description.defaultProps = {
+  size: 'base',
+}
