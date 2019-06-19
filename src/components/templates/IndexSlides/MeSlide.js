@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Title, Description } from '../../atoms/AnimatedText'
+import TextHighlight from '../../atoms/TextHighlight'
 
 const PositionsList = styled.ul`
   ${tw`p-0 m-0 py-4`};
@@ -28,12 +29,22 @@ const MeSlide = ({ active }) => (
   <>
     <Title active={active}>Me</Title>
     <Description active={active}>
-      I am 24 years old web developer with 5 years experience in Computer
-      Science field, and 3 years specifically in web enviroment.
+      I am 24 years old web developer with{' '}
+      <TextHighlight height="lg" bottom="xl">
+        5 years
+      </TextHighlight>{' '}
+      experience in Computer Science field, and{' '}
+      <TextHighlight height="lg" bottom="xl">
+        3 years
+      </TextHighlight>{' '}
+      specifically in web enviroment.
       <br />
       My stack is JavaScript oriented, with React.js on the front end and
       Node.js on the back end. I am always eager to learn new things, with the
-      aim to improve quality, productivity and speed.
+      aim to improve{' '}
+      <TextHighlight height="lg" bottom="xl">
+        quality, productivity and speed.
+      </TextHighlight>
     </Description>
     <Description active={active}>
       I would be a good fit if you are looking for:

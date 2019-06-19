@@ -45,3 +45,40 @@ exports.onCreatePage = ({ page, actions }) => {
     })
   })
 }
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  const pages = await graphql(`
+    {
+      projects: allPrismicProjects {
+        edges {
+          node {
+            id
+            uid
+            lang
+          }
+        }
+      }
+    }
+  `)
+
+  const projectTemplate = path.resolve(
+    'src/components/templates/Project/index.js'
+  )
+
+  pages.data.projects.edges.forEach(edge => {
+    const { lang } = edge.node
+
+    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}/`
+
+    createPage({
+      path: `/${localPrefix}${edge.node.uid}`,
+      component: projectTemplate,
+      context: {
+        uid: edge.node.uid,
+        locale: lang,
+      },
+    })
+  })
+}

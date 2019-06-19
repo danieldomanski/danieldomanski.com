@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Title, Description } from '../../atoms/AnimatedText'
-import { CenteredAbsoluteWrapper } from '../../atoms/Wrapper'
+import TextHighlight from '../../atoms/TextHighlight'
 
 const TitleSpan = styled.span`
   display: block;
@@ -15,23 +15,6 @@ const DescSpan = styled.span`
   display: block;
 `
 
-const HighlightedText = styled.span`
-  display: inline-block;
-  position: relative;
-
-  &:after {
-    position: absolute;
-    left: 0;
-    bottom: 4px;
-    content: '';
-    width: 100%;
-    display: inline-block;
-    height: 10px;
-    background-color: #dadada;
-    z-index: -1;
-  }
-`
-
 const HomeSlide = ({ active }) => (
   <>
     <Title active={active} weight={400}>
@@ -41,10 +24,15 @@ const HomeSlide = ({ active }) => (
     <Description active={active}>
       <DescSpan>
         I’m a web developer currently based in{' '}
-        <HighlightedText>Szczecin, Poland.</HighlightedText>
+        <TextHighlight bottom="lg" height="xl">
+          Szczecin, Poland.
+        </TextHighlight>
       </DescSpan>
       <DescSpan>
-        My job is to help <HighlightedText>your business grow</HighlightedText>{' '}
+        My job is to help{' '}
+        <TextHighlight bottom="lg" height="xl">
+          your business grow
+        </TextHighlight>{' '}
         by providing modern digital products.
       </DescSpan>
     </Description>

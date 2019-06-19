@@ -5,13 +5,11 @@ import styled from 'styled-components'
 const config = { mass: 5, tension: 3000, friction: 500 }
 
 const TitleText = styled.h1`
+  ${tw`flex md:text-5xl lg:text-6xl m-0 mb-4`}
   display: flex;
   font-weight: ${props => (props.weight ? props.weight : 700)};
-  font-size: 64px;
   height: auto;
   overflow: hidden;
-  margin: 0;
-  margin-bottom: 0.625em;
 `
 
 export default React.memo(({ children, active, weight }) => {
