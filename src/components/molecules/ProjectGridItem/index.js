@@ -5,7 +5,7 @@ import tw from 'tailwind.macro'
 import Image from '../../atoms/ProjectCoverImage'
 
 const Container = styled.li`
-  ${tw`relative bg-primary-300 shadow-lg overflow-hidden mr-4 md:mr-8 my-4`};
+  ${tw`relative bg-primary-300 shadow-lg overflow-hidden mr-4 md:mr-8 my-4 md:my-0`};
   max-height: 450px;
 
   @media screen and (max-width: 768px) {
@@ -39,18 +39,18 @@ const Container = styled.li`
 `
 
 const ProjectDescription = styled.p`
-  ${tw`absolute z-10 pin-b text-primary-100`}
+  ${tw`absolute z-20 bg-primary-800 block w-full pin-b text-xl font-bold text-primary-100 pl-4 m-0`}
+  bottom: -64px;
 `
 
 const ProjectGridItem = ({ project, area }) => {
-  const { body, description, title } = project.node.data
+  const { body, description, title, color } = project.node.data
   const { uid } = project.node
 
   return (
     <Container area={area}>
       <Link to={`/en/${uid}`}>
         <Image input={body[0]} />
-        <ProjectDescription>{title.text}</ProjectDescription>
       </Link>
     </Container>
   )

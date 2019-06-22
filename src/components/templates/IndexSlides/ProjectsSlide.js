@@ -4,14 +4,13 @@ import { Title } from '../../atoms/AnimatedText'
 import ProjectsGrid from '../../organisms/ProjectsGrid'
 
 const Container = styled.section`
-  ${tw`w-full`}
-
-  max-height: 600px;
+  ${tw`flex flex-col justify-center w-full h-full `}
 `
+
+//    <Title active={active}>Projects</Title>
 
 const ProjectsSlide = ({ active }) => (
   <Container>
-    <Title active={active}>Projects</Title>
     <ProjectsGrid />
   </Container>
 )

@@ -4,11 +4,11 @@ import ProjectGridItem from '../../molecules/ProjectGridItem'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
-  ${tw`flex flex-col md:flex-row md:flex-wrap`};
+  ${tw`flex  md:flex-row md:flex-wrap`};
   width: calc(100% - 1em);
-
+  flex: 1;
   max-width: 1400px;
-
+  max-height: 50%;
   list-style: none;
   margin: 0;
   padding: 0;

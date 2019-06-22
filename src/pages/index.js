@@ -79,6 +79,7 @@ export const pageQuery = graphql`
               text
             }
             lang
+            color
             description {
               html
               text
