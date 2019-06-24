@@ -19,7 +19,12 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const ColumnSpacedBetween = styled.div`
-  ${tw`h-full relative flex flex-col justify-between  md:overflow-hidden`};
+  ${tw`h-full relative flex flex-col justify-between md:overflow-hidden`};
+`
+
+const MainContent = styled.main`
+  flex: 1;
+  ${tw``}
 `
 
 const Layout = ({ children }) => (
@@ -28,8 +33,7 @@ const Layout = ({ children }) => (
     <LocaleProvider>
       <ColumnSpacedBetween>
         <Header />
-        {children}
-        <Footer />
+        <MainContent>{children}</MainContent>
       </ColumnSpacedBetween>
     </LocaleProvider>
   </>

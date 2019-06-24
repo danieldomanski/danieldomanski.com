@@ -33,17 +33,11 @@ const slides = [
 
 const ServicesSlide = () => {
   const [activeService, set] = useState(0)
-  console.log({ activeService })
+
   return (
     <>
       <SlidesContainer>
-        {slides.map((slide, idx) => {
-          const { title, description } = slide
-          const config = { title, description, idx }
-
-          return <SubSlide active={activeService === idx} config={config} />
-        })}
-        <TextSlider active={activeService} set={set} />
+        <div>Services</div>
       </SlidesContainer>
     </>
   )
