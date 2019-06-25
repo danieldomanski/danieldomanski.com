@@ -11,35 +11,35 @@ const hiddenOnMobileCss = css`
   ${tw`hidden md:block`};
 `
 
-const HeadingContainer = styled.h1`
+const SubheadingContainer = styled.h1`
   ${tw`my-0 h-auto overflow-hidden text-primary-900`};
   ${props => (props.hiddenOnMobile ? hiddenOnMobileCss : null)};
   font-size: ${props => fontSize(props.size)};
   font-weight: ${props => fontWeight(props.weight)};
 `
 
-const Heading = ({ children, size, weight, hiddenOnMobile }) => (
-  <HeadingContainer
+const Subheading = ({ children, size, weight, hiddenOnMobile }) => (
+  <SubheadingContainer
     size={size}
     weight={weight}
     hiddenOnMobile={hiddenOnMobile}
     data-testid="headerStyles"
   >
     {children}
-  </HeadingContainer>
+  </SubheadingContainer>
 )
 
-Heading.propTypes = {
+Subheading.propTypes = {
   size: PropTypes.oneOf(['lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
   children: PropTypes.node.isRequired,
   weight: PropTypes.oneOf(['medium', 'bold', 'black']),
   hiddenOnMobile: PropTypes.bool,
 }
 
-Heading.defaultProps = {
-  size: '4xl',
+Subheading.defaultProps = {
+  size: 'xl',
   weight: 'medium',
   hiddenOnMobile: false,
 }
 
-export default Heading
+export default Subheading

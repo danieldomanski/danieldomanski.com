@@ -3,9 +3,13 @@ import styled from 'styled-components'
 import handleViewport from 'react-in-viewport'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
+import Subheading from '../../atoms/Subheading'
+import WorkflowGrid from '../../organisms/IndexWorkflowGrid'
+import BeforeNumber from '../../atoms/BeforeNumber'
+import { SlidableBtn } from '../../atoms/Button'
 
 const Container = styled.div`
-  ${tw`flex flex-col justify-center w-full h-screen `}
+  ${tw`inline-flex flex-col justify-center items-start h-screen `}
 `
 
 const PositionsList = styled.ul`
@@ -30,6 +34,10 @@ const PositionItem = styled.li`
   }
 `
 
+const Row = styled.div`
+  ${tw`flex`}
+`
+
 const ViewportTitle = handleViewport(Title, {}, {})
 const ViewportDescription = handleViewport(Description, {}, {})
 
@@ -38,33 +46,20 @@ const MeSlide = ({ inViewport, forwardedRef, enterCount, leaveCount }) => {
 
   return (
     <Container isVisible={inViewport} ref={forwardedRef}>
-      <ViewportTitle>Me</ViewportTitle>
+      <Row>
+        <BeforeNumber>01</BeforeNumber>
+        <ViewportTitle>How can I help you?</ViewportTitle>
+      </Row>
       <ViewportDescription>
-        I am 24 years old web developer with{' '}
-        <TextHighlight height="lg" bottom="xl">
-          5 years
-        </TextHighlight>{' '}
-        experience in Computer Science field, and{' '}
-        <TextHighlight height="lg" bottom="xl">
-          3 years
-        </TextHighlight>{' '}
-        specifically in web enviroment.
-        <br />
-        My stack is JavaScript oriented, with React.js on the front end and
-        Node.js on the back end. I am always eager to learn new things, with the
-        aim to improve{' '}
-        <TextHighlight height="lg" bottom="xl">
-          quality, productivity and speed.
-        </TextHighlight>
+        I love to create websites and web applications, paying close attention
+        to all the small details. No matter if you are a startup in need of a
+        landing page, a small business who wants a unique web shop, or an
+        entrepreneur who has an idea for an exciting web application. Contact me
+        to work on your needs.
       </ViewportDescription>
-      <ViewportDescription>
-        I would be a good fit if you are looking for:
-        <PositionsList>
-          <PositionItem>Full Stack JavaScript Developer</PositionItem>
-          <PositionItem>Front end Developer</PositionItem>
-          <PositionItem>UI Designer/Developer</PositionItem>
-        </PositionsList>
-      </ViewportDescription>
+      <Subheading>Workflow.</Subheading>
+      <WorkflowGrid />
+      <SlidableBtn>view about page</SlidableBtn>
     </Container>
   )
 }
