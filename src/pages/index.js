@@ -1,27 +1,33 @@
 import React, { useContext, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
 import Layout from '../components/templates/Layout'
-import AsideNavigation from '../components/organisms/AsideNavigation'
-import IndexSlides from '../components/templates/IndexSlides'
+import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import { ProjectsContext } from '../context/ProjectsContext'
-import SlidesProvider from '../context/SlidesContext'
 import IndexHero from '../components/organisms/IndexHero'
 import IndexProjects from '../components/organisms/IndexProjects'
 import IndexContact from '../components/organisms/IndexContact'
 import useWindowSize from '../hooks/useWindowSize'
+import MeSlide from '../components/templates/IndexSlides/MeSlide'
+import { IndexMobileWrapper } from '../components/atoms/Wrapper'
+import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
+import { ScrollContext } from '../context/ScrollContext'
 
-import {
-  IndexSlidesWrapper,
-  IndexSlidesAbsoluteWrapper,
-  IndexMobileWrapper,
-} from '../components/atoms/Wrapper'
-
-const SLIDE_ITEMS = ['ddev', 'services', 'projects', 'me', 'contact']
+const MainWrapper = styled.main`
+  position: relative;
+  z-index: 5;
+  background-attachment: fixed;
+  height: 100%;
+  margin-top: 100vh;
+  margin-bottom: 500px;
+  background-color: #f0f0f0;
+`
 
 const Index = ({ data, pageContext, location }) => {
-  const size = useWindowSize()
-  const isMobile = size.width < 768
+  const windowSize = useWindowSize()
+  const isMobile = windowSize.width < 768
   const [, setProjects] = useContext(ProjectsContext)
 
   useEffect(() => {
@@ -41,14 +47,11 @@ const Index = ({ data, pageContext, location }) => {
   }
   return (
     <Layout>
-      <IndexSlidesWrapper>
-        <IndexSlidesAbsoluteWrapper>
-          <SlidesProvider>
-            <IndexSlides />
-            <AsideNavigation items={SLIDE_ITEMS} />
-          </SlidesProvider>
-        </IndexSlidesAbsoluteWrapper>
-      </IndexSlidesWrapper>
+      <HomeSlide />
+      <MainWrapper>
+        <MeSlide />
+        <ProjectsSlide />
+      </MainWrapper>
     </Layout>
   )
 }

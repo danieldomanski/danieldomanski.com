@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Daniel Domański <av3ng3roo@gmail.com>",
   "dependencies": {
+    "@rehooks/window-scroll-position": "^1.0.1",
     "babel-plugin-styled-components": "^1.8.0",
     "dotenv": "^8.0.0",
     "gatsby": "^2.9.4",
@@ -21,7 +22,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-in-viewport": "^1.0.0-alpha.5",
     "react-spring": "^8.0.25",
+    "react-visibility-sensor": "^5.0.2",
     "styled-components": "^4.1.1",
     "tailwindcss": "^0.6.6",
     "typeface-playfair-display": "0.0.72"

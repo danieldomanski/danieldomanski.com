@@ -12,19 +12,18 @@ const TitleText = styled.h1`
   overflow: hidden;
 `
 
-export default React.memo(({ children, active, weight }) => {
+export default React.memo(({ children, inViewport, weight, forwardedRef }) => {
   const trailTitle = useTrail(1, {
     config,
-    opacity: active ? 1 : 0,
-    x: active ? 0 : 80,
-    height: active ? 120 : 0,
-    delay: active ? 750 : 250,
-    from: { opacity: 0, x: 0, height: 0 },
+    opacity: inViewport ? 1 : 0,
+    x: inViewport ? 0 : 80,
+    delay: 250,
+    from: { opacity: 0, x: 0 },
   })
   return (
     <>
       {trailTitle.map(({ x, height, ...rest }, index) => (
-        <TitleText weight={weight}>
+        <TitleText weight={weight} ref={forwardedRef}>
           <animated.div
             key={1}
             style={{

@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Logo from '../../atoms/Logo'
@@ -6,9 +6,17 @@ import Heading from '../../atoms/Heading'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import NavigationHamburger from '../../atoms/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
+import { ScrollContext } from '../../../context/ScrollContext'
 
 const Container = styled.header`
-  ${tw`flex items-center justify-between z-100 py-6 lg:py-8 text-primary-700 mx-8 md:mx-24 xl:mx-32`};
+  ${tw`fixed pin-t z-10 flex items-center justify-between  text-primary-700 px-8 md:px-24 xl:px-32`};
+  box-sizing: border-box;
+  width: 100%;
+  box-shadow: ${props =>
+    props.isScrolled ? '1px 2px 18px rgba(0,0,0,.15)' : 'none'};
+  background-color: ${props => (props.isScrolled ? '#f0f0f0' : 'transparent')};
+  height: ${props => (props.isScrolled ? '80px' : '100px')};
+  transition: 0.25s;
 `
 
 const LogoContainer = styled.div`
@@ -24,10 +32,12 @@ const NavMenu = styled.div`
 
 const Header = () => {
   const [isNavOpen, toggle] = useState(false)
+  const [scroll] = useContext(ScrollContext)
   const toggleNav = useCallback(() => toggle(!isNavOpen), [isNavOpen])
+  const isScrolled = scroll.y > 768
 
   return (
-    <Container>
+    <Container isScrolled={isScrolled}>
       <LogoContainer>
         <Logo />
         <Heading size="lg" weight="black" hiddenOnMobile>

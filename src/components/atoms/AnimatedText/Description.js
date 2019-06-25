@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useTrail, animated } from 'react-spring'
+import { useSpring, animated } from 'react-spring'
 import styled from 'styled-components'
 import { fontSize } from '../../helpers/styles'
 
@@ -13,29 +13,25 @@ const DescriptionText = styled.div`
   font-size: ${props => fontSize(props.size)};
 `
 
-const Description = React.memo(({ children, active, size }) => {
-  const trailDescription = useTrail(1, {
+const Description = React.memo(({ children, inViewport, forwardedRef }) => {
+  const props = useSpring({
     config,
-    opacity: active ? 1 : 0,
-    x: active ? 1 : -600,
-    height: active ? 80 : 0,
-    delay: active ? 1500 : 0,
-    from: { opacity: 0, x: 0, height: 0 },
+    opacity: inViewport ? 1 : 0,
+    x: inViewport ? 0 : -600,
+    delay: inViewport ? 700 : 0,
+    from: { opacity: 0, x: -600 },
   })
 
   return (
-    <DescriptionText active={active}>
-      {trailDescription.map(({ x, height, ...rest }, index) => (
-        <animated.div
-          key={`0${index}`}
-          style={{
-            ...rest,
-            transform: x.interpolate(x => `translate3d(${x}px,0,0)`),
-          }}
-        >
-          <animated.div>{children}</animated.div>
-        </animated.div>
-      ))}
+    <DescriptionText ref={forwardedRef}>
+      <animated.div
+        style={{
+          ...props,
+          transform: props.x.interpolate(x => `translate3d(${x}px,0,0)`),
+        }}
+      >
+        {children}
+      </animated.div>
     </DescriptionText>
   )
 })
@@ -44,7 +40,7 @@ export default Description
 
 Description.propTypes = {
   size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
-  active: PropTypes.node.isRequired,
+  inViewport: PropTypes.node.isRequired,
   children: PropTypes.node.isRequired,
 }
 

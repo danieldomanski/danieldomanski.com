@@ -4,6 +4,7 @@ import tw from 'tailwind.macro'
 import Header from '../../organisms/Header'
 import Footer from '../../organisms/Footer'
 import LocaleProvider from '../../../context/LocaleContext'
+import ScrollProvider from '../../../context/ScrollContext'
 
 const GlobalStyle = createGlobalStyle`
   body, html {
@@ -19,22 +20,24 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const ColumnSpacedBetween = styled.div`
-  ${tw`h-full relative flex flex-col justify-between md:overflow-hidden`};
+  ${tw`h-full relative flex flex-col justify-between`};
 `
 
 const MainContent = styled.main`
-  flex: 1;
-  ${tw``}
+  ${tw`relative`}
 `
 
 const Layout = ({ children }) => (
   <>
     <GlobalStyle />
     <LocaleProvider>
-      <ColumnSpacedBetween>
-        <Header />
-        <MainContent>{children}</MainContent>
-      </ColumnSpacedBetween>
+      <ScrollProvider>
+        <ColumnSpacedBetween>
+          <Header />
+          <MainContent>{children}</MainContent>
+          <Footer />
+        </ColumnSpacedBetween>
+      </ScrollProvider>
     </LocaleProvider>
   </>
 )

@@ -9,7 +9,10 @@ const Link = styled.a`
 `
 
 const FooterContainer = styled.footer`
-  ${tw`inline-flex flex-col md:flex-row items-center justify-between py-8 lg:py-12 mx-8 xl:mx-24`};
+  ${tw`fixed pin-b pin-l w-full inline-flex flex-col md:flex-row items-center justify-between py-8 lg:py-12 px-8 xl:px-24 bg-yellow-lightest`};
+  box-sizing: border-box;
+  height: 500px;
+  z-index: 3;
 `
 
 const Footer = () => (
