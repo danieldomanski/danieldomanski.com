@@ -9,8 +9,9 @@ import ScrollProvider from '../../../context/ScrollContext'
 const GlobalStyle = createGlobalStyle`
   body, html {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     margin: 0;
+    background-color: #f0f0f0;
     ${tw`font-serif`}
   }
 
@@ -42,7 +43,6 @@ const Layout = ({ children }) => (
     <LocaleProvider>
       <ScrollProvider>
         <ColumnSpacedBetween>
-          <Header />
           <MainContent>{children}</MainContent>
           <Footer />
         </ColumnSpacedBetween>

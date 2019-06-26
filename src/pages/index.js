@@ -13,7 +13,6 @@ import useWindowSize from '../hooks/useWindowSize'
 import MeSlide from '../components/templates/IndexSlides/MeSlide'
 import { IndexMobileWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
-import { ScrollContext } from '../context/ScrollContext'
 
 const MainWrapper = styled.main`
   position: relative;

@@ -2,25 +2,26 @@ import React, { useState, useCallback, useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Logo from '../../atoms/Logo'
-import Heading from '../../atoms/Heading'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
-import NavigationHamburger from '../../atoms/NavigationHamburger'
+import NavigationHamburger from '../../molecules/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
 import { ScrollContext } from '../../../context/ScrollContext'
 
 const Container = styled.header`
-  ${tw`fixed pin-t z-10 flex items-center justify-between  text-primary-700 px-8 md:px-24 xl:px-32`};
+  ${tw`fixed pin-t z-10 flex items-center justify-between py-8 text-primary-700 px-8 md:px-24 xl:px-32`};
 
+  background-color: #e0e0e0;
   width: 100%;
-  box-shadow: ${props =>
-    props.isScrolled ? '1px 2px 18px rgba(0,0,0,.15)' : 'none'};
-  background-color: ${props => (props.isScrolled ? '#f0f0f0' : 'transparent')};
-  height: ${props => (props.isScrolled ? '80px' : '100px')};
+
   transition: 0.25s;
 `
 
 const LogoContainer = styled.div`
   ${tw`flex align-items  items-center`};
+`
+
+const Heading = styled.h1`
+  ${tw`text-lg font-normal ml-1`}
 `
 
 const NavMenu = styled.div`
@@ -34,15 +35,13 @@ const Header = () => {
   const [isNavOpen, toggle] = useState(false)
   const [scroll] = useContext(ScrollContext)
   const toggleNav = useCallback(() => toggle(!isNavOpen), [isNavOpen])
-  const isScrolled = scroll.y > 768
+  const isScrolled = scroll.y > 920
 
   return (
     <Container isScrolled={isScrolled}>
       <LogoContainer>
-        <Logo />
-        <Heading size="lg" weight="black" hiddenOnMobile>
-          ddomanski.dev
-        </Heading>
+        <Logo isScrolled={isScrolled} />
+        <Heading isScrolled={isScrolled}>ddomanski.dev</Heading>
       </LogoContainer>
 
       <LocaleSwitcher />

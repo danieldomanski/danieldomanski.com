@@ -8,9 +8,7 @@ const BgImage = styled(Img)`
   ${tw`absolute w-full h-full`}
 `
 
-const Image = ({ input }) => (
-  <BgImage fluid={input.primary.image.localFile.childImageSharp.fluid} />
-)
+const Image = ({ input }) => <BgImage fluid={input.primary.image.localFile.childImageSharp.fluid} />
 
 export default Image
 

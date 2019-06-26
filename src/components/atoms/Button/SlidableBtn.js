@@ -7,12 +7,12 @@ const SlidableSpan = styled.span`
   ${tw`inline-block relative text-sm self-end px-4`}
 
   &:before {
-    ${tw`absolute pin-y m-auto bg-white py-4 px-2 rounded-full`}
+    ${tw`absolute pin-y m-auto bg-white py-3 px-1 rounded-full`}
     z-index: -1;
     content: '';
     width: 20%;
     height: 100%;
-    left: -12px;
+    left: -4px;
     display: inline-block;
     transition: 0.25s;
   }

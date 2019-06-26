@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import handleViewport from 'react-in-viewport'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import ProjectsGrid from '../../organisms/ProjectsGrid'
 import BeforeNumber from '../../atoms/BeforeNumber'
+import ProjectsSlider from '../../organisms/ProjectsSlider'
+import ProjectInfo from '../../molecules/ProjectInfo'
+import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Container = styled.div`
-  ${tw`w-full inline-flex flex-col justify-center items-start h-screen px-32`}
-
-  & > div, article {
-    max-width: 1200px;
-    width: 100%;
-    margin: 2em auto;
-  }
+  ${tw`relative w-full inline-flex flex-col justify-center items-start h-screen px-32`}
+  overflow-x: hidden;
 `
 
 const Row = styled.div`
   ${tw`flex`}
+`
+
+const ProjectsRow = styled.div`
+  ${tw`relative w-full flex items-center`}
+  height: 50%;
 `
 const ViewportTitle = handleViewport(Title, {}, {})
 //    <Title active={active}>Projects</Title>
@@ -32,6 +35,10 @@ const ProjectsSlide = () => (
         </TextHighlight>
       </ViewportTitle>
     </Row>
+    <ProjectsRow>
+      <ProjectInfo />
+      <ProjectsSlider />
+    </ProjectsRow>
   </Container>
 )
 

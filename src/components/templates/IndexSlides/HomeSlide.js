@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-
+import Header from '../../organisms/Header'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -31,18 +31,19 @@ const HeroText = styled.section`
   left: 50%;
   transform: translate(-50%, -50%);
   display: ${props => (props.visible ? 'block' : 'none')};
-  opacity: ${props => props.opacity};
+
   transition: 0.25s;
 `
 
 const HomeSlide = ({ visible }) => {
   const windowSize = useWindowSize()
   const [scroll] = useContext(ScrollContext)
-  const opacity = Math.max(1 - scroll.y / 600, 0.1)
+  const opacity = Math.max(1 - scroll.y / 1000, 0.4)
 
   return (
-    <HeroHeading>
-      <HeroText visible={scroll.y <= windowSize.height} opacity={opacity}>
+    <HeroHeading opacity={opacity}>
+      <Header />
+      <HeroText visible={scroll.y <= windowSize.height}>
         <Title inViewport size="6xl" weight={400}>
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
