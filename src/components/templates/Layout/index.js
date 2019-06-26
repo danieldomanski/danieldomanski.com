@@ -17,6 +17,15 @@ const GlobalStyle = createGlobalStyle`
   #___gatsby, #___gatsby > div {
     ${tw`h-auto md:h-full`}
   }
+
+  ul, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
 `
 
 const ColumnSpacedBetween = styled.div`

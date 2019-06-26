@@ -12,7 +12,7 @@ const hiddenOnMobileCss = css`
 `
 
 const SubheadingContainer = styled.h1`
-  ${tw`my-0 h-auto overflow-hidden text-primary-900`};
+  ${tw`my-2 h-auto overflow-hidden text-primary-900 font-sans`};
   ${props => (props.hiddenOnMobile ? hiddenOnMobileCss : null)};
   font-size: ${props => fontSize(props.size)};
   font-weight: ${props => fontWeight(props.weight)};

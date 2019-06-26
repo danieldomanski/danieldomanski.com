@@ -43,7 +43,7 @@ const HomeSlide = ({ visible }) => {
   return (
     <HeroHeading>
       <HeroText visible={scroll.y <= windowSize.height} opacity={opacity}>
-        <Title inViewport weight={400}>
+        <Title inViewport size="6xl" weight={400}>
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>

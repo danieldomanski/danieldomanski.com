@@ -10,7 +10,7 @@ import { ScrollContext } from '../../../context/ScrollContext'
 
 const Container = styled.header`
   ${tw`fixed pin-t z-10 flex items-center justify-between  text-primary-700 px-8 md:px-24 xl:px-32`};
-  box-sizing: border-box;
+
   width: 100%;
   box-shadow: ${props =>
     props.isScrolled ? '1px 2px 18px rgba(0,0,0,.15)' : 'none'};

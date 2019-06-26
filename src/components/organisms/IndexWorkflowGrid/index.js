@@ -2,9 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import WorkflowGridItem from '../../molecules/WorkflowGridItem'
+import Subheading from '../../atoms/Subheading'
 
-const Container = styled.ul`
-  ${tw`flex mx-8 `}
+const Container = styled.article`
+  ${tw`my-8 self-center`}
+`
+
+const Grid = styled.ul`
+  ${tw`flex my-8`}
   flex-wrap: wrap;
   list-style: none;
 `
@@ -44,10 +49,15 @@ const items = [
 
 const WorkflowGrid = () => (
   <Container>
-    {items.map((item, idx) => {
-      const { title, description } = item
-      return <WorkflowGridItem config={{ idx, title, description }} />
-    })}
+    <Subheading size="xl" weight="bold">
+      Workflow.
+    </Subheading>
+    <Grid>
+      {items.map((item, idx) => {
+        const { title, description } = item
+        return <WorkflowGridItem config={{ idx, title, description }} />
+      })}
+    </Grid>
   </Container>
 )
 

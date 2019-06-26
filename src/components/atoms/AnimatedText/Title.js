@@ -1,40 +1,44 @@
 import React from 'react'
 import { useTrail, animated } from 'react-spring'
 import styled from 'styled-components'
+import { fontSize } from '../../helpers/styles'
 
 const config = { mass: 5, tension: 3000, friction: 500 }
 
 const TitleText = styled.h1`
-  ${tw`flex md:text-5xl lg:text-6xl m-0 mb-4`}
+  ${tw`flex  m-0 mb-4`}
   display: flex;
   font-weight: ${props => (props.weight ? props.weight : 700)};
+  font-size: ${props => fontSize(props.size)};
   height: auto;
   overflow: hidden;
 `
 
-export default React.memo(({ children, inViewport, weight, forwardedRef }) => {
-  const trailTitle = useTrail(1, {
-    config,
-    opacity: inViewport ? 1 : 0,
-    x: inViewport ? 0 : 80,
-    delay: 250,
-    from: { opacity: 0, x: 0 },
-  })
-  return (
-    <>
-      {trailTitle.map(({ x, height, ...rest }, index) => (
-        <TitleText weight={weight} ref={forwardedRef}>
-          <animated.div
-            key={1}
-            style={{
-              ...rest,
-              transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            <animated.span style={{ height }}>{children}</animated.span>
-          </animated.div>
-        </TitleText>
-      ))}
-    </>
-  )
-})
+export default React.memo(
+  ({ children, inViewport, forwardedRef, weight, size }) => {
+    const trailTitle = useTrail(1, {
+      config,
+      opacity: inViewport ? 1 : 0,
+      x: inViewport ? 0 : 80,
+      delay: 250,
+      from: { opacity: 0, x: 0 },
+    })
+    return (
+      <>
+        {trailTitle.map(({ x, height, ...rest }, index) => (
+          <TitleText weight={weight} size={size} ref={forwardedRef}>
+            <animated.div
+              key={1}
+              style={{
+                ...rest,
+                transform: x.interpolate(x => `translate3d(0,${x}px,0)`),
+              }}
+            >
+              <animated.span style={{ height }}>{children}</animated.span>
+            </animated.div>
+          </TitleText>
+        ))}
+      </>
+    )
+  }
+)
