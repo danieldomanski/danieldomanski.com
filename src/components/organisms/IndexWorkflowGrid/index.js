@@ -49,7 +49,7 @@ const items = [
 
 const WorkflowGrid = () => (
   <Container>
-    <Subheading size="xl" weight="bold">
+    <Subheading size="xl" weight="bold" fontColor="primary-800">
       Workflow.
     </Subheading>
     <Grid>

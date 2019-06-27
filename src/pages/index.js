@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import Layout from '../components/templates/Layout'
 import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import { ProjectsContext } from '../context/ProjectsContext'
@@ -14,10 +15,10 @@ import MeSlide from '../components/templates/IndexSlides/MeSlide'
 import { IndexMobileWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 
-const MainWrapper = styled.main`
-  position: relative;
+const MainWrapper = styled(Parallax)`
+  height: 100%;
   z-index: 5;
-  background-attachment: fixed;
+
   margin-top: 100vh;
   margin-bottom: 500px;
   background-color: #f0f0f0;
@@ -46,7 +47,7 @@ const Index = ({ data, pageContext, location }) => {
   return (
     <Layout>
       <HomeSlide />
-      <MainWrapper>
+      <MainWrapper pages={2}>
         <MeSlide />
         <ProjectsSlide />
       </MainWrapper>

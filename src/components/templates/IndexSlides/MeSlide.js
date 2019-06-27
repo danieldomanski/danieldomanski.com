@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import handleViewport from 'react-in-viewport'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
-
 import WorkflowGrid from '../../organisms/IndexWorkflowGrid'
 import BeforeNumber from '../../atoms/BeforeNumber'
 import { SlidableBtn } from '../../atoms/Button'
 
-const Container = styled.div`
+const Container = styled(ParallaxLayer)`
   ${tw`w-full inline-flex flex-col justify-center items-start h-screen px-32`}
 
   & > div, article {
@@ -33,12 +33,16 @@ const MeSlide = ({ inViewport, forwardedRef }) => {
   console.log({ inViewport, forwardedRef })
 
   return (
-    <Container isVisible={inViewport} ref={forwardedRef}>
+    <Container isVisible={inViewport} ref={forwardedRef} offset={0}>
       <AboutText>
         <Row>
-          <BeforeNumber>01</BeforeNumber>
           <ViewportTitle>
-            <TextHighlight size="3xl" height="xl">
+            <TextHighlight
+              size="3xl"
+              height="xl"
+              fontColor="primary-800"
+              underlineColor="primary-400"
+            >
               How can I help you?
             </TextHighlight>
           </ViewportTitle>

@@ -31,4 +31,16 @@ export default {
     relaxed: 1.625,
     loose: 2,
   },
+  colors: {
+    // theme colors
+    'primary-100': '#F4F4F4',
+    'primary-200': '#E9E9E9',
+    'primary-300': '#D4D4D4',
+    'primary-400': '#CECECE',
+    'primary-500': '#C4C4C4',
+    'primary-600': '#A1A1A1',
+    'primary-700': '#8F8F8F',
+    'primary-800': '#5A5A5A',
+    'primary-900': '#363636',
+  },
 }

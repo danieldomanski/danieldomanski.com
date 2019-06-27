@@ -9,14 +9,24 @@ const hiddeOnMobileCss = css`
 `
 
 const Container = styled.ul`
-  ${tw`inline-flex align-items list-no-style p-0 m-0 py-2 md:py-0`};
+  ${tw`inline-flex align-items list-no-style p-0 m-0 py-2 md:py-4`};
   ${props => (props.hiddenOnMobile ? hiddeOnMobileCss : null)};
 `
 
 const FooterSocialIcons = ({ hiddenOnMobile }) => (
   <Container hiddenOnMobile={hiddenOnMobile}>
-    <IconLink icon="github" to="http://github.com" width="21px" />
-    <IconLink icon="linkedin" to="http://linkedin.com" width="21px" />
+    <IconLink
+      icon="github"
+      to="http://github.com"
+      width="21px"
+      fill="#f0f0f0"
+    />
+    <IconLink
+      icon="linkedin"
+      to="http://linkedin.com"
+      width="21px"
+      fill="#f0f0f0"
+    />
   </Container>
 )
 

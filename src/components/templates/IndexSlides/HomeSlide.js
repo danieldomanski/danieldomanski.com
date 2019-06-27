@@ -35,7 +35,7 @@ const HeroText = styled.section`
   transition: 0.25s;
 `
 
-const HomeSlide = ({ visible }) => {
+const HomeSlide = () => {
   const windowSize = useWindowSize()
   const [scroll] = useContext(ScrollContext)
   const opacity = Math.max(1 - scroll.y / 1000, 0.4)
@@ -51,13 +51,23 @@ const HomeSlide = ({ visible }) => {
         <Description inViewport>
           <DescSpan>
             I’m a web developer currently based in
-            <TextHighlight bottom="lg" height="xl">
+            <TextHighlight
+              bottom="lg"
+              height="xl"
+              fontColor="primary-800"
+              underlineColor="primary-400"
+            >
               Szczecin, Poland.
             </TextHighlight>
           </DescSpan>
           <DescSpan>
             My job is to help
-            <TextHighlight bottom="lg" height="xl">
+            <TextHighlight
+              bottom="lg"
+              height="xl"
+              fontColor="primary-800"
+              underlineColor="primary-400"
+            >
               your business grow
             </TextHighlight>
             by providing modern digital products.

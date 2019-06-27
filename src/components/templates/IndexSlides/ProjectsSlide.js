@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react'
 import styled from 'styled-components'
 import handleViewport from 'react-in-viewport'
+import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
 import { SlidableBtn } from '../../atoms/Button'
 
-const Container = styled.div`
+const Container = styled(ParallaxLayer)`
   ${tw` w-full h-screen bg-primary-300`}
   overflow-x: hidden;
 `
@@ -25,11 +26,16 @@ const Row = styled.div`
 const ViewportTitle = handleViewport(Title, {}, {})
 
 const ProjectsSlide = () => (
-  <Container>
+  <Container offset={1}>
     <Wrapper>
       <Row>
         <ViewportTitle>
-          <TextHighlight size="3xl" height="xl">
+          <TextHighlight
+            size="3xl"
+            height="xl"
+            fontColor="primary-800"
+            underlineColor="primary-400"
+          >
             My recent works.
           </TextHighlight>
         </ViewportTitle>
