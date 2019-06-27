@@ -32,14 +32,20 @@ const TextContainer = styled.p`
   }
 `
 
-const TextHighlight = ({ children, size, weight, bottom, height }) => (
-  <TextContainer size={size} weight={weight} underline={{ bottom, height }}>
+const TextHighlight = ({ children, size, color, weight, bottom, height }) => (
+  <TextContainer
+    color={color}
+    size={size}
+    weight={weight}
+    underline={{ bottom, height }}
+  >
     {children}
   </TextContainer>
 )
 
 TextHighlight.propTypes = {
   size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
+  color: PropTypes.oneOf(['primary-100', 'primary-500', 'primary-900']),
   bottom: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
   height: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
   weight: PropTypes.oneOf(['base', 'bold', 'black']),
@@ -48,6 +54,7 @@ TextHighlight.propTypes = {
 
 TextHighlight.defaultProps = {
   size: 'base',
+  color: 'primary-100',
   weight: 'medium',
   bottom: 'base',
   height: 'base',

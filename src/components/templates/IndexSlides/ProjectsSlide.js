@@ -3,42 +3,40 @@ import styled from 'styled-components'
 import handleViewport from 'react-in-viewport'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
-import ProjectsGrid from '../../organisms/ProjectsGrid'
-import BeforeNumber from '../../atoms/BeforeNumber'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
-import ProjectInfo from '../../molecules/ProjectInfo'
-import { ProjectsContext } from '../../../context/ProjectsContext'
+import { SlidableBtn } from '../../atoms/Button'
 
 const Container = styled.div`
-  ${tw`relative w-full inline-flex flex-col justify-center items-start h-screen px-32`}
+  ${tw` w-full h-screen bg-primary-300`}
   overflow-x: hidden;
+`
+const Wrapper = styled.main`
+  ${tw`relative w-full flex flex-col justify-center w-full px-12`}
+  height: 100%;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
 `
 
 const Row = styled.div`
-  ${tw`flex`}
+  ${tw`flex `}
 `
 
-const ProjectsRow = styled.div`
-  ${tw`relative w-full flex items-center`}
-  height: 50%;
-`
 const ViewportTitle = handleViewport(Title, {}, {})
-//    <Title active={active}>Projects</Title>
 
 const ProjectsSlide = () => (
   <Container>
-    <Row>
-      <BeforeNumber>02</BeforeNumber>
-      <ViewportTitle>
-        <TextHighlight size="3xl" height="xl">
-          My recent works.
-        </TextHighlight>
-      </ViewportTitle>
-    </Row>
-    <ProjectsRow>
-      <ProjectInfo />
+    <Wrapper>
+      <Row>
+        <ViewportTitle>
+          <TextHighlight size="3xl" height="xl">
+            My recent works.
+          </TextHighlight>
+        </ViewportTitle>
+      </Row>
       <ProjectsSlider />
-    </ProjectsRow>
+      <SlidableBtn>view all projects</SlidableBtn>
+    </Wrapper>
   </Container>
 )
 

@@ -8,7 +8,7 @@ const Hamburger = styled.div`
   height: 18px;
   
   & span {
-    ${tw`block mb-2 bg-primary-900`}
+    ${tw`block mb-1 bg-primary-900`}
 
     width:  ${props => (props.toggled ? 0 : '24px')};
     height: 2px;

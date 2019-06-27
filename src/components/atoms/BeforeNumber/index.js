@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const BeforeSpan = styled.span`
-  ${tw`inline-block relative mx-8 text-4xl mb-84`}
+  ${tw`inline-block relative mx-2 text-4xl mb-84`}
 
   &:before {
     ${tw`absolute pin-l pin-t m-auto rounded-full text-6xl font-bold  `}

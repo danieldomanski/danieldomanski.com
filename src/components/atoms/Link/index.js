@@ -1,4 +1,5 @@
 import MobileNavLink from './MobileNavLink'
 import IconLink from './IconLink'
+import Link from './Link'
 
-export { MobileNavLink, IconLink }
+export { Link, MobileNavLink, IconLink }

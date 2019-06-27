@@ -52,7 +52,7 @@ const MeSlide = ({ inViewport, forwardedRef }) => {
         </ViewportDescription>
       </AboutText>
       <WorkflowGrid />
-      <SlidableBtn>view about page</SlidableBtn>
+      <SlidableBtn>learn more about me</SlidableBtn>
     </Container>
   )
 }

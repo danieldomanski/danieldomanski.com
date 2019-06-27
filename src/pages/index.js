@@ -18,7 +18,6 @@ const MainWrapper = styled.main`
   position: relative;
   z-index: 5;
   background-attachment: fixed;
-  height: 100%;
   margin-top: 100vh;
   margin-bottom: 500px;
   background-color: #f0f0f0;

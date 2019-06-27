@@ -6,7 +6,8 @@ import Paragraph from '../../atoms/Paragraph'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Container = styled.div`
-  ${tw`flex flex-col`}
+  ${tw`hidden lg:flex flex-col`}
+  max-width: 240px;
 `
 
 const ProjectInfo = () => {

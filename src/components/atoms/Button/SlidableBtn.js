@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import Icon from '../Icon'
 
 const SlidableSpan = styled.span`
-  ${tw`inline-block relative text-sm self-end px-4`}
+  ${tw`inline-block relative text-sm self-end px-4 z-10`}
 
   &:before {
     ${tw`absolute pin-y m-auto bg-white py-3 px-1 rounded-full`}
