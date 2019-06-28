@@ -18,6 +18,7 @@ const HeroHeading = styled.header`
   ${tw`absolute w-full h-screen `}
   z-index: 4;
   background-color: #e0e0e0;
+  opacity: ${props => props.opacity};
 `
 
 const DescSpan = styled.span`

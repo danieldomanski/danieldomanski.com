@@ -43,7 +43,7 @@ const Layout = ({ children }) => (
     <LocaleProvider>
       <ScrollProvider>
         <ColumnSpacedBetween>
-          {children}
+          <MainContent>{children}</MainContent>
           <Footer />
         </ColumnSpacedBetween>
       </ScrollProvider>
