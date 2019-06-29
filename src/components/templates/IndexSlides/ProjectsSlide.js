@@ -5,22 +5,22 @@ import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
 import { SlidableBtn } from '../../atoms/Button'
+import Heading from '../../atoms/Heading'
+import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.div`
-  ${tw` w-full h-screen bg-primary-100`}
-  background-attachment: fixed;
-  overflow-x: hidden;
+  ${tw`py-32 px-12 m-auto h-screen`}
+  max-width: 1400px;
 `
 const Wrapper = styled.main`
-  ${tw`relative w-full flex flex-col justify-center w-full px-12`}
-  height: 100%;
+  ${tw`relative w-full h-full flex flex-col justify-center`}
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
 `
 
 const Row = styled.div`
-  ${tw`flex `}
+  ${tw`flex justify-between my-12`}
 `
 
 const ViewportTitle = handleViewport(Title, {}, {})
@@ -29,19 +29,18 @@ const ProjectsSlide = () => (
   <Container>
     <Wrapper>
       <Row>
-        <ViewportTitle>
-          <TextHighlight
-            size="3xl"
-            height="xl"
-            fontColor="primary-800"
-            underlineColor="primary-200"
-          >
-            My recent works.
-          </TextHighlight>
-        </ViewportTitle>
+        <Heading fontColor="primary-900" weight="bold">
+          Works.
+        </Heading>
+        <SlidableBtn>view all projects</SlidableBtn>
       </Row>
+      <Paragraph fontColor="primary-700" withLine size="xl">
+        Learning new things is an integral part of every software engineer on a
+        daily basis. Something that always characterized our industry is broad
+        access to free resources. Learning in public is my way to give back some
+        value to the community.
+      </Paragraph>
       <ProjectsSlider />
-      <SlidableBtn>view all projects</SlidableBtn>
     </Wrapper>
   </Container>
 )

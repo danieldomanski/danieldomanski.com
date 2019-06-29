@@ -26,6 +26,10 @@ const underlineStyles = {
     bottom: 8,
     height: 12,
   },
+  '4xl': {
+    bottom: 8,
+    height: 16,
+  },
 }
 
 const underlineStyle = size => underlineStyles[size]
@@ -72,7 +76,7 @@ TextHighlight.propTypes = {
   underlineColor: PropTypes.oneOf(primaryColors),
   fontColor: PropTypes.oneOf(primaryColors),
   bottom: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
-  height: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
+  height: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl']),
   weight: PropTypes.oneOf(['base', 'bold', 'black']),
   children: PropTypes.node.isRequired,
 }

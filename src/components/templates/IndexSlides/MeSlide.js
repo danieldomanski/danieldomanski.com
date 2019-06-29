@@ -9,7 +9,7 @@ import BeforeNumber from '../../atoms/BeforeNumber'
 import { SlidableBtn } from '../../atoms/Button'
 
 const Container = styled.div`
-  ${tw`w-full inline-flex flex-col justify-center items-start h-screen px-32`}
+  ${tw`w-full inline-flex flex-col justify-center items-start h-screen px-32 bg-primary-100 bg-primary-100`}
 
   & > div, article {
     max-width: 1200px;

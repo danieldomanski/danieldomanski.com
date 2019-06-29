@@ -9,7 +9,7 @@ const fontSize = size => theme.textSizes[size]
 const fontWeight = weight => theme.fontWeights[weight]
 
 const LinkContainer = styled(Link)`
-  ${tw`no-underline text-primary-100`};
+  ${tw`font-sans no-underline text-primary-100`};
 
   font-size: ${props => fontSize(props.size)};
   font-weight: ${props => fontWeight(props.weight)};

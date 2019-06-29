@@ -12,27 +12,35 @@ import Paragraph from '../../atoms/Paragraph'
 import Icon from '../../atoms/Icon'
 
 const FooterContainer = styled.footer`
-  ${tw`fixed pin-b pin-l w-full py-8 lg:py-12 px-8 xl:px-24 text-primary-100`};
+  ${tw`fixed pin-b pin-l w-full text-primary-100 flex-col items-center bg-primary-800`};
   display: ${props => (props.visible ? 'flex' : 'none')};
-  background-color: #353535;
   box-sizing: border-box;
+
   height: 500px;
   z-index: 3;
 `
 
 const Wrapper = styled.div`
-  ${tw`w-full m-auto flex items-center justify-center `}
+  ${tw`w-full`}
+`
+
+const UpperWrapper = styled(Wrapper)`
+  ${tw`flex flex-col items-center justify-center text-center`}
+  max-width: 1200px;
+  height: 500px;
+`
+
+const BottomWrapper = styled(Wrapper)`
+  ${tw`bg-primary-900 py-4`}
+`
+
+const BottomRow = styled.div`
+  ${tw`flex m-auto items-center justify-between `}
   max-width: 1200px;
 `
 
-const Column = styled.article`
-  ${tw`h-full flex flex-col justify-center`}
-  width: 33.333%;
-`
-
-const DownloadBtn = styled.button`
-  ${tw`flex items-center bg-transparent p-0`}
-  border: 0;
+const ItalicSpan = styled.span`
+  ${tw`italic`}
 `
 
 const ContactTile = styled.div``
@@ -43,43 +51,33 @@ const Footer = () => {
   const visible = scroll.y > 920
   return (
     <FooterContainer visible={visible}>
-      <Wrapper>
-        <Column>
-          <Heading>Daniel.</Heading>
+      <UpperWrapper>
+        <TextHighlight
+          fontColor="primary-200"
+          size="4xl"
+          weight="bold"
+          height="4xl"
+          underlineColor="primary-900"
+        >
+          Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
+        </TextHighlight>
+        <Paragraph size="lg" my={6}>
+          You may find me on social networks given below, or e-mail me directly.
+          If you're a digital or design agency, recruiter or just interested in
+          a hard copy of my resumé as a PDF, download it here.
+        </Paragraph>
+      </UpperWrapper>
+      <BottomWrapper>
+        <BottomRow>
           <Link>
-            <TextHighlight underlineColor="primary-900">
-              source code here
+            <TextHighlight underlineColor="primary-800" weight="bold">
+              source code
             </TextHighlight>
           </Link>
+          <Subheading weight="bold">hello@ddomanski.dev</Subheading>
           <FooterSocials />
-        </Column>
-        <Column>
-          <Subheading size="sm" weight="bold">
-            Site
-          </Subheading>
-          <FooterNavigation />
-        </Column>
-        <Column>
-          <Subheading size="sm" weight="bold">
-            Resume
-          </Subheading>
-          <DownloadBtn>
-            <Subheading size="base">Download</Subheading>
-            <Icon icon="arrow" fill="#f0f0f0" width="24px" />
-          </DownloadBtn>
-          <Subheading size="sm" weight="bold">
-            Site
-          </Subheading>
-          <ContactTile>
-            <Subheading>Got a project you need help with?</Subheading>
-            <Subheading>
-              <TextHighlight underlineColor="primary-800" weight="bold">
-                Let's create something beautiful.
-              </TextHighlight>
-            </Subheading>
-          </ContactTile>
-        </Column>
-      </Wrapper>
+        </BottomRow>
+      </BottomWrapper>
     </FooterContainer>
   )
 }

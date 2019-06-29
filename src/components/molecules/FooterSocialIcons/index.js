@@ -18,13 +18,13 @@ const FooterSocialIcons = ({ hiddenOnMobile }) => (
     <IconLink
       icon="github"
       to="http://github.com"
-      width="21px"
+      width="20px"
       fill="#f0f0f0"
     />
     <IconLink
       icon="linkedin"
       to="http://linkedin.com"
-      width="21px"
+      width="20px"
       fill="#f0f0f0"
     />
   </Container>

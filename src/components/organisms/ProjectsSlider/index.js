@@ -6,18 +6,17 @@ import Image from '../../atoms/ProjectCoverImage'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Container = styled.div`
-  ${tw`w-full mt-12 mb-24`}
+  ${tw`w-full my-12`}
   min-height: 400px;
 `
 
 const Slides = styled.ul`
-  ${tw`w-full h-full flex items-center relative flex-wrap`}
+  ${tw`w-full h-full flex items-center relative flex-wrap my-8`}
   list-style: none;
 `
 
 const Slide = styled.li`
-  ${tw`relative h-full bg-primary-300 shadow-lg overflow-hidden mr-4 md:mr-8 xl:mr-12 md:my-0`};
-  max-height: 450px;
+  ${tw` h-full bg-primary-300 shadow-lg mr-4 md:mr-8 xl:mr-12 md:my-0`};
 
   @media screen and (max-width: 768px) {
     max-height: 250px;
@@ -54,7 +53,7 @@ const ProjectsSlider = () => {
   const [projects, , active, setActive] = useContext(ProjectsContext)
 
   return (
-    <Container>
+    <>
       <Slides>
         {projects.map((item, idx) => (
           <Slide>
@@ -62,7 +61,7 @@ const ProjectsSlider = () => {
           </Slide>
         ))}
       </Slides>
-    </Container>
+    </>
   )
 }
 

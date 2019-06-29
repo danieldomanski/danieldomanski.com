@@ -6,12 +6,9 @@ import { fontSize } from '../../helpers/styles'
 const config = { mass: 5, tension: 3000, friction: 500 }
 
 const TitleText = styled.h1`
-  ${tw`flex  m-0 mb-4 z-10`}
-  display: flex;
+  ${tw`flex justify-center m-0 mb-4 z-10 h-auto overflow-hidden`}
   font-weight: ${props => (props.weight ? props.weight : 700)};
   font-size: ${props => fontSize(props.size)};
-  height: auto;
-  overflow: hidden;
 `
 
 export default React.memo(

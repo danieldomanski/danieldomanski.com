@@ -9,7 +9,7 @@ const hiddenOnMobileCss = css`
 `
 
 const HeadingContainer = styled.h1`
-  ${tw`h-auto overflow-hidden text-primary-900`};
+  ${tw`h-auto text-primary-900 m-0`};
   ${props => (props.hiddenOnMobile ? hiddenOnMobileCss : null)};
   font-size: ${props => fontSize(props.size)};
   font-weight: ${props => fontWeight(props.weight)};

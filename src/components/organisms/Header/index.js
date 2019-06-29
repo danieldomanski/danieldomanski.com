@@ -8,12 +8,17 @@ import NavigationCover from '../NavigationCover'
 import { ScrollContext } from '../../../context/ScrollContext'
 
 const Container = styled.header`
-  ${tw`fixed pin-t z-10 flex items-center justify-between py-8 text-primary-700 px-8 md:px-24 xl:px-32`};
+  ${tw`fixed pin-t z-10 py-8 text-primary-700`};
 
   background-color: #e0e0e0;
   width: 100%;
-
   transition: 0.25s;
+`
+
+const Wrapper = styled.div`
+  ${tw`flex items-center justify-between`}
+  max-width: 1200px;
+  margin: 0 auto;
 `
 
 const LogoContainer = styled.div`
@@ -25,7 +30,8 @@ const Heading = styled.h1`
 `
 
 const NavMenu = styled.div`
-  position: relative;
+  ${tw`relative block md:hidden`}
+
   width: 24px;
   height: 18px;
   transition: 0.25s;
@@ -39,17 +45,17 @@ const Header = () => {
 
   return (
     <Container isScrolled={isScrolled}>
-      <LogoContainer>
-        <Logo isScrolled={isScrolled} />
-        <Heading isScrolled={isScrolled}>ddomanski.dev</Heading>
-      </LogoContainer>
-
-      <LocaleSwitcher />
-      <NavMenu onClick={toggleNav} data-testid="nav-hamburger">
-        <NavigationHamburger isNavOpen={isNavOpen} />
-      </NavMenu>
-
-      <NavigationCover isNavOpen={isNavOpen} />
+      <Wrapper>
+        <LogoContainer>
+          <Logo isScrolled={isScrolled} />
+          <Heading isScrolled={isScrolled} />
+        </LogoContainer>
+        <LocaleSwitcher />
+        <NavMenu onClick={toggleNav} data-testid="nav-hamburger">
+          <NavigationHamburger isNavOpen={isNavOpen} />
+        </NavMenu>
+        <NavigationCover isNavOpen={isNavOpen} />
+      </Wrapper>
     </Container>
   )
 }

@@ -5,6 +5,7 @@ import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
+import Paragraph from '../../atoms/Paragraph'
 
 const TitleSpan = styled.span`
   display: block;
@@ -14,7 +15,7 @@ const TitleSpan = styled.span`
   }
 `
 
-const HeroHeading = styled.header`
+const HeroHeading = styled.section`
   ${tw`absolute w-full h-screen `}
   z-index: 4;
   background-color: #e0e0e0;
@@ -49,7 +50,7 @@ const HomeSlide = () => {
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>
-        <Description inViewport>
+        <Paragraph inViewport fontColor="primary-900" size="xl">
           <DescSpan>
             I’m a web developer currently based in
             <TextHighlight
@@ -73,7 +74,7 @@ const HomeSlide = () => {
             </TextHighlight>
             by providing modern digital products.
           </DescSpan>
-        </Description>
+        </Paragraph>
       </HeroText>
     </HeroHeading>
   )

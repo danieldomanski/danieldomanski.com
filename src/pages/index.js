@@ -13,6 +13,7 @@ import useWindowSize from '../hooks/useWindowSize'
 import MeSlide from '../components/templates/IndexSlides/MeSlide'
 import { IndexMobileWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
+import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 
 const Parallax = styled.div`
   position: relative;
@@ -24,6 +25,7 @@ const Parallax = styled.div`
 `
 
 const MainWrapper = styled.main`
+  ${tw`relative overflow-hidden shadow-lg`}
   position: relative;
   z-index: 5;
 
@@ -57,8 +59,8 @@ const Index = ({ data, pageContext, location }) => {
     <Layout>
       <HomeSlide />
       <MainWrapper>
-        <MeSlide />
         <ProjectsSlide />
+        <BlogSlide />
       </MainWrapper>
     </Layout>
   )
