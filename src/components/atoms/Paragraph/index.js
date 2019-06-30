@@ -2,12 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { fontSize, lineHeight, color, margin } from '../../helpers/styles'
+import { fontSize, lineHeight, color, spacing } from '../../helpers/styles'
 
 const Container = styled.div`
   ${tw`font-sans inline-flex`};
   max-width: 1200px;
-  margin: ${props => margin(props.mx, props.my)};
+  margin: ${props => spacing(props.mx, props.my)};
 `
 
 const ParagraphContainer = styled.p`

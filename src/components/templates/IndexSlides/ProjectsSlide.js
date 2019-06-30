@@ -10,7 +10,6 @@ import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.div`
   ${tw`py-32 px-12 m-auto h-screen`}
-  max-width: 1400px;
 `
 const Wrapper = styled.main`
   ${tw`relative w-full h-full flex flex-col justify-center`}

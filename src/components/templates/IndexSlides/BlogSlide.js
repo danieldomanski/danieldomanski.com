@@ -8,7 +8,7 @@ import PostItem from '../../organisms/PostItem'
 const posts = ['abc', 'bca', 'cba']
 
 const Container = styled.div`
-  ${tw`py-32 m-auto`}
+  ${tw`py-32 px-12 m-auto`}
   max-width: 1400px;
 `
 
@@ -17,9 +17,8 @@ const Row = styled.div`
 `
 
 const BlogPosts = styled.ul`
-  ${tw`m-auto py-8`}
+  ${tw`py-12`}
   max-width: 800px;
-  margin: 0 auto;
   list-style: none;
 `
 
@@ -38,6 +37,9 @@ const ContactSlide = () => (
       value to the community.
     </Paragraph>
     <BlogPosts>
+      <Heading fontColor="primary-900" weight="bold" size="base">
+        Latest posts.
+      </Heading>
       {posts.map((post, idx) => (
         <PostItem>abc</PostItem>
       ))}

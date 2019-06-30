@@ -43,7 +43,7 @@ export default {
     'primary-800': '#5A5A5A',
     'primary-900': '#363636',
   },
-  margin: {
+  spacing: {
     auto: 'auto',
     px: '1px',
     '0': '0',

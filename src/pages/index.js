@@ -14,6 +14,9 @@ import MeSlide from '../components/templates/IndexSlides/MeSlide'
 import { IndexMobileWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
+import Heading from '../components/atoms/Heading'
+import { ThemeBtn } from '../components/atoms/Button'
+import Icon from '../components/atoms/Icon'
 
 const Parallax = styled.div`
   position: relative;
@@ -33,6 +36,11 @@ const MainWrapper = styled.main`
   margin-top: 100vh;
   margin-bottom: 500px;
   background-color: #f0f0f0;
+`
+
+const AboutSlide = styled.section`
+  ${tw`flex flex-col items-center pb-32 m-auto`}
+  max-width: 1400px;
 `
 
 const Index = ({ data, pageContext, location }) => {
@@ -61,6 +69,14 @@ const Index = ({ data, pageContext, location }) => {
       <MainWrapper>
         <ProjectsSlide />
         <BlogSlide />
+        <AboutSlide>
+          <Heading fontColor="primary-900" my={8}>
+            Get to know me better.
+          </Heading>
+          <ThemeBtn>
+            About me <Icon icon="arrow" width="16" />
+          </ThemeBtn>
+        </AboutSlide>
       </MainWrapper>
     </Layout>
   )
