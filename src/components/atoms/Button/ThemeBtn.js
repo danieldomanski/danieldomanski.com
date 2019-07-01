@@ -23,6 +23,17 @@ const Button = styled.button`
   font-size: ${props => fontSize(sizes[props.size].fontSize)};
   background-color: ${props => color(types[props.type].bgColor)};
   color: ${props => color(types[props.type].fontColor)};
+  transition: 0.5s;
+  border: 2px solid rgba(0, 0, 0, 0);
+
+  &:hover {
+    ${tw`shadow-lg`}
+  }
+
+  &:focus {
+    border: 2px solid rgba(0, 0, 0, 0.15);
+    outline: 0;
+  }
 `
 
 const ThemeBtn = ({ children, size, type }) => (

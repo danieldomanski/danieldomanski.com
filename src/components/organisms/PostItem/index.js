@@ -5,8 +5,19 @@ import Icon from '../../atoms/Icon'
 import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
 
-const Container = styled.article`
+const Container = styled.a`
   ${tw`w-full flex items-center bg-primary-100 my-8 py-4 shadow`}
+  transition: 0.4s ease-in-out;
+  &:hover {
+    ${tw`shadow-lg`};
+    transform: scale(1.02);
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  text-decoration: none;
   max-height: 100px;
 `
 
@@ -20,12 +31,12 @@ const Text = styled.div`
 `
 
 const DateContainer = styled.div`
-  ${tw`text-right mx-8`}
+  ${tw`text-right mx-8 text-primary-900`}
   flex:2;
 `
 
 const PostItem = () => (
-  <Container>
+  <Container href="#">
     <IconContainer>
       <Icon icon="react" width="48" />
     </IconContainer>

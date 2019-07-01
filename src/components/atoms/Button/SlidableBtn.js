@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Icon from '../Icon'
 
-const SlidableSpan = styled.span`
-  ${tw`inline-block relative self-end z-10 px-4 font-bold font-sans`}
+const SlidableSpan = styled.button`
+  ${tw`inline-block relative self-end z-10 px-4 font-bold font-sans bg-transparent`}
+  border: 0;
+  outline: 0;
 
   &:before {
-    ${tw`absolute pin-y m-auto bg-white  rounded-full`}
+    ${tw`absolute pin-y m-auto bg-white rounded-full shadow`}
     box-sizing: border-box;
     z-index: -1;
     content: '';
@@ -15,12 +17,18 @@ const SlidableSpan = styled.span`
     width: 64px;
     height: 64px;
     display: inline-block;
-    transition: 0.25s;
+    transition: 0.5s ease-in-out;
+  }
+
+  &:focus {
+    &:before {
+      box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
+    }
   }
 
   &:hover {
     &:before {
-      width: 100%;
+      ${tw`w-full`}
     }
   }
 `

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -11,11 +11,12 @@ import IndexProjects from '../components/organisms/IndexProjects'
 import IndexContact from '../components/organisms/IndexContact'
 import useWindowSize from '../hooks/useWindowSize'
 import MeSlide from '../components/templates/IndexSlides/MeSlide'
-import { IndexMobileWrapper } from '../components/atoms/Wrapper'
+import { IndexMobileWrapper, ContentWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import Heading from '../components/atoms/Heading'
 import { ThemeBtn } from '../components/atoms/Button'
+import IndexBottomBg from '../images/IndexBottomBg.svg'
 import Icon from '../components/atoms/Icon'
 
 const Parallax = styled.div`
@@ -29,18 +30,38 @@ const Parallax = styled.div`
 
 const MainWrapper = styled.main`
   ${tw`relative overflow-hidden shadow-lg`}
-  position: relative;
-  z-index: 5;
 
-  overflow: hidden;
+  z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 500px;
+  margin-bottom: 600px;
   background-color: #f0f0f0;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 1200px;
+    min-width: 2000px;
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+    background-image: url(${IndexBottomBg});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+  }
+`
+
+const BgContainer = styled.div`
+  ${tw`relative`}
 `
 
 const AboutSlide = styled.section`
-  ${tw`flex flex-col items-center pb-32 m-auto`}
-  max-width: 1400px;
+  ${tw`flex flex-col items-center pb-32`}
 `
 
 const Index = ({ data, pageContext, location }) => {
@@ -69,14 +90,18 @@ const Index = ({ data, pageContext, location }) => {
       <MainWrapper>
         <ProjectsSlide />
         <BlogSlide />
-        <AboutSlide>
-          <Heading fontColor="primary-900" my={8}>
-            Get to know me better.
-          </Heading>
-          <ThemeBtn>
-            About me <Icon icon="arrow" width="16" />
-          </ThemeBtn>
-        </AboutSlide>
+        <ContentWrapper>
+          <AboutSlide>
+            <Heading fontColor="primary-900" my={8}>
+              Get to know me better.
+            </Heading>
+            <Link to="/about">
+              <ThemeBtn>
+                About me <Icon icon="arrow" width="16" />
+              </ThemeBtn>
+            </Link>
+          </AboutSlide>
+        </ContentWrapper>
       </MainWrapper>
     </Layout>
   )

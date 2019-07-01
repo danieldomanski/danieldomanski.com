@@ -16,7 +16,7 @@ const TitleSpan = styled.span`
 `
 
 const HeroHeading = styled.section`
-  ${tw`absolute w-full h-screen `}
+  ${tw`absolute w-full h-screen`}
   z-index: 4;
   background-color: #e0e0e0;
   opacity: ${props => props.opacity};
@@ -24,6 +24,7 @@ const HeroHeading = styled.section`
 
 const DescSpan = styled.span`
   display: block;
+  white-space: nowrap;
 `
 
 const HeroText = styled.section`
@@ -56,7 +57,8 @@ const HomeSlide = () => {
             <TextHighlight
               bottom="lg"
               height="xl"
-              fontColor="primary-800"
+              fontColor="primary-900"
+              size="xl"
               underlineColor="primary-400"
             >
               Szczecin, Poland.
@@ -67,7 +69,8 @@ const HomeSlide = () => {
             <TextHighlight
               bottom="lg"
               height="xl"
-              fontColor="primary-800"
+              fontColor="primary-900"
+              size="xl"
               underlineColor="primary-400"
             >
               your business grow

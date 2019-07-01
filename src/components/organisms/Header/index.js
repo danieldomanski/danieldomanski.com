@@ -6,19 +6,18 @@ import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import NavigationHamburger from '../../molecules/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
 import { ScrollContext } from '../../../context/ScrollContext'
+import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.header`
-  ${tw`fixed pin-t z-10 py-8 text-primary-700`};
+  ${tw`fixed pin-t py-8 text-primary-700 px-24`};
 
   background-color: #e0e0e0;
   width: 100%;
   transition: 0.25s;
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled(ContentWrapper)`
   ${tw`flex items-center justify-between`}
-  max-width: 1200px;
-  margin: 0 auto;
 `
 
 const LogoContainer = styled.div`

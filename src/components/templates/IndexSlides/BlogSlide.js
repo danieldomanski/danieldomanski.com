@@ -1,15 +1,16 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
 import { SlidableBtn } from '../../atoms/Button'
+import { ContentWrapper } from '../../atoms/Wrapper'
 import PostItem from '../../organisms/PostItem'
 
 const posts = ['abc', 'bca', 'cba']
 
-const Container = styled.div`
-  ${tw`py-32 px-12 m-auto`}
-  max-width: 1400px;
+const Container = styled(ContentWrapper)`
+  ${tw`py-32 px-12`}
 `
 
 const Row = styled.div`
@@ -17,18 +18,20 @@ const Row = styled.div`
 `
 
 const BlogPosts = styled.ul`
-  ${tw`py-12`}
+  ${tw`py-12 m-auto`}
   max-width: 800px;
   list-style: none;
 `
 
-const ContactSlide = () => (
+const BlogSlide = () => (
   <Container>
     <Row>
       <Heading fontColor="primary-900" weight="bold">
         Blog.
       </Heading>
-      <SlidableBtn>view all projects</SlidableBtn>
+      <Link to="/blog">
+        <SlidableBtn>view all posts</SlidableBtn>
+      </Link>
     </Row>
     <Paragraph fontColor="primary-700" withLine size="xl">
       Learning new things is an integral part of every software engineer on a
@@ -47,4 +50,4 @@ const ContactSlide = () => (
   </Container>
 )
 
-export default ContactSlide
+export default BlogSlide

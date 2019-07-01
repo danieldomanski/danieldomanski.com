@@ -35,14 +35,22 @@ const underlineStyles = {
 const underlineStyle = size => underlineStyles[size]
 
 const TextContainer = styled.p`
-  ${tw`relative inline-block no-underline text-primary-800 font-bold z-10 p-0 m-0 px-1 whitespace-no-wrap`};
+  ${tw`relative inline-block no-underline text-primary-800 font-bold z-10 p-0 m-0 mx-1 whitespace-no-wrap`};
 
   font-weight: ${props => fontWeight(props.weight)};
   font-size: ${props => fontSize(props.size)};
   color: ${props => color(props.fontColor)};
 
+  &:hover {
+    &:after {
+      filter: brightness(95%);
+      height: ${props => underlineStyle(props.underline.height).height + 3}px;
+    }
+  }
+
   &:after {
     ${tw`absolute block bg-primary-200 w-full pin-l`};
+    transition: 0.25s ease-in-out;
     z-index: -1;
     content: '';
     height: ${props => underlineStyle(props.underline.height).height}px;

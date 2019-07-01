@@ -5,18 +5,14 @@ import SliderActions from '../../molecules/SliderActions'
 import Image from '../../atoms/ProjectCoverImage'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
-const Container = styled.div`
-  ${tw`w-full my-12`}
-  min-height: 400px;
-`
-
 const Slides = styled.ul`
-  ${tw`w-full h-full flex items-center relative flex-wrap my-8`}
+  ${tw`w-full h-full flex items-center relative flex-wrap my-16`}
   list-style: none;
 `
 
-const Slide = styled.li`
-  ${tw` h-full bg-primary-300 shadow-lg mr-4 md:mr-8 xl:mr-12 md:my-0`};
+const Slide = styled.a`
+  ${tw`h-full bg-primary-300 shadow-lg mr-4 md:mr-8 xl:mr-12 my-4 xl:my-0 overflow-hidden`};
+  transition: 0.5s ease-in-out;
 
   @media screen and (max-width: 768px) {
     max-height: 250px;
@@ -47,6 +43,10 @@ const Slide = styled.li`
   &:last-child {
     margin-right: 0;
   }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.15);
+  }
 `
 
 const ProjectsSlider = () => {
@@ -56,7 +56,7 @@ const ProjectsSlider = () => {
     <>
       <Slides>
         {projects.map((item, idx) => (
-          <Slide>
+          <Slide href="#">
             <Image input={item.node.data.body[0]} />
           </Slide>
         ))}

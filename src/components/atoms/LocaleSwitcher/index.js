@@ -9,6 +9,7 @@ const Container = styled.span`
 
 const LocaleSpan = styled.span`
   ${tw`relative font-sans uppercase mx-2 cursor-pointer`}
+
   color: ${props => (props.active ? '#000' : '#C4C4C4')};
   font-weight: ${props => (props.active ? 600 : 500)};
   transition: 0.25s;
@@ -20,6 +21,10 @@ const LocaleSpan = styled.span`
     z-index: -1;
     content: '';
     height: 6px;
+  }
+
+  &:focus {
+    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.15);
   }
 `
 

@@ -6,12 +6,19 @@ const LogoContainer = styled.span`
   ${tw`flex justify-center items-center relative w-10 h-10 text-primary-900 font-black text-xl mr-0 md:mr-4`};
   border: 1.5px solid #353535;
 
+  &:hover {
+    &:after {
+      left: 0;
+      top: 0;
+    }
+  }
   &:after {
-    ${tw`absolute block w-10 h-10 bg-primary-300`};
+    ${tw`absolute block w-10 h-10 bg-primary-400`};
     content: '';
     left: 6px;
     top: 6px;
     z-index: -1;
+    transition: 0.5s ease-in-out;
   }
 `
 
