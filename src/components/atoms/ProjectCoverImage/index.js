@@ -14,7 +14,7 @@ const BgImage = styled(Img)`
 
   @media screen and (max-width: 1200px) {
     min-height: unset;
-    max-height: 200px;
+    max-height: 300px;
   }
 `
 

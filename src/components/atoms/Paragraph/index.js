@@ -16,6 +16,7 @@ const ParagraphContainer = styled.p`
   line-height: ${props => lineHeight(props.leading)};
   color: ${props => color(props.fontColor)};
   margin-left: ${props => (props.withLine ? '1em' : 0)};
+  font-style: ${props => (props.italic ? 'italic' : 'normal')};
 `
 
 const Line = styled.span`
@@ -31,6 +32,7 @@ const Paragraph = ({
   children,
   size,
   fontColor,
+  italic,
   leading,
   withLine,
   my,
@@ -43,6 +45,7 @@ const Paragraph = ({
       leading={leading}
       fontColor={fontColor}
       withLine={withLine}
+      italic={italic}
     >
       {children}
     </ParagraphContainer>

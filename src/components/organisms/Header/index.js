@@ -9,15 +9,16 @@ import { ScrollContext } from '../../../context/ScrollContext'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.header`
-  ${tw`fixed pin-t py-8 text-primary-700 px-24`};
+  ${tw`absolute pin-t py-8 text-primary-700 px-24`};
 
-  background-color: #e0e0e0;
+  z-index: 5;
   width: 100%;
   transition: 0.25s;
 `
 
-const Wrapper = styled(ContentWrapper)`
-  ${tw`flex items-center justify-between`}
+const Wrapper = styled.div`
+  ${tw`flex items-center justify-between m-auto`}
+  max-width: 1200px;
 `
 
 const LogoContainer = styled.div`
@@ -36,21 +37,21 @@ const NavMenu = styled.div`
   transition: 0.25s;
 `
 
-const Header = () => {
+const Header = ({ variant }) => {
   const [isNavOpen, toggle] = useState(false)
   const [scroll] = useContext(ScrollContext)
   const toggleNav = useCallback(() => toggle(!isNavOpen), [isNavOpen])
   const isScrolled = scroll.y > 920
 
   return (
-    <Container isScrolled={isScrolled}>
+    <Container>
       <Wrapper>
         <LogoContainer>
-          <Logo isScrolled={isScrolled} />
-          <Heading isScrolled={isScrolled} />
+          <Logo variant={variant} />
+          <Heading />
         </LogoContainer>
-        <LocaleSwitcher />
-        <NavMenu onClick={toggleNav} data-testid="nav-hamburger">
+        <LocaleSwitcher variant={variant} />
+        <NavMenu onClick={toggleNav}>
           <NavigationHamburger isNavOpen={isNavOpen} />
         </NavMenu>
         <NavigationCover isNavOpen={isNavOpen} />

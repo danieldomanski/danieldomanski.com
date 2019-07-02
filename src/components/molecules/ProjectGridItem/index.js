@@ -1,41 +1,14 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import Image from '../../atoms/ProjectCoverImage'
+import Img from 'gatsby-image'
+import Heading from '../../atoms/Heading'
 
 const Container = styled.li`
-  ${tw`relative bg-primary-300 shadow-lg overflow-hidden mr-4 md:mr-8 my-4 md:my-0`};
-  max-height: 450px;
+  ${tw`relative h-full shadow-lg overflow-hidden`};
 
-  @media screen and (max-width: 768px) {
-    max-height: 250px;
-  }
-
-  &:first-child {
-    flex-basis: calc(33.333% - 2rem);
-
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
-      flex-basis: calc(100% - 1rem);
-      max-height: 225px;
-      max-width: unset;
-      margin-right: 0;
-    }
-  }
-
-  &:nth-child(n + 2) {
-    flex-basis: calc(33.333% - 2rem);
-
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
-      flex-basis: calc(50% - 1rem);
-      max-height: 250px;
-      max-width: unset;
-    }
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
+  grid-row-end: span ${props => props.spans};
 `
 
 const ProjectDescription = styled.p`
@@ -43,14 +16,36 @@ const ProjectDescription = styled.p`
   bottom: -64px;
 `
 
+const Title = styled.h1`
+  ${tw`font-sans font-black text-6xl text-white absolute pin-y`}
+`
+
 const ProjectGridItem = ({ project, area }) => {
+  const [spans, setSpans] = useState(0)
   const { body, description, title, color } = project.node.data
   const { uid } = project.node
+  const { localFile, dimensions } = body[0].primary.image
+
+  const calculateSpans = aspectRatio => {
+    const baseSpan = 6 // 6 spans are base === 6 * 60 px = 360px as base
+    const baseRatio = 1.25 // 4:3
+
+    // each 0.1 difference in aspect ratio increases span by 1
+    const spanAddition = Math.floor(
+      Math.abs(Math.round((baseRatio - aspectRatio) * 100) / 100) / 0.1
+    )
+
+    return baseSpan + spanAddition
+  }
+
+  useEffect(() => {
+    setSpans(calculateSpans(localFile.childImageSharp.fluid.aspectRatio))
+  })
 
   return (
-    <Container area={area}>
+    <Container area={area} spans={spans}>
       <Link to={`/en/${uid}`}>
-        <Image input={body[0]} />
+        <Img fluid={localFile.childImageSharp.fluid} />
       </Link>
     </Container>
   )

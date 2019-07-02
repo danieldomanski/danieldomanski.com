@@ -19,7 +19,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Playfair Display', 'Montserrat'],
+          families: ['Playfair Display:500,700,900', 'Montserrat:500,700,900'],
         },
       },
     },

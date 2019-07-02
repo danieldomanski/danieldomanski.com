@@ -4,49 +4,69 @@ import tw from 'tailwind.macro'
 import SliderActions from '../../molecules/SliderActions'
 import Image from '../../atoms/ProjectCoverImage'
 import { ProjectsContext } from '../../../context/ProjectsContext'
+import Paragraph from '../../atoms/Paragraph'
 
 const Slides = styled.ul`
-  ${tw`w-full h-full flex items-center relative flex-wrap my-16`}
+  ${tw`w-full h-full my-16`}
+    display: grid;
+    grid-template-areas: "a a" "b b";
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2em;
+    
+    @media screen and (min-width: 1200px){
+      grid-template-rows: 100%;
+      grid-template-columns: repeat(3, 1fr);
+
+    }
+  }
+
   list-style: none;
 `
 
 const Slide = styled.a`
-  ${tw`h-full bg-primary-300 shadow-lg mr-4 md:mr-8 xl:mr-12 my-4 xl:my-0 overflow-hidden`};
+  ${tw`relative h-full bg-primary-300 shadow-lg `};
+
+  &:first-of-type {
+    grid-area: a;
+
+    @media screen and (min-width: 1200px) {
+      grid-area: unset;
+    }
+  }
+
   transition: 0.5s ease-in-out;
 
   @media screen and (max-width: 768px) {
-    max-height: 250px;
-  }
-
-  &:first-child {
-    flex-basis: calc(33.333% - 2rem);
-
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
-      max-height: 225px;
-      max-width: unset;
-      margin-right: 0;
-      flex-basis: 100%;
-      margin-bottom: 1em;
-    }
-  }
-
-  &:nth-child(n + 2) {
-    flex-basis: calc(33.333% - 2rem);
-
-    @media screen and (min-width: 768px) and (max-width: 1200px) {
-      flex-basis: calc(50% - 1rem);
-      max-height: 250px;
-      max-width: unset;
-    }
-  }
-
-  &:last-child {
-    margin-right: 0;
+    max-height: 300px;
   }
 
   &:focus {
     box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.15);
   }
+
+  &:hover {
+    transform: translateY(4px) scale(1.02);
+  }
+`
+
+const BgCover = styled.div`
+  ${tw`absolute w-full h-full z-10`};
+
+  background: linear-gradient(
+    0deg,
+    rgba(240, 240, 240, 1) 10%,
+    rgba(240, 240, 240, 0) 100%
+  );
+`
+
+const CoverActions = styled.span`
+  ${tw`flex flex-col items-center w-full absolute z-10 text-center`};
+  bottom: 2em;
+`
+
+const Title = styled.h1`
+  ${tw`relative text-xl xl:text-3xl font-black my-2 text-primary-800`}
 `
 
 const ProjectsSlider = () => {
@@ -55,11 +75,22 @@ const ProjectsSlider = () => {
   return (
     <>
       <Slides>
-        {projects.map((item, idx) => (
-          <Slide href="#">
-            <Image input={item.node.data.body[0]} />
-          </Slide>
-        ))}
+        {projects.map((item, idx) => {
+          const { title, description } = item.node.data
+
+          return (
+            <Slide href="#">
+              <BgCover />
+              <CoverActions>
+                <Title>{title.text}</Title>
+                <Paragraph fontColor="primary-600" size="sm" italic>
+                  {description.text}
+                </Paragraph>
+              </CoverActions>
+              <Image input={item.node.data.body[0]} />
+            </Slide>
+          )
+        })}
       </Slides>
     </>
   )

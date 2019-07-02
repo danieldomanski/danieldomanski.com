@@ -27,6 +27,10 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  .gatsby-image-wrapper {
+    height: 100%;
+  }
 `
 
 const ColumnSpacedBetween = styled.div`
@@ -42,10 +46,7 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     <LocaleProvider>
       <ScrollProvider>
-        <ColumnSpacedBetween>
-          <MainContent>{children}</MainContent>
-          <Footer />
-        </ColumnSpacedBetween>
+        <MainContent>{children}</MainContent>
       </ScrollProvider>
     </LocaleProvider>
   </>

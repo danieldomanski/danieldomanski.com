@@ -8,6 +8,7 @@ import Paragraph from '../../atoms/Paragraph'
 const Container = styled.a`
   ${tw`w-full flex items-center bg-primary-100 my-8 py-4 shadow`}
   transition: 0.4s ease-in-out;
+
   &:hover {
     ${tw`shadow-lg`};
     transform: scale(1.02);

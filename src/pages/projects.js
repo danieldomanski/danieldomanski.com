@@ -1,5 +1,33 @@
 import React from 'react'
+import styled from 'styled-components'
+import Layout from '../components/templates/Layout'
+import Header from '../components/organisms/Header'
+import ProjectGrid from '../components/organisms/ProjectsGrid'
+import Heading from '../components/atoms/Heading'
+import { ContentWrapper } from '../components/atoms/Wrapper'
 
-const Projects = () => <div>Projects page</div>
+const ProjectsContainer = styled.section`
+  ${tw``}
+`
 
-export default Projects
+const TopLayer = styled.section`
+  ${tw`absolute w-full py-12 px-12`}
+  top: 100px;
+  z-index: 5;
+`
+
+const Blog = () => (
+  <Layout>
+    <Header variant="secondary" />
+    <TopLayer>
+      <ContentWrapper>
+        <Heading fontColor="primary-900" weight="bold">
+          Projects.
+        </Heading>
+        <ProjectGrid />
+      </ContentWrapper>
+    </TopLayer>
+  </Layout>
+)
+
+export default Blog

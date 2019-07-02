@@ -1,30 +1,15 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import Header from '../../organisms/Header'
 import { Title, Description } from '../../atoms/AnimatedText'
 import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
 import Paragraph from '../../atoms/Paragraph'
 
-const TitleSpan = styled.span`
-  display: block;
-
-  &:first-of-type {
-    font-size: 96px;
-  }
-`
-
 const HeroHeading = styled.section`
   ${tw`absolute w-full h-screen`}
+  background-color: #1A1A1A;
   z-index: 4;
-  background-color: #e0e0e0;
-  opacity: ${props => props.opacity};
-`
-
-const DescSpan = styled.span`
-  display: block;
-  white-space: nowrap;
 `
 
 const HeroText = styled.section`
@@ -38,6 +23,19 @@ const HeroText = styled.section`
   transition: 0.25s;
 `
 
+const TitleSpan = styled.span`
+  ${tw`block text-primary-100`}
+
+  &:first-of-type {
+    font-size: 96px;
+  }
+`
+
+const DescSpan = styled.span`
+  display: block;
+  white-space: nowrap;
+`
+
 const HomeSlide = () => {
   const windowSize = useWindowSize()
   const [scroll] = useContext(ScrollContext)
@@ -45,21 +43,20 @@ const HomeSlide = () => {
 
   return (
     <HeroHeading opacity={opacity}>
-      <Header />
       <HeroText visible={scroll.y <= windowSize.height}>
         <Title inViewport size="6xl" weight={400}>
           <TitleSpan>Hi,</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>
-        <Paragraph inViewport fontColor="primary-900" size="xl">
+        <Paragraph inViewport fontColor="primary-600" size="xl">
           <DescSpan>
             I’m a web developer currently based in
             <TextHighlight
               bottom="lg"
               height="xl"
-              fontColor="primary-900"
+              fontColor="primary-600"
               size="xl"
-              underlineColor="primary-400"
+              underlineColor="primary-900"
             >
               Szczecin, Poland.
             </TextHighlight>
@@ -69,9 +66,9 @@ const HomeSlide = () => {
             <TextHighlight
               bottom="lg"
               height="xl"
-              fontColor="primary-900"
+              fontColor="primary-600"
               size="xl"
-              underlineColor="primary-400"
+              underlineColor="primary-900"
             >
               your business grow
             </TextHighlight>

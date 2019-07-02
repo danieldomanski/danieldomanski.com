@@ -10,7 +10,7 @@ import PostItem from '../../organisms/PostItem'
 const posts = ['abc', 'bca', 'cba']
 
 const Container = styled(ContentWrapper)`
-  ${tw`py-32 px-12`}
+  ${tw`py-16 px-12`}
 `
 
 const Row = styled.div`

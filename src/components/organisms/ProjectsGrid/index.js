@@ -4,19 +4,13 @@ import ProjectGridItem from '../../molecules/ProjectGridItem'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
-  ${tw`flex  md:flex-row md:flex-wrap`};
-  width: calc(100% - 1em);
-  flex: 1;
-  max-width: 1400px;
-  max-height: 50%;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  @media screen and (max-width: 768px) {
-    max-height: unset;
-    width: 100%;
-  }
+  ${tw`w-full h-full my-12`};
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 30px;
+  grid-gap: 3em;
+  justify-content: center;
+  align-items: center;
 `
 
 const gridTemplates = {
@@ -28,7 +22,7 @@ const gridTemplates = {
 
 const ProjectsGrid = () => {
   const [projects, setProjects] = useContext(ProjectsContext)
-
+  console.log({ projects })
   return (
     <Grid>
       {projects.map((project, idx) => (

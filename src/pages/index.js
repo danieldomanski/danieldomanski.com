@@ -4,29 +4,25 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Layout from '../components/templates/Layout'
+import Header from '../components/organisms/Header'
+import Footer from '../components/organisms/Footer'
+
 import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
-import { ProjectsContext } from '../context/ProjectsContext'
-import IndexHero from '../components/organisms/IndexHero'
-import IndexProjects from '../components/organisms/IndexProjects'
-import IndexContact from '../components/organisms/IndexContact'
-import useWindowSize from '../hooks/useWindowSize'
-import MeSlide from '../components/templates/IndexSlides/MeSlide'
-import { IndexMobileWrapper, ContentWrapper } from '../components/atoms/Wrapper'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
-import Heading from '../components/atoms/Heading'
-import { ThemeBtn } from '../components/atoms/Button'
-import IndexBottomBg from '../images/IndexBottomBg.svg'
-import Icon from '../components/atoms/Icon'
 
-const Parallax = styled.div`
-  position: relative;
-  z-index: 5;
-  perspective: 1px;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-`
+import IndexProjects from '../components/organisms/IndexProjects'
+import IndexContact from '../components/organisms/IndexContact'
+
+import { IndexMobileWrapper, ContentWrapper } from '../components/atoms/Wrapper'
+import Heading from '../components/atoms/Heading'
+import Icon from '../components/atoms/Icon'
+import { ThemeBtn } from '../components/atoms/Button'
+
+import { ProjectsContext } from '../context/ProjectsContext'
+import useWindowSize from '../hooks/useWindowSize'
+
+import IndexBottomBg from '../images/IndexBottomBg.svg'
 
 const MainWrapper = styled.main`
   ${tw`relative overflow-hidden shadow-lg`}
@@ -56,8 +52,9 @@ const MainWrapper = styled.main`
   }
 `
 
-const BgContainer = styled.div`
-  ${tw`relative`}
+const TopLayer = styled.section`
+  ${tw`fixed pin-t w-full h-screen`}
+  z-index: 4;
 `
 
 const AboutSlide = styled.section`
@@ -86,7 +83,10 @@ const Index = ({ data, pageContext, location }) => {
   }
   return (
     <Layout>
-      <HomeSlide />
+      <TopLayer>
+        <Header />
+        <HomeSlide />
+      </TopLayer>
       <MainWrapper>
         <ProjectsSlide />
         <BlogSlide />
@@ -103,6 +103,7 @@ const Index = ({ data, pageContext, location }) => {
           </AboutSlide>
         </ContentWrapper>
       </MainWrapper>
+      <Footer />
     </Layout>
   )
 }
@@ -143,6 +144,10 @@ export const pageQuery = graphql`
               id
               primary {
                 image {
+                  dimensions {
+                    width
+                    height
+                  }
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 1200, quality: 90) {
