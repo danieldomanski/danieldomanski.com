@@ -10,7 +10,8 @@ import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const FooterContainer = styled.footer`
-  ${tw`fixed pin-b pin-l w-full text-primary-100 flex-col items-center bg-primary-800`};
+  ${tw`fixed pin-b pin-l w-full text-primary-100 flex-col items-center`};
+  background-color: #1a1a1a;
   display: ${props => (props.visible ? 'flex' : 'none')};
   box-sizing: border-box;
 
@@ -24,7 +25,8 @@ const UpperWrapper = styled(ContentWrapper)`
 `
 
 const BottomWrapper = styled.div`
-  ${tw`w-full bg-primary-900 `}
+  ${tw`w-full `}
+  background-color: #151515;
   height: 80px;
 `
 
@@ -52,7 +54,7 @@ const Footer = () => {
         >
           Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
         </TextHighlight>
-        <Paragraph size="lg" my={6}>
+        <Paragraph size="lg" fontColor="primary-600" my={6}>
           You may find me on social networks given below, or e-mail me directly.
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resumé as a PDF, download it here.

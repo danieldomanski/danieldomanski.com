@@ -4,10 +4,10 @@ import ProjectGridItem from '../../molecules/ProjectGridItem'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
-  ${tw`w-full h-full my-12`};
+  ${tw`w-full h-full my-24`};
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 30px;
+  grid-auto-rows: 50px;
   grid-gap: 3em;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@ const gridTemplates = {
 
 const ProjectsGrid = () => {
   const [projects, setProjects] = useContext(ProjectsContext)
-  console.log({ projects })
+
   return (
     <Grid>
       {projects.map((project, idx) => (

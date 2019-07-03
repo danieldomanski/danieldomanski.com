@@ -19,6 +19,15 @@ const ProjectDescription = styled.p`
 const Title = styled.h1`
   ${tw`font-sans font-black text-6xl text-white absolute pin-y`}
 `
+const BgCover = styled.div`
+  ${tw`absolute w-full h-full z-10`};
+
+  background: linear-gradient(
+    0deg,
+    rgba(240, 240, 240, 0.5) 0%,
+    rgba(240, 240, 240, 0) 100%
+  );
+`
 
 const ProjectGridItem = ({ project, area }) => {
   const [spans, setSpans] = useState(0)
@@ -27,7 +36,7 @@ const ProjectGridItem = ({ project, area }) => {
   const { localFile, dimensions } = body[0].primary.image
 
   const calculateSpans = aspectRatio => {
-    const baseSpan = 6 // 6 spans are base === 6 * 60 px = 360px as base
+    const baseSpan = 4 // 6 spans are base === 6 * 60 px = 360px as base
     const baseRatio = 1.25 // 4:3
 
     // each 0.1 difference in aspect ratio increases span by 1
@@ -44,6 +53,7 @@ const ProjectGridItem = ({ project, area }) => {
 
   return (
     <Container area={area} spans={spans}>
+      <BgCover />
       <Link to={`/en/${uid}`}>
         <Img fluid={localFile.childImageSharp.fluid} />
       </Link>

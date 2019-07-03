@@ -23,6 +23,7 @@ import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 
 import IndexBottomBg from '../images/IndexBottomBg.svg'
+import Subheading from '../components/atoms/Subheading'
 
 const MainWrapper = styled.main`
   ${tw`relative overflow-hidden shadow-lg`}
@@ -74,7 +75,6 @@ const Index = ({ data, pageContext, location }) => {
     return (
       <Layout>
         <IndexMobileWrapper>
-          <IndexHero />
           <IndexProjects />
           <IndexContact />
         </IndexMobileWrapper>
@@ -92,12 +92,14 @@ const Index = ({ data, pageContext, location }) => {
         <BlogSlide />
         <ContentWrapper>
           <AboutSlide>
-            <Heading fontColor="primary-900" my={8}>
+            <Heading fontColor="primary-800" weight="black" size="5xl" my={12}>
               Get to know me better.
             </Heading>
             <Link to="/about">
               <ThemeBtn>
-                About me <Icon icon="arrow" width="16" />
+                <Subheading fontColor="primary-800" size="lg" weight="bold">
+                  About me <Icon icon="arrow" width="24" />
+                </Subheading>
               </ThemeBtn>
             </Link>
           </AboutSlide>

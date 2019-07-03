@@ -16,14 +16,16 @@ const Wrapper = styled(ContentWrapper)`
 `
 
 const Row = styled.div`
-  ${tw`flex justify-between items-center my-24`}
+  ${tw`flex justify-between items-center my-16`}
 `
 
 const ProjectsSlide = () => (
   <Container>
     <Wrapper>
       <Row>
-        <Heading fontColor="primary-900">Works.</Heading>
+        <Heading fontColor="primary-800" weight="black" size="5xl">
+          Works.
+        </Heading>
         <Link to="/projects">
           <SlidableBtn>view all projects</SlidableBtn>
         </Link>

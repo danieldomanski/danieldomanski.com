@@ -13,7 +13,7 @@ const HeroHeading = styled.section`
 `
 
 const HeroText = styled.section`
-  ${tw`fixed flex flex-col items-center justify-center text-center`};
+  ${tw`fixed flex flex-col items-center`};
   z-index: 4;
   top: 50%;
   left: 50%;
@@ -45,14 +45,14 @@ const HomeSlide = () => {
     <HeroHeading opacity={opacity}>
       <HeroText visible={scroll.y <= windowSize.height}>
         <Title inViewport size="6xl" weight={400}>
-          <TitleSpan>Hi,</TitleSpan>
+          <TitleSpan>Hi.</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>
-        <Paragraph inViewport fontColor="primary-600" size="xl">
+        <Paragraph inViewport fontColor="primary-600" size="xl" leading="loose">
           <DescSpan>
             I’m a web developer currently based in
             <TextHighlight
-              bottom="lg"
+              bottom="2xl"
               height="xl"
               fontColor="primary-600"
               size="xl"
@@ -64,7 +64,7 @@ const HomeSlide = () => {
           <DescSpan>
             My job is to help
             <TextHighlight
-              bottom="lg"
+              bottom="2xl"
               height="xl"
               fontColor="primary-600"
               size="xl"

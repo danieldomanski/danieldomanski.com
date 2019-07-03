@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 import Icon from '../Icon'
 
 const SlidableSpan = styled.button`
-  ${tw`inline-block relative self-end z-10 px-4 font-bold font-sans bg-transparent`}
+  ${tw`inline-block relative self-end z-10 px-4 font-bold text-base text-primary-800 font-sans bg-transparent`}
   border: 0;
   outline: 0;
 

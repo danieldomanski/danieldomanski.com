@@ -9,8 +9,8 @@ import { ScrollContext } from '../../../context/ScrollContext'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.header`
-  ${tw`absolute pin-t py-8 text-primary-700 px-24`};
-
+  ${tw`fixed pin-t py-8 text-primary-700 px-24`};
+  background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
   z-index: 5;
   width: 100%;
   transition: 0.25s;
@@ -18,7 +18,6 @@ const Container = styled.header`
 
 const Wrapper = styled.div`
   ${tw`flex items-center justify-between m-auto`}
-  max-width: 1200px;
 `
 
 const LogoContainer = styled.div`

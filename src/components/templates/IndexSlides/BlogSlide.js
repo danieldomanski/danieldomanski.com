@@ -14,7 +14,7 @@ const Container = styled(ContentWrapper)`
 `
 
 const Row = styled.div`
-  ${tw`flex justify-between my-12`}
+  ${tw`flex justify-between items-center my-16`}
 `
 
 const BlogPosts = styled.ul`
@@ -26,7 +26,7 @@ const BlogPosts = styled.ul`
 const BlogSlide = () => (
   <Container>
     <Row>
-      <Heading fontColor="primary-900" weight="bold">
+      <Heading fontColor="primary-800" weight="black" size="5xl">
         Blog.
       </Heading>
       <Link to="/blog">

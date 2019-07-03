@@ -55,18 +55,19 @@ const BgCover = styled.div`
 
   background: linear-gradient(
     0deg,
-    rgba(240, 240, 240, 1) 10%,
+    rgba(240, 240, 240, 0.5) 0%,
     rgba(240, 240, 240, 0) 100%
   );
 `
 
 const CoverActions = styled.span`
-  ${tw`flex flex-col items-center w-full absolute z-10 text-center`};
-  bottom: 2em;
+  ${tw`flex flex-col w-full absolute z-10 text-center px-8 bg-primary-100`};
+  height: 33%;
+  bottom: 0;
 `
 
 const Title = styled.h1`
-  ${tw`relative text-xl xl:text-3xl font-black my-2 text-primary-800`}
+  ${tw`relative text-xl xl:text-4xl font-black text-primary-900`}
 `
 
 const ProjectsSlider = () => {
@@ -83,7 +84,7 @@ const ProjectsSlider = () => {
               <BgCover />
               <CoverActions>
                 <Title>{title.text}</Title>
-                <Paragraph fontColor="primary-600" size="sm" italic>
+                <Paragraph fontColor="primary-300" size="base" italic>
                   {description.text}
                 </Paragraph>
               </CoverActions>

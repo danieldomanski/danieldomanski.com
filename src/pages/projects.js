@@ -6,13 +6,9 @@ import ProjectGrid from '../components/organisms/ProjectsGrid'
 import Heading from '../components/atoms/Heading'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 
-const ProjectsContainer = styled.section`
-  ${tw``}
-`
-
 const TopLayer = styled.section`
   ${tw`absolute w-full py-12 px-12`}
-  top: 100px;
+  top: 160px;
   z-index: 5;
 `
 
@@ -21,7 +17,7 @@ const Blog = () => (
     <Header variant="secondary" />
     <TopLayer>
       <ContentWrapper>
-        <Heading fontColor="primary-900" weight="bold">
+        <Heading fontColor="primary-800" weight="black" size="6xl">
           Projects.
         </Heading>
         <ProjectGrid />
