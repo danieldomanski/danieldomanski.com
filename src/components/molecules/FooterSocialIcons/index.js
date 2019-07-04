@@ -11,6 +11,10 @@ const hiddeOnMobileCss = css`
 const Container = styled.ul`
   ${tw`inline-flex align-items list-no-style p-0 m-0 py-2 md:py-4`};
   ${props => (props.hiddenOnMobile ? hiddeOnMobileCss : null)};
+
+  & > * {
+    ${tw`mx-1`}
+  }
 `
 
 const FooterSocialIcons = ({ hiddenOnMobile }) => (

@@ -33,7 +33,7 @@ const BlogSlide = () => (
         <SlidableBtn>view all posts</SlidableBtn>
       </Link>
     </Row>
-    <Paragraph fontColor="primary-700" withLine size="xl">
+    <Paragraph fontColor="primary-700" size="lg" withLine>
       Learning new things is an integral part of every software engineer on a
       daily basis. Something that always characterized our industry is broad
       access to free resources. Learning in public is my way to give back some

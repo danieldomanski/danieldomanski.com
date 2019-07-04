@@ -8,7 +8,7 @@ import ScrollProvider from '../../../context/ScrollContext'
 
 const GlobalStyle = createGlobalStyle`
   body, html {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     margin: 0;
     background-color: #f0f0f0;
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #___gatsby, #___gatsby > div {
-    ${tw`h-auto md:h-full`}
+    ${tw`h-full`}
   }
 
   ul, li {

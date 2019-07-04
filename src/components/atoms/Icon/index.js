@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Wrapper = styled.svg`
-  ${tw`mx-2`};
+  ${tw``};
   stroke: currentColor;
   color: ${props => props.stroke};
   width: ${props => props.width};

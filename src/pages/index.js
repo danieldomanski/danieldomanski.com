@@ -97,7 +97,7 @@ const Index = ({ data, pageContext, location }) => {
             </Heading>
             <Link to="/about">
               <ThemeBtn>
-                <Subheading fontColor="primary-800" size="lg" weight="bold">
+                <Subheading fontColor="primary-800" weight="bold">
                   About me <Icon icon="arrow" width="24" />
                 </Subheading>
               </ThemeBtn>

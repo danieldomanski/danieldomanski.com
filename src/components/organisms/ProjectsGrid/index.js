@@ -5,12 +5,16 @@ import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
   ${tw`w-full h-full my-24`};
+  grid-template-columns: 100%;
+  grid-gap: 2em;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 50px;
+    grid-gap: 3em;
+  }
+
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 50px;
-  grid-gap: 3em;
-  justify-content: center;
-  align-items: center;
 `
 
 const gridTemplates = {

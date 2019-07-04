@@ -1,5 +1,143 @@
 import React from 'react'
+import styled from 'styled-components'
+import Layout from '../components/templates/Layout'
+import Header from '../components/organisms/Header'
+import Heading from '../components/atoms/Heading'
+import Paragraph from '../components/atoms/Paragraph'
+import Subheading from '../components/atoms/Subheading'
+import { ContentWrapper } from '../components/atoms/Wrapper'
+import Icon from '../components/atoms/Icon'
 
-const About = () => <div>About page</div>
+const TopLayer = styled.section`
+  ${tw`w-full px-12`}
+  z-index: 5;
+  padding-top: 100px;
+`
+
+const InfoContainer = styled.article`
+  ${tw`flex my-8`}
+`
+
+const InfoColumn = styled.div`
+  ${tw`w-1/2`}
+`
+
+const LooseSubheading = styled.h2`
+  ${tw`font-sans text-lg tracking-wide uppercase`}
+`
+
+const InfoRow = styled.div`
+  ${tw`flex items-center py-2`}
+
+  & > h1 {
+    flex: 1;
+  }
+
+  & > div {
+    flex: 2;
+  }
+`
+const Socials = styled.footer`
+  ${tw`flex flex-col items-center mt-32`}
+`
+
+const IconsContainer = styled.div`
+  ${tw`flex my-8`}
+`
+
+const Line = styled.span`
+  ${tw`bg-primary-400`}
+  width: 50%;
+  height: 1px;
+  top: -1em;
+`
+
+const Ellipse = styled.div`
+  ${tw`flex justify-center items-center w-10 h-10 bg-primary-800 rounded-full mx-1`}
+`
+
+const About = () => (
+  <Layout>
+    <Header variant="secondary" />
+    <TopLayer>
+      <ContentWrapper>
+        <Heading fontColor="primary-800" weight="black" size="5xl">
+          Daniel Domański.
+        </Heading>
+        <Paragraph fontColor="primary-700" size="lg" withLine my={12}>
+          I love to create websites and web applications, paying close attention
+          to all the small details. No matter if you are a startup in need of a
+          landing page, a small business who wants a unique web shop, or an
+          entrepreneur who has an idea for an exciting web application.
+        </Paragraph>
+        <InfoContainer>
+          <InfoColumn>
+            <LooseSubheading>General</LooseSubheading>
+            <InfoRow>
+              <Subheading fontColor="primary-800" weight="bold" size="sm">
+                Age
+              </Subheading>
+              <Paragraph fontColor="primary-600" size="sm" mx={4}>
+                24 years old
+              </Paragraph>
+            </InfoRow>
+            <InfoRow>
+              <Subheading fontColor="primary-800" weight="bold" size="sm">
+                Location
+              </Subheading>
+              <Paragraph fontColor="primary-700" size="sm" mx={4}>
+                Szczecin, Poland
+              </Paragraph>
+            </InfoRow>
+            <InfoRow>
+              <Subheading fontColor="primary-800" weight="bold" size="sm">
+                Roles
+              </Subheading>
+              <Paragraph fontColor="primary-700" size="sm" mx={4}>
+                Front-end developer
+                <br />
+                Full-stack JavaScript developer
+                <br /> UI Designer/Developer
+                <br /> Back-end Node.js developer
+              </Paragraph>
+            </InfoRow>
+          </InfoColumn>
+          <InfoColumn>
+            <LooseSubheading>Skills</LooseSubheading>
+            <InfoRow>
+              <Subheading fontColor="primary-800" weight="bold" size="sm">
+                Have experience with
+              </Subheading>
+              <Paragraph fontColor="primary-700" size="sm" mx={4}>
+                HTML5, CSS3, SCSS, RWD, JavaScript, React.js, Redux, Next.js,
+                Gatsby, Node.js, Express, Sails.js, C#, MongoDB, mySQL, OAuth2,
+                REST
+              </Paragraph>
+            </InfoRow>
+            <InfoRow>
+              <Subheading fontColor="primary-800" weight="bold" size="sm">
+                Current enviroment & tools
+              </Subheading>
+              <Paragraph fontColor="primary-700" size="sm" mx={4}>
+                Windows, Visual Studio Code, Figma, Adobe XD
+              </Paragraph>
+            </InfoRow>
+          </InfoColumn>
+        </InfoContainer>
+      </ContentWrapper>
+      <Socials>
+        <Line />
+        <IconsContainer>
+          <Ellipse>
+            <Icon icon="github" fill="#f0f0f0" width="21px" />
+          </Ellipse>
+          <Ellipse>
+            <Icon icon="linkedin" fill="#f0f0f0" width="21px" />
+          </Ellipse>
+        </IconsContainer>
+      </Socials>
+    </TopLayer>
+  </Layout>
+)
 
 export default About

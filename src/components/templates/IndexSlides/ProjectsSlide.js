@@ -8,7 +8,7 @@ import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.div`
-  ${tw`py-16 px-16 m-auto `}
+  ${tw`py-16 px-8 xl:px-16 m-auto `}
 `
 
 const Wrapper = styled(ContentWrapper)`
@@ -30,7 +30,7 @@ const ProjectsSlide = () => (
           <SlidableBtn>view all projects</SlidableBtn>
         </Link>
       </Row>
-      <Paragraph fontColor="primary-700" withLine size="xl">
+      <Paragraph fontColor="primary-700" size="lg" withLine>
         Learning new things is an integral part of every software engineer on a
         daily basis. Something that always characterized our industry is broad
         access to free resources. Learning in public is my way to give back some

@@ -55,9 +55,11 @@ const Footer = () => {
           Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
         </TextHighlight>
         <Paragraph size="lg" fontColor="primary-600" my={6}>
-          You may find me on social networks given below, or e-mail me directly.
-          If you're a digital or design agency, recruiter or just interested in
-          a hard copy of my resumé as a PDF, download it here.
+          You may find me on social networks given below, or{' '}
+          <CollapsableLink size="lg">e-mail me directly</CollapsableLink>. If
+          you're a digital or design agency, recruiter or just interested in a
+          hard copy of my resumé as a PDF,{' '}
+          <CollapsableLink size="lg">download it here</CollapsableLink>.
         </Paragraph>
       </UpperWrapper>
       <BottomWrapper>
