@@ -103,7 +103,6 @@ const ProjectsSlider = () => {
                   <Description>{description.text}</Description>
                 </CoverActions>
               </Cover>
-
               <Image input={item.node.data.body[0]} />
             </Slide>
           )

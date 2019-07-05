@@ -6,7 +6,7 @@ import { LocaleContext } from '../../../context/LocaleContext'
 import { getComponentTheme } from '../../helpers/styles'
 
 const Container = styled.span`
-  ${tw`md:block `};
+  ${tw`hidden md:block`};
 `
 
 const LocaleSpan = styled.span`

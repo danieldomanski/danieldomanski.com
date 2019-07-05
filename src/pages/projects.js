@@ -9,8 +9,7 @@ import { ContentWrapper } from '../components/atoms/Wrapper'
 import { ProjectsContext } from '../context/ProjectsContext'
 
 const TopLayer = styled.section`
-  ${tw`absolute w-full py-12 px-12`}
-  top: 160px;
+  ${tw`w-full py-32 px-4 sm:px-8 md:px-16`}
   z-index: 5;
 `
 

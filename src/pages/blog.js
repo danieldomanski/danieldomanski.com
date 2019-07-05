@@ -7,37 +7,47 @@ import Paragraph from '../components/atoms/Paragraph'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 import { CollapsableLink } from '../components/atoms/Link'
 import PostItem from '../components/organisms/PostItem'
+import Filter from '../components/atoms/Filter'
 
 const tags = ['React', 'CSS', 'JavaScript', 'Web Design']
 
-const posts = ['abc', 'bca', 'cba']
+const posts = [
+  'abc',
+  'bca',
+  'cba',
+  'abc',
+  'bca',
+  'cba',
+  'abc',
+  'bca',
+  'cba',
+  'abc',
+  'bca',
+  'cba',
+]
 
 const TopLayer = styled.section`
-  ${tw`w-full fixed h-screen`}
+  ${tw`w-full h-screen px-16 lg:px-24 xl:px-32`}
   z-index: 4;
   padding-top: 120px;
 `
 
 const ContentFilters = styled.ul`
-  ${tw`flex m-auto`}
+  ${tw`flex m-auto my-8`}
   list-style: none;
 `
 
-const Filter = styled.li`
-  ${tw`font-sans flex justify-between pl-8 py-3 bg-primary-800 text-primary-200 mx-2 shadow rounded`}
-`
-
-const Count = styled.span`
-  ${tw`px-8`}
-`
-
 const BlogPosts = styled.ul`
-  ${tw`py-12`}
+  ${tw`my-8`}
   list-style: none;
 `
 
 const BlogContent = styled(ContentWrapper)`
-  ${tw`py-8`}
+  ${tw`pt-12 pb-24`}
+  max-width: 1000px;
+`
+const Row = styled(ContentWrapper)`
+  ${tw`text-right`}
   max-width: 1000px;
 `
 
@@ -46,10 +56,10 @@ const Blog = () => (
     <Header variant="secondary" />
     <TopLayer>
       <ContentWrapper>
-        <Heading fontColor="primary-800" weight="black" size="5xl">
+        <Heading fontColor="primary-800" weight="black" size="5xl" my={4}>
           Blog
         </Heading>
-        <Paragraph fontColor="primary-700" size="lg" withLine my={12}>
+        <Paragraph fontColor="primary-700" size="lg" withLine my={4}>
           “You already know that you will never be done learning. But most
           people "learn in private", and lurk. They consume content without
           creating any themselves. Whatever your thing is, make the thing you
@@ -57,21 +67,20 @@ const Blog = () => (
           you trying to help past you is future you. If others benefit, that's
           icing.”
         </Paragraph>
-        <CollapsableLink
-          fontColor="primary-700"
-          underlineColor="primary-300"
-          hoverColor="primary-900"
-        >
-          shawn wang, swyx.io
-        </CollapsableLink>
+        <Row>
+          <CollapsableLink
+            fontColor="primary-700"
+            underlineColor="primary-300"
+            hoverColor="primary-900"
+          >
+            shawn wang, swyx.io
+          </CollapsableLink>
+        </Row>
       </ContentWrapper>
       <BlogContent>
         <ContentFilters>
           {tags.map((tag, idx) => (
-            <Filter>
-              {tag}
-              <Count>1</Count>
-            </Filter>
+            <Filter>{tag}</Filter>
           ))}
         </ContentFilters>
         <BlogPosts>

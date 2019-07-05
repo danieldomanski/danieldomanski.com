@@ -6,12 +6,13 @@ import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center bg-primary-100 my-8 py-4 shadow`}
+  ${tw`w-full flex items-center bg-primary-100 my-4 py-2 shadow`}
   transition: 0.4s ease-in-out;
 
   &:hover {
     ${tw`shadow-lg`};
-    transform: scale(1.02);
+    background-color: #f6f6f6;
+    transform: scale(1.01);
   }
 
   &:focus {
@@ -32,8 +33,8 @@ const Text = styled.div`
 `
 
 const DateContainer = styled.div`
-  ${tw`text-right mx-8 text-primary-900`}
-  flex:2;
+  ${tw`font-sans text-sm text-right mx-8 text-primary-700`}
+  flex:1;
 `
 
 const PostItem = () => (

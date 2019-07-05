@@ -31,6 +31,11 @@ const GlobalStyle = createGlobalStyle`
   .gatsby-image-wrapper {
     height: 100%;
   }
+
+  h1,h2,h3,h4,p,span {
+    margin: 0;
+    padding: 0;
+  }
 `
 
 const ColumnSpacedBetween = styled.div`

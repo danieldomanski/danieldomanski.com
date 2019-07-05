@@ -9,7 +9,7 @@ import { ScrollContext } from '../../../context/ScrollContext'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.header`
-  ${tw`fixed pin-t py-8 text-primary-700 px-24`};
+  ${tw`absolute md:fixed pin-t py-8 text-primary-700 px-8 xl:px-16`};
   background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
   z-index: 5;
   width: 100%;

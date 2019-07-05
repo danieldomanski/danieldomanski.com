@@ -9,17 +9,17 @@ import { ContentWrapper } from '../components/atoms/Wrapper'
 import Icon from '../components/atoms/Icon'
 
 const TopLayer = styled.section`
-  ${tw`w-full px-12`}
+  ${tw`w-full px-8 md:px-12`}
   z-index: 5;
   padding-top: 100px;
 `
 
 const InfoContainer = styled.article`
-  ${tw`flex my-8`}
+  ${tw`flex flex-col md:flex-row my-8`}
 `
 
 const InfoColumn = styled.div`
-  ${tw`w-1/2`}
+  ${tw`w-full md:w-1/2 py-4`}
 `
 
 const LooseSubheading = styled.h2`
