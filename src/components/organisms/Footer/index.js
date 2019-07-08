@@ -5,7 +5,7 @@ import { ScrollContext } from '../../../context/ScrollContext'
 import { CollapsableLink } from '../../atoms/Link'
 import TextHighlight from '../../atoms/TextHighlight'
 import FooterSocials from '../../molecules/FooterSocialIcons'
-import Subheading from '../../atoms/Subheading'
+import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
@@ -48,26 +48,31 @@ const Footer = () => {
     <FooterContainer visible={visible}>
       <UpperWrapper>
         <TextHighlight
-          color="primary.1"
-          size="4xl"
-          weight="bold"
-          height="4xl"
+          fontColor="primary.3"
+          fontSize="5xl"
+          fontWeight="bold"
           underlineColor="primary-900"
         >
-          Let’s create something beautiful!
+          Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
         </TextHighlight>
-        <Paragraph size="lg" fontColor="primary-600" my={6}>
+        <Paragraph fontSize="lg" fontColor="primary.6" my={6}>
           You may find me on social networks given below, or
-          <CollapsableLink size="lg">e-mail me directly</CollapsableLink>. If
-          you're a digital or design agency, recruiter or just interested in a
-          hard copy of my resumé as a PDF,
-          <CollapsableLink size="lg">download it here</CollapsableLink>.
+          <CollapsableLink fontSize="lg" mx={1}>
+            e-mail me directly.
+          </CollapsableLink>
+          If you're a digital or design agency, recruiter or just interested in
+          a hard copy of my resumé as a PDF,
+          <CollapsableLink size="lg" mx={1}>
+            download it here.
+          </CollapsableLink>
         </Paragraph>
       </UpperWrapper>
       <BottomWrapper>
         <BottomRow>
-          <CollapsableLink>source code</CollapsableLink>
-          <Subheading weight="bold">hello@ddomanski.dev</Subheading>
+          <CollapsableLink fontSize="lg">source code</CollapsableLink>
+          <Heading fontSize="lg" fontColor="primary.3" fontWeight="bold">
+            hello@ddomanski.dev
+          </Heading>
           <FooterSocials />
         </BottomRow>
       </BottomWrapper>

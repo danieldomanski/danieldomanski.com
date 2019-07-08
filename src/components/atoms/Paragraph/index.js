@@ -2,25 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { fontSize, lineHeight, color, spacing } from '../../helpers/styles'
+import { typography, color, space } from 'styled-system'
 
 const Container = styled.div`
   ${tw`font-sans inline-flex`};
   max-width: 1200px;
-  margin: ${props => spacing(props.mx, props.my)};
+  ${space};
 `
 
 const ParagraphContainer = styled.p`
   ${tw`text-primary-900 m-0 p-0`};
-  font-size: ${props => fontSize(props.size)};
-  line-height: ${props => lineHeight(props.leading)};
-  color: ${props => color(props.fontColor)};
+  ${typography};
+  ${color};
   margin-left: ${props => (props.withLine ? '1em' : 0)};
   font-style: ${props => (props.italic ? 'italic' : 'normal')};
 `
 
 const Line = styled.span`
-  width: ${props => (props.withLine ? '160px' : 0)};
+  width: ${props => (props.withLine ? '100%' : 0)};
+  max-width: 80px;
   height: 2px;
   display: inline-block;
   background-color: black;
@@ -30,10 +30,10 @@ const Line = styled.span`
 
 const Paragraph = ({
   children,
-  size,
+  fontSize,
   fontColor,
   italic,
-  leading,
+  lineHeight,
   withLine,
   my,
   mx,
@@ -41,9 +41,9 @@ const Paragraph = ({
   <Container my={my} mx={mx}>
     <Line withLine={withLine} />
     <ParagraphContainer
-      size={size}
-      leading={leading}
-      fontColor={fontColor}
+      fontSize={fontSize}
+      lineHeight={lineHeight}
+      color={fontColor}
       withLine={withLine}
       italic={italic}
     >
@@ -53,10 +53,10 @@ const Paragraph = ({
 )
 
 Paragraph.propTypes = {
-  size: PropTypes.oneOf(['sm', 'base', 'lg', 'xl', '2xl']),
+  fontSize: PropTypes.oneOf(['sm', 'base', 'lg', 'xl', '2xl']),
   fontColor: PropTypes.oneOf(['primary-100', 'primary-500', 'primary-900']),
   withLine: PropTypes.bool,
-  leading: PropTypes.oneOf([
+  lineHeight: PropTypes.oneOf([
     'none',
     'tight',
     'snug',
@@ -70,10 +70,10 @@ Paragraph.propTypes = {
 }
 
 Paragraph.defaultProps = {
-  size: 'base',
-  leading: 'relaxed',
+  fontSize: 'base',
+  lineHeight: 'relaxed',
   withLine: false,
-  fontColor: 'primary-100',
+  fontColor: 'primary.9',
   mx: 0,
   my: 0,
 }

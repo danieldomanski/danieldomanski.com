@@ -41,9 +41,7 @@ const Logo = ({ variant }) => {
       fontColor={fontColor}
       borderColor={borderColor}
       bgColor={bgColor}
-    >
-      <Link to="/">dd</Link>
-    </LogoContainer>
+     />
   )
 }
 

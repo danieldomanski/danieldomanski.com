@@ -3,20 +3,16 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
-import theme from '../../../config/theme'
-
-const fontSize = size => theme.textSizes[size]
-const fontWeight = weight => theme.fontWeights[weight]
+import { typography, color } from 'styled-system'
 
 const LinkContainer = styled(Link)`
-  ${tw`font-sans no-underline text-primary-100`};
-
-  font-size: ${props => fontSize(props.size)};
-  font-weight: ${props => fontWeight(props.weight)};
+  ${tw`font-sans no-underline`};
+  ${typography};
+  ${color};
 `
 
 const RegularLink = ({ children, size, weight }) => (
-  <LinkContainer size={size} weight={weight}>
+  <LinkContainer fontSize={size} fontWeight={weight}>
     {children}
   </LinkContainer>
 )
@@ -24,13 +20,12 @@ const RegularLink = ({ children, size, weight }) => (
 RegularLink.propTypes = {
   size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
   children: PropTypes.node.isRequired,
-  weight: PropTypes.oneOf(['medium', 'bold', 'black']),
+  weight: PropTypes.oneOf(['base', 'bold', 'black']),
 }
 
 RegularLink.defaultProps = {
   size: 'base',
-  weight: 'medium',
-  hiddenOnMobile: false,
+  weight: 'base',
 }
 
 export default RegularLink

@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Heading from '../../atoms/Heading'
-import Subheading from '../../atoms/Subheading'
 import Icon from '../../atoms/Icon'
-import { ThemeBtn } from '../../atoms/Button'
+import Button from '../../atoms/Button'
 
 const Container = styled.section`
   ${tw`flex flex-col items-center pb-32`}
@@ -13,23 +12,17 @@ const Container = styled.section`
 const AboutSlide = () => (
   <Container>
     <Heading
-      fontColor="primary-800"
-      weight="black"
-      size={['2xl', '4xl', '5xl']}
+      fontSize={['2xl', '4xl', '5xl']}
+      fontColor="primary-700"
+      fontWeight="black"
       my={12}
     >
       Get to know me better.
     </Heading>
     <Link to="/about">
-      <ThemeBtn>
-        <Subheading
-          size={['sm', 'base', 'lg']}
-          fontColor="primary-800"
-          weight="bold"
-        >
-          About me <Icon icon="arrow" width="24" />
-        </Subheading>
-      </ThemeBtn>
+      <Button variant="primary" size="lg">
+        About me <Icon icon="arrow" width="24" fill="#444" />
+      </Button>
     </Link>
   </Container>
 )

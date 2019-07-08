@@ -9,7 +9,8 @@ const hiddenOnMobileCss = css`
 `
 
 const HeadingContainer = styled.h1`
-  ${tw`h-auto m-0`};
+  ${tw`h-auto`};
+
   ${typography};
   ${color};
   ${space};
@@ -18,6 +19,7 @@ const HeadingContainer = styled.h1`
 
 const Heading = ({
   children,
+  fontFamily,
   fontSize,
   fontWeight,
   fontColor,
@@ -27,6 +29,7 @@ const Heading = ({
 }) => (
   <HeadingContainer
     fontSize={fontSize}
+    fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
     hiddenOnMobile={hiddenOnMobile}

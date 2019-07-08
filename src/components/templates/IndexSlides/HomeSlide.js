@@ -48,28 +48,21 @@ const HomeSlide = () => {
           <TitleSpan>Hi.</TitleSpan>
           <TitleSpan>I’m Daniel Domański.</TitleSpan>
         </Title>
-        <Paragraph inViewport fontColor="primary-600" size="xl" leading="loose">
+        <Paragraph
+          inViewport
+          fontColor="primary.5"
+          fontSize={['xl']}
+          lineHeight="loose"
+        >
           <DescSpan>
             I’m a web developer currently based in
-            <TextHighlight
-              bottom="2xl"
-              height="xl"
-              fontColor="primary-600"
-              size="xl"
-              underlineColor="primary-900"
-            >
+            <TextHighlight fontColor="primary.5" fontSize="xl" mx={1}>
               Szczecin, Poland.
             </TextHighlight>
           </DescSpan>
           <DescSpan>
             My job is to help
-            <TextHighlight
-              bottom="2xl"
-              height="xl"
-              fontColor="primary-600"
-              size="xl"
-              underlineColor="primary-900"
-            >
+            <TextHighlight fontColor="primary.5" fontSize="xl" mx={1}>
               your business grow
             </TextHighlight>
             by providing modern digital products.

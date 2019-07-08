@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
-import { SlidableBtn } from '../../atoms/Button'
+import SlidableButton from '../../atoms/Button/SlidableButton'
 import { ContentWrapper } from '../../atoms/Wrapper'
 import PostItem from '../../organisms/PostItem'
 
@@ -26,21 +26,21 @@ const BlogPosts = styled.ul`
 const BlogSlide = () => (
   <Container>
     <Row>
-      <Heading fontColor="primary-800" weight="black" size="5xl">
+      <Heading fontSize="5xl" fontColor="primary.7" fontWeight="black">
         Blog.
       </Heading>
       <Link to="/blog">
-        <SlidableBtn>view all posts</SlidableBtn>
+        <SlidableButton>view all posts</SlidableButton>
       </Link>
     </Row>
-    <Paragraph fontColor="primary-700" size="lg" withLine>
+    <Paragraph fontSize="lg" fontColor="primary.7" withLine>
       Learning new things is an integral part of every software engineer on a
       daily basis. Something that always characterized our industry is broad
       access to free resources. Learning in public is my way to give back some
       value to the community.
     </Paragraph>
     <BlogPosts>
-      <Heading fontColor="primary-900" weight="bold" size="base">
+      <Heading fontSize="base" fontColor="primary-900" fontWeight="bold">
         Latest posts.
       </Heading>
       {posts.map((post, idx) => (

@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
-import { color } from '../../helpers/styles'
+import { color, space } from 'styled-system'
 
 const sizes = {
   base: { height: '6px', bottom: '2px' },
@@ -14,8 +14,8 @@ const sizes = {
 
 const LinkContainer = styled(Link)`
   ${tw`relative inline-block z-10 font-sans no-underline font-bold`};
-  color: ${props => color(props.fontColor)};
-
+  ${color};
+  ${space};
   &:after {
     content: '';
     ${tw`absolute w-full pin-l`};
@@ -43,14 +43,18 @@ const CollapsableLink = ({
   underlineColor,
   fontColor,
   hoverColor,
+  mx,
+  my,
   to,
 }) => (
   <LinkContainer
     to={to}
     underlineColor={underlineColor}
-    fontColor={fontColor}
+    color={fontColor}
     size={size}
     hoverColor={hoverColor}
+    mx={mx}
+    my={my}
   >
     {children}
   </LinkContainer>
@@ -77,7 +81,7 @@ CollapsableLink.propTypes = {
 CollapsableLink.defaultProps = {
   size: 'base',
   underlineColor: 'primary-800',
-  fontColor: 'primary-300',
+  fontColor: 'primary.6',
   hoverColor: 'primary-100',
 }
 

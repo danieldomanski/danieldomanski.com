@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
-import { SlidableBtn } from '../../atoms/Button'
+import SlidableButton from '../../atoms/Button/SlidableButton'
 import Heading from '../../atoms/Heading'
 import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
@@ -27,10 +27,10 @@ const ProjectsSlide = () => (
           Works.
         </Heading>
         <Link to="/projects">
-          <SlidableBtn>view all projects</SlidableBtn>
+          <SlidableButton>view all projects</SlidableButton>
         </Link>
       </Row>
-      <Paragraph fontColor="primary-700" size="lg" withLine>
+      <Paragraph fontColor="primary-700" size="lg">
         Learning new things is an integral part of every software engineer on a
         daily basis. Something that always characterized our industry is broad
         access to free resources. Learning in public is my way to give back some

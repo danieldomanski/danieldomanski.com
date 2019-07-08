@@ -2,6 +2,7 @@ import React, { useContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import TextHighlight from '../TextHighlight'
 import { LocaleContext } from '../../../context/LocaleContext'
 import { getComponentTheme } from '../../helpers/styles'
 
@@ -51,7 +52,7 @@ const LocaleSwitcher = ({ variant }) => {
         active={active === 'en'}
         onClick={setLocale}
       >
-        en
+        <TextHighlight>en</TextHighlight>
       </LocaleSpan>
       <Separator>/</Separator>
       <LocaleSpan
@@ -60,7 +61,7 @@ const LocaleSwitcher = ({ variant }) => {
         active={active === 'pl'}
         onClick={setLocale}
       >
-        pl
+        <TextHighlight>pl</TextHighlight>
       </LocaleSpan>
     </Container>
   )
