@@ -10,22 +10,24 @@ import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const FooterContainer = styled.footer`
-  ${tw`fixed pin-b pin-l w-full text-primary-100 flex-col items-center`};
+  ${tw`absolute md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center`};
   background-color: #1a1a1a;
-  display: ${props => (props.visible ? 'flex' : 'none')};
   box-sizing: border-box;
 
-  height: 600px;
   z-index: 4;
+
+  @media screen and (min-width: 768px) {
+    display: ${props => (props.visible ? 'flex' : 'none')};
+    height: 500px;
+  }
 `
 
 const UpperWrapper = styled(ContentWrapper)`
-  ${tw`flex flex-col items-center justify-center text-center px-12 xl:px-32`}
-  height: 520px;
+  ${tw`px-12 xl:px-32 py-12`}
 `
 
 const BottomWrapper = styled.div`
-  ${tw`w-full `}
+  ${tw`absolute  pin-b w-full `}
   background-color: #151515;
   height: 80px;
 `
@@ -46,19 +48,19 @@ const Footer = () => {
     <FooterContainer visible={visible}>
       <UpperWrapper>
         <TextHighlight
-          fontColor="primary-200"
+          color="primary.1"
           size="4xl"
           weight="bold"
           height="4xl"
           underlineColor="primary-900"
         >
-          Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
+          Let’s create something beautiful!
         </TextHighlight>
         <Paragraph size="lg" fontColor="primary-600" my={6}>
-          You may find me on social networks given below, or{' '}
+          You may find me on social networks given below, or
           <CollapsableLink size="lg">e-mail me directly</CollapsableLink>. If
           you're a digital or design agency, recruiter or just interested in a
-          hard copy of my resumé as a PDF,{' '}
+          hard copy of my resumé as a PDF,
           <CollapsableLink size="lg">download it here</CollapsableLink>.
         </Paragraph>
       </UpperWrapper>

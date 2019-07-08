@@ -1,10 +1,9 @@
 import React from 'react'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
-import Header from '../../organisms/Header'
-import Footer from '../../organisms/Footer'
 import LocaleProvider from '../../../context/LocaleContext'
 import ScrollProvider from '../../../context/ScrollContext'
+import theme from '../../../config/theme'
 
 const GlobalStyle = createGlobalStyle`
   body, html {
@@ -38,10 +37,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const ColumnSpacedBetween = styled.div`
-  ${tw`h-full relative flex flex-col justify-between`};
-`
-
 const MainContent = styled.main`
   ${tw`relative`}
 `
@@ -51,7 +46,9 @@ const Layout = ({ children }) => (
     <GlobalStyle />
     <LocaleProvider>
       <ScrollProvider>
-        <MainContent>{children}</MainContent>
+        <ThemeProvider theme={theme}>
+          <MainContent>{children}</MainContent>
+        </ThemeProvider>
       </ScrollProvider>
     </LocaleProvider>
   </>

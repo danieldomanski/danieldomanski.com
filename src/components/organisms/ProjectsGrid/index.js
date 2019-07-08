@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import ProjectGridItem from '../../molecules/ProjectGridItem'
-import Heading from '../../atoms/Heading'
+import Subheading from '../../atoms/Subheading'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
-  ${tw`w-full h-full my-20 md:my-24`};
+  ${tw`w-full h-full my-8 md:my-24`};
   grid-template-columns: 100%;
   grid-gap: 0.5em;
 
@@ -40,9 +40,9 @@ const ProjectsGrid = () => {
           <>
             <ProjectGridItem project={project} area={gridTemplates[idx]} />
             <ProjectTitle>
-              <Heading fontColor="primary-800" size="4xl" weight="black">
+              <Subheading fontColor="primary-800" size="xl" weight="bold">
                 {title.text}
-              </Heading>
+              </Subheading>
             </ProjectTitle>
           </>
         )

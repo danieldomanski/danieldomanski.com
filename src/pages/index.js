@@ -10,20 +10,17 @@ import Footer from '../components/organisms/Footer'
 import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
-
-import IndexProjects from '../components/organisms/IndexProjects'
-import IndexContact from '../components/organisms/IndexContact'
+import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 
 import { IndexMobileWrapper, ContentWrapper } from '../components/atoms/Wrapper'
-import Heading from '../components/atoms/Heading'
-import Icon from '../components/atoms/Icon'
-import { ThemeBtn } from '../components/atoms/Button'
-
+import ProjectsGrid from '../components/organisms/ProjectsGrid'
 import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 
+import Heading from '../components/atoms/Heading'
+import Paragraph from '../components/atoms/Paragraph'
+
 import IndexBottomBg from '../images/IndexBottomBg.svg'
-import Subheading from '../components/atoms/Subheading'
 
 const MainWrapper = styled.main`
   ${tw`relative overflow-hidden shadow-lg`}
@@ -58,10 +55,6 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
-const AboutSlide = styled.section`
-  ${tw`flex flex-col items-center pb-32`}
-`
-
 const Index = ({ data, pageContext, location }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
@@ -74,10 +67,18 @@ const Index = ({ data, pageContext, location }) => {
   if (isMobile) {
     return (
       <Layout>
+        <Header variant="secondary" />
         <IndexMobileWrapper>
-          <IndexProjects />
-          <IndexContact />
+          <Heading fontColor="primary-900" weight="black">
+            Works
+          </Heading>
+          <Paragraph fontColor="primary-900" withLine>
+            My recent works.
+          </Paragraph>
+          <ProjectsGrid />
+          <AboutSlide />
         </IndexMobileWrapper>
+        <Footer />
       </Layout>
     )
   }
@@ -91,18 +92,7 @@ const Index = ({ data, pageContext, location }) => {
         <ProjectsSlide />
         <BlogSlide />
         <ContentWrapper>
-          <AboutSlide>
-            <Heading fontColor="primary-800" weight="black" size="5xl" my={12}>
-              Get to know me better.
-            </Heading>
-            <Link to="/about">
-              <ThemeBtn>
-                <Subheading fontColor="primary-800" weight="bold">
-                  About me <Icon icon="arrow" width="24" />
-                </Subheading>
-              </ThemeBtn>
-            </Link>
-          </AboutSlide>
+          <AboutSlide />
         </ContentWrapper>
       </MainWrapper>
       <Footer />

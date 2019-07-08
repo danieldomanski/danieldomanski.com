@@ -2,7 +2,8 @@ import theme from '../../config/theme'
 
 export const getComponentTheme = (component, type) =>
   theme.components[component][type]
-export const fontSize = value => theme.textSizes[value]
+
+export const fontSize = value => theme.fontSizes[value]
 export const fontWeight = value => theme.fontWeights[value]
 export const lineHeight = value => theme.leading[value]
 export const color = value => theme.colors[value]

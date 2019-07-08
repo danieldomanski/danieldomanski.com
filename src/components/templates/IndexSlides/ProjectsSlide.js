@@ -23,7 +23,7 @@ const ProjectsSlide = () => (
   <Container>
     <Wrapper>
       <Row>
-        <Heading fontColor="primary-800" weight="black" size="5xl">
+        <Heading fontColor="primary.7" fontWeight="black" fontSize="5xl">
           Works.
         </Heading>
         <Link to="/projects">

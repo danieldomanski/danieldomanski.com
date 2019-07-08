@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import { fontSize, fontWeight, color } from '../../helpers/styles'
 
 const primaryColors = [
@@ -15,87 +15,62 @@ const primaryColors = [
   'primary-900',
 ]
 
-const underlineStyles = {
-  base: { bottom: 0, height: 6 },
-  lg: { bottom: 2, height: 8 },
-  xl: {
-    bottom: 4,
-    height: 10,
-  },
-  '2xl': {
-    bottom: 8,
-    height: 12,
-  },
-  '4xl': {
-    bottom: 8,
-    height: 16,
-  },
-}
-
-const underlineStyle = size => underlineStyles[size]
-
 const TextContainer = styled.p`
-  ${tw`relative inline-block no-underline text-primary-800 font-bold z-10 p-0 m-0 mx-1 whitespace-no-wrap`};
+  ${tw`inline self-start no-underline text-primary-800 font-bold p-0 m-0`};
 
   font-weight: ${props => fontWeight(props.weight)};
   font-size: ${props => fontSize(props.size)};
   color: ${props => color(props.fontColor)};
 
+  background-image: linear-gradient(${props => `${props.from}, ${props.to}`}),
+    linear-gradient(${props => `${props.from}, ${props.to}`});
+  background-repeat: no-repeat;
+  background-size: 0% 30%, 100% 30%;
+  background-position: bottom 10% left, bottom 10% left;
+
   &:hover {
-    &:after {
-      filter: brightness(95%);
-      height: ${props => underlineStyle(props.underline.height).height + 3}px;
-    }
+    background-size: 100% 30%, 100% 30%;
   }
 
-  &:after {
-    ${tw`absolute block bg-primary-200 w-full pin-l`};
-    transition: 0.25s ease-in-out;
-    z-index: -1;
-    content: '';
-    height: ${props => underlineStyle(props.underline.height).height}px;
-    bottom: ${props => underlineStyle(props.underline.bottom).bottom}px;
-    background-color: ${props => color(props.underlineColor)};
-  }
+  transition: background-size 0.25s;
 `
 
 const TextHighlight = ({
   children,
-  size,
-  underlineColor,
-  fontColor,
-  weight,
-  bottom,
-  height,
-}) => (
-  <TextContainer
-    underlineColor={underlineColor}
-    size={size}
-    weight={weight}
-    underline={{ bottom, height }}
-    fontColor={fontColor}
-  >
-    {children}
-  </TextContainer>
-)
+  color,
+  fontSize,
+  fontWeight,
+  variant,
+  theme,
+}) => {
+  const { from, to } = theme.components.highlights[variant]
+
+  return (
+    <TextContainer
+      color={color}
+      fontWeight={fontWeight}
+      fontSize={fontSize}
+      from={from}
+      to={to}
+    >
+      {children}
+    </TextContainer>
+  )
+}
 
 TextHighlight.propTypes = {
-  size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
-  underlineColor: PropTypes.oneOf(primaryColors),
-  fontColor: PropTypes.oneOf(primaryColors),
-  bottom: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
-  height: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl']),
-  weight: PropTypes.oneOf(['base', 'bold', 'black']),
+  color: PropTypes.oneOf(primaryColors),
+  fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
+  fontWeight: PropTypes.oneOf(['base', 'bold', 'black']),
+  variant: PropTypes.oneOf(['dark', 'light']),
   children: PropTypes.node.isRequired,
 }
 
 TextHighlight.defaultProps = {
-  size: 'base',
-  fontColor: 'primary-100',
-  underlineColor: 'primary-700',
-  weight: 'medium',
-  bottom: 'base',
-  height: 'base',
+  color: 'primary-500',
+  variant: 'dark',
+  fontSize: 'base',
+  fontWeight: 'medium',
 }
 
-export default TextHighlight
+export default withTheme(TextHighlight)

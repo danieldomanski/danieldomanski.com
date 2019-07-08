@@ -1,14 +1,18 @@
+const breakpoints = ['576px', '768px', '992px', '1200px']
+
 const colors = {
   // theme colors
-  'primary-100': '#F4F4F4',
-  'primary-200': '#E9E9E9',
-  'primary-300': '#D4D4D4',
-  'primary-400': '#CECECE',
-  'primary-500': '#C4C4C4',
-  'primary-600': '#A1A1A1',
-  'primary-700': '#8F8F8F',
-  'primary-800': '#5A5A5A',
-  'primary-900': '#363636',
+  primary: [
+    '#F4F4F4',
+    '#E9E9E9',
+    '#D4D4D4',
+    '#CECECE',
+    '#C4C4C4',
+    '#A1A1A1',
+    '#8F8F8F',
+    '#5A5A5A',
+    '#363636',
+  ],
 }
 
 const spacing = {
@@ -30,7 +34,7 @@ const spacing = {
   '32': '8rem',
 }
 
-const textSizes = {
+const fontSizes = {
   xs: '.75rem', // 12px
   sm: '.875rem', // 14px
   base: '1rem', // 16px
@@ -88,12 +92,19 @@ const components = {
       underlineColor: colors['primary-500'],
     },
   },
+  highlights: {
+    dark: {
+      from: 'rgba(161, 161, 161, 0.75)',
+      to: 'rgba(90, 90, 90, 0.75)',
+    },
+  },
 }
 
 export default {
+  breakpoints,
   colors,
   spacing,
-  textSizes,
+  fontSizes,
   fontWeights,
   leading,
   components,
