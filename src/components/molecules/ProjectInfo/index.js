@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
@@ -18,7 +18,7 @@ const ProjectInfo = () => {
 
   return (
     <Container>
-      <Heading>{title.text}</Heading>
+      <Text>{title.text}</Text>
       <Paragraph>{description.text}</Paragraph>
     </Container>
   )

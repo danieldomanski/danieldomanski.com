@@ -1,10 +1,9 @@
 import React, { useContext, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import TextHighlight from '../TextHighlight'
 import { LocaleContext } from '../../../context/LocaleContext'
-import { getComponentTheme } from '../../helpers/styles'
 
 const Container = styled.span`
   ${tw`hidden md:block`};
@@ -34,11 +33,10 @@ const LocaleSpan = styled.span`
 
 const Separator = styled.span``
 
-const LocaleSwitcher = ({ variant }) => {
+const LocaleSwitcher = ({ variant, theme }) => {
   const [active, set] = useContext(LocaleContext)
-  const theme = getComponentTheme('localeSwitcher', variant)
-  const { fontColor, underlineColor } = theme
-
+  const { color, underlineColor } = theme.components.localeSwitcher[variant]
+  console.log({ color, underlineColor })
   const setLocale = useCallback(() => {
     const locale = active === 'en' ? 'pl' : 'en'
     set(locale)
@@ -47,21 +45,21 @@ const LocaleSwitcher = ({ variant }) => {
   return (
     <Container>
       <LocaleSpan
-        fontColor={fontColor}
+        fontColor={color}
         underlineColor={underlineColor}
         active={active === 'en'}
         onClick={setLocale}
       >
-        <TextHighlight>en</TextHighlight>
+        en
       </LocaleSpan>
       <Separator>/</Separator>
       <LocaleSpan
-        fontColor={fontColor}
+        fontColor={color}
         underlineColor={underlineColor}
         active={active === 'pl'}
         onClick={setLocale}
       >
-        <TextHighlight>pl</TextHighlight>
+        pl
       </LocaleSpan>
     </Container>
   )
@@ -75,4 +73,4 @@ LocaleSwitcher.defaultProps = {
   variant: 'primary',
 }
 
-export default LocaleSwitcher
+export default withTheme(LocaleSwitcher)

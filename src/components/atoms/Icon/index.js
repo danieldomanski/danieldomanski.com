@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
+import { space } from 'styled-system'
 
 const Wrapper = styled.svg`
-  ${tw``};
+  ${space};
+
   stroke: currentColor;
   color: ${props => props.stroke};
   width: ${props => props.width};
@@ -70,12 +71,16 @@ Icon.propTypes = {
   fill: PropTypes.string,
   width: PropTypes.string,
   icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
+  mx: PropTypes.number,
+  my: PropTypes.number,
 }
 
 Icon.defaultProps = {
   stroke: 'transparent',
   width: '18px',
   fill: '#353535',
+  mx: 0,
+  my: 0,
 }
 
 export default Icon

@@ -2,11 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Icon from '../../atoms/Icon'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center bg-primary-100 my-4 py-2 shadow`}
+  ${tw`w-full flex items-center bg-primary-100 my-4 py-3 shadow`}
   transition: 0.4s ease-in-out;
 
   &:hover {
@@ -27,7 +27,7 @@ const IconContainer = styled.span`
   ${tw`mx-8`}
 `
 
-const Text = styled.div`
+const TextContainer = styled.div`
   ${tw`flex flex-col justify-center`}
   flex:6;
 `
@@ -42,14 +42,14 @@ const PostItem = () => (
     <IconContainer>
       <Icon icon="react" width="48" />
     </IconContainer>
-    <Text>
-      <Heading fontColor="primary-900" size="xl" weight="bold">
+    <TextContainer>
+      <Text fontColor="primary.8" fontSize="xl" fontWeight="bold">
         ttir
-      </Heading>
-      <Paragraph fontColor="primary-700" size="sm" my={1}>
+      </Text>
+      <Paragraph fontColor="primary.6" fontSize="sm" my={1}>
         jakis tam opis
       </Paragraph>
-    </Text>
+    </TextContainer>
     <DateContainer>May 09, 2019</DateContainer>
   </Container>
 )

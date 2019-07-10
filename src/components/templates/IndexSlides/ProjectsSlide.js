@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
 import SlidableButton from '../../atoms/Button/SlidableButton'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
@@ -23,9 +23,9 @@ const ProjectsSlide = () => (
   <Container>
     <Wrapper>
       <Row>
-        <Heading fontColor="primary.7" fontWeight="black" fontSize="5xl">
+        <Text fontColor="primary.7" fontWeight="black" fontSize="5xl">
           Works.
-        </Heading>
+        </Text>
         <Link to="/projects">
           <SlidableButton>view all projects</SlidableButton>
         </Link>

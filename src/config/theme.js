@@ -16,7 +16,7 @@ const colors = {
 const theme = {
   breakpoints: ['576px', '768px', '992px', '1200px'],
   colors,
-  spacing: {
+  space: {
     auto: 'auto',
     px: '1px',
     '0': '0',
@@ -33,6 +33,44 @@ const theme = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+  },
+  fonts: {
+    sans: [
+      'Montserrat',
+      'system-ui',
+      'BlinkMacSystemFont',
+      '-apple-system',
+      'Segoe UI',
+      'Roboto',
+      'Oxygen',
+      'Ubuntu',
+      'Cantarell',
+      'Fira Sans',
+      'Droid Sans',
+      'Helvetica Neue',
+      'sans-serif',
+    ],
+    serif: [
+      'Playfair Display',
+      'DejaVu Serif',
+      'Lucidabright',
+      'Lucida Bright',
+      'Constantia',
+      'Lucida Serif',
+      'Lucida',
+      'Bitstream Vera Serif',
+      'Liberation Serif',
+      'Georgia',
+      'serif',
+    ],
+    mono: [
+      'Menlo',
+      'Monaco',
+      'Consolas',
+      'Liberation Mono',
+      'Courier New',
+      'monospace',
+    ],
   },
   fontSizes: {
     xs: '.75rem', // 12px
@@ -71,34 +109,60 @@ const theme = {
 theme.components = {
   logo: {
     primary: {
-      fontColor: theme.colors['primary-300'],
-      bgColor: theme.colors['primary-900'],
-      borderColor: theme.colors['primary-600'],
+      color: theme.colors.primary[2],
+      backgroundColor: theme.colors.primary[8],
+      borderColor: theme.colors.primary[5],
     },
     secondary: {
-      fontColor: theme.colors['primary-900'],
-      bgColor: theme.colors['primary-500'],
-      borderColor: theme.colors['primary-800'],
+      color: theme.colors.primary[8],
+      backgroundColor: theme.colors.primary[4],
+      borderColor: theme.colors.primary[7],
     },
   },
   localeSwitcher: {
     primary: {
-      fontColor: theme.colors['primary-300'],
-      underlineColor: theme.colors['primary-800'],
+      color: theme.colors.primary[4],
+      underlineColor: theme.colors.primary[7],
     },
     secondary: {
-      fontColor: theme.colors['primary-900'],
-      underlineColor: theme.colors['primary-500'],
+      color: theme.colors.primary[8],
+      underlineColor: theme.colors.primary[3],
     },
   },
   highlights: {
     dark: {
-      from: 'rgba(60, 60, 60, .5)',
-      to: 'rgba(60, 60, 60, .9)',
+      from: 'rgba(80, 80, 80, .5)',
+      to: 'rgba(80, 80, 80, .9)',
     },
     light: {
       from: 'rgba(255, 255, 255, 0.5)',
       to: 'rgba(255, 255, 255, 0.75)',
+    },
+  },
+  collapsable: {
+    dark: {
+      height: '2px',
+      bottom: '0',
+      backgroundColor: theme.colors.primary[7],
+      hoverColor: theme.colors.primary[1],
+      color: theme.colors.primary[6],
+    },
+    bright: {
+      height: '2px',
+      bottom: '6px',
+      backgroundColor: theme.colors.primary[1],
+      hoverColor: theme.colors.primary[5],
+      color: theme.colors.primary[6],
+    },
+  },
+  filters: {
+    primary: {
+      hoverColor: theme.colors.primary[7],
+      backgroundColor: theme.colors.primary[4],
+      active: {
+        backgroundColor: theme.colors.primary[6],
+        hoverColor: theme.colors.primary[8],
+      },
     },
   },
 }
@@ -126,8 +190,8 @@ theme.buttons = {
       fontSize: 'base',
     },
     lg: {
-      px: 4,
-      py: 3,
+      px: 6,
+      py: 4,
       fontSize: 'lg',
     },
     xl: {

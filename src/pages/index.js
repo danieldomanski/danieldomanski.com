@@ -17,8 +17,9 @@ import ProjectsGrid from '../components/organisms/ProjectsGrid'
 import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 
-import Heading from '../components/atoms/Heading'
+import Text from '../components/atoms/Text'
 import Paragraph from '../components/atoms/Paragraph'
+import TextHighlight from '../components/atoms/TextHighlight'
 
 import IndexBottomBg from '../images/IndexBottomBg.svg'
 
@@ -27,7 +28,7 @@ const MainWrapper = styled.main`
 
   z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 600px;
+  margin-bottom: 500px;
   background-color: #f0f0f0;
 
   &:after {
@@ -55,6 +56,10 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
+const HeroMobile = styled.div`
+  ${tw`w-full bg-primary-900 py-12 px-8 mb-12`}
+`
+
 const Index = ({ data, pageContext, location }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
@@ -69,10 +74,33 @@ const Index = ({ data, pageContext, location }) => {
       <Layout>
         <Header variant="secondary" />
         <IndexMobileWrapper>
-          <Heading fontColor="primary-900" weight="black">
+          <HeroMobile>
+            <Text display="block" fontSize="6xl" fontColor="primary.3">
+              Hi.
+            </Text>
+            <Text fontColor="primary.3">I’m Daniel Domański.</Text>
+            <Text
+              fontColor="primary.5"
+              fontSize={['lg']}
+              lineHeight="loose"
+              mt={4}
+              mb={4}
+            >
+              I’m a web developer currently based in
+              <TextHighlight fontColor="primary.5" fontSize="lg" mx={1}>
+                Szczecin, Poland.
+              </TextHighlight>
+              My job is to help
+              <TextHighlight fontColor="primary.5" fontSize="lg" mx={1}>
+                your business grow
+              </TextHighlight>
+              by providing modern digital products.
+            </Text>
+          </HeroMobile>
+          <Text fontColor="primary-900" fontWeight="black" my={4}>
             Works
-          </Heading>
-          <Paragraph fontColor="primary-900" withLine>
+          </Text>
+          <Paragraph fontColor="primary.7" withLine>
             My recent works.
           </Paragraph>
           <ProjectsGrid />

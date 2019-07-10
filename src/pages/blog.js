@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
-import Heading from '../components/atoms/Heading'
+import Text from '../components/atoms/Text'
 import Paragraph from '../components/atoms/Paragraph'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 import { CollapsableLink } from '../components/atoms/Link'
@@ -56,9 +56,9 @@ const Blog = () => (
     <Header variant="secondary" />
     <TopLayer>
       <ContentWrapper>
-        <Heading fontColor="primary-800" weight="black" size="5xl" my={4}>
+        <Text fontColor="primary-800" weight="black" size="5xl" my={4}>
           Blog
-        </Heading>
+        </Text>
         <Paragraph fontColor="primary-700" size="lg" withLine my={4}>
           “You already know that you will never be done learning. But most
           people "learn in private", and lurk. They consume content without
@@ -68,11 +68,7 @@ const Blog = () => (
           icing.”
         </Paragraph>
         <Row>
-          <CollapsableLink
-            fontColor="primary-700"
-            underlineColor="primary-300"
-            hoverColor="primary-900"
-          >
+          <CollapsableLink variant="bright">
             shawn wang, swyx.io
           </CollapsableLink>
         </Row>

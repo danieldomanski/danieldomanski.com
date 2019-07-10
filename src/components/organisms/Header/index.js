@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useContext } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Logo from '../../atoms/Logo'
@@ -24,10 +25,6 @@ const LogoContainer = styled.div`
   ${tw`flex align-items  items-center`};
 `
 
-const Heading = styled.h1`
-  ${tw`text-lg font-normal ml-1`}
-`
-
 const NavMenu = styled.div`
   ${tw`relative block md:hidden`}
 
@@ -38,16 +35,15 @@ const NavMenu = styled.div`
 
 const Header = ({ variant }) => {
   const [isNavOpen, toggle] = useState(false)
-  const [scroll] = useContext(ScrollContext)
   const toggleNav = useCallback(() => toggle(!isNavOpen), [isNavOpen])
-  const isScrolled = scroll.y > 920
 
   return (
     <Container>
       <Wrapper>
         <LogoContainer>
-          <Logo variant={variant} />
-          <Heading />
+          <Logo variant={variant}>
+            <Link to="/">dd</Link>
+          </Logo>
         </LogoContainer>
         <LocaleSwitcher variant={variant} />
         <NavMenu onClick={toggleNav}>

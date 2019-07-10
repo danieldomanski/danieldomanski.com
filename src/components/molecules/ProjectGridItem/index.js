@@ -3,13 +3,15 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
+import Text from '../../atoms/Text'
 
 const Container = styled.li`
   ${tw`relative h-full shadow-lg overflow-hidden`};
 
   &:hover {
     & article {
-      transform: translateY(0px);
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 
@@ -28,7 +30,8 @@ const BgCover = styled.div`
 
 const Cover = styled.article`
   ${tw`w-full h-full absolute z-10`}
-  transform: translateY(-105%);
+  transform: translateY(-125%);
+  opacity: 0;
   transition: 0.5s ease-in-out;
 `
 
@@ -38,19 +41,8 @@ const CoverActions = styled.span`
   transition: 0.5s ease-in-out;
 `
 
-// ToDo:
-// make useful variations of text with lots of flexibility
-
-const Title = styled.h1`
-  ${tw`text-2xl md:text-3xl xl:text-4xl font-black text-primary-800 my-1`}
-`
-
-const ClientTitle = styled.h2`
-  ${tw`text-base md:text-lg xl:text-xl font-normal italic text-primary-800 my-2`}
-`
-
-const Description = styled.p`
-  ${tw`text-sm md:text-base italic font-normal text-primary-600 m-0 my-1`}
+const Italic = styled.span`
+  font-style: italic;
 `
 
 const InvolvmentRow = styled.div`
@@ -62,14 +54,6 @@ const InvolvmentRow = styled.div`
     height: 2px;
     top: -1em;
   }
-`
-
-const Subheading = styled.h3`
-  ${tw`font-sans uppercase font-bold text-primary-800 text-base m-0 my-1`}
-`
-
-const Description2 = styled.p`
-  ${tw`text-sm md:text-base font-normal text-primary-800`}
 `
 
 const ProjectGridItem = ({ project, area }) => {
@@ -100,16 +84,30 @@ const ProjectGridItem = ({ project, area }) => {
         <BgCover />
         <Cover>
           <CoverActions>
-            <Title>{title.text}</Title>
-            <ClientTitle>ClientName</ClientTitle>
-            <Description>{description.text}</Description>
+            <Text
+              fontSize={['3xl', '4xl']}
+              fontColor="primary.7"
+              fontWeight="black"
+            >
+              {title.text}
+            </Text>
+            <Text fontSize={['base', 'xl']} fontColor="primary.7" my={2}>
+              <Italic>ClientName</Italic>
+            </Text>
+            <Text fontSize={['base']} fontColor="primary.5">
+              {description.text}
+            </Text>
             <InvolvmentRow>
-              <Subheading fontColor="primary-800" weight="bold">
+              <Text
+                fontSize={['lg', 'xl']}
+                fontColor="primary.7"
+                fontWeight="bold"
+              >
                 Involvment
-              </Subheading>
-              <Description2>
+              </Text>
+              <Text fontSize={['base', 'lg']} my={2}>
                 UI Design, UI Development, Back end development
-              </Description2>
+              </Text>
             </InvolvmentRow>
           </CoverActions>
         </Cover>

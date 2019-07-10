@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
+import Helmet from 'react-helmet'
 import LocaleProvider from '../../../context/LocaleContext'
 import ScrollProvider from '../../../context/ScrollContext'
 import theme from '../../../config/theme'
@@ -43,6 +44,10 @@ const MainContent = styled.main`
 
 const Layout = ({ children }) => (
   <>
+    <Helmet>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <title>Daniel Domański - Full stack web developer</title>
+    </Helmet>
     <GlobalStyle />
     <LocaleProvider>
       <ScrollProvider>

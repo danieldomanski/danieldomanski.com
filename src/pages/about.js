@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
-import Heading from '../components/atoms/Heading'
+import Text from '../components/atoms/Text'
 import Paragraph from '../components/atoms/Paragraph'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 import Icon from '../components/atoms/Icon'
@@ -73,25 +73,25 @@ const About = () => (
           <InfoColumn>
             <LooseSubheading>General</LooseSubheading>
             <InfoRow>
-              <Heading fontColor="primary-800" weight="bold" size="sm">
+              <Text fontColor="primary-800" weight="bold" size="sm">
                 Age
-              </Heading>
+              </Text>
               <Paragraph fontColor="primary-600" size="sm" mx={4}>
                 24 years old
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Heading fontColor="primary-800" weight="bold" size="sm">
+              <Text fontColor="primary-800" weight="bold" size="sm">
                 Location
-              </Heading>
+              </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
                 Szczecin, Poland
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Heading fontColor="primary-800" weight="bold" size="sm">
+              <Text fontColor="primary-800" weight="bold" size="sm">
                 Roles
-              </Heading>
+              </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
                 Front-end developer
                 <br />
@@ -104,9 +104,9 @@ const About = () => (
           <InfoColumn>
             <LooseSubheading>Skills</LooseSubheading>
             <InfoRow>
-              <Heading fontColor="primary-800" weight="bold" size="sm">
+              <Text fontColor="primary-800" weight="bold" size="sm">
                 Have experience with
-              </Heading>
+              </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
                 HTML5, CSS3, SCSS, RWD, JavaScript, React.js, Redux, Next.js,
                 Gatsby, Node.js, Express, Sails.js, C#, MongoDB, mySQL, OAuth2,
@@ -114,9 +114,9 @@ const About = () => (
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Heading fontColor="primary-800" weight="bold" size="sm">
+              <Text fontColor="primary-800" weight="bold" size="sm">
                 Current enviroment & tools
-              </Heading>
+              </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
                 Windows, Visual Studio Code, Figma, Adobe XD
               </Paragraph>

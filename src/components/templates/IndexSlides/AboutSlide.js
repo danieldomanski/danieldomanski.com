@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import Button from '../../atoms/Button'
 
@@ -11,17 +11,17 @@ const Container = styled.section`
 
 const AboutSlide = () => (
   <Container>
-    <Heading
+    <Text
       fontSize={['2xl', '4xl', '5xl']}
-      fontColor="primary-700"
+      fontColor="primary.7"
       fontWeight="black"
-      my={12}
+      my={8}
     >
       Get to know me better.
-    </Heading>
+    </Text>
     <Link to="/about">
       <Button variant="primary" size="lg">
-        About me <Icon icon="arrow" width="24" fill="#444" />
+        About me <Icon icon="arrow" width="24" fill="#444" mx={1} />
       </Button>
     </Link>
   </Container>

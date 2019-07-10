@@ -1,88 +1,81 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled from 'styled-components'
+import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
-import { color, space } from 'styled-system'
-
-const sizes = {
-  base: { height: '6px', bottom: '2px' },
-  lg: { height: '8px', bottom: '4px' },
-  xl: { height: '10px', bottom: '6px' },
-  '2xl': { height: '12px', bottom: '8px' },
-}
+import { typography, color, space } from 'styled-system'
 
 const LinkContainer = styled(Link)`
-  ${tw`relative inline-block z-10 font-sans no-underline font-bold`};
+  ${tw`relative inline-block z-10 font-sans no-underline`};
+
+  ${typography};
   ${color};
   ${space};
+
   &:after {
     content: '';
     ${tw`absolute w-full pin-l`};
-    transition: 0.3s ease-in-out;
+    transition: 0.5s ease-in-out;
     z-index: -1;
-    height: ${props => sizes[props.size].height};
-    bottom: ${props => sizes[props.size].bottom};
-    background-color: ${props => color(props.underlineColor)};
+    height: ${props => props.height};
+    bottom: ${props => props.bottom};
+    background-color: ${props => props.bg};
   }
 
   &:hover {
-    color: ${props => color(props.hoverColor)};
+    color: ${props => props.hoverColor};
 
     &:after {
       ${tw`bg-primary-700`}
-      bottom: -2px;
+      bottom: -1px;
       height: 2px;
     }
   }
 `
 
-const CollapsableLink = ({
-  children,
-  size,
-  underlineColor,
-  fontColor,
-  hoverColor,
-  mx,
-  my,
-  to,
-}) => (
-  <LinkContainer
-    to={to}
-    underlineColor={underlineColor}
-    color={fontColor}
-    size={size}
-    hoverColor={hoverColor}
-    mx={mx}
-    my={my}
-  >
-    {children}
-  </LinkContainer>
+const CollapsableLink = React.memo(
+  ({ children, theme, variant, fontSize, fontWeight, mx, my, to }) => {
+    const {
+      height,
+      bottom,
+      color,
+      backgroundColor,
+      hoverColor,
+    } = theme.components.collapsable[variant]
+    console.log({ height, bottom, backgroundColor, hoverColor })
+    return (
+      <LinkContainer
+        to={to}
+        color={color}
+        fontSize={fontSize}
+        fontWeight={fontWeight}
+        mx={mx}
+        my={my}
+        bgColor={backgroundColor}
+        hoverColor={hoverColor}
+        height={height}
+        bottom={bottom}
+      >
+        {children}
+      </LinkContainer>
+    )
+  }
 )
-const primaryColors = [
-  'primary-100',
-  'primary-200',
-  'primary-300',
-  'primary-400',
-  'primary-500',
-  'primary-600',
-  'primary-700',
-  'primary-800',
-  'primary-900',
-]
 
 CollapsableLink.propTypes = {
-  size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
-  underlineColor: PropTypes.oneOf(primaryColors),
-  fontColor: PropTypes.oneOf(primaryColors),
-  hoverColor: PropTypes.oneOf(primaryColors),
+  variant: PropTypes.oneOf(['dark', 'light']),
+  fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
+  fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
+  mx: PropTypes.number,
+  my: PropTypes.number,
 }
 
 CollapsableLink.defaultProps = {
-  size: 'base',
-  underlineColor: 'primary-800',
-  fontColor: 'primary.6',
-  hoverColor: 'primary-100',
+  variant: 'dark',
+  fontSize: 'base',
+  fontWeight: 'bold',
+  mx: 0,
+  my: 0,
 }
 
-export default CollapsableLink
+export default withTheme(CollapsableLink)

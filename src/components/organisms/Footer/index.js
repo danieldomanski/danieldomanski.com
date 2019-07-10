@@ -3,18 +3,18 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { ScrollContext } from '../../../context/ScrollContext'
 import { CollapsableLink } from '../../atoms/Link'
-import TextHighlight from '../../atoms/TextHighlight'
 import FooterSocials from '../../molecules/FooterSocialIcons'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
 const FooterContainer = styled.footer`
-  ${tw`absolute md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center`};
+  ${tw`absolute md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
   background-color: #1a1a1a;
   box-sizing: border-box;
-
+  height: 600px;
   z-index: 4;
+  padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
     display: ${props => (props.visible ? 'flex' : 'none')};
@@ -23,17 +23,20 @@ const FooterContainer = styled.footer`
 `
 
 const UpperWrapper = styled(ContentWrapper)`
-  ${tw`px-12 xl:px-32 py-12`}
+  ${tw`flex flex-col justify-center items-center h-full text-center px-12 xl:px-32 py-8`}
 `
 
 const BottomWrapper = styled.div`
-  ${tw`absolute  pin-b w-full `}
+  ${tw`absolute pin-b w-full py-8 md:py-4`}
   background-color: #151515;
-  height: 80px;
 `
 
 const BottomRow = styled(ContentWrapper)`
-  ${tw`h-full flex items-center justify-between px-12 xl:px-32`}
+  ${tw`h-full flex flex-col md:flex-row items-center justify-between px-12 xl:px-32`}
+
+  & > * {
+    margin: 0.25em 0;
+  }
 `
 
 const ItalicSpan = styled.span`
@@ -42,37 +45,39 @@ const ItalicSpan = styled.span`
 
 const Footer = () => {
   const [scroll] = useContext(ScrollContext)
-
   const visible = scroll.y > 920
+
   return (
     <FooterContainer visible={visible}>
       <UpperWrapper>
-        <TextHighlight
-          fontColor="primary.3"
-          fontSize="5xl"
-          fontWeight="bold"
-          underlineColor="primary-900"
-        >
+        <Text fontColor="primary.3" fontSize={['3xl', '5xl']} fontWeight="bold">
           Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
-        </TextHighlight>
-        <Paragraph fontSize="lg" fontColor="primary.6" my={6}>
+        </Text>
+        <Paragraph fontSize={['base', 'lg']} fontColor="primary.6" my={[4]}>
           You may find me on social networks given below, or
-          <CollapsableLink fontSize="lg" mx={1}>
+          <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1}>
             e-mail me directly.
           </CollapsableLink>
           If you're a digital or design agency, recruiter or just interested in
           a hard copy of my resumé as a PDF,
-          <CollapsableLink size="lg" mx={1}>
+          <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1}>
             download it here.
           </CollapsableLink>
         </Paragraph>
       </UpperWrapper>
       <BottomWrapper>
         <BottomRow>
-          <CollapsableLink fontSize="lg">source code</CollapsableLink>
-          <Heading fontSize="lg" fontColor="primary.3" fontWeight="bold">
+          <CollapsableLink fontSize={['sm', 'base']}>
+            source code
+          </CollapsableLink>
+          <Text
+            fontFamily="sans"
+            fontSize={['sm', 'base']}
+            fontColor="primary.3"
+            fontWeight="bold"
+          >
             hello@ddomanski.dev
-          </Heading>
+          </Text>
           <FooterSocials />
         </BottomRow>
       </BottomWrapper>

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import ProjectGridItem from '../../molecules/ProjectGridItem'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 
@@ -39,11 +39,16 @@ const ProjectsGrid = () => {
         return (
           <>
             <ProjectGridItem project={project} area={gridTemplates[idx]} />
-            <ProjectTitle>
-              <Heading fontColor="primary-800" size="xl" weight="bold">
-                {title.text}
-              </Heading>
-            </ProjectTitle>
+            <Text
+              display={['inline-block', 'inline-block', 'inline-block', 'none']}
+              fontFamily="sans"
+              fontColor="primary.8"
+              fontSize={['2xl', '4xl']}
+              fontWeight="bold"
+              mb={8}
+            >
+              {title.text}
+            </Text>
           </>
         )
       })}

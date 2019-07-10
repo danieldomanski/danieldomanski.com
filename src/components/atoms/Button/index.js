@@ -42,14 +42,14 @@ const Button = ({ children, variant, size, theme }) => {
 }
 
 Button.propTypes = {
-  size: PropTypes.oneOf(['sm', 'md', 'lg', 'xl']),
+  size: PropTypes.oneOf(['sm', 'base', 'lg', 'xl']),
   variant: PropTypes.oneOf(['primary', 'secondary']),
   children: PropTypes.node.isRequired,
 }
 
 Button.defaultProps = {
   variant: 'primary',
-  size: 'md',
+  size: 'base',
 }
 
 export default withTheme(Button)

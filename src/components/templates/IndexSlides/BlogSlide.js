@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
-import Heading from '../../atoms/Heading'
+import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 import { ContentWrapper } from '../../atoms/Wrapper'
@@ -26,23 +26,23 @@ const BlogPosts = styled.ul`
 const BlogSlide = () => (
   <Container>
     <Row>
-      <Heading fontSize="5xl" fontColor="primary.7" fontWeight="black">
+      <Text fontSize="5xl" fontColor="primary.7" fontWeight="black">
         Blog.
-      </Heading>
+      </Text>
       <Link to="/blog">
         <SlidableButton>view all posts</SlidableButton>
       </Link>
     </Row>
-    <Paragraph fontSize="lg" fontColor="primary.7" withLine>
+    <Paragraph fontSize="lg" fontColor="primary.6" withLine>
       Learning new things is an integral part of every software engineer on a
       daily basis. Something that always characterized our industry is broad
       access to free resources. Learning in public is my way to give back some
       value to the community.
     </Paragraph>
     <BlogPosts>
-      <Heading fontSize="base" fontColor="primary-900" fontWeight="bold">
+      <Text fontSize="base" fontColor="primary.8" fontWeight="bold">
         Latest posts.
-      </Heading>
+      </Text>
       {posts.map((post, idx) => (
         <PostItem>abc</PostItem>
       ))}

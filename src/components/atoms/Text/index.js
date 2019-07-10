@@ -1,40 +1,38 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { typography, color, space } from 'styled-system'
-
-const hiddenOnMobileCss = css`
-  ${tw`hidden md:block`};
-`
+import { layout, typography, color, space } from 'styled-system'
 
 const HeadingContainer = styled.h1`
   ${tw`h-auto`};
 
+  ${layout};
   ${typography};
   ${color};
   ${space};
-  ${props => (props.hiddenOnMobile ? hiddenOnMobileCss : null)};
 `
 
 const Heading = ({
   children,
+  display,
   fontFamily,
   fontSize,
   fontWeight,
   fontColor,
-  hiddenOnMobile,
-  my,
+  mt,
+  mb,
   mx,
 }) => (
   <HeadingContainer
+    display={display}
     fontSize={fontSize}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
-    hiddenOnMobile={hiddenOnMobile}
     data-testid="headerStyles"
-    my={my}
+    mt={mt}
+    mb={mb}
     mx={mx}
   >
     {children}
@@ -44,18 +42,21 @@ const Heading = ({
 Heading.propTypes = {
   fontSize: PropTypes.arrayOf(PropTypes.string),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
+  fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
   fontColor: PropTypes.string,
   children: PropTypes.node.isRequired,
-  hiddenOnMobile: PropTypes.bool,
+  display: PropTypes.string,
   mx: PropTypes.number,
-  my: PropTypes.number,
+  mb: PropTypes.number,
+  mt: PropTypes.number,
 }
 
 Heading.defaultProps = {
+  fontFamily: 'serif',
   fontSize: ['4xl'],
   fontWeight: 'medium',
   fontColor: 'primary.5',
-  hiddenOnMobile: false,
+  display: ['inline-block'],
   mx: 0,
   my: 0,
 }

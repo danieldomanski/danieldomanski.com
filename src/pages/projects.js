@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import ProjectGrid from '../components/organisms/ProjectsGrid'
-import Heading from '../components/atoms/Heading'
+import Text from '../components/atoms/Text'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 import { ProjectsContext } from '../context/ProjectsContext'
 
@@ -25,9 +25,9 @@ const Blog = ({ data }) => {
       <Header variant="secondary" />
       <TopLayer>
         <ContentWrapper>
-          <Heading fontColor="primary-800" weight="black" size="6xl">
+          <Text fontColor="primary.8" fontWeight="black" fontSize="6xl">
             Projects.
-          </Heading>
+          </Text>
           <ProjectGrid />
         </ContentWrapper>
       </TopLayer>
