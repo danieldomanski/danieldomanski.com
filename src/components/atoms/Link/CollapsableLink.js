@@ -42,7 +42,7 @@ const CollapsableLink = React.memo(
       backgroundColor,
       hoverColor,
     } = theme.components.collapsable[variant]
-    console.log({ height, bottom, backgroundColor, hoverColor })
+
     return (
       <LinkContainer
         to={to}

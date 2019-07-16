@@ -20,6 +20,7 @@ const Heading = ({
   fontSize,
   fontWeight,
   fontColor,
+  lineHeight,
   mt,
   mb,
   mx,
@@ -30,7 +31,7 @@ const Heading = ({
     fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
-    data-testid="headerStyles"
+    lineHeight={lineHeight}
     mt={mt}
     mb={mb}
     mx={mx}
@@ -43,10 +44,10 @@ Heading.propTypes = {
   fontSize: PropTypes.arrayOf(PropTypes.string),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
+  lineHeight: PropTypes.oneOf(['tight', 'normal', 'relaxed', 'loose']),
   fontColor: PropTypes.string,
   children: PropTypes.node.isRequired,
   display: PropTypes.string,
-  mx: PropTypes.number,
   mb: PropTypes.number,
   mt: PropTypes.number,
 }
@@ -54,11 +55,12 @@ Heading.propTypes = {
 Heading.defaultProps = {
   fontFamily: 'serif',
   fontSize: ['4xl'],
+  lineHeight: 'normal',
   fontWeight: 'medium',
   fontColor: 'primary.5',
   display: ['inline-block'],
-  mx: 0,
-  my: 0,
+  mb: 0,
+  mt: 0,
 }
 
 export default Heading

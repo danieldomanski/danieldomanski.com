@@ -60,10 +60,10 @@ const About = () => (
     <Header variant="secondary" />
     <TopLayer>
       <ContentWrapper>
-        <Heading fontColor="primary-800" weight="black" size="5xl">
+        <Text fontColor="primary.7" fontWeight="black" fontSize="5xl">
           Daniel Domański.
-        </Heading>
-        <Paragraph fontColor="primary-700" size="lg" withLine my={12}>
+        </Text>
+        <Paragraph fontColor="primary.6" fontSize="lg" withLine my={12}>
           I love to create websites and web applications, paying close attention
           to all the small details. No matter if you are a startup in need of a
           landing page, a small business who wants a unique web shop, or an
@@ -73,7 +73,12 @@ const About = () => (
           <InfoColumn>
             <LooseSubheading>General</LooseSubheading>
             <InfoRow>
-              <Text fontColor="primary-800" weight="bold" size="sm">
+              <Text
+                fontFamily="sans"
+                fontColor="primary.7"
+                fontWeight="bold"
+                fontSize="sm"
+              >
                 Age
               </Text>
               <Paragraph fontColor="primary-600" size="sm" mx={4}>
@@ -81,7 +86,12 @@ const About = () => (
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Text fontColor="primary-800" weight="bold" size="sm">
+              <Text
+                fontFamily="sans"
+                fontColor="primary.7"
+                fontWeight="bold"
+                fontSize="sm"
+              >
                 Location
               </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
@@ -89,7 +99,12 @@ const About = () => (
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Text fontColor="primary-800" weight="bold" size="sm">
+              <Text
+                fontFamily="sans"
+                fontColor="primary.7"
+                fontWeight="bold"
+                fontSize="sm"
+              >
                 Roles
               </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
@@ -104,7 +119,12 @@ const About = () => (
           <InfoColumn>
             <LooseSubheading>Skills</LooseSubheading>
             <InfoRow>
-              <Text fontColor="primary-800" weight="bold" size="sm">
+              <Text
+                fontFamily="sans"
+                fontColor="primary.7"
+                fontWeight="bold"
+                fontSize="sm"
+              >
                 Have experience with
               </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>
@@ -114,7 +134,12 @@ const About = () => (
               </Paragraph>
             </InfoRow>
             <InfoRow>
-              <Text fontColor="primary-800" weight="bold" size="sm">
+              <Text
+                fontFamily="sans"
+                fontColor="primary.7"
+                fontWeight="bold"
+                fontSize="sm"
+              >
                 Current enviroment & tools
               </Text>
               <Paragraph fontColor="primary-700" size="sm" mx={4}>

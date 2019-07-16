@@ -7,6 +7,8 @@
 // You can delete this file if you're not using it
 const path = require('path')
 const locales = require('./src/config/locales')
+const graphQuery = require('./src/gatsby/graphQuery')
+const { createProjects } = require('./src/gatsby/pageCreator')
 
 const replaceTrailing = _path =>
   _path === `/` ? _path : _path.replace(/\/$/, ``)
@@ -49,36 +51,17 @@ exports.onCreatePage = ({ page, actions }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
-  const pages = await graphql(`
+  // required data to create each page
+  const result = await graphql(`
     {
-      projects: allPrismicProjects {
-        edges {
-          node {
-            id
-            uid
-            lang
-          }
-        }
-      }
+      ${graphQuery}
     }
-  `)
+    `)
 
+  // templates t
   const projectTemplate = path.resolve(
     'src/components/templates/Project/index.js'
   )
-
-  pages.data.projects.edges.forEach(edge => {
-    const { lang } = edge.node
-
-    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}/`
-
-    createPage({
-      path: `/${localPrefix}${edge.node.uid}`,
-      component: projectTemplate,
-      context: {
-        uid: edge.node.uid,
-        locale: lang,
-      },
-    })
-  })
+  console.log({ errors: result.errors })
+  createProjects(result.data.projects.edges, createPage, projectTemplate)
 }

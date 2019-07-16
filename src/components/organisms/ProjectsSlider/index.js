@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import SliderActions from '../../molecules/SliderActions'
 import Image from '../../atoms/ProjectCoverImage'
 import { ProjectsContext } from '../../../context/ProjectsContext'
-import Paragraph from '../../atoms/Paragraph'
+import { getSliceContent } from '../../../utilitity/prismic'
 
 const Slides = styled.ul`
   ${tw`w-full h-full my-16`}
@@ -24,7 +24,7 @@ const Slides = styled.ul`
   list-style: none;
 `
 
-const Slide = styled.a`
+const Slide = styled(Link)`
   ${tw`relative h-full bg-primary-300 shadow-lg  overflow-hidden`};
 
   &:first-of-type {
@@ -92,10 +92,12 @@ const ProjectsSlider = () => {
     <>
       <Slides>
         {projects.map((item, idx) => {
-          const { title, description } = item.node.data
+          const { title, description, body } = item.node.data
+          const { uid } = item.node
+          const input = getSliceContent(body, 'image')
 
           return (
-            <Slide href="#">
+            <Slide to={`/en/${uid}`}>
               <BgCover />
               <Cover>
                 <CoverActions>
@@ -103,7 +105,7 @@ const ProjectsSlider = () => {
                   <Description>{description.text}</Description>
                 </CoverActions>
               </Cover>
-              <Image input={item.node.data.body[0]} />
+              <Image input={input[0].localFile} />
             </Slide>
           )
         })}

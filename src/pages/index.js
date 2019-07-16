@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
@@ -20,7 +20,8 @@ import useWindowSize from '../hooks/useWindowSize'
 import Text from '../components/atoms/Text'
 import Paragraph from '../components/atoms/Paragraph'
 import TextHighlight from '../components/atoms/TextHighlight'
-
+import Box from '../components/atoms/Box'
+import Column from '../components/atoms/Box/Column'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
 
 const MainWrapper = styled.main`
@@ -75,14 +76,21 @@ const Index = ({ data, pageContext, location }) => {
         <Header variant="secondary" />
         <IndexMobileWrapper>
           <HeroMobile>
-            <Text display="block" fontSize="6xl" fontColor="primary.3">
+            <Text
+              display="block"
+              fontSize="6xl"
+              fontColor="primary.3"
+              fontWeight="black"
+            >
               Hi.
             </Text>
-            <Text fontColor="primary.3">I’m Daniel Domański.</Text>
+            <Text fontSize="3xl" fontColor="primary.3" fontWeight="black">
+              I’m Daniel Domański.
+            </Text>
             <Text
               fontColor="primary.5"
-              fontSize={['lg']}
-              lineHeight="loose"
+              fontSize={['base']}
+              lineHeight="relaxed"
               mt={4}
               mb={4}
             >
@@ -97,14 +105,19 @@ const Index = ({ data, pageContext, location }) => {
               by providing modern digital products.
             </Text>
           </HeroMobile>
-          <Text fontColor="primary-900" fontWeight="black" my={4}>
-            Works
-          </Text>
-          <Paragraph fontColor="primary.7" withLine>
-            My recent works.
-          </Paragraph>
-          <ProjectsGrid />
-          <AboutSlide />
+          <Box px={4}>
+            <Column>
+              <Text fontColor="primary-900" fontWeight="black" my={4}>
+                Works
+              </Text>
+              <Paragraph fontColor="primary.7" withLine>
+                My recent works.
+              </Paragraph>
+            </Column>
+
+            <ProjectsGrid />
+            <AboutSlide />
+          </Box>
         </IndexMobileWrapper>
         <Footer />
       </Layout>
@@ -147,36 +160,55 @@ export const pageQuery = graphql`
     projects: allPrismicProjects(limit: 3, filter: { lang: { eq: $locale } }) {
       edges {
         node {
+          lang
           uid
           data {
-            title {
-              html
-              text
-            }
-            lang
-            color
-            description {
-              html
-              text
-            }
             body {
-              slice_type
-              id
-              primary {
-                image {
-                  dimensions {
-                    width
-                    height
+              ... on PrismicProjectsBodyDetail {
+                slice_type
+                id
+                primary {
+                  detailtitle {
+                    text
                   }
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 1200, quality: 90) {
-                        ...GatsbyImageSharpFluid_withWebp
+                  detaildescription1 {
+                    text
+                  }
+                  image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
                       }
                     }
                   }
                 }
               }
+              ... on PrismicProjectsBodyImage {
+                slice_type
+                id
+                primary {
+                  image {
+                    alt
+                    url
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            color
+            title {
+              text
+            }
+            description {
+              text
             }
           }
         }

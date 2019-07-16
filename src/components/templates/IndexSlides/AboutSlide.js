@@ -15,7 +15,8 @@ const AboutSlide = () => (
       fontSize={['2xl', '4xl', '5xl']}
       fontColor="primary.7"
       fontWeight="black"
-      my={8}
+      mb={[4, 8]}
+      mt={[4, 8]}
     >
       Get to know me better.
     </Text>

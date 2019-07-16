@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
 import Text from '../../atoms/Text'
+import { getSliceContent } from '../../../utilitity/prismic'
 
 const Container = styled.li`
   ${tw`relative h-full shadow-lg overflow-hidden`};
@@ -46,7 +47,7 @@ const Italic = styled.span`
 `
 
 const InvolvmentRow = styled.div`
-  ${tw`relative mt-8 md:mt-12`}
+  ${tw`flex flex-col relative mt-8 md:mt-12`}
 
   &:before {
     ${tw`absolute w-12 bg-primary-900 pin-x m-auto`}
@@ -58,9 +59,11 @@ const InvolvmentRow = styled.div`
 
 const ProjectGridItem = ({ project, area }) => {
   const [spans, setSpans] = useState(0)
-  const { body, description, title, color } = project.node.data
   const { uid } = project.node
-  const { localFile, dimensions } = body[0].primary.image
+  const { body, description, title } = project.node.data
+
+  const slice = getSliceContent(body, 'image')
+  const { localFile } = slice[0]
 
   const calculateSpans = aspectRatio => {
     const baseSpan = 4 // 6 spans are base === 6 * 60 px = 360px as base

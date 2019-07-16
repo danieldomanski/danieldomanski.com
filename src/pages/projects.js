@@ -9,7 +9,7 @@ import { ContentWrapper } from '../components/atoms/Wrapper'
 import { ProjectsContext } from '../context/ProjectsContext'
 
 const TopLayer = styled.section`
-  ${tw`w-full py-32 px-4 sm:px-8 md:px-16`}
+  ${tw`w-full pt-24 pb-12 px-4 sm:px-8 md:px-16`}
   z-index: 5;
 `
 
@@ -25,7 +25,12 @@ const Blog = ({ data }) => {
       <Header variant="secondary" />
       <TopLayer>
         <ContentWrapper>
-          <Text fontColor="primary.8" fontWeight="black" fontSize="6xl">
+          <Text
+            fontColor="primary.8"
+            fontWeight="black"
+            fontSize={['5xl', '5xl', '6xl']}
+            mt={8}
+          >
             Projects.
           </Text>
           <ProjectGrid />
@@ -42,36 +47,55 @@ export const pageQuery = graphql`
     projects: allPrismicProjects(filter: { lang: { eq: $locale } }) {
       edges {
         node {
+          lang
           uid
           data {
-            title {
-              html
-              text
-            }
-            lang
-            color
-            description {
-              html
-              text
-            }
             body {
-              slice_type
-              id
-              primary {
-                image {
-                  dimensions {
-                    width
-                    height
+              ... on PrismicProjectsBodyDetail {
+                slice_type
+                id
+                primary {
+                  detailtitle {
+                    text
                   }
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 1200, quality: 90) {
-                        ...GatsbyImageSharpFluid_withWebp
+                  detaildescription1 {
+                    text
+                  }
+                  image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
                       }
                     }
                   }
                 }
               }
+              ... on PrismicProjectsBodyImage {
+                slice_type
+                id
+                primary {
+                  image {
+                    alt
+                    url
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 1200, quality: 90) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            color
+            title {
+              text
+            }
+            description {
+              text
             }
           }
         }

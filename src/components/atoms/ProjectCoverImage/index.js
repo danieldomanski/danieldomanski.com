@@ -5,25 +5,34 @@ import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
 
 const BgImage = styled(Img)`
-  ${tw`absolute w-full h-full`}
+  ${tw``}
   transition: 0.75s ease-in-out;
-  &:hover {
-    transform: scale(1.125);
-  }
+
   min-height: 500px;
 
   @media screen and (max-width: 1200px) {
     min-height: unset;
-    max-height: 300px;
+    max-height: 450px;
+  }
+
+  img {
+    object-fit: ${props =>
+      props.fit === 'cover' ? 'cover' : 'contain'} !important;
   }
 `
 
-const Image = ({ input }) => (
-  <BgImage fluid={input.primary.image.localFile.childImageSharp.fluid} />
-)
+const Image = ({ input, fit }) => {
+  console.log({ input })
+  return <BgImage fit={fit} fluid={input.childImageSharp.fluid} />
+}
 
 export default Image
 
 Image.propTypes = {
   input: PropTypes.object.isRequired,
+  fit: PropTypes.string,
+}
+
+Image.defaultProps = {
+  fit: 'cover',
 }
