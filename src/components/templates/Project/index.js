@@ -13,25 +13,39 @@ import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const ImageBox = styled.div`
-  ${tw`relative overflow-hidden shadow-lg`}
-  width: 100%;
-  max-width: 40%;
-  max-height: 300px;
+  ${tw`w-full h-full relative shadow`}
+  max-width: 50%;
+  max-height: 400px;
+  overflow: hidden;
+  &:hover {
+    &:after {
+      ${props => props.pin}: 0;
+      bottom: 0;
+    }
+  }
+
+  &:after {
+    content: '';
+    ${tw`absolute w-full h-full bg-primary-200`}
+    ${props => props.pin}: -2em;
+    bottom: -2em;
+    z-index: -1;
+    transition: 0.25s;
+  }
 `
 
 const Mockups = styled.div`
   ${tw`w-full relative flex justify-center m-auto`}
   height: 500px;
-  max-width: 1000px;
 
   & > div:nth-child(1) {
-    width: 20%;
-    margin-right: -4em;
+    width: 15%;
+    margin-right: -12.5%;
   }
 
   & > div:nth-child(2) {
     z-index: 10;
-    width: 80%;
+    width: 75%;
   }
 `
 
@@ -44,26 +58,26 @@ const Project = ({ data, pageContext }) => {
   const { body } = data.prismicProjects.data
   const details = getSliceContent(body, 'detail')
   const mockups = getSliceContent(body, 'mockup')[0]
+  const info = getSliceContent(body, 'info')[0]
 
   return (
     <Layout>
       <Header variant="secondary" />
-      <Column pt={32} px={[8, 12, 24]}>
-        <Column alignItems="center">
-          <Text
-            fontSize={['3xl', '5xl']}
-            fontColor="primary.7"
-            fontWeight="black"
-            mb={2}
-          >
-            {title.text}
-          </Text>
-          <Paragraph fontColor="primary.5" fontSize={['xl', '2xl']}>
-            {description.text}
-          </Paragraph>
-        </Column>
-
-        <Box my={16}>
+      <Column py={32} m="auto" px={[8, 16]}>
+        <Box maxWidth={1280} width={1} m="auto" my={8}>
+          <Column mb={12} alignItems="center">
+            <Text
+              fontSize={['3xl', '5xl']}
+              fontColor="primary.7"
+              fontWeight="black"
+              mb={2}
+            >
+              {title.text}
+            </Text>
+            <Paragraph fontColor="primary.5" fontSize={['xl', '2xl']}>
+              {description.text}
+            </Paragraph>
+          </Column>
           <Mockups>
             <Mock>
               <ProjectCoverImage input={mockups.mobile} fit="contain" />
@@ -73,39 +87,77 @@ const Project = ({ data, pageContext }) => {
             </Mock>
           </Mockups>
         </Box>
-        <Row my={8}>
-          <Box display="flex" flexDirection="column" bg="primary.1" size={256}>
-            <Text fontSize={['base']}>a</Text>
-            <Text fontSize={['base']}>b</Text>
-            <Text fontSize={['base']}>c</Text>
+        <Row width={1} maxWidth={1480} m="auto" my={8} justifyContent="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            bg="primary.1"
+            boxShadow="lg"
+            px={12}
+            py={8}
+          >
+            <Column my={1}>
+              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
+                Role
+              </Text>
+              <Text fontFamily="sans" fontSize={['base']}>
+                {info.role}
+              </Text>
+            </Column>
+            <Column my={1}>
+              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
+                Technologies
+              </Text>
+              <Text fontFamily="sans" fontSize={['base']}>
+                {info.technologies}
+              </Text>
+            </Column>
+            <Column my={1}>
+              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
+                Client
+              </Text>
+              <Text fontFamily="sans" fontSize={['base']}>
+                {info.client}
+              </Text>
+            </Column>
           </Box>
-          <Box flex={3} justifyContent="space-between" pl={8}>
+          <Box px={16} maxWidth={1000}>
             <Paragraph fontColor="primary.5" fontSize={['xl', '2xl']}>
+              {description.text}
+              {description.text}
+              {description.text}
+              {description.text}
+              {description.text}
+              {description.text}
               {description.text}
             </Paragraph>
           </Box>
         </Row>
-        <Box my={8}>
-          {details.map((detail, idx) => (
-            <Row
-              flexDirection={idx % 2 === 0 ? 'row' : 'row-reverse'}
-              my={16}
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <ImageBox>
-                <ProjectCoverImage input={detail.localFile} />
-              </ImageBox>
-              <Column mx={8}>
-                <Text fontWeight="black" fontSize="4xl" fontColor="primary.7">
-                  {detail.title}
-                </Text>
-                <Text fontFamily="sans" fontSize="xl" fontColor="primary.5">
-                  {detail.description}
-                </Text>
-              </Column>
-            </Row>
-          ))}
+        <Box width={1} maxWidth={1480} m="auto" my={8} justifyContent="center">
+          {details.map((detail, idx) => {
+            const even = idx % 2 === 0
+            return (
+              <Row
+                flexDirection={even ? 'row' : 'row-reverse'}
+                my={24}
+                justifyContent="center"
+                alignItems="center"
+                flex={1}
+              >
+                <ImageBox pin={even ? 'left' : 'right'}>
+                  <ProjectCoverImage input={detail.localFile} fit="contain" />
+                </ImageBox>
+                <Column px={16} flex={1} textAlign={even ? 'left' : 'right'}>
+                  <Text fontWeight="black" fontSize="4xl" fontColor="primary.7">
+                    {detail.title}
+                  </Text>
+                  <Text fontFamily="sans" fontSize="xl" fontColor="primary.5">
+                    {detail.description}
+                  </Text>
+                </Column>
+              </Row>
+            )
+          })}
         </Box>
       </Column>
     </Layout>
@@ -157,6 +209,21 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicProjectsBodyInfo {
+            slice_type
+            id
+            primary {
+              client {
+                text
+              }
+              role {
+                text
+              }
+              technologies {
+                text
+              }
+            }
+          }
           ... on PrismicProjectsBodyMockup {
             slice_type
             id
@@ -182,7 +249,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        color
         title {
           text
         }

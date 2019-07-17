@@ -45,7 +45,6 @@ const graphQuery = `
               }
             }
           }
-          color
           title {
             text
           }

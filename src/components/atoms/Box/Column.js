@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { space, color, layout, flexbox } from 'styled-system'
+import { space, typography, color, layout, flexbox } from 'styled-system'
 
 const Column = styled.div(
   {
@@ -8,6 +8,7 @@ const Column = styled.div(
     flexDirection: 'column',
   },
   space,
+  typography,
   color,
   layout,
   flexbox

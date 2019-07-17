@@ -1,5 +1,13 @@
 import styled from 'styled-components'
-import { space, color, layout, flexbox, position } from 'styled-system'
+import {
+  space,
+  typography,
+  color,
+  layout,
+  flexbox,
+  shadow,
+  position,
+} from 'styled-system'
 
 const Box = styled.div(
   {
@@ -9,6 +17,8 @@ const Box = styled.div(
   color,
   layout,
   flexbox,
+  shadow,
+  typography,
   position
 )
 

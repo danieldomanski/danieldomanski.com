@@ -19,6 +19,13 @@ export const formatSlice = slice => {
         desktop: slice.primary.desktop1.localFile,
         mobile: slice.primary.mobile.localFile,
       }
+
+    case 'info':
+      return {
+        role: slice.primary.role.text,
+        technologies: slice.primary.technologies.text,
+        client: slice.primary.client.text,
+      }
     default:
       return {}
   }

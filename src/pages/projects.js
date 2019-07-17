@@ -90,7 +90,6 @@ export const pageQuery = graphql`
                 }
               }
             }
-            color
             title {
               text
             }

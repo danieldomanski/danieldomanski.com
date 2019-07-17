@@ -8,8 +8,6 @@ const BgImage = styled(Img)`
   ${tw``}
   transition: 0.75s ease-in-out;
 
-  min-height: 500px;
-
   @media screen and (max-width: 1200px) {
     min-height: unset;
     max-height: 450px;
