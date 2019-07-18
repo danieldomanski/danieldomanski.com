@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import Footer from '../../organisms/Footer'
 import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
@@ -12,45 +12,38 @@ import Row from '../../atoms/Box/Row'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
 
-const ImageBox = styled.div`
-  ${tw`w-full h-full relative shadow`}
-  max-width: 50%;
-  max-height: 400px;
-  overflow: hidden;
-  &:hover {
-    &:after {
-      ${props => props.pin}: 0;
-      bottom: 0;
-    }
-  }
+const Main = styled(Box)`
+  ${tw`relative bg-primary-100 `}
+  margin-bottom: 500px;
+  z-index: 5;
+`
 
-  &:after {
-    content: '';
-    ${tw`absolute w-full h-full bg-primary-200`}
-    ${props => props.pin}: -2em;
-    bottom: -2em;
-    z-index: -1;
-    transition: 0.25s;
-  }
+const ImageBox = styled.div`
+  ${tw`w-full md:w-1/2 lg:w-1/3 shadow-lg`}
 `
 
 const Mockups = styled.div`
-  ${tw`w-full relative flex justify-center m-auto`}
-  height: 500px;
+  ${tw`w-full relative flex justify-center items-center m-auto mt-8 md:mt-12 mb-0 md:mb-16`}
 
   & > div:nth-child(1) {
-    width: 15%;
-    margin-right: -12.5%;
+    ${tw`hidden md:block`}
+    width: 20%;
+    margin-right: -1em;
   }
 
   & > div:nth-child(2) {
+    ${tw`w-full md:w-3/4`}
     z-index: 10;
-    width: 75%;
   }
 `
 
 const Mock = styled.div`
-  ${tw`h-full`}
+  ${tw`h-full `}
+`
+
+const Img = styled.img`
+  ${tw`w-full md:w-1/2 lg:w-1/3 shadow-lg`}
+  object-fit: contain;
 `
 
 const Project = ({ data, pageContext }) => {
@@ -63,18 +56,17 @@ const Project = ({ data, pageContext }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <Column py={32} m="auto" px={[8, 16]}>
-        <Box maxWidth={1280} width={1} m="auto" my={8}>
-          <Column mb={12} alignItems="center">
+      <Main bg="primary.1" py={16} m="auto" px={[4, 8, 16, 24, 32]}>
+        <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">
+          <Column alignItems="center">
             <Text
-              fontSize={['3xl', '5xl']}
+              fontSize={['4xl', '5xl']}
               fontColor="primary.7"
               fontWeight="black"
-              mb={2}
             >
               {title.text}
             </Text>
-            <Paragraph fontColor="primary.5" fontSize={['xl', '2xl']}>
+            <Paragraph fontColor="primary.5" fontSize={['lg', '2xl']}>
               {description.text}
             </Paragraph>
           </Column>
@@ -87,20 +79,31 @@ const Project = ({ data, pageContext }) => {
             </Mock>
           </Mockups>
         </Box>
-        <Row width={1} maxWidth={1480} m="auto" my={8} justifyContent="center">
+        <Box
+          display="flex"
+          flexDirection={['column', 'column', 'row']}
+          justifyContent="center"
+          alignItems="center"
+          width={1}
+          maxWidth={1480}
+          m="auto"
+        >
           <Box
+            flex={1}
             display="flex"
             flexDirection="column"
-            bg="primary.1"
+            justifyContent="center"
+            bg="#fff"
             boxShadow="lg"
-            px={12}
+            px={8}
             py={8}
+            mb={8}
           >
             <Column my={1}>
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Role
               </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
+              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
                 {info.role}
               </Text>
             </Column>
@@ -108,7 +111,7 @@ const Project = ({ data, pageContext }) => {
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Technologies
               </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
+              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
                 {info.technologies}
               </Text>
             </Column>
@@ -116,13 +119,16 @@ const Project = ({ data, pageContext }) => {
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Client
               </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
+              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
                 {info.client}
               </Text>
             </Column>
           </Box>
-          <Box px={16} maxWidth={1000}>
-            <Paragraph fontColor="primary.5" fontSize={['xl', '2xl']}>
+          <Box px={[8, 8, 8, 8, 16]} flex={[1, 2, 2, 2, 2]}>
+            <Paragraph
+              fontColor="primary.5"
+              fontSize={['xl', 'lg', 'lg', 'xl', '2xl']}
+            >
               {description.text}
               {description.text}
               {description.text}
@@ -132,34 +138,56 @@ const Project = ({ data, pageContext }) => {
               {description.text}
             </Paragraph>
           </Box>
-        </Row>
-        <Box width={1} maxWidth={1480} m="auto" my={8} justifyContent="center">
+        </Box>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          maxWidth={1480}
+          m="auto"
+          my={16}
+          mb={[8, 8, 0]}
+        >
           {details.map((detail, idx) => {
             const even = idx % 2 === 0
+
             return (
-              <Row
-                flexDirection={even ? 'row' : 'row-reverse'}
-                my={24}
+              <Box
+                display="flex"
+                position="relative"
+                flexDirection={['column', 'row']}
+                my={8}
                 justifyContent="center"
                 alignItems="center"
                 flex={1}
               >
-                <ImageBox pin={even ? 'left' : 'right'}>
-                  <ProjectCoverImage input={detail.localFile} fit="contain" />
-                </ImageBox>
-                <Column px={16} flex={1} textAlign={even ? 'left' : 'right'}>
-                  <Text fontWeight="black" fontSize="4xl" fontColor="primary.7">
+                <Img src={detail.url} />
+
+                <Column py={[4, 0]} px={[0, 16]} flex={1}>
+                  <Text
+                    fontWeight="black"
+                    fontSize={['3xl', '4xl']}
+                    fontColor="primary.7"
+                    mb={2}
+                  >
                     {detail.title}
                   </Text>
-                  <Text fontFamily="sans" fontSize="xl" fontColor="primary.5">
+                  <Text
+                    fontFamily="sans"
+                    fontSize={['base', 'lg']}
+                    fontColor="primary.5"
+                  >
+                    {detail.description}
+                    {detail.description}
                     {detail.description}
                   </Text>
                 </Column>
-              </Row>
+              </Box>
             )
           })}
         </Box>
-      </Column>
+      </Main>
+      <Footer />
     </Layout>
   )
 }
@@ -182,10 +210,11 @@ export const pageQuery = graphql`
                 text
               }
               image {
+                url
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1200, quality: 90) {
-                      ...GatsbyImageSharpFluid_withWebp
+                    fluid {
+                      src
                     }
                   }
                 }

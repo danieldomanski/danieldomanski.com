@@ -6,13 +6,11 @@ import Logo from '../../atoms/Logo'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import NavigationHamburger from '../../molecules/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
-import { ScrollContext } from '../../../context/ScrollContext'
-import { ContentWrapper } from '../../atoms/Wrapper'
 
 const Container = styled.header`
   ${tw`absolute md:fixed pin-t py-8 text-primary-700 px-8 xl:px-16`};
   background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
-  z-index: 5;
+  z-index: 6;
   width: 100%;
   transition: 0.25s;
 `

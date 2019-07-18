@@ -12,25 +12,28 @@ const BgImage = styled(Img)`
     min-height: unset;
     max-height: 450px;
   }
-
-  img {
-    object-fit: ${props =>
-      props.fit === 'cover' ? 'cover' : 'contain'} !important;
-  }
 `
 
-const Image = ({ input, fit }) => {
-  console.log({ input })
-  return <BgImage fit={fit} fluid={input.childImageSharp.fluid} />
+const Image = ({ input, type, fit }) => {
+  const img =
+    type === 'fluid' ? input.childImageSharp.fluid : input.childImageSharp.fixed
+
+  return type === 'fluid' ? (
+    <BgImage fit={fit} fluid={img} />
+  ) : (
+    <BgImage fit={fit} fixed={img} />
+  )
 }
 
 export default Image
 
 Image.propTypes = {
   input: PropTypes.object.isRequired,
+  type: PropTypes.oneOf(['fixed', 'fluid']),
   fit: PropTypes.string,
 }
 
 Image.defaultProps = {
   fit: 'cover',
+  type: 'fluid',
 }

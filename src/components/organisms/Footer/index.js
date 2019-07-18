@@ -10,7 +10,7 @@ import { ContentWrapper } from '../../atoms/Wrapper'
 
 const FooterContainer = styled.footer`
   ${tw`absolute md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
-  background-color: #1a1a1a;
+  background-color: #1f1f1f;
   box-sizing: border-box;
   height: 600px;
   z-index: 4;

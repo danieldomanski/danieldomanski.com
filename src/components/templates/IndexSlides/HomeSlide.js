@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { Title, Description } from '../../atoms/AnimatedText'
+import Text from '../../atoms/Text'
 import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
 import Paragraph from '../../atoms/Paragraph'
+import Column from '../../atoms/Box/Column'
 
 const HeroHeading = styled.section`
   ${tw`absolute w-full h-screen`}
@@ -44,10 +45,14 @@ const HomeSlide = () => {
   return (
     <HeroHeading opacity={opacity}>
       <HeroText visible={scroll.y <= windowSize.height}>
-        <Title inViewport size="6xl" weight={400}>
-          <TitleSpan>Hi.</TitleSpan>
-          <TitleSpan>I’m Daniel Domański.</TitleSpan>
-        </Title>
+        <Column>
+          <Text inViewport fontSize="10xl">
+            Hi.
+          </Text>
+          <Text inViewport fontSize="5xl">
+            I’m Daniel Domański.
+          </Text>
+        </Column>
         <Paragraph
           inViewport
           fontColor="primary.5"

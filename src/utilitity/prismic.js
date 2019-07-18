@@ -10,6 +10,7 @@ export const formatSlice = slice => {
       return { localFile: slice.primary.image.localFile }
     case 'detail':
       return {
+        url: slice.primary.image.url,
         localFile: slice.primary.image.localFile,
         title: slice.primary.detailtitle.text,
         description: slice.primary.detaildescription1.text,
