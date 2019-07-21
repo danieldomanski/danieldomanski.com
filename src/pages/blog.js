@@ -56,10 +56,10 @@ const Blog = () => (
     <Header variant="secondary" />
     <TopLayer>
       <ContentWrapper>
-        <Text fontColor="primary-800" weight="black" size="5xl" my={4}>
+        <Text fontColor="primary.7" fontWeight="black" fontSize="5xl" my={4}>
           Blog
         </Text>
-        <Paragraph fontColor="primary-700" size="lg" withLine my={4}>
+        <Paragraph fontColor="primary.6" fontSize="lg" withLine my={4}>
           “You already know that you will never be done learning. But most
           people "learn in private", and lurk. They consume content without
           creating any themselves. Whatever your thing is, make the thing you

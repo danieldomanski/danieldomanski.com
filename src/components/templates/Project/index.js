@@ -8,13 +8,17 @@ import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
 import Column from '../../atoms/Box/Column'
-import Row from '../../atoms/Box/Row'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const Main = styled(Box)`
   ${tw`relative bg-primary-100 `}
-  margin-bottom: 500px;
+  padding-bottom: 600px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 500px;
+    padding-bottom: 0;
+  }
   z-index: 5;
 `
 
@@ -89,6 +93,7 @@ const Project = ({ data, pageContext }) => {
           m="auto"
         >
           <Box
+            width={[1, 1, 0]}
             flex={1}
             display="flex"
             flexDirection="column"
@@ -103,7 +108,7 @@ const Project = ({ data, pageContext }) => {
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Role
               </Text>
-              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
+              <Text fontFamily="sans" fontSize={['base']}>
                 {info.role}
               </Text>
             </Column>
@@ -111,7 +116,7 @@ const Project = ({ data, pageContext }) => {
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Technologies
               </Text>
-              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
+              <Text fontFamily="sans" fontSize={['base']}>
                 {info.technologies}
               </Text>
             </Column>
@@ -119,7 +124,7 @@ const Project = ({ data, pageContext }) => {
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Client
               </Text>
-              <Text fontFamily="sans" fontSize={['sm', 'sm', 'sm', 'base']}>
+              <Text fontFamily="sans" fontSize={['base']}>
                 {info.client}
               </Text>
             </Column>

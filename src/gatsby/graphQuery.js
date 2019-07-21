@@ -55,6 +55,36 @@ const graphQuery = `
       }
     }
   }
+  posts: allPrismicPost {
+    edges {
+      node {
+        first_publication_date
+        lang
+        uid
+        last_publication_date
+        data {
+          title {
+            text
+          }
+          description {
+            text
+          }
+          tags {
+            tag {
+              slug
+              uid
+            }
+          }
+          category {
+            slug
+          }
+          icon {
+            text
+          }
+        }
+      }
+    }
+  }
 `
 
 module.exports = graphQuery

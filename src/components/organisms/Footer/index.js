@@ -13,12 +13,14 @@ const FooterContainer = styled.footer`
   background-color: #1f1f1f;
   box-sizing: border-box;
   height: 600px;
-  z-index: 4;
+  z-index: 5;
   padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
-    display: ${props => (props.visible ? 'flex' : 'none')};
+    display: ${props =>
+      !props.visible && props.variant === 'index' ? 'none' : 'flex'};
     height: 500px;
+    z-index: 4;
   }
 `
 
@@ -43,12 +45,12 @@ const ItalicSpan = styled.span`
   ${tw`italic`}
 `
 
-const Footer = () => {
+const Footer = ({ variant }) => {
   const [scroll] = useContext(ScrollContext)
   const visible = scroll.y > 920
 
   return (
-    <FooterContainer visible={visible}>
+    <FooterContainer visible={visible} variant={variant}>
       <UpperWrapper>
         <Text fontColor="primary.3" fontSize={['3xl', '5xl']} fontWeight="bold">
           Let’s create something <ItalicSpan>beautiful!</ItalicSpan>

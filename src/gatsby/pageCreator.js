@@ -7,7 +7,7 @@ const createProjects = (projects, createPage, template) =>
     const localPrefix = locales[lang].default ? '' : `${locales[lang].path}/`
 
     createPage({
-      path: `/${localPrefix}${edge.node.uid}`,
+      path: `${localPrefix}/projects/${edge.node.uid}`,
       component: template,
       context: {
         uid: edge.node.uid,
@@ -17,4 +17,21 @@ const createProjects = (projects, createPage, template) =>
     })
   })
 
-module.exports = { createProjects }
+const createPosts = (posts, createPage, template) =>
+  posts.forEach(edge => {
+    const { lang } = edge.node
+
+    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
+
+    createPage({
+      path: `${localPrefix}/blog/${edge.node.uid}`,
+      component: template,
+      context: {
+        uid: edge.node.uid,
+        locale: lang,
+        data: edge,
+      },
+    })
+  })
+
+module.exports = { createProjects, createPosts }

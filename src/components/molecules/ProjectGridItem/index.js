@@ -20,8 +20,8 @@ const Container = styled.li`
 `
 
 const BgCover = styled.div`
-  ${tw`absolute w-full h-full z-10`};
-
+  ${tw`absolute w-full h-full`};
+  z-index: 4;
   background: linear-gradient(
     0deg,
     rgba(240, 240, 240, 0.5) 0%,
@@ -30,14 +30,16 @@ const BgCover = styled.div`
 `
 
 const Cover = styled.article`
-  ${tw`w-full h-full absolute z-10`}
+  ${tw`w-full h-full absolute`}
+  z-index: 5;
   transform: translateY(-125%);
   opacity: 0;
   transition: 0.5s ease-in-out;
 `
 
 const CoverActions = styled.span`
-  ${tw`relative flex flex-col justify-center w-full h-full pin-b z-10 text-center px-8 shadow-lg`};
+  ${tw`relative flex flex-col justify-center w-full h-full pin-b text-center px-8 shadow-lg`};
+  z-index: 5;
   background-color: rgba(240, 240, 240, 0.95);
   transition: 0.5s ease-in-out;
 `

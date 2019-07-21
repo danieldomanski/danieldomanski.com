@@ -7,8 +7,6 @@ import SlidableButton from '../../atoms/Button/SlidableButton'
 import { ContentWrapper } from '../../atoms/Wrapper'
 import PostItem from '../../organisms/PostItem'
 
-const posts = ['abc', 'bca', 'cba']
-
 const Container = styled(ContentWrapper)`
   ${tw`py-16 px-12`}
 `
@@ -23,7 +21,7 @@ const BlogPosts = styled.ul`
   list-style: none;
 `
 
-const BlogSlide = () => (
+const BlogSlide = ({ posts }) => (
   <Container>
     <Row>
       <Text fontSize="5xl" fontColor="primary.7" fontWeight="black">
@@ -44,7 +42,7 @@ const BlogSlide = () => (
         Latest posts.
       </Text>
       {posts.map((post, idx) => (
-        <PostItem>abc</PostItem>
+        <PostItem data={post} />
       ))}
     </BlogPosts>
   </Container>

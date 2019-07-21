@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import { formatDate } from '../../../utilitity/date'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
@@ -37,21 +38,27 @@ const DateContainer = styled.div`
   flex:1;
 `
 
-const PostItem = () => (
-  <Container href="#">
-    <IconContainer>
-      <Icon icon="react" width="48" />
-    </IconContainer>
-    <TextContainer>
-      <Text fontColor="primary.8" fontSize="xl" fontWeight="bold">
-        ttir
-      </Text>
-      <Paragraph fontColor="primary.6" fontSize="sm" my={1}>
-        jakis tam opis
-      </Paragraph>
-    </TextContainer>
-    <DateContainer>May 09, 2019</DateContainer>
-  </Container>
-)
+const PostItem = ({ data }) => {
+  console.log({ postItem: data })
+  const { title, description, icon } = data.node.data
+  const { last_publication_date } = data.node
+
+  return (
+    <Container href={`/blog/${data.node.uid}`}>
+      <IconContainer>
+        <Icon icon={icon.text} width="48" />
+      </IconContainer>
+      <TextContainer>
+        <Text fontColor="primary.8" fontSize="xl" fontWeight="bold">
+          {title.text}
+        </Text>
+        <Paragraph fontColor="primary.6" fontSize="sm" my={1}>
+          {description.text}
+        </Paragraph>
+      </TextContainer>
+      <DateContainer>{formatDate(last_publication_date)}</DateContainer>
+    </Container>
+  )
+}
 
 export default PostItem

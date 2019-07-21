@@ -62,6 +62,7 @@ const HeroMobile = styled.div`
 `
 
 const Index = ({ data, pageContext, location }) => {
+  console.log({ data })
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const [, setProjects] = useContext(ProjectsContext)
@@ -114,7 +115,6 @@ const Index = ({ data, pageContext, location }) => {
                 My recent works.
               </Paragraph>
             </Column>
-
             <ProjectsGrid />
             <AboutSlide />
           </Box>
@@ -131,12 +131,12 @@ const Index = ({ data, pageContext, location }) => {
       </TopLayer>
       <MainWrapper>
         <ProjectsSlide />
-        <BlogSlide />
+        <BlogSlide posts={data.posts.edges} />
         <ContentWrapper>
           <AboutSlide />
         </ContentWrapper>
       </MainWrapper>
-      <Footer />
+      <Footer variant="index" />
     </Layout>
   )
 }
@@ -207,6 +207,36 @@ export const pageQuery = graphql`
               text
             }
             description {
+              text
+            }
+          }
+        }
+      }
+    }
+    posts: allPrismicPost(limit: 3, filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          first_publication_date
+          lang
+          uid
+          last_publication_date
+          data {
+            title {
+              text
+            }
+            description {
+              text
+            }
+            tags {
+              tag {
+                slug
+                uid
+              }
+            }
+            category {
+              slug
+            }
+            icon {
               text
             }
           }
