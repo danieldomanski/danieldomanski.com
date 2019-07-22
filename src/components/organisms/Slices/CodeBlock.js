@@ -1,13 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
+
+const CodeContainer = styled.code`
+  ${tw`block bg-primary-900 text-lg text-primary-200 rounded-lg shadow-lg my-4`}
+`
 
 const CodeBlock = ({ data }) => {
   console.log({ data })
 
   return (
-    <div>
-      <div dangerouslySetInnerHTML={{ __html: data.primary.code_block.html }} />
-    </div>
+    <CodeContainer
+      dangerouslySetInnerHTML={{ __html: data.primary.code_block.html }}
+    />
   )
 }
 

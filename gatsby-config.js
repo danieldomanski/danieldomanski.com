@@ -2,6 +2,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
+
 module.exports = {
   siteMetadata: {
     title: 'ddomanski.dev',
@@ -42,6 +44,8 @@ module.exports = {
       options: {
         repositoryName: `gatsby-blog-test`,
         accessToken: `${process.env.PRISMIC_API_KEY}`,
+        // PrismJS highlighting for labels and slices
+        htmlSerializer: () => prismicHtmlSerializer,
       },
     },
     'gatsby-plugin-offline',

@@ -6,11 +6,7 @@ import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
-import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
-import Column from '../../atoms/Box/Column'
-import ProjectCoverImage from '../../atoms/ProjectCoverImage'
-import { getSliceContent } from '../../../utilitity/prismic'
 import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utilitity/date'
 
@@ -32,15 +28,17 @@ const Post = ({ data, pageContext }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <Main bg="primary.1" py={16} m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={1280} width={1} m="auto" my={8}>
-          <Box display="flex">
-            <Icon icon={icon.text} width={150} />
-            <Box display="flex" flexDirection="column">
-              <Text fontColor="primary.7" fontWeight="black">
+      <Main bg="primary.1" m="auto" px={[4, 8, 16, 24, 32]}>
+        <Box maxWidth={686} width={1} m="auto" my={8} py={32}>
+          <Box display="flex" pb={4}>
+            <Icon icon={icon.text} width={120} />
+            <Box display="flex" flexDirection="column" ml={8}>
+              <Text fontColor="primary.8" fontWeight="black" fontSize="4xl">
                 {title.text}
               </Text>
-              <Text fontSize={['base']}>{formatDate(date)}</Text>
+              <Text fontFamily="sans" fontSize={['sm']}>
+                {formatDate(date)}
+              </Text>
             </Box>
           </Box>
           <PostContent data={data.prismicPost.data.body} />
@@ -77,13 +75,7 @@ export const pageQuery = graphql`
             id
             slice_type
             primary {
-              block_title {
-                raw {
-                  text
-                }
-              }
               code_block {
-                text
                 html
               }
             }
