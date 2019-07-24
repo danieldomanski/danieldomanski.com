@@ -85,6 +85,18 @@ const graphQuery = `
       }
     }
   }
+  tags: allPrismicTag {
+    edges {
+      node {
+        lang
+        uid
+        slugs
+        data {
+          tag
+        }
+      }
+    }
+  }
 `
 
 module.exports = graphQuery

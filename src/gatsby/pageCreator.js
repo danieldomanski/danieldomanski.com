@@ -34,4 +34,20 @@ const createPosts = (posts, createPage, template) =>
     })
   })
 
-module.exports = { createProjects, createPosts }
+const createTags = (tags, createPage, template) =>
+  tags.forEach(edge => {
+    const { lang } = edge.node
+    const slug = edge.node.slugs[0]
+    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
+
+    createPage({
+      path: `${localPrefix}/tags/${slug}`,
+      component: template,
+      context: {
+        uid: edge.node.uid,
+        locale: lang,
+      },
+    })
+  })
+
+module.exports = { createProjects, createPosts, createTags }

@@ -8,7 +8,11 @@
 const path = require('path')
 const locales = require('./src/config/locales')
 const graphQuery = require('./src/gatsby/graphQuery')
-const { createProjects, createPosts } = require('./src/gatsby/pageCreator')
+const {
+  createProjects,
+  createPosts,
+  createTags,
+} = require('./src/gatsby/pageCreator')
 
 const replaceTrailing = _path =>
   _path === `/` ? _path : _path.replace(/\/$/, ``)
@@ -63,7 +67,9 @@ exports.createPages = async ({ graphql, actions }) => {
     'src/components/templates/Project/index.js'
   )
   const postTemplate = path.resolve('src/components/templates/Post/index.js')
+  const tagTemplate = path.resolve('src/components/templates/Tag/index.js')
 
   createProjects(result.data.projects.edges, createPage, projectTemplate)
   createPosts(result.data.posts.edges, createPage, postTemplate)
+  createTags(result.data.tags.edges, createPage, tagTemplate)
 }

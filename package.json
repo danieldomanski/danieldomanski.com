@@ -19,6 +19,7 @@
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-prismic": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.21",
+    "lodash.words": "^4.2.0",
     "prismic-dom": "^2.1.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",

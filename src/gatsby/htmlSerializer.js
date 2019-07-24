@@ -33,14 +33,14 @@ const htmlSerializer = (type, element, content) => {
   switch (type) {
     // First differentiate between a label and a preformatted field (e.g. the Code Block slice)
     case Elements.label: {
-      // Use the inline code for labels that are in the array of "codeInline"
+      if (element.label === 'hr') {
+        return `<hr/>`
+      }
+      // Use the p tag for labels with "text" label
       if (codeInline.includes(element.data.label)) {
-        return `<code class="language-${element.data.label}">${content}</code>`
+        return `<p>${content}</p>`
       }
-      // Use the blockquote for labels with the name "quote"
-      if (element.data.label === 'quote') {
-        return `<blockquote><p>${content}</p></blockquote>`
-      }
+
       // Use the code block for labels that are in the array of "codeBlock"
       // Choose the right PrismJS highlighting with the label name
       if (codeBlock.includes(element.data.label)) {
@@ -61,6 +61,12 @@ const htmlSerializer = (type, element, content) => {
           element.text,
           Prism.languages[element.label]
         )}</code></pre>`
+      }
+      return null
+    }
+    case Elements.paragraph: {
+      if (element.label === 'hr') {
+        return `<hr/>`
       }
       return null
     }

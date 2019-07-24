@@ -1,12 +1,35 @@
 import { css } from 'styled-components'
 
 export default css`
-  p,
+  div > p,
   li {
-    font: 100%/1.875 'Montserrat';
-    font-size: 18px;
-    margin-bottom: 1.5rem;
+    font: 100%/1.75 'Montserrat';
+    font-size: 16px;
+    margin-bottom: 2rem;
     color: #000;
+  }
+
+  .anchor a {
+    ${tw`relative inline-block font-sans no-underline`};
+    text-decoration: none;
+    font-weight: 600;
+    color: #739fff;
+
+    &:after {
+      content: '';
+      ${tw`absolute w-full pin-l`};
+      transition: 0.5s ease-in-out;
+
+      height: 1px;
+      bottom: 3px;
+      background-color: #739fff;
+    }
+
+    &:hover {
+      &:after {
+        width: 0;
+      }
+    }
   }
 
   code {
@@ -17,8 +40,8 @@ export default css`
     font-family: 'Roboto';
     font-size: 28px;
     font-weight: 900;
-    margin-top: 3.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     color: #444;
   }
 
@@ -79,8 +102,6 @@ export default css`
   /* Inline code */
   :not(pre) > code[class*='language-'] {
     border-radius: 0.3em;
-    background: var(--inlineCode-bg);
-    color: var(--inlineCode-text);
     padding: 0.15em 0.2em 0.05em;
     white-space: normal;
   }
@@ -111,7 +132,7 @@ export default css`
   .token.char,
   .token.constant,
   .token.function {
-    color: rgb(130, 170, 255);
+    color: #739fff;
   }
 
   .token.punctuation {
@@ -125,13 +146,13 @@ export default css`
   }
 
   .token.class-name {
-    color: rgb(255, 203, 139);
+    color: #ffbf72;
   }
 
   .token.tag,
   .token.operator,
   .token.keyword {
-    color: #ffa7c4;
+    color: #ff8ab1;
   }
 
   .token.boolean {
@@ -144,5 +165,19 @@ export default css`
 
   .token.namespace {
     color: rgb(178, 204, 214);
+  }
+
+  .highlighted {
+    font-family: 'Consolas';
+    background: #f6f7d6;
+    border-radius: 0.2rem;
+    color: #333;
+    padding: 0.15em 0.2em;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 2rem;
   }
 `

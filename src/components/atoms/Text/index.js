@@ -23,7 +23,8 @@ const Heading = ({
   lineHeight,
   mt,
   mb,
-  mx,
+  mr,
+  ml,
 }) => (
   <HeadingContainer
     display={display}
@@ -34,7 +35,8 @@ const Heading = ({
     lineHeight={lineHeight}
     mt={mt}
     mb={mb}
-    mx={mx}
+    mr={mr}
+    ml={ml}
   >
     {children}
   </HeadingContainer>
@@ -50,6 +52,8 @@ Heading.propTypes = {
   display: PropTypes.string,
   mb: PropTypes.number,
   mt: PropTypes.number,
+  mr: PropTypes.number,
+  ml: PropTypes.number,
 }
 
 Heading.defaultProps = {
@@ -61,6 +65,8 @@ Heading.defaultProps = {
   display: ['inline-block'],
   mb: 0,
   mt: 0,
+  mr: 0,
+  ml: 0,
 }
 
 export default Heading
