@@ -37,7 +37,9 @@ const createPosts = (posts, createPage, template) =>
 const createTags = (tags, createPage, template) =>
   tags.forEach(edge => {
     const { lang } = edge.node
+    const { tag } = edge.node.data
     const slug = edge.node.slugs[0]
+
     const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
 
     createPage({
@@ -45,6 +47,7 @@ const createTags = (tags, createPage, template) =>
       component: template,
       context: {
         uid: edge.node.uid,
+        tag,
         locale: lang,
       },
     })

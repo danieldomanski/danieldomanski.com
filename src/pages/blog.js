@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
@@ -8,23 +9,6 @@ import { ContentWrapper } from '../components/atoms/Wrapper'
 import { CollapsableLink } from '../components/atoms/Link'
 import PostItem from '../components/organisms/PostItem'
 import Filter from '../components/atoms/Filter'
-
-const tags = ['React', 'CSS', 'JavaScript', 'Web Design']
-
-const posts = [
-  'abc',
-  'bca',
-  'cba',
-  'abc',
-  'bca',
-  'cba',
-  'abc',
-  'bca',
-  'cba',
-  'abc',
-  'bca',
-  'cba',
-]
 
 const TopLayer = styled.section`
   ${tw`w-full h-screen px-16 lg:px-24 xl:px-32`}
@@ -51,42 +35,82 @@ const Row = styled(ContentWrapper)`
   max-width: 1000px;
 `
 
-const Blog = () => (
-  <Layout>
-    <Header variant="secondary" />
-    <TopLayer>
-      <ContentWrapper>
-        <Text fontColor="primary.7" fontWeight="black" fontSize="5xl" my={4}>
-          Blog
-        </Text>
-        <Paragraph fontColor="primary.6" fontSize="lg" withLine my={4}>
-          “You already know that you will never be done learning. But most
-          people "learn in private", and lurk. They consume content without
-          creating any themselves. Whatever your thing is, make the thing you
-          wish you had found when you were learning. The biggest beneficiary of
-          you trying to help past you is future you. If others benefit, that's
-          icing.”
-        </Paragraph>
-        <Row>
-          <CollapsableLink variant="bright">
-            shawn wang, swyx.io
-          </CollapsableLink>
-        </Row>
-      </ContentWrapper>
-      <BlogContent>
-        <ContentFilters>
-          {tags.map((tag, idx) => (
-            <Filter>{tag}</Filter>
-          ))}
-        </ContentFilters>
-        <BlogPosts>
-          {posts.map((post, idx) => (
-            <PostItem>abc</PostItem>
-          ))}
-        </BlogPosts>
-      </BlogContent>
-    </TopLayer>
-  </Layout>
-)
+const Blog = ({ data }) => {
+  const tags = data.tags.edges
+  const posts = data.posts.edges
 
+  console.log({ tags, posts })
+  return (
+    <Layout>
+      <Header variant="secondary" />
+      <TopLayer>
+        <ContentWrapper>
+          <Text fontColor="primary.7" fontWeight="black" fontSize="5xl" my={4}>
+            Blog
+          </Text>
+          <Paragraph fontColor="primary.6" fontSize="lg" withLine my={4}>
+            “You already know that you will never be done learning. But most
+            people "learn in private", and lurk. They consume content without
+            creating any themselves. Whatever your thing is, make the thing you
+            wish you had found when you were learning. The biggest beneficiary
+            of you trying to help past you is future you. If others benefit,
+            that's icing.”
+          </Paragraph>
+          <Row>
+            <CollapsableLink variant="bright">
+              shawn wang, swyx.io
+            </CollapsableLink>
+          </Row>
+        </ContentWrapper>
+        <BlogContent>
+          <ContentFilters>
+            {tags.map((tag, idx) => (
+              <Filter>{tag.node.data.tag}</Filter>
+            ))}
+          </ContentFilters>
+          <BlogPosts>
+            {posts.map((post, idx) => (
+              <PostItem data={post}>abc</PostItem>
+            ))}
+          </BlogPosts>
+        </BlogContent>
+      </TopLayer>
+    </Layout>
+  )
+}
 export default Blog
+
+export const pageQuery = graphql`
+  query PostsQuery($locale: String!) {
+    posts: allPrismicPost(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          uid
+          first_publication_date
+          last_publication_date
+          data {
+            title {
+              text
+            }
+            description {
+              text
+            }
+            icon {
+              text
+            }
+          }
+        }
+      }
+    }
+    tags: allPrismicTag {
+      edges {
+        node {
+          slugs
+          data {
+            tag
+          }
+        }
+      }
+    }
+  }
+`
