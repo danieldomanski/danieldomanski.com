@@ -11,8 +11,8 @@ const LinkContainer = styled(Link)`
   ${color};
 `
 
-const RegularLink = ({ children, size, weight }) => (
-  <LinkContainer fontSize={size} fontWeight={weight}>
+const RegularLink = ({ children, size, weight, to }) => (
+  <LinkContainer fontSize={size} fontWeight={weight} to={to}>
     {children}
   </LinkContainer>
 )

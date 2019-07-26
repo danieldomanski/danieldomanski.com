@@ -43,6 +43,8 @@ const theme = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+    '48': '12rem',
+    '64': '15rem',
   },
   fonts: {
     sans: [
@@ -113,7 +115,7 @@ const theme = {
     tight: 1.25,
     snug: 1.375,
     normal: 1.5,
-    relaxed: 1.625,
+    relaxed: 1.75,
     loose: 2,
   },
 }
@@ -169,10 +171,10 @@ theme.components = {
   },
   filters: {
     primary: {
-      hoverColor: theme.colors.primary[7],
-      backgroundColor: theme.colors.primary[4],
+      hoverColor: theme.colors.primary[8],
+      backgroundColor: theme.colors.primary[5],
       active: {
-        backgroundColor: theme.colors.primary[6],
+        backgroundColor: theme.colors.primary[7],
         hoverColor: theme.colors.primary[8],
       },
     },

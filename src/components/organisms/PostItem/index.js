@@ -7,13 +7,13 @@ import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center bg-primary-100 my-4 py-3 shadow`}
+  ${tw`w-full flex items-center my-4 py-3 shadow`}
   transition: 0.4s ease-in-out;
+  background-color: #f6f6f6;
 
   &:hover {
     ${tw`shadow-lg`};
     background-color: #f6f6f6;
-    transform: scale(1.01);
   }
 
   &:focus {
@@ -46,10 +46,10 @@ const PostItem = ({ data }) => {
   return (
     <Container href={`/blog/${data.node.uid}`}>
       <IconContainer>
-        <Icon icon={icon.text} width="48" />
+        <Icon icon={icon.text} width="64" />
       </IconContainer>
       <TextContainer>
-        <Text fontColor="primary.8" fontSize="xl" fontWeight="bold">
+        <Text fontColor="primary.8" fontSize="xl" fontWeight="black">
           {title.text}
         </Text>
         <Paragraph fontColor="primary.6" fontSize="sm" my={1}>

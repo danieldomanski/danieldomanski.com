@@ -2,9 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Icon from '../Icon'
+import Text from '../Text'
 
 const SlidableSpan = styled.button`
-  ${tw`inline-block relative self-end z-10 px-4 text-sm  font-bold text-primary-800 font-sans bg-transparent`}
+  ${tw`flex items-center relative z-10 px-4 bg-transparent no-underline`}
   border: 0;
   outline: 0;
 
@@ -35,7 +36,15 @@ const SlidableSpan = styled.button`
 
 const SlidableBtn = ({ children }) => (
   <SlidableSpan>
-    {children}
+    <Text
+      fontFamily="sans"
+      fontSize="base"
+      fontColor="primary.8"
+      fontWeight="semibold"
+      mr={2}
+    >
+      {children}
+    </Text>
     <Icon icon="arrow" width="25px" />
   </SlidableSpan>
 )

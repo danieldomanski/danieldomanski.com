@@ -1,44 +1,55 @@
 import React from 'react'
-import { Link } from 'gatsby'
+
 import styled from 'styled-components'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 import Text from '../../atoms/Text'
+import { Link } from '../../atoms/Link'
 import Paragraph from '../../atoms/Paragraph'
+import Box from '../../atoms/Box'
 import { ContentWrapper } from '../../atoms/Wrapper'
 
-const Container = styled.div`
-  ${tw`py-16 px-8 xl:px-16 m-auto `}
-`
-
-const Wrapper = styled(ContentWrapper)`
-  ${tw`relative w-full h-full flex flex-col justify-center`}
-`
-
 const Row = styled.div`
-  ${tw`flex justify-between items-center my-16`}
+  ${tw`flex justify-between items-center mt-16 mb-8`}
 `
 
 const ProjectsSlide = () => (
-  <Container>
-    <Wrapper>
-      <Row>
+  <Box maxWidth={1400} m="auto" pt={48} pb={48}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      position="relative"
+      px={[8, 12, 16, 24]}
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={8}
+      >
         <Text fontColor="primary.7" fontWeight="black" fontSize="5xl">
           Works.
         </Text>
         <Link to="/projects">
           <SlidableButton>view all projects</SlidableButton>
         </Link>
-      </Row>
-      <Paragraph fontColor="primary-700" size="lg">
+      </Box>
+      <Text
+        fontFamily="sans"
+        fontColor="primary.6"
+        fontSize="lg"
+        lineHeight="relaxed"
+        maxWidth={900}
+      >
         Learning new things is an integral part of every software engineer on a
         daily basis. Something that always characterized our industry is broad
         access to free resources. Learning in public is my way to give back some
         value to the community.
-      </Paragraph>
+      </Text>
       <ProjectsSlider />
-    </Wrapper>
-  </Container>
+    </Box>
+  </Box>
 )
 
 export default ProjectsSlide

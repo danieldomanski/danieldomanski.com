@@ -15,11 +15,12 @@ const ItalicSpan = styled.span`
 
 const UpperRect = () => (
   <Box
+    width={1}
+    height="100%"
     display="flex"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"
-    bg="#1f1f1f"
     textAlign="center"
     px={[12, 12, 12, 32]}
     py={8}

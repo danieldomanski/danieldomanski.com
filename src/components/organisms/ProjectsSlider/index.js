@@ -13,11 +13,10 @@ const Slides = styled.ul`
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2em;
-    
     @media screen and (min-width: 1200px){
       grid-template-rows: 100%;
       grid-template-columns: repeat(3, 1fr);
-
+      height: 500px;
     }
   }
 
@@ -97,7 +96,7 @@ const ProjectsSlider = () => {
           const input = getSliceContent(body, 'image')
 
           return (
-            <Slide to={`/en/${uid}`}>
+            <Slide to={`/en/projects/${uid}`}>
               <BgCover />
               <Cover>
                 <CoverActions>

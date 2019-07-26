@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { layout, typography, color, space } from 'styled-system'
 
-const HeadingContainer = styled.h1`
+const TextContainer = styled.p`
   ${tw`h-auto`};
 
   ${layout};
@@ -13,7 +13,7 @@ const HeadingContainer = styled.h1`
   ${space};
 `
 
-const Heading = ({
+const Text = ({
   children,
   display,
   fontFamily,
@@ -21,28 +21,30 @@ const Heading = ({
   fontWeight,
   fontColor,
   lineHeight,
+  maxWidth,
   mt,
   mb,
   mr,
   ml,
 }) => (
-  <HeadingContainer
+  <TextContainer
     display={display}
     fontSize={fontSize}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
     lineHeight={lineHeight}
+    maxWidth={maxWidth}
     mt={mt}
     mb={mb}
     mr={mr}
     ml={ml}
   >
     {children}
-  </HeadingContainer>
+  </TextContainer>
 )
 
-Heading.propTypes = {
+Text.propTypes = {
   fontSize: PropTypes.arrayOf(PropTypes.string),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
@@ -56,11 +58,11 @@ Heading.propTypes = {
   ml: PropTypes.number,
 }
 
-Heading.defaultProps = {
+Text.defaultProps = {
   fontFamily: 'serif',
   fontSize: ['4xl'],
   lineHeight: 'normal',
-  fontWeight: 'medium',
+  fontWeight: 'normal',
   fontColor: 'primary.5',
   display: ['inline-block'],
   mb: 0,
@@ -69,4 +71,4 @@ Heading.defaultProps = {
   ml: 0,
 }
 
-export default Heading
+export default Text

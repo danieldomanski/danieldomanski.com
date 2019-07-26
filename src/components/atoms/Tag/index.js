@@ -4,7 +4,7 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Tag = styled(Link)`
-  ${tw`font-sans text-xs px-4 py-2 text-primary-800 font-bold mr-2 rounded cursor-pointer no-underline bg-primary-200 hover:bg-primary-300`}
+  ${tw`font-sans text-xs px-4 py-2 text-primary-800 font-bold mr-2 rounded cursor-pointer no-underline bg-primary-200 hover:bg-primary-300 shadow`}
   transition: 0.1s ease-in-out;
 
   &:hover {

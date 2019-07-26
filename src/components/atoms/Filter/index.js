@@ -3,7 +3,7 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 
 const FilterContainer = styled.li`
-  ${tw`font-sans text-sm flex justify-between items-center px-4 py-2 text-primary-100 font-bold mx-1 shadow rounded cursor-pointer`}
+  ${tw`font-sans text-sm flex justify-between items-center px-4 md:px-6 py-2 text-primary-200 font-bold mx-1 shadow rounded cursor-pointer`}
   transition: 0.1s ease-in-out;
 
   &:hover {

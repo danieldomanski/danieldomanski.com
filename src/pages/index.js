@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Footer from '../components/organisms/Footer'
+import UpperBox from '../components/organisms/Footer/UpperBox'
+import BottomBox from '../components/organisms/Footer/BottomBox'
 
 import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
@@ -119,7 +121,10 @@ const Index = ({ data, pageContext, location }) => {
             <AboutSlide />
           </Box>
         </IndexMobileWrapper>
-        <Footer />
+        <Footer>
+          <UpperBox />
+          <BottomBox />
+        </Footer>
       </Layout>
     )
   }
@@ -132,11 +137,12 @@ const Index = ({ data, pageContext, location }) => {
       <MainWrapper>
         <ProjectsSlide />
         <BlogSlide posts={data.posts.edges} />
-        <ContentWrapper>
-          <AboutSlide />
-        </ContentWrapper>
+        <AboutSlide />
       </MainWrapper>
-      <Footer variant="index" />
+      <Footer variant="index">
+        <UpperBox />
+        <BottomBox />
+      </Footer>
     </Layout>
   )
 }

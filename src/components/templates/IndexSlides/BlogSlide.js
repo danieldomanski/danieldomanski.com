@@ -1,51 +1,60 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
+import { Link } from '../../atoms/Link'
 import Text from '../../atoms/Text'
-import Paragraph from '../../atoms/Paragraph'
+import Box from '../../atoms/Box'
 import SlidableButton from '../../atoms/Button/SlidableButton'
-import { ContentWrapper } from '../../atoms/Wrapper'
 import PostItem from '../../organisms/PostItem'
 
-const Container = styled(ContentWrapper)`
-  ${tw`py-16 px-12`}
-`
-
-const Row = styled.div`
-  ${tw`flex justify-between items-center my-16`}
-`
-
 const BlogPosts = styled.ul`
-  ${tw`py-12 m-auto`}
+  ${tw`py-12`}
   max-width: 800px;
   list-style: none;
 `
 
 const BlogSlide = ({ posts }) => (
-  <Container>
-    <Row>
-      <Text fontSize="5xl" fontColor="primary.7" fontWeight="black">
-        Blog.
+  <Box maxWidth={1400} m="auto" pb={48} px={[8, 12, 16, 24]}>
+    <Box
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      position="relative"
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={8}
+      >
+        <Text fontSize="5xl" fontColor="primary.7" fontWeight="black">
+          Blog.
+        </Text>
+        <Link to="/blog">
+          <SlidableButton>view all posts</SlidableButton>
+        </Link>
+      </Box>
+      <Text
+        fontFamily="sans"
+        fontSize="lg"
+        fontColor="primary.6"
+        lineHeight="relaxed"
+        maxWidth={900}
+      >
+        Learning new things is an integral part of every software engineer on a
+        daily basis. Something that always characterized our industry is broad
+        access to free resources. Learning in public is my way to give back some
+        value to the community.
       </Text>
-      <Link to="/blog">
-        <SlidableButton>view all posts</SlidableButton>
-      </Link>
-    </Row>
-    <Paragraph fontSize="lg" fontColor="primary.6" withLine>
-      Learning new things is an integral part of every software engineer on a
-      daily basis. Something that always characterized our industry is broad
-      access to free resources. Learning in public is my way to give back some
-      value to the community.
-    </Paragraph>
-    <BlogPosts>
-      <Text fontSize="base" fontColor="primary.8" fontWeight="bold">
-        Latest posts.
-      </Text>
-      {posts.map((post, idx) => (
-        <PostItem data={post} />
-      ))}
-    </BlogPosts>
-  </Container>
+      <BlogPosts>
+        <Text fontSize="base" fontColor="primary.8" fontWeight="bold">
+          Latest posts.
+        </Text>
+        {posts.map((post, idx) => (
+          <PostItem data={post} />
+        ))}
+      </BlogPosts>
+    </Box>
+  </Box>
 )
 
 export default BlogSlide

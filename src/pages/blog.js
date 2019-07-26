@@ -4,11 +4,11 @@ import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
-import Paragraph from '../components/atoms/Paragraph'
 import { ContentWrapper } from '../components/atoms/Wrapper'
 import { CollapsableLink } from '../components/atoms/Link'
 import PostItem from '../components/organisms/PostItem'
 import Filter from '../components/atoms/Filter'
+import Box from '../components/atoms/Box'
 
 const TopLayer = styled.section`
   ${tw`w-full h-screen px-16 lg:px-24 xl:px-32`}
@@ -28,40 +28,39 @@ const BlogPosts = styled.ul`
 
 const BlogContent = styled(ContentWrapper)`
   ${tw`pt-12 pb-24`}
-  max-width: 1000px;
+  max-width: 800px;
 `
 const Row = styled(ContentWrapper)`
-  ${tw`text-right`}
-  max-width: 1000px;
+  ${tw`text-right my-4`}
+  max-width: 800px;
 `
 
 const Blog = ({ data }) => {
   const tags = data.tags.edges
   const posts = data.posts.edges
 
-  console.log({ tags, posts })
   return (
     <Layout>
       <Header variant="secondary" />
       <TopLayer>
-        <ContentWrapper>
+        <Box display="flex" flexDirection="column" maxWidth={800} m="auto">
           <Text fontColor="primary.7" fontWeight="black" fontSize="5xl" my={4}>
             Blog
           </Text>
-          <Paragraph fontColor="primary.6" fontSize="lg" withLine my={4}>
+          <Text fontColor="primary.6" fontSize="lg" mt={4}>
             “You already know that you will never be done learning. But most
             people "learn in private", and lurk. They consume content without
             creating any themselves. Whatever your thing is, make the thing you
             wish you had found when you were learning. The biggest beneficiary
             of you trying to help past you is future you. If others benefit,
             that's icing.”
-          </Paragraph>
+          </Text>
           <Row>
             <CollapsableLink variant="bright">
               shawn wang, swyx.io
             </CollapsableLink>
           </Row>
-        </ContentWrapper>
+        </Box>
         <BlogContent>
           <ContentFilters>
             {tags.map((tag, idx) => (
