@@ -12,6 +12,7 @@ import {
 const Box = styled.div(
   {
     minWidth: 0,
+    inViewport: false,
   },
   space,
   color,
