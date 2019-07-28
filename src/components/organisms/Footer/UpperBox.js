@@ -18,6 +18,7 @@ const UpperRect = () => (
     width={1}
     height="100%"
     display="flex"
+    bg="#E2E2E2"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"
@@ -25,10 +26,22 @@ const UpperRect = () => (
     px={[12, 12, 12, 32]}
     py={8}
   >
-    <Text fontColor="primary.3" fontSize={['3xl', '5xl']} fontWeight="bold">
+    <Text
+      fontColor="primary.8"
+      fontSize={['3xl', '5xl']}
+      fontWeight="bold"
+      mb={4}
+    >
       Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
     </Text>
-    <Text fontSize={['base', 'lg']} fontColor="primary.6" my={[4]}>
+    <Text
+      fontFamily="sans"
+      fontSize={['base', 'lg']}
+      fontColor="primary.6"
+      my={[4]}
+      maxWidth={800}
+      lineHeight="relaxed"
+    >
       You may find me on social networks given below, or
       <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1}>
         e-mail me directly.

@@ -5,36 +5,20 @@ import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
 import Paragraph from '../../atoms/Paragraph'
-import Column from '../../atoms/Box/Column'
-
-const HeroHeading = styled.section`
-  ${tw`absolute w-full h-screen`}
-  background-color: #1A1A1A;
-  z-index: 4;
-`
+import Box from '../../atoms/Box'
 
 const HeroText = styled.section`
-  ${tw`fixed flex flex-col items-center`};
-  z-index: 4;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: ${props => (props.visible ? 'block' : 'none')};
+  ${tw`fixed w-full h-full`};
 
+  display: ${props => (props.visible ? 'block' : 'none')};
+  z-index: 4;
   transition: 0.25s;
 `
 
-const TitleSpan = styled.span`
-  ${tw`block text-primary-100`}
-
-  &:first-of-type {
-    font-size: 96px;
-  }
-`
-
-const DescSpan = styled.span`
-  display: block;
-  white-space: nowrap;
+const HeroContainer = styled.section`
+  ${tw`w-full flex flex-col absolute m-auto`}
+  top: 50%;
+  transform: translateY(-50%);
 `
 
 const HomeSlide = () => {
@@ -43,38 +27,37 @@ const HomeSlide = () => {
   const opacity = Math.max(1 - scroll.y / 1000, 0.4)
 
   return (
-    <HeroHeading opacity={opacity}>
+    <>
       <HeroText visible={scroll.y <= windowSize.height}>
-        <Column>
-          <Text inViewport fontSize="10xl">
-            Hi.
-          </Text>
-          <Text inViewport fontSize="5xl">
-            I’m Daniel Domański.
-          </Text>
-        </Column>
-        <Paragraph
-          inViewport
-          fontColor="primary.5"
-          fontSize={['xl']}
-          lineHeight="loose"
+        <HeroContainer
+          display="flex"
+          flexDirection="column"
+          maxWidth={1600}
+          position="absolute"
+          top="50%"
+          m="auto"
+          transform="translateY(-50%)"
         >
-          <DescSpan>
-            I’m a web developer currently based in
-            <TextHighlight fontColor="primary.5" fontSize="xl" mx={1}>
-              Szczecin, Poland.
-            </TextHighlight>
-          </DescSpan>
-          <DescSpan>
-            My job is to help
-            <TextHighlight fontColor="primary.5" fontSize="xl" mx={1}>
-              your business grow
-            </TextHighlight>
-            by providing modern digital products.
-          </DescSpan>
-        </Paragraph>
+          <Box maxWidth={1600} m="auto">
+            <Text fontWeight="black" fontSize="6xl" fontColor="primary.8">
+              Full-Stack Web Developer.
+            </Text>
+            <Text
+              fontFamily="sans"
+              fontWeight="normal"
+              fontSize="2xl"
+              fontColor="primary.6"
+              lineHeight="relaxed"
+              maxWidth={1000}
+            >
+              Hello! My name is Daniel and I have been creating for the Web for
+              the past 2 years. My job is to help your business grow by
+              providing modern digital products that people enjoy.
+            </Text>
+          </Box>
+        </HeroContainer>
       </HeroText>
-    </HeroHeading>
+    </>
   )
 }
 

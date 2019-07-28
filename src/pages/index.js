@@ -28,7 +28,7 @@ import IndexBottomBg from '../images/IndexBottomBg.svg'
 
 const MainWrapper = styled.main`
   ${tw`relative overflow-hidden shadow-lg`}
-
+  border-top: 1px solid rgba(0,0,0,0.05);
   z-index: 5;
   margin-top: 100vh;
   margin-bottom: 500px;
@@ -135,9 +135,9 @@ const Index = ({ data, pageContext, location }) => {
         <HomeSlide />
       </TopLayer>
       <MainWrapper>
+        <AboutSlide />
         <ProjectsSlide />
         <BlogSlide posts={data.posts.edges} />
-        <AboutSlide />
       </MainWrapper>
       <Footer variant="index">
         <UpperBox />

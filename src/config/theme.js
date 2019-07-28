@@ -1,5 +1,7 @@
 const colors = {
   // theme colors
+
+  // black/gray
   primary: [
     '#F4F4F4',
     '#E9E9E9',
@@ -10,6 +12,18 @@ const colors = {
     '#8F8F8F',
     '#5A5A5A',
     '#363636',
+  ],
+  // blue
+  accent: [
+    '#D0E0FF',
+    '#8BB1FF',
+    '#5C92FF',
+    '#2E73FF',
+    '#0055FF',
+    '#0046D1',
+    '#0037A3',
+    '#002774',
+    '#001846',
   ],
 }
 
@@ -63,7 +77,7 @@ const theme = {
       'sans-serif',
     ],
     serif: [
-      'Playfair Display',
+      'Merriweather',
       'DejaVu Serif',
       'Lucidabright',
       'Lucida Bright',

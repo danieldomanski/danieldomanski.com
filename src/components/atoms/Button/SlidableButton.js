@@ -5,7 +5,7 @@ import Icon from '../Icon'
 import Text from '../Text'
 
 const SlidableSpan = styled.button`
-  ${tw`flex items-center relative z-10 px-4 bg-transparent no-underline`}
+  ${tw`flex items-center relative z-10 px-6 bg-transparent no-underline`}
   border: 0;
   outline: 0;
 
@@ -14,7 +14,7 @@ const SlidableSpan = styled.button`
     box-sizing: border-box;
     z-index: -1;
     content: '';
-    left: -4px;
+    left: -2px;
     width: 64px;
     height: 64px;
     display: inline-block;
@@ -38,7 +38,7 @@ const SlidableBtn = ({ children }) => (
   <SlidableSpan>
     <Text
       fontFamily="sans"
-      fontSize="base"
+      fontSize="lg"
       fontColor="primary.8"
       fontWeight="semibold"
       mr={2}

@@ -220,7 +220,7 @@ module.exports = {
       'sans-serif',
     ],
     serif: [
-      'Playfair Display',
+      'Merriweather',
       'DejaVu Serif',
       'Lucidabright',
       'Lucida Bright',

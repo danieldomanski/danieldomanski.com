@@ -2,13 +2,13 @@ import React, { useState, useCallback, useContext } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import Logo from '../../atoms/Logo'
+import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import NavigationHamburger from '../../molecules/NavigationHamburger'
 import NavigationCover from '../NavigationCover'
 
 const Container = styled.header`
-  ${tw`absolute md:fixed pin-t py-8 text-primary-700 px-8 xl:px-16`};
+  ${tw`absolute md:fixed pin-t py-12 text-primary-700 px-8 xl:px-16`};
   background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
   z-index: 6;
   width: 100%;
@@ -17,6 +17,8 @@ const Container = styled.header`
 
 const Wrapper = styled.div`
   ${tw`flex items-center justify-between m-auto`}
+  max-width: 1600px;
+  margin: auto;
 `
 
 const LogoContainer = styled.div`
@@ -39,9 +41,9 @@ const Header = ({ variant }) => {
     <Container>
       <Wrapper>
         <LogoContainer>
-          <Logo variant={variant}>
-            <Link to="/">dd</Link>
-          </Logo>
+          <Text fontSize="xl" fontWeight="black" fontColor="primary.8">
+            Daniel Domański
+          </Text>
         </LogoContainer>
         <LocaleSwitcher variant={variant} />
         <NavMenu onClick={toggleNav}>

@@ -7,14 +7,14 @@ import Icon from '../../atoms/Icon'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 
 const AboutSlide = () => (
-  <Box maxWidth={1400} m="auto" pb={48} px={[8, 12, 16, 24]}>
+  <Box maxWidth={1400} m="auto" pt={64} pb={64} px={[8, 12, 16, 24]}>
     <Box
       display="flex"
       justifyContent="space-between"
       alignItems="center"
       mb={8}
     >
-      <Text fontSize="5xl" fontColor="primary.7" fontWeight="black">
+      <Text fontSize="6xl" fontColor="primary.7" fontWeight="black">
         About.
       </Text>
       <Link to="/blog">
