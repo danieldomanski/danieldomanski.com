@@ -3,20 +3,21 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { LocaleContext } from '../../../context/LocaleContext'
-
-const Container = styled.span`
-  ${tw`hidden md:block`};
-`
+import Box from '../Box'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase mx-2 cursor-pointer`}
+  ${tw`relative font-sans uppercase mr-1 cursor-pointer`}
+
+  &:last-of-type {
+    ${tw`ml-1 mr-0`}
+  }
 
   color: ${props => (props.active ? '#111' : '#666')};
   font-weight: ${props => (props.active ? 900 : 400)};
   transition: 0.25s;
 
   &:focus {
-    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
   }
 `
 
@@ -32,7 +33,7 @@ const LocaleSwitcher = ({ variant, theme }) => {
   }, [active])
 
   return (
-    <Container>
+    <Box display="flex" alignItems="center">
       <LocaleSpan
         fontColor={color}
         underlineColor={underlineColor}
@@ -50,7 +51,7 @@ const LocaleSwitcher = ({ variant, theme }) => {
       >
         pl
       </LocaleSpan>
-    </Container>
+    </Box>
   )
 }
 

@@ -7,7 +7,7 @@ import Text from '../../atoms/Text'
 import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center my-4 py-3 shadow`}
+  ${tw`w-full flex items-center my-4 py-4 shadow`}
   transition: 0.4s ease-in-out;
   background-color: #f6f6f6;
 
@@ -17,7 +17,7 @@ const Container = styled.a`
   }
 
   &:focus {
-    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
   }
 
   text-decoration: none;
@@ -49,12 +49,18 @@ const PostItem = ({ data }) => {
         <Icon icon={icon.text} width="64" />
       </IconContainer>
       <TextContainer>
-        <Text fontColor="primary.8" fontSize="xl" fontWeight="black">
+        <Text
+          fontColor="primary.8"
+          fontSize="xl"
+          fontWeight="black"
+          mb={1}
+          hover={{ color: '#0055FF' }}
+        >
           {title.text}
         </Text>
-        <Paragraph fontColor="primary.6" fontSize="sm" my={1}>
+        <Text fontColor="primary.6" fontSize="sm">
           {description.text}
-        </Paragraph>
+        </Text>
       </TextContainer>
       <DateContainer>{formatDate(last_publication_date)}</DateContainer>
     </Container>

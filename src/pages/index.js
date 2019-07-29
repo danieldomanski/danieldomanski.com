@@ -27,12 +27,13 @@ import Column from '../components/atoms/Box/Column'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
 
 const MainWrapper = styled.main`
-  ${tw`relative overflow-hidden shadow-lg`}
-  border-top: 1px solid rgba(0,0,0,0.05);
+  ${tw`relative overflow-hidden`}
   z-index: 5;
   margin-top: 100vh;
   margin-bottom: 500px;
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
   &:after {
     content: '';
@@ -64,7 +65,6 @@ const HeroMobile = styled.div`
 `
 
 const Index = ({ data, pageContext, location }) => {
-  console.log({ data })
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const [, setProjects] = useContext(ProjectsContext)
@@ -77,50 +77,42 @@ const Index = ({ data, pageContext, location }) => {
     return (
       <Layout>
         <Header variant="secondary" />
-        <IndexMobileWrapper>
-          <HeroMobile>
+        <>
+          <Box px={[8, 16, 24]} textAlign="center" bg="#E0E0E0" py={24}>
             <Text
-              display="block"
-              fontSize="6xl"
-              fontColor="primary.3"
               fontWeight="black"
+              fontSize={['3xl', '4xl', '6xl']}
+              fontColor="primary.8"
+              lineHeight="tight"
+              mb={8}
             >
-              Hi.
-            </Text>
-            <Text fontSize="3xl" fontColor="primary.3" fontWeight="black">
-              I’m Daniel Domański.
+              Full-Stack Web Developer.
             </Text>
             <Text
-              fontColor="primary.5"
-              fontSize={['base']}
+              fontFamily="sans"
+              fontWeight="normal"
+              fontSize={['lg', 'lg', '2xl']}
+              fontColor="primary.6"
               lineHeight="relaxed"
-              mt={4}
-              mb={4}
             >
-              I’m a web developer currently based in
-              <TextHighlight fontColor="primary.5" fontSize="lg" mx={1}>
-                Szczecin, Poland.
-              </TextHighlight>
-              My job is to help
-              <TextHighlight fontColor="primary.5" fontSize="lg" mx={1}>
-                your business grow
-              </TextHighlight>
-              by providing modern digital products.
+              Hello! My name is Daniel and I have been creating for the Web for
+              the past 2 years. My job is to help your business grow by
+              providing modern digital products that people enjoy.
             </Text>
-          </HeroMobile>
+          </Box>
           <Box px={4}>
             <Column>
-              <Text fontColor="primary-900" fontWeight="black" my={4}>
+              <Text fontColor="primary.8" fontWeight="black" my={4}>
                 Works
               </Text>
-              <Paragraph fontColor="primary.7" withLine>
+              <Text fontColor="primary.6" fontSize="xl">
                 My recent works.
-              </Paragraph>
+              </Text>
             </Column>
             <ProjectsGrid />
             <AboutSlide />
           </Box>
-        </IndexMobileWrapper>
+        </>
         <Footer>
           <UpperBox />
           <BottomBox />

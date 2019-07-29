@@ -14,21 +14,22 @@ const LinkContainer = styled(Link)`
 
   &:after {
     content: '';
-    ${tw`absolute w-full pin-l`};
+    ${tw`absolute pin-l`};
+    width: 0;
     transition: 0.5s ease-in-out;
     z-index: -1;
     height: ${props => props.height};
     bottom: ${props => props.bottom};
-    background-color: ${props => props.bg};
+    background-color: ${props => props.bgColor};
   }
 
   &:hover {
     color: ${props => props.hoverColor};
 
     &:after {
-      ${tw`bg-primary-700`}
-      bottom: -1px;
-      height: 2px;
+      ${tw`w-full`}
+      
+      background-color: ${props => props.bgColor};
     }
   }
 `

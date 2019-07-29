@@ -13,7 +13,7 @@ const BlogPosts = styled.ul`
 `
 
 const BlogSlide = ({ posts }) => (
-  <Box maxWidth={1400} m="auto" pb={64} px={[8, 12, 16, 24]}>
+  <Box maxWidth={1400} m="auto" pb={64} px={[8, 8, 12, 16, 24]}>
     <Box
       display="flex"
       flexDirection="column"

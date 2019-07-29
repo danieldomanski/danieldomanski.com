@@ -19,7 +19,7 @@ const ButtonContainer = styled.button`
   }
 
   &:focus {
-    border: 2px solid rgba(0, 0, 0, 0.15);
+    border: 2px solid rgba(0, 85, 255 0.5);
     outline: 0;
   }
 `

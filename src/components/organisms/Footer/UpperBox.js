@@ -43,12 +43,12 @@ const UpperRect = () => (
       lineHeight="relaxed"
     >
       You may find me on social networks given below, or
-      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1}>
+      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1} variant="accent">
         e-mail me directly.
       </CollapsableLink>
       If you're a digital or design agency, recruiter or just interested in a
       hard copy of my resumé as a PDF,
-      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1}>
+      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1} variant="accent">
         download it here.
       </CollapsableLink>
     </Text>

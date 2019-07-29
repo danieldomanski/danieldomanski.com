@@ -7,7 +7,7 @@ import Icon from '../../atoms/Icon'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 
 const AboutSlide = () => (
-  <Box maxWidth={1400} m="auto" pt={64} pb={64} px={[8, 12, 16, 24]}>
+  <Box maxWidth={1400} m="auto" pt={64} pb={64} px={[8, 8, 12, 16, 24]}>
     <Box
       display="flex"
       justifyContent="space-between"

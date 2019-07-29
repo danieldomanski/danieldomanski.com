@@ -182,6 +182,13 @@ theme.components = {
       hoverColor: theme.colors.primary[5],
       color: theme.colors.primary[6],
     },
+    accent: {
+      height: '1px',
+      bottom: '3px',
+      backgroundColor: theme.colors.accent[4],
+      hoverColor: theme.colors.accent[5],
+      color: theme.colors.accent[5],
+    },
   },
   filters: {
     primary: {

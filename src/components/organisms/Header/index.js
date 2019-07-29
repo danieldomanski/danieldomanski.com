@@ -4,21 +4,14 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
-import NavigationHamburger from '../../molecules/NavigationHamburger'
-import NavigationCover from '../NavigationCover'
+import Box from '../../atoms/Box'
+import Navigation from '../Navigation'
 
 const Container = styled.header`
-  ${tw`absolute md:fixed pin-t py-12 text-primary-700 px-8 xl:px-16`};
-  background: linear-gradient(rgba(0, 0, 0, 0.2), transparent);
+  ${tw`static md:fixed pin-t text-primary-700`};
   z-index: 6;
   width: 100%;
   transition: 0.25s;
-`
-
-const Wrapper = styled.div`
-  ${tw`flex items-center justify-between m-auto`}
-  max-width: 1600px;
-  margin: auto;
 `
 
 const LogoContainer = styled.div`
@@ -39,18 +32,37 @@ const Header = ({ variant }) => {
 
   return (
     <Container>
-      <Wrapper>
-        <LogoContainer>
-          <Text fontSize="xl" fontWeight="black" fontColor="primary.8">
-            Daniel Domański
-          </Text>
-        </LogoContainer>
-        <LocaleSwitcher variant={variant} />
-        <NavMenu onClick={toggleNav}>
-          <NavigationHamburger isNavOpen={isNavOpen} />
-        </NavMenu>
-        <NavigationCover isNavOpen={isNavOpen} />
-      </Wrapper>
+      <Box
+        display="flex"
+        flexDirection={['column', 'column', 'row']}
+        justifyContent="space-between"
+        alignItems={['flex-start', 'flex-start', 'center']}
+        m="auto"
+        maxWidth={1600}
+        px={[8, 8, 8, 16, 24]}
+        py={[8, 8, 12, 16]}
+      >
+        <Box
+          width={1}
+          display="flex"
+          justifyContent="space-between"
+          mb={[4, 4, 0]}
+        >
+          <Link to="/">
+            <Text
+              fontSize="xl"
+              fontWeight="black"
+              fontColor="primary.8"
+              hover={{ color: '#0055FF' }}
+              style={{ letterSpacing: '-0.5px' }}
+            >
+              Daniel Domański
+            </Text>
+          </Link>
+          <LocaleSwitcher variant={variant} />
+        </Box>
+        <Navigation />
+      </Box>
     </Container>
   )
 }

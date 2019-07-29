@@ -32,14 +32,19 @@ const HomeSlide = () => {
         <HeroContainer
           display="flex"
           flexDirection="column"
-          maxWidth={1600}
           position="absolute"
           top="50%"
           m="auto"
           transform="translateY(-50%)"
         >
-          <Box maxWidth={1600} m="auto">
-            <Text fontWeight="black" fontSize="6xl" fontColor="primary.8">
+          <Box maxWidth={1600} m="auto" px={[8, 12, 16, 24]}>
+            <Text
+              fontWeight="black"
+              fontSize="6xl"
+              fontColor="primary.8"
+              lineHeight="tight"
+              mb={8}
+            >
               Full-Stack Web Developer.
             </Text>
             <Text

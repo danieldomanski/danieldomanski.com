@@ -13,7 +13,7 @@ const ProjectsSlide = () => (
       flexDirection="column"
       justifyContent="center"
       position="relative"
-      px={[8, 12, 16, 24]}
+      px={[8, 8, 12, 16, 24]}
     >
       <Box
         display="flex"

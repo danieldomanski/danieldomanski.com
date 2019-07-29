@@ -11,6 +11,12 @@ const TextContainer = styled.p`
   ${typography};
   ${color};
   ${space};
+
+  &:hover {
+    color: ${props => (props.hover ? props.hover.color : null)};
+  }
+
+  transition: color 0.1s ease-in-out;
 `
 
 const Text = ({
@@ -22,10 +28,12 @@ const Text = ({
   fontColor,
   lineHeight,
   maxWidth,
+  hover,
   mt,
   mb,
   mr,
   ml,
+  ...rest
 }) => (
   <TextContainer
     display={display}
@@ -35,10 +43,12 @@ const Text = ({
     color={fontColor}
     lineHeight={lineHeight}
     maxWidth={maxWidth}
+    hover={hover}
     mt={mt}
     mb={mb}
     mr={mr}
     ml={ml}
+    {...rest}
   >
     {children}
   </TextContainer>

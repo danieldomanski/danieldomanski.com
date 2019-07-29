@@ -3,6 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Image from '../../atoms/ProjectCoverImage'
+import Text from '../../atoms/Text'
 import { ProjectsContext } from '../../../context/ProjectsContext'
 import { getSliceContent } from '../../../utilitity/prismic'
 
@@ -39,7 +40,7 @@ const Slide = styled(Link)`
   }
 
   &:focus {
-    box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
   }
 
   &:hover {
@@ -100,8 +101,17 @@ const ProjectsSlider = () => {
               <BgCover />
               <Cover>
                 <CoverActions>
-                  <Title>{title.text}</Title>
-                  <Description>{description.text}</Description>
+                  <Text fontWeight="black" fontColor="primary.8">
+                    {title.text}
+                  </Text>
+                  <Text
+                    fontFamily="sans"
+                    fontWeight="normal"
+                    fontSize="lg"
+                    fontColor="primary.5"
+                  >
+                    {description.text}
+                  </Text>
                 </CoverActions>
               </Cover>
               <Image input={input[0].localFile} />
