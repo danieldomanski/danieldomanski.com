@@ -4,17 +4,10 @@ import tw from 'tailwind.macro'
 import { formatDate } from '../../../utilitity/date'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
-import Paragraph from '../../atoms/Paragraph'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center my-4 py-4 shadow`}
+  ${tw`w-full flex items-center mt-4 md:mt-8 py-4 shadow bg-primary-100`}
   transition: 0.4s ease-in-out;
-  background-color: #f6f6f6;
-
-  &:hover {
-    ${tw`shadow-lg`};
-    background-color: #f6f6f6;
-  }
 
   &:focus {
     box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
@@ -25,7 +18,7 @@ const Container = styled.a`
 `
 
 const IconContainer = styled.span`
-  ${tw`mx-8`}
+  ${tw`mx-4 md:mx-8`}
 `
 
 const TextContainer = styled.div`
@@ -34,31 +27,34 @@ const TextContainer = styled.div`
 `
 
 const DateContainer = styled.div`
-  ${tw`font-sans text-sm text-right mx-8 text-primary-700`}
+  ${tw`hidden md:block font-sans text-sm text-right mx-8 text-primary-700`}
   flex:1;
 `
 
 const PostItem = ({ data }) => {
-  console.log({ postItem: data })
   const { title, description, icon } = data.node.data
   const { last_publication_date } = data.node
 
   return (
     <Container href={`/blog/${data.node.uid}`}>
       <IconContainer>
-        <Icon icon={icon.text} width="64" />
+        <Icon icon={icon.text} width={[48, 64]} />
       </IconContainer>
       <TextContainer>
         <Text
           fontColor="primary.8"
-          fontSize="xl"
+          fontSize={['base', 'xl']}
           fontWeight="black"
           mb={1}
           hover={{ color: '#0055FF' }}
         >
           {title.text}
         </Text>
-        <Text fontColor="primary.6" fontSize="sm">
+        <Text
+          display={['none', 'none', 'block']}
+          fontColor="primary.6"
+          fontSize="sm"
+        >
           {description.text}
         </Text>
       </TextContainer>

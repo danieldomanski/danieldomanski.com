@@ -8,7 +8,7 @@ import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
 
 const HeroText = styled.section`
-  ${tw`fixed w-full h-full`};
+  ${tw`static md:fixed w-full h-full`};
 
   display: ${props => (props.visible ? 'block' : 'none')};
   z-index: 4;
@@ -24,7 +24,42 @@ const HeroContainer = styled.section`
 const HomeSlide = () => {
   const windowSize = useWindowSize()
   const [scroll] = useContext(ScrollContext)
-  const opacity = Math.max(1 - scroll.y / 1000, 0.4)
+  const isMobile = windowSize.width < 768
+
+  if (isMobile) {
+    return (
+      <Box
+        maxWidth={1600}
+        m="auto"
+        px={[6, 6, 12, 16, 24]}
+        py={[16]}
+        bg="#EBEBEB"
+        textAlign={['center', 'center', 'left']}
+      >
+        <Text
+          fontWeight="black"
+          fontSize={['4xl', '4xl', '6xl']}
+          fontColor="primary.8"
+          lineHeight="tight"
+          mb={8}
+        >
+          Full-Stack Web Developer.
+        </Text>
+        <Text
+          fontFamily="sans"
+          fontWeight="normal"
+          fontSize={['lg', 'lg', 'xl', '2xl']}
+          fontColor="primary.6"
+          lineHeight="relaxed"
+          maxWidth={1000}
+        >
+          Hello! My name is Daniel and I have been creating for the Web for the
+          past 2 years. My job is to help your business grow by providing modern
+          digital products that people enjoy.
+        </Text>
+      </Box>
+    )
+  }
 
   return (
     <>
@@ -37,10 +72,15 @@ const HomeSlide = () => {
           m="auto"
           transform="translateY(-50%)"
         >
-          <Box maxWidth={1600} m="auto" px={[8, 12, 16, 24]}>
+          <Box
+            maxWidth={1600}
+            m="auto"
+            px={[8, 12, 16, 24]}
+            textAlign={['center', 'center', 'left']}
+          >
             <Text
               fontWeight="black"
-              fontSize="6xl"
+              fontSize={['3xl', '4xl', '6xl']}
               fontColor="primary.8"
               lineHeight="tight"
               mb={8}
@@ -50,7 +90,7 @@ const HomeSlide = () => {
             <Text
               fontFamily="sans"
               fontWeight="normal"
-              fontSize="2xl"
+              fontSize={['lg', 'lg', 'xl', '2xl']}
               fontColor="primary.6"
               lineHeight="relaxed"
               maxWidth={1000}

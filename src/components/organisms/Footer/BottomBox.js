@@ -4,10 +4,10 @@ import tw from 'tailwind.macro'
 import ContentWrapper from '../../atoms/Wrapper/ContentWrapper'
 import FooterSocials from '../../molecules/FooterSocialIcons'
 import Text from '../../atoms/Text'
-import { CollapsableLink } from '../../atoms/Link'
+import { Link } from '../../atoms/Link'
 
 const BottomWrapper = styled.div`
-  ${tw`absolute pin-b w-full py-8 md:py-4`}
+  ${tw` w-full py-8 md:py-4`}
   background-color: #151515;
 `
 
@@ -22,10 +22,17 @@ const BottomRow = styled(ContentWrapper)`
 const BottomBox = () => (
   <BottomWrapper>
     <BottomRow>
-      <CollapsableLink fontSize={['sm', 'base']}>source code</CollapsableLink>
+      <Link
+        display={['none', 'none', 'block']}
+        fontColor="primary.3"
+        fontSize={['sm', 'base']}
+        to="https://github.com/av3ng3roo"
+      >
+        View source code
+      </Link>
       <Text
         fontFamily="sans"
-        fontSize={['sm', 'base']}
+        fontSize={['base']}
         fontColor="primary.3"
         fontWeight="bold"
       >

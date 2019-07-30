@@ -24,31 +24,31 @@ const UpperRect = () => (
     alignItems="center"
     textAlign="center"
     px={[12, 12, 12, 32]}
-    py={8}
+    py={12}
   >
     <Text
       fontColor="primary.8"
-      fontSize={['3xl', '5xl']}
+      fontSize={['4xl', '5xl']}
       fontWeight="bold"
-      mb={4}
+      mb={[0, 4]}
     >
       Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
     </Text>
     <Text
       fontFamily="sans"
-      fontSize={['base', 'lg']}
+      fontSize={['lg']}
       fontColor="primary.6"
       my={[4]}
       maxWidth={800}
       lineHeight="relaxed"
     >
       You may find me on social networks given below, or
-      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1} variant="accent">
+      <CollapsableLink fontSize={['lg']} mx={1} variant="accent">
         e-mail me directly.
       </CollapsableLink>
       If you're a digital or design agency, recruiter or just interested in a
       hard copy of my resumé as a PDF,
-      <CollapsableLink fontSize={['sm', 'base', 'lg']} mx={1} variant="accent">
+      <CollapsableLink fontSize={['lg']} mx={1} variant="accent">
         download it here.
       </CollapsableLink>
     </Text>

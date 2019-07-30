@@ -4,10 +4,12 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
 
-import { typography, color } from 'styled-system'
+import { layout, typography, space, color } from 'styled-system'
 
 const LinkContainer = styled(Link)`
   ${tw`font-sans no-underline`};
+  ${space}
+  ${layout}
   ${typography};
   ${color};
 `
@@ -15,15 +17,19 @@ const LinkContainer = styled(Link)`
 const RegularLink = ({
   children,
   size,
+  display,
   fontWeight,
-  color,
+  fontColor,
+  my,
   activeStyle,
   to,
 }) => (
   <LinkContainer
+    display={display}
     fontSize={size}
     fontWeight={fontWeight}
-    color={color}
+    color={fontColor}
+    my={my}
     activeStyle={activeStyle}
     to={to}
   >

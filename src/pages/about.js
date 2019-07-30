@@ -4,7 +4,7 @@ import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
 import Paragraph from '../components/atoms/Paragraph'
-import { ContentWrapper } from '../components/atoms/Wrapper'
+import Box from '../components/atoms/Box'
 import Icon from '../components/atoms/Icon'
 
 const TopLayer = styled.section`
@@ -57,110 +57,108 @@ const Ellipse = styled.div`
 
 const About = () => (
   <Layout>
-    <Header variant="secondary" />
-    <TopLayer>
-      <ContentWrapper>
-        <Text fontColor="primary.7" fontWeight="black" fontSize="5xl">
-          Daniel Domański.
-        </Text>
-        <Paragraph fontColor="primary.6" fontSize="lg" withLine my={12}>
-          I love to create websites and web applications, paying close attention
-          to all the small details. No matter if you are a startup in need of a
-          landing page, a small business who wants a unique web shop, or an
-          entrepreneur who has an idea for an exciting web application.
-        </Paragraph>
-        <InfoContainer>
-          <InfoColumn>
-            <LooseSubheading>General</LooseSubheading>
-            <InfoRow>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontWeight="bold"
-                fontSize="sm"
-              >
-                Age
-              </Text>
-              <Paragraph fontColor="primary-600" size="sm" mx={4}>
-                24 years old
-              </Paragraph>
-            </InfoRow>
-            <InfoRow>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontWeight="bold"
-                fontSize="sm"
-              >
-                Location
-              </Text>
-              <Paragraph fontColor="primary-700" size="sm" mx={4}>
-                Szczecin, Poland
-              </Paragraph>
-            </InfoRow>
-            <InfoRow>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontWeight="bold"
-                fontSize="sm"
-              >
-                Roles
-              </Text>
-              <Paragraph fontColor="primary-700" size="sm" mx={4}>
-                Front-end developer
-                <br />
-                Full-stack JavaScript developer
-                <br /> UI Designer/Developer
-                <br /> Back-end Node.js developer
-              </Paragraph>
-            </InfoRow>
-          </InfoColumn>
-          <InfoColumn>
-            <LooseSubheading>Skills</LooseSubheading>
-            <InfoRow>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontWeight="bold"
-                fontSize="sm"
-              >
-                Have experience with
-              </Text>
-              <Paragraph fontColor="primary-700" size="sm" mx={4}>
-                HTML5, CSS3, SCSS, RWD, JavaScript, React.js, Redux, Next.js,
-                Gatsby, Node.js, Express, Sails.js, C#, MongoDB, mySQL, OAuth2,
-                REST
-              </Paragraph>
-            </InfoRow>
-            <InfoRow>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontWeight="bold"
-                fontSize="sm"
-              >
-                Current enviroment & tools
-              </Text>
-              <Paragraph fontColor="primary-700" size="sm" mx={4}>
-                Windows, Visual Studio Code, Figma, Adobe XD
-              </Paragraph>
-            </InfoRow>
-          </InfoColumn>
-        </InfoContainer>
-      </ContentWrapper>
-      <Socials>
-        <Line />
-        <IconsContainer>
-          <Ellipse>
-            <Icon icon="github" fill="#f0f0f0" width="21px" />
-          </Ellipse>
-          <Ellipse>
-            <Icon icon="linkedin" fill="#f0f0f0" width="21px" />
-          </Ellipse>
-        </IconsContainer>
-      </Socials>
-    </TopLayer>
+    <Header />
+    <Box pt={[8, 8, 48]} maxWidth={1400} m="auto" px={[6, 6, 12, 16, 24]}>
+      <Text fontColor="primary.7" fontWeight="black" fontSize="4xl">
+        About the author.
+      </Text>
+      <Text fontColor="primary.6" fontSize="lg" withLine my={12}>
+        I love to create websites and web applications, paying close attention
+        to all the small details. No matter if you are a startup in need of a
+        landing page, a small business who wants a unique web shop, or an
+        entrepreneur who has an idea for an exciting web application.
+      </Text>
+      <InfoContainer>
+        <InfoColumn>
+          <LooseSubheading>General</LooseSubheading>
+          <InfoRow>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.7"
+              fontWeight="bold"
+              fontSize="sm"
+            >
+              Age
+            </Text>
+            <Paragraph fontColor="primary-600" size="sm" mx={4}>
+              24 years old
+            </Paragraph>
+          </InfoRow>
+          <InfoRow>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.7"
+              fontWeight="bold"
+              fontSize="sm"
+            >
+              Location
+            </Text>
+            <Paragraph fontColor="primary-700" size="sm" mx={4}>
+              Szczecin, Poland
+            </Paragraph>
+          </InfoRow>
+          <InfoRow>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.7"
+              fontWeight="bold"
+              fontSize="sm"
+            >
+              Roles
+            </Text>
+            <Paragraph fontColor="primary-700" size="sm" mx={4}>
+              Front-end developer
+              <br />
+              Full-stack JavaScript developer
+              <br /> UI Designer/Developer
+              <br /> Back-end Node.js developer
+            </Paragraph>
+          </InfoRow>
+        </InfoColumn>
+        <InfoColumn>
+          <LooseSubheading>Skills</LooseSubheading>
+          <InfoRow>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.7"
+              fontWeight="bold"
+              fontSize="sm"
+            >
+              Have experience with
+            </Text>
+            <Paragraph fontColor="primary-700" size="sm" mx={4}>
+              HTML5, CSS3, SCSS, RWD, JavaScript, React.js, Redux, Next.js,
+              Gatsby, Node.js, Express, Sails.js, C#, MongoDB, mySQL, OAuth2,
+              REST
+            </Paragraph>
+          </InfoRow>
+          <InfoRow>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.7"
+              fontWeight="bold"
+              fontSize="sm"
+            >
+              Current enviroment & tools
+            </Text>
+            <Paragraph fontColor="primary-700" size="sm" mx={4}>
+              Windows, Visual Studio Code, Figma, Adobe XD
+            </Paragraph>
+          </InfoRow>
+        </InfoColumn>
+      </InfoContainer>
+    </Box>
+    <Socials>
+      <Line />
+      <IconsContainer>
+        <Ellipse>
+          <Icon icon="github" fill="#f0f0f0" width="21px" />
+        </Ellipse>
+        <Ellipse>
+          <Icon icon="linkedin" fill="#f0f0f0" width="21px" />
+        </Ellipse>
+      </IconsContainer>
+    </Socials>
   </Layout>
 )
 

@@ -33,7 +33,7 @@ const LocaleSwitcher = ({ variant, theme }) => {
   }, [active])
 
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" order="2">
       <LocaleSpan
         fontColor={color}
         underlineColor={underlineColor}

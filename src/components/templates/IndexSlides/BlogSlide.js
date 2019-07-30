@@ -7,36 +7,42 @@ import SlidableButton from '../../atoms/Button/SlidableButton'
 import PostItem from '../../organisms/PostItem'
 
 const BlogPosts = styled.ul`
-  ${tw`py-12`}
+  ${tw`py-8 md:py-12 text-left`}
   max-width: 800px;
   list-style: none;
 `
 
 const BlogSlide = ({ posts }) => (
-  <Box maxWidth={1400} m="auto" pb={64} px={[8, 8, 12, 16, 24]}>
+  <Box maxWidth={1400} m="auto" pb={[24, 24, 64]}>
     <Box
       display="flex"
       flexDirection="column"
       justifyContent="center"
       position="relative"
+      px={[6, 6, 12, 16, 24]}
+      textAlign={['center', 'center', 'left']}
     >
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent={['center', 'center', 'space-between']}
         alignItems="center"
-        mb={8}
+        mb={[4, 4, 8]}
       >
-        <Text fontSize="6xl" fontColor="primary.7" fontWeight="black">
+        <Text
+          fontSize={['4xl', '4xl', '6xl']}
+          fontColor="primary.7"
+          fontWeight="black"
+        >
           Blog.
         </Text>
-        <Link to="/blog">
-          <SlidableButton>view all posts</SlidableButton>
+        <Link to="/projects" display={['none', 'none', 'block']}>
+          <SlidableButton>view all projects</SlidableButton>
         </Link>
       </Box>
       <Text
         fontFamily="sans"
-        fontSize="lg"
         fontColor="primary.6"
+        fontSize={['base', 'lg']}
         lineHeight="relaxed"
         maxWidth={900}
       >
@@ -53,6 +59,11 @@ const BlogSlide = ({ posts }) => (
           <PostItem data={post} />
         ))}
       </BlogPosts>
+      <Box display={['flex', 'flex', 'none']} mt={12} justifyContent="center">
+        <Link to="/blog">
+          <SlidableButton>view all posts</SlidableButton>
+        </Link>
+      </Box>
     </Box>
   </Box>
 )

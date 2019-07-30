@@ -8,7 +8,7 @@ import { ProjectsContext } from '../../../context/ProjectsContext'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const Slides = styled.ul`
-  ${tw`w-full h-full my-16`}
+  ${tw`w-full h-full mt-16 mb-8`}
     display: grid;
     grid-template-areas: "a a" "b b";
     grid-template-rows: repeat(2, 1fr);

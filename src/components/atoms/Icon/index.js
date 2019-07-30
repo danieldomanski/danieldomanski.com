@@ -1,14 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { space } from 'styled-system'
+import { layout, space } from 'styled-system'
 
 const Wrapper = styled.svg`
+  ${layout};
   ${space};
 
   stroke: currentColor;
   color: ${props => props.stroke};
-  width: ${props => props.width};
   fill: ${props => props.fill};
   left: ${props => props.left};
   top: ${props => props.top};

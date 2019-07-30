@@ -14,16 +14,9 @@ const Container = styled.header`
   transition: 0.25s;
 `
 
-const LogoContainer = styled.div`
-  ${tw`flex align-items  items-center`};
-`
-
-const NavMenu = styled.div`
-  ${tw`relative block md:hidden`}
-
-  width: 24px;
-  height: 18px;
-  transition: 0.25s;
+const Brand = styled.div`
+  ${tw``};
+  order: 1;
 `
 
 const Header = ({ variant }) => {
@@ -46,22 +39,24 @@ const Header = ({ variant }) => {
           width={1}
           display="flex"
           justifyContent="space-between"
-          mb={[4, 4, 0]}
+          flexWrap="wrap"
         >
-          <Link to="/">
-            <Text
-              fontSize="xl"
-              fontWeight="black"
-              fontColor="primary.8"
-              hover={{ color: '#0055FF' }}
-              style={{ letterSpacing: '-0.5px' }}
-            >
-              Daniel Domański
-            </Text>
-          </Link>
+          <Brand>
+            <Link to="/">
+              <Text
+                fontSize="xl"
+                fontWeight="black"
+                fontColor="primary.8"
+                hover={{ color: '#0055FF' }}
+                style={{ letterSpacing: '-0.5px' }}
+              >
+                Daniel Domański
+              </Text>
+            </Link>
+          </Brand>
+          <Navigation />
           <LocaleSwitcher variant={variant} />
         </Box>
-        <Navigation />
       </Box>
     </Container>
   )

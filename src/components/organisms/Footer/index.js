@@ -4,11 +4,10 @@ import tw from 'tailwind.macro'
 import { ScrollContext } from '../../../context/ScrollContext'
 
 const FooterContainer = styled.footer`
-  ${tw`absolute md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
+  ${tw`static md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
 
   box-sizing: border-box;
   z-index: 5;
-  padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
     display: ${props =>

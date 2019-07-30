@@ -5,11 +5,22 @@ import Box from '../../atoms/Box'
 import { Link } from '../../atoms/Link'
 
 const Container = styled.nav`
-  ${tw`md:mr-12 xl:mr-16 md:ml-auto`}
+  ${tw`flex items-center w-full md:ml-auto mt-6`}
+  order: 3;
+
+  @media screen and (min-width: 768px) {
+    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-24`}
+    order: 2;
+    width: auto;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: 3rem;
+  }
 `
 
 const List = styled.ul`
-  display: flex;
+  ${tw`flex`}
+
   list-style: none;
 
   & > li:last-child {
@@ -27,22 +38,42 @@ const Navigation = () => (
   <Container>
     <List>
       <Item>
-        <Link to="/" fontWeight="bold" activeStyle={activeStyle}>
+        <Link
+          to="/"
+          fontWeight="bold"
+          fontColor="primary.7"
+          activeStyle={activeStyle}
+        >
           Home
         </Link>
       </Item>
       <Item>
-        <Link to="/about" fontWeight="bold" activeStyle={activeStyle}>
+        <Link
+          to="/about"
+          fontWeight="bold"
+          fontColor="primary.7"
+          activeStyle={activeStyle}
+        >
           About
         </Link>
       </Item>
       <Item>
-        <Link to="/projects" fontWeight="bold" activeStyle={activeStyle}>
+        <Link
+          to="/projects"
+          fontWeight="bold"
+          fontColor="primary.7"
+          activeStyle={activeStyle}
+        >
           Projects
         </Link>
       </Item>
       <Item>
-        <Link to="/blog" fontWeight="bold" activeStyle={activeStyle}>
+        <Link
+          to="/blog"
+          fontWeight="bold"
+          fontColor="primary.7"
+          activeStyle={activeStyle}
+        >
           Articles
         </Link>
       </Item>

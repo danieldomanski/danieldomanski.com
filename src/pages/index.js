@@ -20,8 +20,6 @@ import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 
 import Text from '../components/atoms/Text'
-import Paragraph from '../components/atoms/Paragraph'
-import TextHighlight from '../components/atoms/TextHighlight'
 import Box from '../components/atoms/Box'
 import Column from '../components/atoms/Box/Column'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
@@ -72,48 +70,15 @@ const Index = ({ data, pageContext, location }) => {
   useEffect(() => {
     setProjects(data.projects.edges)
   }, [])
-
   if (isMobile) {
     return (
       <Layout>
-        <Header variant="secondary" />
-        <>
-          <Box px={[8, 16, 24]} textAlign="center" bg="#E0E0E0" py={24}>
-            <Text
-              fontWeight="black"
-              fontSize={['3xl', '4xl', '6xl']}
-              fontColor="primary.8"
-              lineHeight="tight"
-              mb={8}
-            >
-              Full-Stack Web Developer.
-            </Text>
-            <Text
-              fontFamily="sans"
-              fontWeight="normal"
-              fontSize={['lg', 'lg', '2xl']}
-              fontColor="primary.6"
-              lineHeight="relaxed"
-            >
-              Hello! My name is Daniel and I have been creating for the Web for
-              the past 2 years. My job is to help your business grow by
-              providing modern digital products that people enjoy.
-            </Text>
-          </Box>
-          <Box px={4}>
-            <Column>
-              <Text fontColor="primary.8" fontWeight="black" my={4}>
-                Works
-              </Text>
-              <Text fontColor="primary.6" fontSize="xl">
-                My recent works.
-              </Text>
-            </Column>
-            <ProjectsGrid />
-            <AboutSlide />
-          </Box>
-        </>
-        <Footer>
+        <Header />
+        <HomeSlide />
+        <AboutSlide />
+        <ProjectsSlide />
+        <BlogSlide posts={data.posts.edges} />
+        <Footer variant="index">
           <UpperBox />
           <BottomBox />
         </Footer>
