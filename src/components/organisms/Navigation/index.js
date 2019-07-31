@@ -5,7 +5,7 @@ import Box from '../../atoms/Box'
 import { Link } from '../../atoms/Link'
 
 const Container = styled.nav`
-  ${tw`flex items-center w-full md:ml-auto mt-6`}
+  ${tw`flex items-center w-full md:ml-auto mt-4`}
   order: 3;
 
   @media screen and (min-width: 768px) {
@@ -19,7 +19,7 @@ const Container = styled.nav`
 `
 
 const List = styled.ul`
-  ${tw`flex`}
+  ${tw`flex flex-wrap`}
 
   list-style: none;
 
@@ -29,10 +29,10 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`mr-6`}
+  ${tw`mr-6 my-2`}
 `
 
-const activeStyle = { color: '#005fda' }
+const activeStyle = { color: '#0055FF' }
 
 const Navigation = () => (
   <Container>
@@ -40,6 +40,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/"
+          fontSize={['sm']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
@@ -50,6 +51,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/about"
+          fontSize={['sm']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
@@ -60,6 +62,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/projects"
+          fontSize={['sm']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
@@ -70,6 +73,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/blog"
+          fontSize={['sm']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}

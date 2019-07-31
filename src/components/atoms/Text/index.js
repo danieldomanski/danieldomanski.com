@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { layout, typography, color, space } from 'styled-system'
+import { layout, typography, color, space, flexbox } from 'styled-system'
 
 const TextContainer = styled.p`
   ${tw`h-auto`};
@@ -11,6 +11,7 @@ const TextContainer = styled.p`
   ${typography};
   ${color};
   ${space};
+  ${flexbox};
 
   &:hover {
     color: ${props => (props.hover ? props.hover.color : null)};

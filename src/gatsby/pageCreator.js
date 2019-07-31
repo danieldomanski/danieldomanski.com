@@ -4,8 +4,8 @@ const createProjects = (projects, createPage, template) =>
   projects.forEach(edge => {
     const { lang } = edge.node
 
-    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}/`
-
+    const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
+    console.log(`${localPrefix}/projects/${edge.node.uid}`)
     createPage({
       path: `${localPrefix}/projects/${edge.node.uid}`,
       component: template,

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useContext } from 'react'
+import React, { useState, useCallback } from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
@@ -8,7 +8,7 @@ import Box from '../../atoms/Box'
 import Navigation from '../Navigation'
 
 const Container = styled.header`
-  ${tw`static md:fixed pin-t text-primary-700`};
+  ${tw`text-primary-700`};
   z-index: 6;
   width: 100%;
   transition: 0.25s;
@@ -33,7 +33,7 @@ const Header = ({ variant }) => {
         m="auto"
         maxWidth={1600}
         px={[8, 8, 8, 16, 24]}
-        py={[8, 8, 12, 16]}
+        py={[6, 6, 8]}
       >
         <Box
           width={1}

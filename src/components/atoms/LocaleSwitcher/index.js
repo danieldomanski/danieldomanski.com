@@ -6,7 +6,7 @@ import { LocaleContext } from '../../../context/LocaleContext'
 import Box from '../Box'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase mr-1 cursor-pointer`}
+  ${tw`relative font-sans uppercase mr-1 cursor-pointer text-sm`}
 
   &:last-of-type {
     ${tw`ml-1 mr-0`}
@@ -23,9 +23,8 @@ const LocaleSpan = styled.span`
 
 const Separator = styled.span``
 
-const LocaleSwitcher = ({ variant, theme }) => {
+const LocaleSwitcher = ({ theme }) => {
   const [active, set] = useContext(LocaleContext)
-  const { color, underlineColor } = theme.components.localeSwitcher[variant]
 
   const setLocale = useCallback(() => {
     const locale = active === 'en' ? 'pl' : 'en'
@@ -34,21 +33,11 @@ const LocaleSwitcher = ({ variant, theme }) => {
 
   return (
     <Box display="flex" alignItems="center" order="2">
-      <LocaleSpan
-        fontColor={color}
-        underlineColor={underlineColor}
-        active={active === 'en'}
-        onClick={setLocale}
-      >
+      <LocaleSpan active={active === 'en'} onClick={setLocale}>
         en
       </LocaleSpan>
       <Separator>/</Separator>
-      <LocaleSpan
-        fontColor={color}
-        underlineColor={underlineColor}
-        active={active === 'pl'}
-        onClick={setLocale}
-      >
+      <LocaleSpan active={active === 'pl'} onClick={setLocale}>
         pl
       </LocaleSpan>
     </Box>

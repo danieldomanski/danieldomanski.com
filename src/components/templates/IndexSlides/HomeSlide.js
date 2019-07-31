@@ -8,8 +8,8 @@ import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
 
 const HeroText = styled.section`
-  ${tw`static md:fixed w-full h-full`};
-
+  ${tw`static md:fixed w-full `};
+  height: calc(100% - 120px);
   display: ${props => (props.visible ? 'block' : 'none')};
   z-index: 4;
   transition: 0.25s;
@@ -32,8 +32,8 @@ const HomeSlide = () => {
         maxWidth={1600}
         m="auto"
         px={[6, 6, 12, 16, 24]}
-        py={[16]}
-        bg="#EBEBEB"
+        py={24}
+        bg="#E0E0E0"
         textAlign={['center', 'center', 'left']}
       >
         <Text

@@ -4,14 +4,7 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
-import profilePic from '../../../images/profile-picture.jpg'
-
-const CircledAvatar = styled.img`
-  width: 80px;
-  height: 80px;
-  margin-right: 1.5rem;
-  border-radius: 50%;
-`
+import Avatar from '../../atoms/Avatar'
 
 const Bio = ({ mt, mb }) => (
   <Box
@@ -23,7 +16,7 @@ const Bio = ({ mt, mb }) => (
     mb={mb}
     boxShadow="lg"
   >
-    <CircledAvatar src={profilePic} />
+    <Avatar src="profile-picture.jpg" x={120} y={120} mr={8} />
     <Box display="flex" flexDirection="column">
       <Text fontSize="xl" fontWeight="bold" fontColor="primary.8" mb={2}>
         Daniel Domański

@@ -88,7 +88,7 @@ const Index = ({ data, pageContext, location }) => {
   return (
     <Layout>
       <TopLayer>
-        <Header />
+        <Header variant="index" />
         <HomeSlide />
       </TopLayer>
       <MainWrapper>

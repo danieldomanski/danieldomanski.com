@@ -5,6 +5,7 @@ import {
   color,
   layout,
   flexbox,
+  border,
   shadow,
   position,
 } from 'styled-system'
@@ -16,6 +17,7 @@ const Box = styled.div(
   },
   space,
   color,
+  border,
   layout,
   flexbox,
   shadow,
