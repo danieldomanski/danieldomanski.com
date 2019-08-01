@@ -159,8 +159,14 @@ const icons = {
   },
 }
 
-const Icon = ({ icon, ...props }) => (
-  <Wrapper {...props} viewBox={icons[icon].viewBox} preserveAspectRatio="none">
+const Icon = ({ icon, ml, mr, ...props }) => (
+  <Wrapper
+    {...props}
+    viewBox={icons[icon].viewBox}
+    preserveAspectRatio="none"
+    ml={ml}
+    mr={mr}
+  >
     {icons[icon].shape}
   </Wrapper>
 )
@@ -172,6 +178,8 @@ Icon.propTypes = {
   icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
   mx: PropTypes.number,
   my: PropTypes.number,
+  mr: PropTypes.number,
+  ml: PropTypes.number,
 }
 
 Icon.defaultProps = {
@@ -180,6 +188,8 @@ Icon.defaultProps = {
   fill: '#353535',
   mx: 0,
   my: 0,
+  mr: 0,
+  ml: 0,
 }
 
 export default Icon

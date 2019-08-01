@@ -14,17 +14,6 @@ import { formatDate } from '../../../utilitity/date'
 import { countWordsFromSlices, timeToRead } from '../../../utilitity/timeToRead'
 import Tag from '../../atoms/Tag'
 
-const Main = styled(Box)`
-  ${tw`relative bg-primary-100 `}
-  padding-bottom: 600px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 100px;
-    padding-bottom: 0;
-  }
-  z-index: 5;
-`
-
 const Dot = styled.span`
   ${tw`text-primary-500`}
 `
@@ -40,12 +29,11 @@ const Post = ({ data, pageContext }) => {
   const wordCount = countWordsFromSlices(data.prismicPost.data.body)
   const estimatedReadTime = timeToRead(wordCount)
 
-  console.log({ postData: data, wordCount, estimatedReadTime })
   return (
     <Layout>
       <Header variant="secondary" />
-      <Main bg="primary.1" m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={686} width={1} m="auto" my={8} py={32}>
+      <Box m="auto" px={[4, 8, 16, 24, 32]}>
+        <Box maxWidth={686} width={1} m="auto" my={8} pt={8} pb={32}>
           <Box
             width={1}
             display="flex"
@@ -80,10 +68,10 @@ const Post = ({ data, pageContext }) => {
           <PostContent data={data.prismicPost.data.body} />
           <Bio mt={24} />
         </Box>
-      </Main>
-      <Footer>
-        <BottomBox />
-      </Footer>
+      </Box>
+      <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+        <BottomBox variant="secondary" />
+      </Box>
     </Layout>
   )
 }

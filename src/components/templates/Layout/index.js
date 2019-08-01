@@ -39,7 +39,8 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const MainContent = styled.main`
-  ${tw`relative`}
+  ${tw`flex flex-col relative`}
+  min-height: 100vh;
 `
 
 const Layout = ({ children }) => (

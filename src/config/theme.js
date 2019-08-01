@@ -13,17 +13,29 @@ const colors = {
     '#5A5A5A',
     '#363636',
   ],
+  // white/gray
+  secondary: [
+    '#FFF',
+    '#FEFEFE',
+    '#FBFBFB',
+    '#F3F3F3',
+    '#EBEBEB',
+    '#E3E3E3',
+    '#DBDBDB',
+    '#D4D4D4',
+    '#C1C1C1',
+  ],
   // blue
   accent: [
-    '#D0E0FF',
+    '#E7EFFF',
+    '#A0BFFF',
     '#8BB1FF',
-    '#5C92FF',
+    '#A2C1FF',
+    '#8BB1FF',
+    '#73A2FF',
+    '#4583FF',
     '#2E73FF',
     '#0055FF',
-    '#0046D1',
-    '#0037A3',
-    '#002774',
-    '#001846',
   ],
 }
 
@@ -135,6 +147,17 @@ const theme = {
 }
 
 theme.components = {
+  bottomFooter: {
+    primary: {
+      backgroundColor: theme.colors.primary[8],
+      color: theme.colors.primary[2],
+    },
+    secondary: {
+      backgroundColor: 'transparent',
+      color: theme.colors.primary[8],
+    },
+  },
+
   logo: {
     primary: {
       color: theme.colors.primary[2],
@@ -192,11 +215,13 @@ theme.components = {
   },
   filters: {
     primary: {
-      hoverColor: theme.colors.primary[8],
-      backgroundColor: theme.colors.primary[5],
+      color: theme.colors.accent[7],
+      hoverColor: theme.colors.accent[1],
+      backgroundColor: theme.colors.accent[0],
       active: {
-        backgroundColor: theme.colors.primary[7],
-        hoverColor: theme.colors.primary[8],
+        backgroundColor: theme.colors.accent[6],
+        hoverColor: theme.colors.accent[7],
+        color: theme.colors.secondary[1],
       },
     },
   },

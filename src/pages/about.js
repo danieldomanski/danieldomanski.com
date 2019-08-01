@@ -3,58 +3,9 @@ import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
-import Paragraph from '../components/atoms/Paragraph'
 import Box from '../components/atoms/Box'
-import Icon from '../components/atoms/Icon'
 import Avatar from '../components/atoms/Avatar'
-
-const TopLayer = styled.section`
-  ${tw`w-full px-8 md:px-12`}
-  z-index: 5;
-  padding-top: 100px;
-`
-
-const InfoContainer = styled.article`
-  ${tw`flex flex-col my-8`}
-`
-
-const InfoColumn = styled.div`
-  ${tw`w-full md:w-1/2 py-4`}
-`
-
-const LooseSubheading = styled.h2`
-  ${tw`font-sans text-lg tracking-wide uppercase`}
-`
-
-const InfoRow = styled.div`
-  ${tw`flex items-center py-2`}
-
-  & > h1 {
-    flex: 1;
-  }
-
-  & > div {
-    flex: 2;
-  }
-`
-const Socials = styled.footer`
-  ${tw`flex flex-col items-center mt-32`}
-`
-
-const IconsContainer = styled.div`
-  ${tw`flex my-8`}
-`
-
-const Line = styled.span`
-  ${tw`bg-primary-400`}
-  width: 50%;
-  height: 1px;
-  top: -1em;
-`
-
-const Ellipse = styled.div`
-  ${tw`flex justify-center items-center w-10 h-10 bg-primary-800 rounded-full mx-1`}
-`
+import BottomBox from '../components/organisms/Footer/BottomBox'
 
 const generalRows = [
   {
@@ -95,7 +46,7 @@ const skillsRows = [
 const About = () => (
   <Layout>
     <Header />
-    <Box pt={[8]} maxWidth={1200} m="auto" px={[6, 6, 12, 16, 24]}>
+    <Box pt={[8]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
       <Text
         display={['block', 'block', 'inline-block']}
         fontColor="primary.8"
@@ -122,11 +73,14 @@ const About = () => (
           I love to create websites and web applications, paying close attention
           to all the small details. No matter if you are a startup in need of a
           landing page, a small business who wants a unique web shop, or an
-          entrepreneur who has an idea for an exciting web application.
+          entrepreneur who has an idea for an exciting web application. No
+          matter if you are a startup in need of a landing page, a small
+          business who wants a unique web shop, or an entrepreneur who has an
+          idea for an exciting web application.
         </Text>
       </Box>
 
-      <Box display="flex" flexDirection="column" maxWidth={900}>
+      <Box display="flex" flexDirection="column" maxWidth={1200} m="auto">
         <Box width={1} m="auto">
           <Text
             fontColor="primary.8"
@@ -149,6 +103,7 @@ const About = () => (
                 {row.name}
               </Text>
               <Text
+                maxWidth={350}
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
                 fontColor="primary-600"
@@ -160,7 +115,7 @@ const About = () => (
             </Box>
           ))}
         </Box>
-        <Box width={1} m="auto">
+        <Box width={1} py={6} m="auto">
           <Text
             fontColor="primary.8"
             fontSize={['2xl']}
@@ -182,9 +137,10 @@ const About = () => (
                 {row.name}
               </Text>
               <Text
+                maxWidth={350}
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
-                fontColor="primary-600"
+                fontColor="primary.7"
                 fontSize={['sm', 'base']}
                 pl={2}
               >
@@ -195,17 +151,9 @@ const About = () => (
         </Box>
       </Box>
     </Box>
-    <Socials>
-      <Line />
-      <IconsContainer>
-        <Ellipse>
-          <Icon icon="github" fill="#f0f0f0" width="21px" />
-        </Ellipse>
-        <Ellipse>
-          <Icon icon="linkedin" fill="#f0f0f0" width="21px" />
-        </Ellipse>
-      </IconsContainer>
-    </Socials>
+    <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <BottomBox variant="secondary" />
+    </Box>
   </Layout>
 )
 

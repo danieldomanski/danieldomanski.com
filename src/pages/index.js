@@ -13,9 +13,6 @@ import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
-
-import { IndexMobileWrapper, ContentWrapper } from '../components/atoms/Wrapper'
-import ProjectsGrid from '../components/organisms/ProjectsGrid'
 import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 
@@ -58,10 +55,6 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
-const HeroMobile = styled.div`
-  ${tw`w-full bg-primary-900 py-12 px-8 mb-12`}
-`
-
 const Index = ({ data, pageContext, location }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
@@ -96,9 +89,9 @@ const Index = ({ data, pageContext, location }) => {
         <ProjectsSlide />
         <BlogSlide posts={data.posts.edges} />
       </MainWrapper>
-      <Footer variant="index">
+      <Footer variant="primary">
         <UpperBox />
-        <BottomBox />
+        <BottomBox variant="primary" />
       </Footer>
     </Layout>
   )

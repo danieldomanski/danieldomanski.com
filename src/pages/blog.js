@@ -4,37 +4,15 @@ import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
-import { ContentWrapper } from '../components/atoms/Wrapper'
-import { CollapsableLink } from '../components/atoms/Link'
 import PostItem from '../components/organisms/PostItem'
-import Filter from '../components/atoms/Filter'
 import Box from '../components/atoms/Box'
-
-const TopLayer = styled.section`
-  ${tw`w-full h-screen px-16 lg:px-24 xl:px-32`}
-  z-index: 4;
-  padding-top: 120px;
-`
+import Filter from '../components/atoms/Filter'
+import BottomBox from '../components/organisms/Footer/BottomBox'
 
 const ContentFilters = styled.ul`
-  ${tw`flex m-auto my-8`}
+  ${tw`flex flex-wrap m-auto my-8`}
   list-style: none;
 `
-
-const BlogPosts = styled.ul`
-  ${tw`my-8`}
-  list-style: none;
-`
-
-const BlogContent = styled(ContentWrapper)`
-  ${tw`pt-12 pb-24`}
-  max-width: 800px;
-`
-const Row = styled(ContentWrapper)`
-  ${tw`text-right my-4`}
-  max-width: 800px;
-`
-
 const Blog = ({ data }) => {
   const tags = data.tags.edges
   const posts = data.posts.edges
@@ -42,38 +20,37 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <TopLayer>
-        <Box display="flex" flexDirection="column" maxWidth={800} m="auto">
-          <Text fontColor="primary.7" fontWeight="black" fontSize="5xl" my={4}>
-            Blog
-          </Text>
-          <Text fontColor="primary.6" fontSize="lg" mt={4}>
-            “You already know that you will never be done learning. But most
-            people "learn in private", and lurk. They consume content without
-            creating any themselves. Whatever your thing is, make the thing you
-            wish you had found when you were learning. The biggest beneficiary
-            of you trying to help past you is future you. If others benefit,
-            that's icing.”
-          </Text>
-          <Row>
-            <CollapsableLink variant="bright">
-              shawn wang, swyx.io
-            </CollapsableLink>
-          </Row>
-        </Box>
-        <BlogContent>
+      <Box
+        width={1}
+        pt={[8]}
+        maxWidth={1200}
+        m="auto"
+        px={[6, 6, 12, 16, 24]}
+        flex={1}
+      >
+        <Text
+          fontColor="primary.7"
+          fontWeight="black"
+          fontSize={['3xl', '4xl', '5xl']}
+        >
+          Articles
+        </Text>
+        <Box>
           <ContentFilters>
             {tags.map((tag, idx) => (
               <Filter>{tag.node.data.tag}</Filter>
             ))}
           </ContentFilters>
-          <BlogPosts>
+          <Box>
             {posts.map((post, idx) => (
-              <PostItem data={post}>abc</PostItem>
+              <PostItem data={post} />
             ))}
-          </BlogPosts>
-        </BlogContent>
-      </TopLayer>
+          </Box>
+        </Box>
+      </Box>
+      <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+        <BottomBox variant="secondary" />
+      </Box>
     </Layout>
   )
 }

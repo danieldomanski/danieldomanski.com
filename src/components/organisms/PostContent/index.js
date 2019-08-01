@@ -10,7 +10,6 @@ const Wrapper = styled.article`
 
 const PostContent = ({ data }) => {
   const slices = data.map(s => {
-    console.log({ s })
     switch (s.slice_type) {
       case 'text':
         return <BodyText key={s.id} data={s} />

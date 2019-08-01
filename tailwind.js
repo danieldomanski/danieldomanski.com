@@ -137,6 +137,16 @@ const colors = {
   'primary-700': '#8F8F8F',
   'primary-800': '#5A5A5A',
   'primary-900': '#363636',
+  //
+  'accent-100': '#E7EFFF',
+  'accent-200': '#A0BFFF',
+  'accent-300': '#8BB1FF',
+  'accent-400': '#A2C1FF',
+  'accent-500': '#8BB1FF',
+  'accent-600': '#73A2FF',
+  'accent-700': '#4583FF',
+  'accent-800': '#2E73FF',
+  'accent-900': '#0055FF',
 
   // background
   'bg-stop-1': '#F0F0F0',

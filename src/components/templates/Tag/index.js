@@ -35,7 +35,7 @@ const Tag = ({ data, pageContext }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <Main bg="primary.1" m="auto" px={[4, 8, 16, 24, 32]}>
+      <Box m="auto" px={[4, 8, 16, 24, 32]} flex={1}>
         <Text fontWeight="black" fontColor="primary.8">
           Posts about {tag}
         </Text>
@@ -44,10 +44,10 @@ const Tag = ({ data, pageContext }) => {
             <PostItem data={post}>abc</PostItem>
           ))}
         </BlogPosts>
-      </Main>
-      <Footer>
-        <BottomBox />
-      </Footer>
+      </Box>
+      <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+        <BottomBox variant="secondary" />
+      </Box>
     </Layout>
   )
 }
