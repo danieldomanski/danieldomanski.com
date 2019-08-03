@@ -27,8 +27,9 @@ const colors = {
   ],
   // blue
   accent: [
+    '#DCE4F8',
     '#E7EFFF',
-    '#A0BFFF',
+    '#C8D6F4',
     '#8BB1FF',
     '#A2C1FF',
     '#8BB1FF',
@@ -154,7 +155,7 @@ theme.components = {
     },
     secondary: {
       backgroundColor: 'transparent',
-      color: theme.colors.primary[8],
+      color: theme.colors.primary[7],
     },
   },
 
@@ -191,26 +192,21 @@ theme.components = {
     },
   },
   collapsable: {
-    dark: {
+    primary: {
       height: '2px',
       bottom: '0',
-      backgroundColor: theme.colors.primary[7],
+      backgroundColor: theme.colors.primary[2],
+      borderColor: theme.colors.primary[2],
       hoverColor: theme.colors.primary[1],
-      color: theme.colors.primary[6],
-    },
-    bright: {
-      height: '2px',
-      bottom: '6px',
-      backgroundColor: theme.colors.primary[1],
-      hoverColor: theme.colors.primary[5],
-      color: theme.colors.primary[6],
+      fontColor: theme.colors.primary[8],
     },
     accent: {
-      height: '1px',
+      height: '2px',
       bottom: '3px',
-      backgroundColor: theme.colors.accent[4],
-      hoverColor: theme.colors.accent[5],
-      color: theme.colors.accent[5],
+      backgroundColor: theme.colors.accent[0],
+      borderColor: theme.colors.accent[2],
+      hoverColor: theme.colors.accent[8],
+      fontColor: theme.colors.accent[7],
     },
   },
   filters: {
@@ -230,34 +226,34 @@ theme.components = {
 theme.buttons = {
   colors: {
     primary: {
-      backgroundColor: theme.colors.primary[0],
-      color: theme.colors.primary[7],
-    },
-    secondary: {
       backgroundColor: theme.colors.primary[6],
       color: theme.colors.primary[0],
+    },
+    secondary: {
+      backgroundColor: 'transparent',
+      color: theme.colors.primary[7],
     },
   },
   sizes: {
     sm: {
-      px: 2,
-      py: 1,
+      px: 4,
+      py: 2,
       fontSize: 'sm',
     },
-    md: {
-      px: 3,
-      py: 1,
-      fontSize: 'base',
+    base: {
+      px: 6,
+      py: 3,
+      fontSize: 'sm',
     },
     lg: {
       px: 6,
-      py: 4,
-      fontSize: 'lg',
+      py: 3,
+      fontSize: 'base',
     },
     xl: {
-      px: 6,
-      py: 3,
-      fontSize: 'xl',
+      px: 8,
+      py: 4,
+      fontSize: 'lg',
     },
   },
 }

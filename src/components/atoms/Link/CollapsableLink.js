@@ -14,46 +14,37 @@ const LinkContainer = styled(Link)`
 
   &:after {
     content: '';
-    ${tw`absolute pin-l`};
-    width: 0;
+    ${tw`w-full absolute pin-l`};
     transition: 0.5s ease-in-out;
     z-index: -1;
     height: ${props => props.height};
-    bottom: ${props => props.bottom};
-    background-color: ${props => props.bgColor};
+    bottom: ${props => props.config.bottom};
+    background-color: ${props => props.config.borderColor};
   }
 
   &:hover {
-    color: ${props => props.hoverColor};
+    color: ${props => props.config.fontColor};
+    background-color: ${props => props.config.backgroundColor};
 
     &:after {
-      ${tw`w-full`}
-      
-      background-color: ${props => props.bgColor};
+      background-color: ${props => props.config.fontColor};
     }
   }
 `
 
 const CollapsableLink = React.memo(
   ({ children, theme, variant, fontSize, fontWeight, mx, my, to }) => {
-    const {
-      height,
-      bottom,
-      color,
-      backgroundColor,
-      hoverColor,
-    } = theme.components.collapsable[variant]
+    const { height, bottom, fontColor } = theme.components.collapsable[variant]
 
     return (
       <LinkContainer
         to={to}
-        color={color}
+        color={fontColor}
         fontSize={fontSize}
         fontWeight={fontWeight}
         mx={mx}
         my={my}
-        bgColor={backgroundColor}
-        hoverColor={hoverColor}
+        config={theme.components.collapsable[variant]}
         height={height}
         bottom={bottom}
       >
@@ -64,7 +55,7 @@ const CollapsableLink = React.memo(
 )
 
 CollapsableLink.propTypes = {
-  variant: PropTypes.oneOf(['dark', 'light']),
+  variant: PropTypes.oneOf(['primary', 'accent']),
   fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl']),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
   mx: PropTypes.number,

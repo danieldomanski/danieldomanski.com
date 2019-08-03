@@ -5,40 +5,31 @@ import tw from 'tailwind.macro'
 const FilterContainer = styled.li`
   ${tw`font-sans text-sm flex justify-between items-center px-4 py-2 font-bold mr-2 mb-2 rounded cursor-pointer`}
   transition: 0.1s ease-in-out;
-  color: ${props => (props.active ? props.activeColor : props.color)};
-  border: 1px solid ${props => props.hoverColor};
+  color: ${props =>
+    props.active ? props.config.active.color : props.config.color};
+  border: 1px solid ${props => props.config.hoverColor};
 
   &:hover {
     background-color: ${props =>
-      props.active ? props.activeHoverColor : props.hoverColor};
+      props.active ? props.config.active.hoverColor : props.config.hoverColor};
   }
 
   background-color: ${props =>
-    props.active ? props.activeBgColor : props.backgroundColor};
+    props.active
+      ? props.config.active.backgroundColor
+      : props.config.backgroundColor};
 `
 
-const Filter = ({ children, theme }) => {
+const Filter = ({ children, theme, updateFilter, slug }) => {
   const [isActive, set] = useState(false)
-
-  const {
-    active,
-    color,
-    backgroundColor,
-    hoverColor,
-  } = theme.components.filters.primary
-  const activeBgColor = active.backgroundColor
-  const activeHoverColor = active.hoverColor
-  const activeColor = active.color
 
   return (
     <FilterContainer
-      color={color}
-      backgroundColor={backgroundColor}
-      hoverColor={hoverColor}
-      activeBgColor={activeBgColor}
-      activeHoverColor={activeHoverColor}
-      activeColor={activeColor}
-      onClick={() => set(!isActive)}
+      config={theme.components.filters.primary}
+      onClick={() => {
+        updateFilter(slug)
+        set(!isActive)
+      }}
       active={isActive}
     >
       {children}

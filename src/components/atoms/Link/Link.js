@@ -21,6 +21,7 @@ const RegularLink = ({
   fontWeight,
   fontColor,
   my,
+  partiallyActive,
   activeStyle,
   to,
 }) => (
@@ -31,6 +32,7 @@ const RegularLink = ({
     color={fontColor}
     my={my}
     activeStyle={activeStyle}
+    partiallyActive={partiallyActive}
     to={to}
   >
     {children}

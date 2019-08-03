@@ -3,23 +3,19 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { color, typography, space } from 'styled-system'
+import { hexToRGB } from '../../../utilitity/hexToRGB'
 
 const ButtonContainer = styled.button`
-  ${tw`font-serif rounded-full shadow font-bold`};
+  ${tw`font-sans rounded-full font-bold uppercase`};
 
   ${typography};
   ${color};
   ${space};
-  border: 0;
   transition: 0.5s;
-  border: 2px solid rgba(0, 0, 0, 0);
-
-  &:hover {
-    ${tw`shadow-lg`}
-  }
+  border: 2px solid ${props => hexToRGB(props.color, 0.75)};
 
   &:focus {
-    border: 2px solid rgba(0, 85, 255 0.5);
+    border: 2px solid rgba(0, 85, 255, 0.5);
     outline: 0;
   }
 `

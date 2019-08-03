@@ -23,7 +23,7 @@ const BottomBox = ({ theme, variant }) => {
       width={1}
       bg={backgroundColor}
       py={8}
-      borderTop="1px solid rgba(0,0,0,0.075)"
+      borderTop="1px solid rgba(0,0,0,0.1)"
     >
       <Box
         maxWidth={1200}
@@ -32,28 +32,29 @@ const BottomBox = ({ theme, variant }) => {
         flexDirection={['column', 'column', 'row']}
         alignItems="center"
         justifyContent="space-between"
+        px={[0, 12]}
       >
         <Link
           display={['none', 'none', 'block']}
           fontColor={color}
           fontWeight="bold"
-          fontSize={['sm', 'base']}
+          fontSize={['base']}
           to="https://github.com/av3ng3roo"
         >
-          View source code
+          Source code
         </Link>
         <Text
           fontFamily="sans"
           fontSize={['base']}
           fontColor={color}
-          fontWeight="bold"
+          fontWeight="black"
           mb={[4, 4, 0]}
         >
           hello@ddomanski.dev
         </Text>
         <Box>
-          <Icon icon="github" width={[21, 24]} mr={2} fill={color} />
-          <Icon icon="linkedin" width={[21, 24]} fill={color} />
+          <Icon icon="github" width={[18, 21]} mr={2} fill={color} />
+          <Icon icon="linkedin" width={[18, 21]} fill={color} />
         </Box>
       </Box>
     </Box>

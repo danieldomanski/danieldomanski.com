@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/templates/Layout'
@@ -13,17 +13,42 @@ const ContentFilters = styled.ul`
   ${tw`flex flex-wrap m-auto my-8`}
   list-style: none;
 `
+
 const Blog = ({ data }) => {
-  const tags = data.tags.edges
-  const posts = data.posts.edges
+  const [currentFilters, setFilters] = useState([])
+  const [filteredPosts, filterPosts] = useState(data.posts.edges)
+  const [tags] = useState(data.tags.edges)
+  const [posts] = useState(data.posts.edges)
+
+  const updateFilter = filter => {
+    if (!currentFilters.includes(filter)) {
+      setFilters([...currentFilters, filter])
+    } else {
+      setFilters(currentFilters.filter(name => name !== filter))
+    }
+  }
+
+  const updatePosts = () => {
+    filterPosts(
+      posts.filter(post => {
+        const postTags = post.node.data.tags.map(item => item.tag.slug)
+
+        return currentFilters.every(filter => postTags.includes(filter))
+      })
+    )
+  }
+
+  useEffect(() => {
+    updatePosts()
+  }, [currentFilters])
 
   return (
     <Layout>
       <Header variant="secondary" />
       <Box
         width={1}
-        pt={[8]}
-        maxWidth={1200}
+        pt={[8, 8, 16]}
+        maxWidth={1000}
         m="auto"
         px={[6, 6, 12, 16, 24]}
         flex={1}
@@ -38,13 +63,24 @@ const Blog = ({ data }) => {
         <Box>
           <ContentFilters>
             {tags.map((tag, idx) => (
-              <Filter>{tag.node.data.tag}</Filter>
+              <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
+                {tag.node.data.tag}
+              </Filter>
             ))}
           </ContentFilters>
           <Box>
-            {posts.map((post, idx) => (
-              <PostItem data={post} />
-            ))}
+            {filteredPosts.length === 0 ? (
+              <Text
+                display="block"
+                fontSize={['base', 'lg']}
+                fontColor="primary.3"
+                textAlign="center"
+              >
+                No articles found.
+              </Text>
+            ) : (
+              filteredPosts.map((post, idx) => <PostItem data={post} />)
+            )}
           </Box>
         </Box>
       </Box>
@@ -67,6 +103,11 @@ export const pageQuery = graphql`
           data {
             title {
               text
+            }
+            tags {
+              tag {
+                slug
+              }
             }
             description {
               text

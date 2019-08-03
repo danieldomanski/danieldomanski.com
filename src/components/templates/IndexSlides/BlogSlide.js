@@ -4,7 +4,9 @@ import { Link } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import SlidableButton from '../../atoms/Button/SlidableButton'
+import Button from '../../atoms/Button'
 import PostItem from '../../organisms/PostItem'
+import Icon from '../../atoms/Icon'
 
 const BlogPosts = styled.ul`
   ${tw`py-8 md:py-12 text-left`}
@@ -20,11 +22,10 @@ const BlogSlide = ({ posts }) => (
       justifyContent="center"
       position="relative"
       px={[6, 6, 12, 16, 24]}
-      textAlign={['center', 'center', 'left']}
     >
       <Box
         display="flex"
-        justifyContent={['center', 'center', 'space-between']}
+        justifyContent={['space-between']}
         alignItems="center"
         mb={[4, 4, 8]}
       >
@@ -38,6 +39,17 @@ const BlogSlide = ({ posts }) => (
         <Link to="/projects" display={['none', 'none', 'block']}>
           <SlidableButton>view all projects</SlidableButton>
         </Link>
+        <Box display={['flex', 'flex', 'none']} alignItems="center">
+          <Text
+            fontFamily="sans"
+            fontSize="base"
+            fontColor="accent.7"
+            fontWeight="bold"
+          >
+            View all
+          </Text>
+          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
+        </Box>
       </Box>
       <Text
         fontFamily="sans"
@@ -52,18 +64,13 @@ const BlogSlide = ({ posts }) => (
         value to the community.
       </Text>
       <BlogPosts>
-        <Text fontSize="base" fontColor="primary.8" fontWeight="bold">
+        <Text fontSize="base" fontColor="primary.8" fontWeight="bold" mb={4}>
           Latest posts.
         </Text>
         {posts.map((post, idx) => (
           <PostItem data={post} />
         ))}
       </BlogPosts>
-      <Box display={['flex', 'flex', 'none']} mt={12} justifyContent="center">
-        <Link to="/blog">
-          <SlidableButton>view all posts</SlidableButton>
-        </Link>
-      </Box>
     </Box>
   </Box>
 )

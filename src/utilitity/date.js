@@ -8,8 +8,10 @@ const locales = {
 
 /**
  * formatDate -
- * @param slice      - Raw prismic slice
- * @returns {object} - Object containg data according to slice type
+ * @param date           - date string
+ * @param formatStr      - format in which date should be returned
+ * @param localeStr      - language of date string parts (e.g. months)
+ * @returns {object}     - date in given format and locale
  */
 
 export const formatDate = (

@@ -32,7 +32,11 @@ const Item = styled.li`
   ${tw`mr-6 my-2`}
 `
 
-const activeStyle = { color: '#0055FF' }
+const activeStyle = {
+  color: '#0055FF',
+  borderBottom: '2px solid #0055FF',
+  paddingBottom: '6px',
+}
 
 const Navigation = () => (
   <Container>
@@ -66,6 +70,7 @@ const Navigation = () => (
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
+          partiallyActive
         >
           Projects
         </Link>
@@ -76,6 +81,7 @@ const Navigation = () => (
           fontSize={['sm']}
           fontWeight="bold"
           fontColor="primary.7"
+          partiallyActive
           activeStyle={activeStyle}
         >
           Articles

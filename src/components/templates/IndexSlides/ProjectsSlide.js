@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import ProjectsSlider from '../../organisms/ProjectsSlider'
+import Button from '../../atoms/Button'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 import Text from '../../atoms/Text'
 import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
+import Icon from '../../atoms/Icon'
 
 const ProjectsSlide = () => (
   <Box maxWidth={1400} m="auto" pb={[24, 24, 64]}>
@@ -14,11 +16,10 @@ const ProjectsSlide = () => (
       justifyContent="center"
       position="relative"
       px={[6, 6, 12, 16, 24]}
-      textAlign={['center', 'center', 'left']}
     >
       <Box
         display="flex"
-        justifyContent={['center', 'center', 'space-between']}
+        justifyContent={['space-between']}
         alignItems="center"
         mb={[4, 4, 8]}
       >
@@ -27,11 +28,22 @@ const ProjectsSlide = () => (
           fontWeight="black"
           fontSize={['4xl', '4xl', '6xl']}
         >
-          Works.
+          Works
         </Text>
         <Link to="/projects" display={['none', 'none', 'block']}>
           <SlidableButton>view all projects</SlidableButton>
         </Link>
+        <Box display={['flex', 'flex', 'none']} alignItems="center">
+          <Text
+            fontFamily="sans"
+            fontSize="base"
+            fontColor="accent.7"
+            fontWeight="bold"
+          >
+            View all
+          </Text>
+          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
+        </Box>
       </Box>
       <Text
         fontFamily="sans"
@@ -46,11 +58,6 @@ const ProjectsSlide = () => (
         value to the community.
       </Text>
       <ProjectsSlider />
-      <Box display={['flex', 'flex', 'none']} mt={12} justifyContent="center">
-        <Link to="/blog">
-          <SlidableButton>view all posts</SlidableButton>
-        </Link>
-      </Box>
     </Box>
   </Box>
 )

@@ -18,7 +18,7 @@ const UpperRect = () => (
     width={1}
     height="100%"
     display="flex"
-    bg="#E2E2E2"
+    bg="#F0F0F0"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"

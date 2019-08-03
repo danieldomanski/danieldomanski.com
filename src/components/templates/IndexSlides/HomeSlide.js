@@ -31,10 +31,9 @@ const HomeSlide = () => {
       <Box
         maxWidth={1600}
         m="auto"
-        px={[6, 6, 12, 16, 24]}
-        py={24}
-        bg="#E0E0E0"
-        textAlign={['center', 'center', 'left']}
+        mx={[6, 6, 12, 16, 24]}
+        py={16}
+        borderBottom="1px solid rgba(0,0,0,0.1)"
       >
         <Text
           fontWeight="black"

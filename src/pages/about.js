@@ -46,7 +46,7 @@ const skillsRows = [
 const About = () => (
   <Layout>
     <Header />
-    <Box pt={[8]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
+    <Box pt={[8, 8, 16]} maxWidth={1170} m="auto" px={[6, 6, 12, 16, 24]}>
       <Text
         display={['block', 'block', 'inline-block']}
         fontColor="primary.8"
@@ -62,7 +62,7 @@ const About = () => (
         alignItems="center"
         my={8}
       >
-        <Avatar x={200} y={200} src="profile-picture.jpg" mr={[0, 0, 16]} />
+        <Avatar x={160} y={160} src="profile-picture.jpg" mr={[0, 0, 16]} />
         <Text
           fontColor="primary.7"
           fontSize={['base', 'lg']}
@@ -80,7 +80,7 @@ const About = () => (
         </Text>
       </Box>
 
-      <Box display="flex" flexDirection="column" maxWidth={1200} m="auto">
+      <Box display="flex" flexDirection="column" maxWidth={780} m="auto">
         <Box width={1} m="auto">
           <Text
             fontColor="primary.8"
@@ -97,7 +97,7 @@ const About = () => (
                 width={[1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.7"
-                fontSize={['sm', 'base']}
+                fontSize={['base']}
                 pr={2}
               >
                 {row.name}
@@ -106,8 +106,8 @@ const About = () => (
                 maxWidth={350}
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
-                fontColor="primary-600"
-                fontSize={['sm', 'base']}
+                fontColor="primary.8"
+                fontSize={['base']}
                 pl={2}
               >
                 {row.text}
@@ -131,7 +131,7 @@ const About = () => (
                 width={[1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.7"
-                fontSize={['sm', 'base']}
+                fontSize={['base']}
                 pr={2}
               >
                 {row.name}
@@ -140,8 +140,8 @@ const About = () => (
                 maxWidth={350}
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
-                fontColor="primary.7"
-                fontSize={['sm', 'base']}
+                fontColor="primary.8"
+                fontSize={['base']}
                 pl={2}
               >
                 {row.text}

@@ -6,10 +6,10 @@ import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center md:py-4 shadow mb-4`}
+  ${tw`w-full flex items-center py-4 shadow mb-4`}
   background-color: #fafafa;
   transition: 0.4s ease-in-out;
-  height: 64px;
+  height: 60px;
 
   &:focus {
     box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
@@ -17,7 +17,7 @@ const Container = styled.a`
 
   text-decoration: none;
   @media screen and (min-width: 768px) {
-    height: 90px;
+    height: 80px;
   }
 `
 

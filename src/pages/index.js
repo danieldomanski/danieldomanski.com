@@ -15,10 +15,6 @@ import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
-
-import Text from '../components/atoms/Text'
-import Box from '../components/atoms/Box'
-import Column from '../components/atoms/Box/Column'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
 
 const MainWrapper = styled.main`
@@ -55,7 +51,7 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
-const Index = ({ data, pageContext, location }) => {
+const Index = ({ data }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const [, setProjects] = useContext(ProjectsContext)

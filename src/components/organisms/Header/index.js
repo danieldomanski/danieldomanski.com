@@ -26,37 +26,31 @@ const Header = ({ variant }) => {
   return (
     <Container>
       <Box
+        width={1}
         display="flex"
-        flexDirection={['column', 'column', 'row']}
         justifyContent="space-between"
-        alignItems={['flex-start', 'flex-start', 'center']}
+        flexWrap="wrap"
+        alignItems={['center']}
         m="auto"
         maxWidth={1600}
         px={[8, 8, 8, 16, 24]}
-        py={[6, 6, 8]}
+        pt={[8, 8, 8]}
       >
-        <Box
-          width={1}
-          display="flex"
-          justifyContent="space-between"
-          flexWrap="wrap"
-        >
-          <Brand>
-            <Link to="/">
-              <Text
-                fontSize="xl"
-                fontWeight="black"
-                fontColor="primary.8"
-                hover={{ color: '#0055FF' }}
-                style={{ letterSpacing: '-0.5px' }}
-              >
-                Daniel Domański
-              </Text>
-            </Link>
-          </Brand>
-          <Navigation />
-          <LocaleSwitcher variant={variant} />
-        </Box>
+        <Brand>
+          <Link to="/">
+            <Text
+              fontSize="xl"
+              fontWeight="black"
+              fontColor="primary.8"
+              hover={{ color: '#0055FF' }}
+              style={{ letterSpacing: '-0.5px' }}
+            >
+              Daniel Domański
+            </Text>
+          </Link>
+        </Brand>
+        <Navigation />
+        <LocaleSwitcher variant={variant} />
       </Box>
     </Container>
   )

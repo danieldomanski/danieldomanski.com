@@ -17,17 +17,20 @@ export default css`
 
     &:after {
       content: '';
-      ${tw`absolute w-full pin-l`};
+      ${tw`w-full absolute pin-l`};
       transition: 0.5s ease-in-out;
-
-      height: 1px;
-      bottom: 3px;
+      z-index: -1;
+      height: 2px;
+      bottom: 2px;
       background-color: #739fff;
     }
 
     &:hover {
+      color: #739fff;
+      background-color: #dce4f8;
+
       &:after {
-        width: 0;
+        background-color: #739fff;
       }
     }
   }
@@ -169,7 +172,7 @@ export default css`
 
   .highlighted {
     font-family: 'Consolas';
-    background: #f6f7d6;
+    background: #e3e6ea;
     border-radius: 0.2rem;
     color: #333;
     padding: 0.15em 0.2em;

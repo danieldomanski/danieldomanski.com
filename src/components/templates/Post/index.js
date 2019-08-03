@@ -32,22 +32,35 @@ const Post = ({ data, pageContext }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <Box m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={686} width={1} m="auto" my={8} pt={8} pb={32}>
+      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
+        <Box maxWidth={686} width={1} m="auto" py={[8, 8, 16]}>
           <Box
+            as="header"
             width={1}
             display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            pb={4}
+            flexDirection={['column', 'column', 'row']}
+            alignItems={['center', 'center', 'center']}
             px={4}
+            mb={8}
           >
+            <Box my={4}>
+              <Icon icon={icon.text} width={[100, 120]} mr={8} />
+            </Box>
             <Box display="flex" flexDirection="column">
-              <Text fontColor="primary.8" fontWeight="black" fontSize="4xl">
+              <Text
+                fontColor="primary.8"
+                fontWeight="black"
+                fontSize={['2xl', '3xl', '4xl']}
+              >
                 {title.text}
               </Text>
               <Box display="flex" flexDirection="column">
-                <Box display="flex" alignItems="center" mt={2}>
+                <Box
+                  display="flex"
+                  justifyContent={['flex-start', 'center', 'flex-start']}
+                  alignItems="center"
+                  mt={2}
+                >
                   <Text fontFamily="sans" fontSize={['sm']} mr={[3]}>
                     {formatDate(date)}
                   </Text>
@@ -56,20 +69,74 @@ const Post = ({ data, pageContext }) => {
                     {`${estimatedReadTime} minutes to read`}
                   </Text>
                 </Box>
-                <Box display="flex" mt={4}>
-                  {tagsData.map(tag => (
-                    <Tag data={tag} />
-                  ))}
-                </Box>
               </Box>
             </Box>
-            <Icon icon={icon.text} width={120} />
           </Box>
           <PostContent data={data.prismicPost.data.body} />
-          <Bio mt={24} />
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="flex-start"
+            py={8}
+            mt={16}
+            borderTop="1px solid rgba(0,0,0,0.1)"
+            borderBottom="1px solid rgba(0,0,0,0.1)"
+          >
+            <Text
+              fontFamily="sans"
+              fontWeight="bold"
+              fontColor="primary.7"
+              fontSize="lg"
+              mb={4}
+            >
+              Tags
+            </Text>
+            <Box>
+              {tagsData.map(tag => (
+                <Tag data={tag} />
+              ))}
+            </Box>
+          </Box>
+          <Box width={1} display="flex" justifyContent="space-between" mt={16}>
+            <Box display="flex" flexDirection="column" mr={4}>
+              <Text
+                fontColor="accent.8"
+                fontFamily="sans"
+                fontWeight="bold"
+                fontSize={['sm', 'sm', 'base']}
+              >
+                Previous
+              </Text>
+              <Text
+                fontColor="accent.6"
+                fontFamily="sans"
+                fontSize={['base', 'base', 'lg']}
+              >
+                React fundamentals
+              </Text>
+            </Box>
+            <Box display="flex" flexDirection="column" textAlign="right">
+              <Text
+                fontColor="accent.8"
+                fontFamily="sans"
+                fontWeight="bold"
+                fontSize={['sm', 'sm', 'base']}
+              >
+                Next
+              </Text>
+              <Text
+                fontColor="accent.6"
+                fontFamily="sans"
+                fontSize={['base', 'base', 'lg']}
+              >
+                React fundamentals
+              </Text>
+            </Box>
+          </Box>
+          <Bio mt={16} />
         </Box>
       </Box>
-      <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>
