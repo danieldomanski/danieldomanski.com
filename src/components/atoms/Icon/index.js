@@ -12,7 +12,13 @@ const Wrapper = styled.svg`
   fill: ${props => props.fill};
   left: ${props => props.left};
   top: ${props => props.top};
+
   vertical-align: middle;
+  transition: fill 0.1s ease-in-out;
+
+  &:hover {
+    fill: ${props => props.hoverColor};
+  }
 `
 
 const icons = {
@@ -99,7 +105,7 @@ const icons = {
     ),
     viewBox: '0 0 630 630',
   },
-  webdesign: {
+  webDesign: {
     shape: (
       <>
         <rect width="48" height="48" fill="#B8DDFF" />
@@ -149,11 +155,12 @@ const icons = {
   },
 }
 
-const Icon = ({ icon, ml, mr, ...props }) => (
+const Icon = ({ icon, ml, mr, hoverColor, ...props }) => (
   <Wrapper
     {...props}
     viewBox={icons[icon].viewBox}
     preserveAspectRatio="none"
+    hoverColor={hoverColor}
     ml={ml}
     mr={mr}
   >
@@ -175,7 +182,7 @@ Icon.propTypes = {
 Icon.defaultProps = {
   stroke: 'transparent',
   width: '18px',
-  fill: '#353535',
+  fill: 'none',
   mx: 0,
   my: 0,
   mr: 0,

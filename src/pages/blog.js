@@ -10,7 +10,7 @@ import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap m-auto my-8`}
+  ${tw`flex flex-wrap m-auto mt-8 mb-4`}
   list-style: none;
 `
 
@@ -62,7 +62,7 @@ const Blog = ({ data }) => {
         </Text>
         <Box>
           <ContentFilters>
-            {tags.map((tag, idx) => (
+            {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
                 {tag.node.data.tag}
               </Filter>
@@ -75,6 +75,7 @@ const Blog = ({ data }) => {
                 fontSize={['base', 'lg']}
                 fontColor="primary.3"
                 textAlign="center"
+                mt={8}
               >
                 No articles found.
               </Text>
@@ -84,7 +85,7 @@ const Blog = ({ data }) => {
           </Box>
         </Box>
       </Box>
-      <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

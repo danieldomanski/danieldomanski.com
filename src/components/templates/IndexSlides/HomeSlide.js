@@ -29,7 +29,7 @@ const HomeSlide = () => {
   if (isMobile) {
     return (
       <Box
-        maxWidth={1600}
+        maxWidth={1200}
         m="auto"
         mx={[6, 6, 12, 16, 24]}
         py={16}
@@ -72,9 +72,9 @@ const HomeSlide = () => {
           transform="translateY(-50%)"
         >
           <Box
-            maxWidth={1600}
+            maxWidth={1400}
             m="auto"
-            px={[8, 12, 16, 24]}
+            px={[6, 6, 12, 16, 24]}
             textAlign={['center', 'center', 'left']}
           >
             <Text
@@ -84,7 +84,7 @@ const HomeSlide = () => {
               lineHeight="tight"
               mb={8}
             >
-              Full-Stack Web Developer.
+              Full-Stack Web Developer
             </Text>
             <Text
               fontFamily="sans"

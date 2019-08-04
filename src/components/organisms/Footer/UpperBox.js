@@ -4,11 +4,7 @@ import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import { CollapsableLink } from '../../atoms/Link'
-/*
-const UpperWrapper = styled(ContentWrapper)`
-  ${tw`flex flex-col justify-center items-center h-full text-center px-12 xl:px-32 py-8`}
-`
-*/
+
 const ItalicSpan = styled.span`
   ${tw`italic`}
 `
@@ -39,7 +35,7 @@ const UpperRect = () => (
       fontSize={['lg']}
       fontColor="primary.6"
       my={[4]}
-      maxWidth={800}
+      maxWidth={1000}
       lineHeight="relaxed"
     >
       You may find me on social networks given below, or

@@ -7,14 +7,6 @@ import Text from '../../atoms/Text'
 import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 
-const BottomRow = styled.div`
-  ${tw`h-full flex flex-col md:flex-row items-center justify-between px-12 xl:px-32`}
-
-  & > * {
-    margin: 0.25em 0;
-  }
-`
-
 const BottomBox = ({ theme, variant }) => {
   const { backgroundColor, color } = theme.components.bottomFooter[variant]
 
@@ -26,7 +18,7 @@ const BottomBox = ({ theme, variant }) => {
       borderTop="1px solid rgba(0,0,0,0.1)"
     >
       <Box
-        maxWidth={1200}
+        maxWidth={1400}
         m="auto"
         display="flex"
         flexDirection={['column', 'column', 'row']}
@@ -41,7 +33,7 @@ const BottomBox = ({ theme, variant }) => {
           fontSize={['base']}
           to="https://github.com/av3ng3roo"
         >
-          Source code
+          {`</> code `}
         </Link>
         <Text
           fontFamily="sans"
@@ -53,8 +45,19 @@ const BottomBox = ({ theme, variant }) => {
           hello@ddomanski.dev
         </Text>
         <Box>
-          <Icon icon="github" width={[18, 21]} mr={2} fill={color} />
-          <Icon icon="linkedin" width={[18, 21]} fill={color} />
+          <Icon
+            icon="github"
+            width={[18, 21]}
+            mr={2}
+            fill={color}
+            hoverColor="#4583FF"
+          />
+          <Icon
+            icon="linkedin"
+            width={[18, 21]}
+            fill={color}
+            hoverColor="#4583FF"
+          />
         </Box>
       </Box>
     </Box>

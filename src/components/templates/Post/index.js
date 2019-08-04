@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Footer from '../../organisms/Footer'
+import { Link } from '../../atoms/Link'
 import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
@@ -20,6 +20,7 @@ const Dot = styled.span`
 
 const Post = ({ data, pageContext }) => {
   const { title, tags, icon, date } = data.prismicPost.data
+  const { previous, next } = pageContext.data.siblings
 
   const tagsData = tags.map(t => ({
     name: t.tag.document[0].data.tag,
@@ -33,7 +34,7 @@ const Post = ({ data, pageContext }) => {
     <Layout>
       <Header variant="secondary" />
       <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={686} width={1} m="auto" py={[8, 8, 16]}>
+        <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
           <Box
             as="header"
             width={1}
@@ -41,10 +42,10 @@ const Post = ({ data, pageContext }) => {
             flexDirection={['column', 'column', 'row']}
             alignItems={['center', 'center', 'center']}
             px={4}
-            mb={8}
+            my={8}
           >
             <Box my={4}>
-              <Icon icon={icon.text} width={[100, 120]} mr={8} />
+              <Icon icon={icon.text} width={[100, 120]} mr={[0, 0, 8]} />
             </Box>
             <Box display="flex" flexDirection="column">
               <Text
@@ -57,7 +58,7 @@ const Post = ({ data, pageContext }) => {
               <Box display="flex" flexDirection="column">
                 <Box
                   display="flex"
-                  justifyContent={['flex-start', 'center', 'flex-start']}
+                  justifyContent={['center', 'center', 'flex-start']}
                   alignItems="center"
                   mt={2}
                 >
@@ -97,43 +98,57 @@ const Post = ({ data, pageContext }) => {
               ))}
             </Box>
           </Box>
-          <Box width={1} display="flex" justifyContent="space-between" mt={16}>
-            <Box display="flex" flexDirection="column" mr={4}>
-              <Text
-                fontColor="accent.8"
-                fontFamily="sans"
-                fontWeight="bold"
-                fontSize={['sm', 'sm', 'base']}
+          <Box
+            width={1}
+            display="flex"
+            flexDirection={['column', 'column', 'row']}
+            flexWrap="wrap"
+            justifyContent={['flex-start', 'flex-start', 'space-between']}
+            mt={12}
+          >
+            <Link to={`/blog/${previous.node.uid}`} maxWidth={300}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                pb={[4, 4, 0]}
+                mr={[0, 0, 4]}
               >
-                Previous
-              </Text>
-              <Text
-                fontColor="accent.6"
-                fontFamily="sans"
-                fontSize={['base', 'base', 'lg']}
+                <Text
+                  fontColor="accent.8"
+                  fontFamily="sans"
+                  fontWeight="bold"
+                  fontSize={['base', 'base', 'base']}
+                  mb={1}
+                >
+                  Previous
+                </Text>
+                <Text fontColor="accent.6" fontFamily="sans" fontSize={['lg']}>
+                  {previous.node.data.title.text}
+                </Text>
+              </Box>
+            </Link>
+            <Link width={1} to={`/blog/${next.node.uid}`} maxWidth={300}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                textAlign={['left', 'left', 'right']}
               >
-                React fundamentals
-              </Text>
-            </Box>
-            <Box display="flex" flexDirection="column" textAlign="right">
-              <Text
-                fontColor="accent.8"
-                fontFamily="sans"
-                fontWeight="bold"
-                fontSize={['sm', 'sm', 'base']}
-              >
-                Next
-              </Text>
-              <Text
-                fontColor="accent.6"
-                fontFamily="sans"
-                fontSize={['base', 'base', 'lg']}
-              >
-                React fundamentals
-              </Text>
-            </Box>
+                <Text
+                  fontColor="accent.8"
+                  fontFamily="sans"
+                  fontWeight="bold"
+                  fontSize={['base']}
+                  mb={1}
+                >
+                  Next
+                </Text>
+                <Text fontColor="accent.6" fontFamily="sans" fontSize={['lg']}>
+                  {next.node.data.title.text}
+                </Text>
+              </Box>
+            </Link>
           </Box>
-          <Bio mt={16} />
+          <Bio mt={12} />
         </Box>
       </Box>
       <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>

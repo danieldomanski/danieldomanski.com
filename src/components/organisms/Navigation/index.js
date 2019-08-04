@@ -9,7 +9,7 @@ const Container = styled.nav`
   order: 3;
 
   @media screen and (min-width: 768px) {
-    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-24`}
+    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-16`}
     order: 2;
     width: auto;
     margin-top: 0;
@@ -29,7 +29,7 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`mr-6 my-2`}
+  ${tw`mr-8 my-2`}
 `
 
 const activeStyle = {
@@ -44,7 +44,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/"
-          fontSize={['sm']}
+          fontSize={['sm', 'sm', 'base']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
@@ -54,23 +54,12 @@ const Navigation = () => (
       </Item>
       <Item>
         <Link
-          to="/about"
-          fontSize={['sm']}
-          fontWeight="bold"
-          fontColor="primary.7"
-          activeStyle={activeStyle}
-        >
-          About
-        </Link>
-      </Item>
-      <Item>
-        <Link
           to="/projects"
-          fontSize={['sm']}
+          fontSize={['sm', 'sm', 'base']}
           fontWeight="bold"
           fontColor="primary.7"
-          activeStyle={activeStyle}
           partiallyActive
+          activeStyle={activeStyle}
         >
           Projects
         </Link>
@@ -78,13 +67,24 @@ const Navigation = () => (
       <Item>
         <Link
           to="/blog"
-          fontSize={['sm']}
+          fontSize={['sm', 'sm', 'base']}
           fontWeight="bold"
           fontColor="primary.7"
           partiallyActive
           activeStyle={activeStyle}
         >
           Articles
+        </Link>
+      </Item>
+      <Item>
+        <Link
+          to="/about"
+          fontSize={['sm', 'sm', 'base']}
+          fontWeight="bold"
+          fontColor="primary.7"
+          activeStyle={activeStyle}
+        >
+          About
         </Link>
       </Item>
     </List>

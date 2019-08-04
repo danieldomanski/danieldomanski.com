@@ -46,23 +46,23 @@ const skillsRows = [
 const About = () => (
   <Layout>
     <Header />
-    <Box pt={[8, 8, 16]} maxWidth={1170} m="auto" px={[6, 6, 12, 16, 24]}>
+    <Box pt={[8, 8, 16]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
       <Text
         display={['block', 'block', 'inline-block']}
         fontColor="primary.8"
         fontWeight="black"
-        fontSize="4xl"
+        fontSize={['3xl', '4xl', '5xl']}
         textAlign={['center', 'center', 'left']}
       >
-        About the author.
+        About me
       </Text>
       <Box
         display="flex"
         flexDirection={['column', 'column', 'row']}
         alignItems="center"
-        my={8}
+        my={[4, 4, 0]}
       >
-        <Avatar x={160} y={160} src="profile-picture.jpg" mr={[0, 0, 16]} />
+        <Avatar x={180} y={180} src="profile-picture.jpg" mr={[0, 0, 8]} />
         <Text
           fontColor="primary.7"
           fontSize={['base', 'lg']}
@@ -80,10 +80,16 @@ const About = () => (
         </Text>
       </Box>
 
-      <Box display="flex" flexDirection="column" maxWidth={780} m="auto">
+      <Box
+        display="flex"
+        flexDirection="column"
+        maxWidth={1000}
+        m="auto"
+        my={8}
+      >
         <Box width={1} m="auto">
           <Text
-            fontColor="primary.8"
+            fontColor="primary.7"
             fontSize={['2xl']}
             fontWeight="black"
             mt={8}
@@ -97,7 +103,7 @@ const About = () => (
                 width={[1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.7"
-                fontSize={['base']}
+                fontSize={['base', 'lg']}
                 pr={2}
               >
                 {row.name}
@@ -107,7 +113,7 @@ const About = () => (
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.8"
-                fontSize={['base']}
+                fontSize={['base', 'lg']}
                 pl={2}
               >
                 {row.text}
@@ -115,9 +121,9 @@ const About = () => (
             </Box>
           ))}
         </Box>
-        <Box width={1} py={6} m="auto">
+        <Box width={1} py={4} m="auto">
           <Text
-            fontColor="primary.8"
+            fontColor="primary.7"
             fontSize={['2xl']}
             fontWeight="black"
             mt={8}
@@ -131,7 +137,7 @@ const About = () => (
                 width={[1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.7"
-                fontSize={['base']}
+                fontSize={['base', 'lg']}
                 pr={2}
               >
                 {row.name}
@@ -141,7 +147,7 @@ const About = () => (
                 width={[5 / 6, 5 / 6, 1 / 2]}
                 fontFamily="sans"
                 fontColor="primary.8"
-                fontSize={['base']}
+                fontSize={['base', 'lg']}
                 pl={2}
               >
                 {row.text}
@@ -151,7 +157,7 @@ const About = () => (
         </Box>
       </Box>
     </Box>
-    <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+    <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
       <BottomBox variant="secondary" />
     </Box>
   </Layout>

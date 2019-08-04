@@ -13,11 +13,10 @@ import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
-import { ProjectsContext } from '../context/ProjectsContext'
 import useWindowSize from '../hooks/useWindowSize'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
 
-const MainWrapper = styled.main`
+const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
   z-index: 5;
   margin-top: 100vh;
@@ -51,21 +50,19 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
+const projectsToShowcase = ['szczecin', 'coach']
+
 const Index = ({ data }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
-  const [, setProjects] = useContext(ProjectsContext)
 
-  useEffect(() => {
-    setProjects(data.projects.edges)
-  }, [])
   if (isMobile) {
     return (
       <Layout>
         <Header />
         <HomeSlide />
         <AboutSlide />
-        <ProjectsSlide />
+        <ProjectsSlide projects={data.projects.edges} />
         <BlogSlide posts={data.posts.edges} />
         <Footer variant="index">
           <UpperBox />
@@ -80,11 +77,11 @@ const Index = ({ data }) => {
         <Header variant="index" />
         <HomeSlide />
       </TopLayer>
-      <MainWrapper>
+      <OnTopLayer>
         <AboutSlide />
-        <ProjectsSlide />
+        <ProjectsSlide projects={data.projects.edges} />
         <BlogSlide posts={data.posts.edges} />
-      </MainWrapper>
+      </OnTopLayer>
       <Footer variant="primary">
         <UpperBox />
         <BottomBox variant="primary" />
@@ -109,7 +106,10 @@ Index.propTypes = {
 
 export const pageQuery = graphql`
   query IndexQuery($locale: String!) {
-    projects: allPrismicProjects(limit: 3, filter: { lang: { eq: $locale } }) {
+    projects: allPrismicProjects(
+      limit: 2
+      filter: { lang: { eq: $locale }, uid: { in: ["coach", "szczecin"] } }
+    ) {
       edges {
         node {
           lang

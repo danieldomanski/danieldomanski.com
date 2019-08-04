@@ -6,19 +6,15 @@ import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center py-4 shadow mb-4`}
+  ${tw`w-full flex items-center py-2 sm:py-4 shadow mb-4`}
   background-color: #fafafa;
   transition: 0.4s ease-in-out;
-  height: 60px;
 
   &:focus {
     box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
   }
 
   text-decoration: none;
-  @media screen and (min-width: 768px) {
-    height: 80px;
-  }
 `
 
 const IconContainer = styled.span`
@@ -42,12 +38,12 @@ const PostItem = ({ data }) => {
   return (
     <Container href={`/blog/${data.node.uid}`}>
       <IconContainer>
-        <Icon icon={icon.text} width={[40, 60]} />
+        <Icon icon={icon.text} width={[40, 40, 60]} />
       </IconContainer>
       <TextContainer>
         <Text
           fontColor="primary.8"
-          fontSize={['base', 'lg']}
+          fontSize={['sm', 'lg']}
           fontWeight="black"
           hover={{ color: '#0055FF' }}
         >
@@ -57,7 +53,6 @@ const PostItem = ({ data }) => {
           display={['none', 'none', 'block']}
           fontColor="primary.5"
           fontSize="sm"
-          mt={1}
         >
           {description.text}
         </Text>

@@ -7,15 +7,16 @@ import Text from '../../atoms/Text'
 import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Icon from '../../atoms/Icon'
+import ProjectsGrid from '../../organisms/ProjectsGrid'
 
-const ProjectsSlide = () => (
+const ProjectsSlide = ({ projects }) => (
   <Box maxWidth={1400} m="auto" pb={[24, 24, 64]}>
     <Box
       display="flex"
       flexDirection="column"
       justifyContent="center"
       position="relative"
-      px={[6, 6, 12, 16, 24]}
+      px={[6, 6, 8, 12, 24]}
     >
       <Box
         display="flex"
@@ -57,7 +58,7 @@ const ProjectsSlide = () => (
         access to free resources. Learning in public is my way to give back some
         value to the community.
       </Text>
-      <ProjectsSlider />
+      <ProjectsGrid projects={projects} />
     </Box>
   </Box>
 )

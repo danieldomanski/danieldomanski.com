@@ -45,7 +45,7 @@ const SlidableBtn = ({ children }) => (
     >
       {children}
     </Text>
-    <Icon icon="arrow" width="25px" />
+    <Icon icon="arrow" fill="#353535" width="25px" />
   </SlidableSpan>
 )
 

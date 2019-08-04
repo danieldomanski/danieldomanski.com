@@ -1,7 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import Avatar from '../../atoms/Avatar'

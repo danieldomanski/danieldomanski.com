@@ -5,16 +5,12 @@ import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import ProjectGrid from '../components/organisms/ProjectsGrid'
 import Text from '../components/atoms/Text'
-import { ContentWrapper } from '../components/atoms/Wrapper'
+import Box from '../components/atoms/Box'
 import { ProjectsContext } from '../context/ProjectsContext'
+import BottomBox from '../components/organisms/Footer/BottomBox'
 
-const TopLayer = styled.section`
-  ${tw`w-full pt-24 pb-12 px-4 sm:px-8 md:px-16`}
-  z-index: 5;
-`
-
-const Blog = ({ data }) => {
-  const [, setProjects] = useContext(ProjectsContext)
+const Projects = ({ data }) => {
+  const [projects, setProjects] = useContext(ProjectsContext)
 
   useEffect(() => {
     setProjects(data.projects.edges)
@@ -23,24 +19,33 @@ const Blog = ({ data }) => {
   return (
     <Layout>
       <Header variant="secondary" />
-      <TopLayer>
-        <ContentWrapper>
-          <Text
-            fontColor="primary.8"
-            fontWeight="black"
-            fontSize={['5xl', '5xl', '6xl']}
-            mt={8}
-          >
-            Projects.
-          </Text>
-          <ProjectGrid />
-        </ContentWrapper>
-      </TopLayer>
+      <Box
+        width={1}
+        pt={[8, 8, 16]}
+        maxWidth={1400}
+        m="auto"
+        px={[6, 6, 12, 16, 24]}
+        flex={1}
+      >
+        <Text
+          display={['block', 'block', 'inline-block']}
+          fontColor="primary.8"
+          fontWeight="black"
+          fontSize={['3xl', '4xl', '5xl']}
+          textAlign={['center', 'center', 'left']}
+        >
+          Projects
+        </Text>
+        <ProjectGrid projects={projects} />
+      </Box>
+      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
+        <BottomBox variant="secondary" />
+      </Box>
     </Layout>
   )
 }
 
-export default Blog
+export default Projects
 
 export const pageQuery = graphql`
   query ProjectsQuery($locale: String!) {

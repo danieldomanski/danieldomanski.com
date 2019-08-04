@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { layout, typography, space, color } from 'styled-system'
 
 const LinkContainer = styled(Link)`
-  ${tw`font-sans no-underline`};
+  ${tw`font-sans no-underline cursor-pointer`};
   ${space}
   ${layout}
   ${typography};
@@ -20,6 +20,8 @@ const RegularLink = ({
   display,
   fontWeight,
   fontColor,
+  width,
+  maxWidth,
   my,
   partiallyActive,
   activeStyle,
@@ -30,6 +32,8 @@ const RegularLink = ({
     fontSize={fontSize}
     fontWeight={fontWeight}
     color={fontColor}
+    width={width}
+    maxWidth={maxWidth}
     my={my}
     activeStyle={activeStyle}
     partiallyActive={partiallyActive}

@@ -21,7 +21,6 @@ const Brand = styled.div`
 
 const Header = ({ variant }) => {
   const [isNavOpen, toggle] = useState(false)
-  const toggleNav = useCallback(() => toggle(!isNavOpen), [isNavOpen])
 
   return (
     <Container>
@@ -32,9 +31,9 @@ const Header = ({ variant }) => {
         flexWrap="wrap"
         alignItems={['center']}
         m="auto"
-        maxWidth={1600}
-        px={[8, 8, 8, 16, 24]}
-        pt={[8, 8, 8]}
+        maxWidth={1400}
+        px={[6, 6, 12, 16, 24]}
+        pt={[8]}
       >
         <Brand>
           <Link to="/">
@@ -43,7 +42,7 @@ const Header = ({ variant }) => {
               fontWeight="black"
               fontColor="primary.8"
               hover={{ color: '#0055FF' }}
-              style={{ letterSpacing: '-0.5px' }}
+              style={{ letterSpacing: '-0.6px' }}
             >
               Daniel Domański
             </Text>
