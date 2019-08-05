@@ -44,7 +44,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/"
-          fontSize={['sm', 'sm', 'base']}
+          fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
@@ -55,7 +55,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/projects"
-          fontSize={['sm', 'sm', 'base']}
+          fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           partiallyActive
@@ -67,7 +67,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/blog"
-          fontSize={['sm', 'sm', 'base']}
+          fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           partiallyActive
@@ -79,7 +79,7 @@ const Navigation = () => (
       <Item>
         <Link
           to="/about"
-          fontSize={['sm', 'sm', 'base']}
+          fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}

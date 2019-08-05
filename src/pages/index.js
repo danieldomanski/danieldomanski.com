@@ -115,6 +115,17 @@ export const pageQuery = graphql`
           lang
           uid
           data {
+            role {
+              involvment {
+                document {
+                  data {
+                    involvment {
+                      text
+                    }
+                  }
+                }
+              }
+            }
             body {
               ... on PrismicProjectsBodyDetail {
                 slice_type

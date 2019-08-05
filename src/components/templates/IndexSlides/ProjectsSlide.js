@@ -58,7 +58,7 @@ const ProjectsSlide = ({ projects }) => (
         access to free resources. Learning in public is my way to give back some
         value to the community.
       </Text>
-      <ProjectsGrid projects={projects} />
+      <ProjectsGrid projects={projects} mt={16} />
     </Box>
   </Box>
 )

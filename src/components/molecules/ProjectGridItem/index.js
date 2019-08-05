@@ -8,91 +8,94 @@ import Text from '../../atoms/Text'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const Container = styled.li`
-  ${tw`relative w-full h-full shadow overflow-hidden`};
-  @media screen and (min-width: 640px) {
+  ${tw`relative w-full h-full shadow-lg overflow-hidden`};
+  height: 300px;
+
+  @media screen and (min-width: 420px) {
+    height: 380px;
+  }
+
+  @media screen and (min-width: 1024px) {
     height: 500px;
   }
-  height: 300px;
-  &:hover {
-    & article {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
+
+  transition: height 0.25s ease-in-out;
 `
 
 const BgCover = styled.div`
-  ${tw`absolute w-full h-full`};
-
-  background: linear-gradient(
-    0deg,
-    rgba(240, 240, 240, 0.7) 0%,
-    rgba(240, 240, 240, 0) 100%
-  );
-`
-
-const Cover = styled.article`
-  ${tw`w-full h-full absolute`}
-  z-index: 1;
-  transform: translateY(-125%);
-  opacity: 0;
-  transition: 0.25s ease-in-out;
-`
-
-const CoverActions = styled.span`
-  ${tw`relative flex flex-col justify-center w-full h-full pin-b text-center px-8 shadow-lg`};
+  ${tw`flex items-center justify-center text-center absolute w-full h-full`};
+  background: transparent;
   z-index: 5;
-  background-color: rgba(240, 240, 240, 0.95);
-  transition: 0.25s ease-in-out;
-`
+  transition: background-color 0.2s ease-in-out;
 
-const Italic = styled.span`
-  font-style: italic;
-`
+  &:hover {
+    & + div {
+      transform: scale(1.1);
+    }
 
-const InvolvmentRow = styled.div`
-  ${tw`flex flex-col relative mt-8 md:mt-12`}
+    & > div {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-  &:before {
-    ${tw`absolute w-12 bg-primary-900 pin-x m-auto`}
-    content: '';
-    height: 2px;
-    top: -1em;
+    & > div > div {
+    }
+
+    background-color: rgba(240, 240, 240, 0.9);
   }
 `
-/* 
 
+const CoverActions = styled.div`
+  ${tw`invisible opacity-0 absolute flex flex-col justify-center w-full h-fulltext-center px-8`};
+  transition: 0.2s ease-in-out;
+  transition-delay: 0.1s;
+  transform: translateY(50px);
+`
 
+const HoverScale = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s ease-in-out;
+`
 
-*/
+const SlideUp = styled.div`
+  transition: transform 0.2s ease-in-out;
+`
+const formatInvolvment = roles =>
+  roles.map(role => role.involvment.document[0].data.involvment.text)
 
 const ProjectGridItem = ({ project, area }) => {
   const { uid } = project.node
   const { body, description, title } = project.node.data
-
+  const roles = formatInvolvment(project.node.data.role)
   const slice = getSliceContent(body, 'image')
   const { localFile } = slice[0]
 
   return (
     <Container area={area}>
-      <BgCover />
-      <Cover>
-        <CoverActions>
-          <Text
-            fontFamily="sans"
-            fontSize={['3xl', '4xl']}
-            fontColor="primary.8"
-            fontWeight="black"
-            style={{ letterSpacing: '-1px' }}
-          >
-            {title.text}
-          </Text>
-          <Text fontSize={['sm', 'base']}>
-            UI Design / UI Development / Back end development
-          </Text>
-        </CoverActions>
-      </Cover>
-      <Img fluid={localFile.childImageSharp.fluid} />
+      <Link to={`en/projects/${uid}`}>
+        <BgCover>
+          <CoverActions>
+            <Text
+              fontSize={['3xl']}
+              fontColor="primary.8"
+              fontWeight="black"
+              style={{ letterSpacing: '-1px' }}
+            >
+              {title.text}
+            </Text>
+            <SlideUp>
+              <Text fontSize={['sm', 'base']} fontColor="primary.6">
+                {roles.join(' / ')}
+              </Text>
+            </SlideUp>
+          </CoverActions>
+        </BgCover>
+        <HoverScale>
+          <Img fluid={localFile.childImageSharp.fluid} />
+        </HoverScale>
+      </Link>
     </Container>
   )
 }

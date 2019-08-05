@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Footer from '../../organisms/Footer'
+import BottomBox from '../../organisms/Footer/BottomBox'
 import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
@@ -10,21 +10,7 @@ import Box from '../../atoms/Box'
 import Column from '../../atoms/Box/Column'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
-
-const Main = styled(Box)`
-  ${tw`relative bg-primary-100 `}
-  padding-bottom: 600px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 500px;
-    padding-bottom: 0;
-  }
-  z-index: 5;
-`
-
-const ImageBox = styled.div`
-  ${tw`w-full md:w-1/2 lg:w-1/3 shadow-lg`}
-`
+import { formatInvolvment } from '../../../utilitity/format'
 
 const Mockups = styled.div`
   ${tw`w-full relative flex justify-center items-center m-auto mt-8 md:mt-12 mb-0 md:mb-16`}
@@ -46,21 +32,23 @@ const Mock = styled.div`
 `
 
 const Img = styled.img`
-  ${tw`w-full md:w-1/2 lg:w-1/3 shadow-lg`}
-  object-fit: contain;
+  ${tw`shadow-lg`}
+  width: 75%;
 `
 
 const Project = ({ data, pageContext }) => {
   const { title, description } = pageContext.data.node.data
   const { body } = data.prismicProjects.data
+
   const details = getSliceContent(body, 'detail')
   const mockups = getSliceContent(body, 'mockup')[0]
   const info = getSliceContent(body, 'info')[0]
+  const roles = formatInvolvment(data.prismicProjects.data.role)
 
   return (
     <Layout>
       <Header variant="secondary" />
-      <Main bg="primary.1" py={16} m="auto" px={[4, 8, 16, 24, 32]}>
+      <Box py={16} m="auto" px={[4, 8, 16, 24, 32]}>
         <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">
           <Column alignItems="center">
             <Text
@@ -86,8 +74,6 @@ const Project = ({ data, pageContext }) => {
         <Box
           display="flex"
           flexDirection={['column', 'column', 'row']}
-          justifyContent="center"
-          alignItems="center"
           width={1}
           maxWidth={1480}
           m="auto"
@@ -109,7 +95,7 @@ const Project = ({ data, pageContext }) => {
                 Role
               </Text>
               <Text fontFamily="sans" fontSize={['base']}>
-                {info.role}
+                {roles.join(', ')}
               </Text>
             </Column>
             <Column my={1}>
@@ -149,7 +135,6 @@ const Project = ({ data, pageContext }) => {
           flexDirection="column"
           justifyContent="space-between"
           maxWidth={1480}
-          m="auto"
           my={16}
           mb={[8, 8, 0]}
         >
@@ -158,17 +143,14 @@ const Project = ({ data, pageContext }) => {
 
             return (
               <Box
-                display="flex"
-                position="relative"
-                flexDirection={['column', 'row']}
+                width={1}
                 my={8}
+                display="flex"
+                flexDirection="row"
                 justifyContent="center"
                 alignItems="center"
-                flex={1}
               >
-                <Img src={detail.url} />
-
-                <Column py={[4, 0]} px={[0, 16]} flex={1}>
+                <Column py={[8]} flex={1} width={1 / 4}>
                   <Text
                     fontWeight="black"
                     fontSize={['3xl', '4xl']}
@@ -185,14 +167,22 @@ const Project = ({ data, pageContext }) => {
                     {detail.description}
                     {detail.description}
                     {detail.description}
+                    {detail.description}
+                    {detail.description}
+                    {detail.description}
+                    {detail.description}
                   </Text>
                 </Column>
+                <Box />
+                <Img src={detail.url} />
               </Box>
             )
           })}
         </Box>
-      </Main>
-      <Footer />
+      </Box>
+      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+        <BottomBox variant="secondary" />
+      </Box>
     </Layout>
   )
 }
@@ -203,6 +193,17 @@ export const pageQuery = graphql`
   query ProjectPostByUid($uid: String!, $locale: String!) {
     prismicProjects(uid: { eq: $uid }, lang: { eq: $locale }) {
       data {
+        role {
+          involvment {
+            document {
+              data {
+                involvment {
+                  text
+                }
+              }
+            }
+          }
+        }
         body {
           ... on PrismicProjectsBodyDetail {
             slice_type

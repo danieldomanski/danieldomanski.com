@@ -1,17 +1,20 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { space } from 'styled-system'
 import Text from '../../atoms/Text'
 import ProjectGridItem from '../../molecules/ProjectGridItem'
-import { ProjectsContext } from '../../../context/ProjectsContext'
 
 const Grid = styled.ul`
-  ${tw`w-full h-full py-4 md:py-16`};
+  ${space};
+
+  ${tw`w-full h-full`};
   grid-template-columns: 100%;
   grid-gap: 0.5em;
+  list-style: none;
 
   @media screen and (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 500px;
+
     grid-gap: 2em;
   }
 
@@ -25,10 +28,11 @@ const gridTemplates = {
   3: 'tertiary',
 }
 
-const ProjectsGrid = ({ projects }) => (
-  <Grid>
+const ProjectsGrid = ({ projects, mt, mb }) => (
+  <Grid mt={mt} mb={mb}>
     {projects.map((project, idx) => {
       const { title } = project.node.data
+
       return (
         <>
           <Text
