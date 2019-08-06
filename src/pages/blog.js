@@ -14,7 +14,7 @@ const ContentFilters = styled.ul`
   list-style: none;
 `
 
-const Blog = ({ data }) => {
+const Blog = ({ data, pageContext }) => {
   const [currentFilters, setFilters] = useState([])
   const [filteredPosts, filterPosts] = useState(data.posts.edges)
   const [tags] = useState(data.tags.edges)
@@ -43,7 +43,7 @@ const Blog = ({ data }) => {
   }, [currentFilters])
 
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <Header variant="secondary" />
       <Box
         width={1}

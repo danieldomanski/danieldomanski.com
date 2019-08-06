@@ -1,16 +1,14 @@
 import React, { useContext, useCallback } from 'react'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
-import { LocaleContext } from '../../../context/LocaleContext'
+import { LocaleContext } from '../../templates/Layout'
 import Box from '../Box'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase mr-1 cursor-pointer text-sm`}
+  ${tw`relative font-sans uppercase mx-1 cursor-pointer text-sm`}
 
-  &:last-of-type {
-    ${tw`ml-1 mr-0`}
-  }
 
   color: ${props => (props.active ? '#111' : '#666')};
   font-weight: ${props => (props.active ? 900 : 400)};
@@ -24,22 +22,19 @@ const LocaleSpan = styled.span`
 const Separator = styled.span``
 
 const LocaleSwitcher = ({ theme }) => {
-  const [active, set] = useContext(LocaleContext)
+  const [locale] = useContext(LocaleContext)
 
-  const setLocale = useCallback(() => {
-    const locale = active === 'en' ? 'pl' : 'en'
-    set(locale)
-  }, [active])
+  console.log({ locale })
 
   return (
     <Box display="flex" alignItems="center" order="2">
-      <LocaleSpan active={active === 'en'} onClick={setLocale}>
-        en
-      </LocaleSpan>
+      <Link to="/en">
+        <LocaleSpan active={locale === 'en-pl'}>en</LocaleSpan>
+      </Link>
       <Separator>/</Separator>
-      <LocaleSpan active={active === 'pl'} onClick={setLocale}>
-        pl
-      </LocaleSpan>
+      <Link to="/">
+        <LocaleSpan active={locale === 'pl'}>pl</LocaleSpan>
+      </Link>
     </Box>
   )
 }

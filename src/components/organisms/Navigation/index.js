@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
-import { Link } from '../../atoms/Link'
+import { LocalizedLink } from '../../atoms/Link'
 
 const Container = styled.nav`
   ${tw`flex items-center w-full md:ml-auto mt-4`}
@@ -38,23 +38,25 @@ const activeStyle = {
   paddingBottom: '6px',
 }
 
-const Navigation = () => (
+const Navigation = ({ locale }) => (
   <Container>
     <List>
       <Item>
-        <Link
+        <LocalizedLink
           to="/"
+          locale={locale}
           fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
         >
           Home
-        </Link>
+        </LocalizedLink>
       </Item>
       <Item>
-        <Link
+        <LocalizedLink
           to="/projects"
+          locale={locale}
           fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
@@ -62,11 +64,12 @@ const Navigation = () => (
           activeStyle={activeStyle}
         >
           Projects
-        </Link>
+        </LocalizedLink>
       </Item>
       <Item>
-        <Link
+        <LocalizedLink
           to="/blog"
+          locale={locale}
           fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
@@ -74,18 +77,19 @@ const Navigation = () => (
           activeStyle={activeStyle}
         >
           Articles
-        </Link>
+        </LocalizedLink>
       </Item>
       <Item>
-        <Link
+        <LocalizedLink
           to="/about"
+          locale={locale}
           fontSize={['base']}
           fontWeight="bold"
           fontColor="primary.7"
           activeStyle={activeStyle}
         >
           About
-        </Link>
+        </LocalizedLink>
       </Item>
     </List>
   </Container>

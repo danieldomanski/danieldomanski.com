@@ -1,11 +1,12 @@
-import React, { useState, useCallback } from 'react'
-import { Link } from 'gatsby'
+import React, { useState, useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
+import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import Box from '../../atoms/Box'
 import Navigation from '../Navigation'
+import { LocaleContext } from '../../templates/Layout'
 
 const Container = styled.header`
   ${tw`text-primary-700`};
@@ -19,9 +20,10 @@ const Brand = styled.div`
   order: 1;
 `
 
-const Header = ({ variant }) => {
+const Header = ({ variant, location }) => {
   const [isNavOpen, toggle] = useState(false)
-
+  const [locale] = useContext(LocaleContext)
+  console.log('hh ', locale)
   return (
     <Container>
       <Box
@@ -36,7 +38,7 @@ const Header = ({ variant }) => {
         pt={[8]}
       >
         <Brand>
-          <Link to="/">
+          <LocalizedLink locale={locale} to="/">
             <Text
               fontSize="xl"
               fontWeight="black"
@@ -46,10 +48,10 @@ const Header = ({ variant }) => {
             >
               Daniel Domański
             </Text>
-          </Link>
+          </LocalizedLink>
         </Brand>
-        <Navigation />
-        <LocaleSwitcher variant={variant} />
+        <Navigation locale={locale} />
+        <LocaleSwitcher variant={variant} location={location} />
       </Box>
     </Container>
   )

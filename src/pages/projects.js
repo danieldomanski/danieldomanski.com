@@ -9,15 +9,11 @@ import Box from '../components/atoms/Box'
 import { ProjectsContext } from '../context/ProjectsContext'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 
-const Projects = ({ data }) => {
-  const [projects, setProjects] = useContext(ProjectsContext)
-  console.log({ projects })
-  useEffect(() => {
-    setProjects(data.projects.edges)
-  }, [])
+const Projects = ({ data, pageContext }) => {
+  console.log({ pageContext })
 
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <Header variant="secondary" />
       <Box
         width={1}
@@ -35,7 +31,11 @@ const Projects = ({ data }) => {
         >
           Projects
         </Text>
-        <ProjectsGrid projects={projects} mt={[0, 0, 8]} mb={[0, 0, 8]} />
+        <ProjectsGrid
+          projects={data.projects.edges}
+          mt={[0, 0, 8]}
+          mb={[0, 0, 8]}
+        />
       </Box>
       <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
         <BottomBox variant="secondary" />

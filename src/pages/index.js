@@ -52,13 +52,13 @@ const TopLayer = styled.section`
 
 const projectsToShowcase = ['szczecin', 'coach']
 
-const Index = ({ data }) => {
+const Index = ({ data, pageContext }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
 
   if (isMobile) {
     return (
-      <Layout>
+      <Layout locale={pageContext.locale}>
         <Header />
         <HomeSlide />
         <AboutSlide />
@@ -72,7 +72,7 @@ const Index = ({ data }) => {
     )
   }
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <TopLayer>
         <Header variant="index" />
         <HomeSlide />

@@ -1,166 +1,142 @@
-import React from 'react'
-import styled from 'styled-components'
-import Layout from '../components/templates/Layout'
+import React, { useContext } from 'react'
+import { graphql } from 'gatsby'
+import Layout, { LocaleContext } from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import Avatar from '../components/atoms/Avatar'
 import BottomBox from '../components/organisms/Footer/BottomBox'
+import { formatAboutGroup } from '../utilitity/format'
 
-const generalRows = [
-  {
-    name: 'Age',
-    text: '24 years old',
-  },
-  {
-    name: 'Location',
-    text: 'Szczecin, Poland',
-  },
-  {
-    name: 'Roles',
-    text:
-      'Front-end developer, Full-stack JavaScript developer, UI Designer/Developer, Back-end Node.js developer',
-  },
-]
-
-const skillsRows = [
-  {
-    name: 'Front end',
-    text:
-      'HTML5, CSS3, SCSS, RWD, JavaScript, React.js, Redux, Next.js, Gatsby',
-  },
-  {
-    name: 'Back end',
-    text: 'Node.js, Express, Sails.js, C#',
-  },
-  {
-    name: 'Other',
-    text: 'MongoDB, mySQL, OAuth2, REST',
-  },
-  {
-    name: 'UI Design',
-    text: 'MongoDB, mySQL, OAuth2, REST',
-  },
-]
-
-const About = () => (
-  <Layout>
-    <Header />
-    <Box pt={[8, 8, 16]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
-      <Text
-        display={['block', 'block', 'inline-block']}
-        fontColor="primary.8"
-        fontWeight="black"
-        fontSize={['3xl', '4xl', '5xl']}
-        textAlign={['center', 'center', 'left']}
-      >
-        About me
-      </Text>
-      <Box
-        display="flex"
-        flexDirection={['column', 'column', 'row']}
-        alignItems="center"
-        my={[4, 4, 0]}
-      >
-        <Avatar x={180} y={180} src="profile-picture.jpg" mr={[0, 0, 8]} />
+const About = ({ data, pageContext, location }) => {
+  const { title, about_me, about_group } = data.about.data
+  const aboutGroups = formatAboutGroup(about_group)
+  console.log({ pageContext })
+  return (
+    <Layout locale={pageContext.locale}>
+      <Header location={location} />
+      <Box pt={[8, 8, 16]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
         <Text
-          fontColor="primary.7"
-          fontSize={['base', 'lg']}
-          withLine
-          mt={6}
-          lineHeight="relaxed"
+          display={['block', 'block', 'inline-block']}
+          fontColor="primary.8"
+          fontWeight="black"
+          fontSize={['3xl', '4xl', '5xl']}
+          textAlign={['center', 'center', 'left']}
         >
-          I love to create websites and web applications, paying close attention
-          to all the small details. No matter if you are a startup in need of a
-          landing page, a small business who wants a unique web shop, or an
-          entrepreneur who has an idea for an exciting web application. No
-          matter if you are a startup in need of a landing page, a small
-          business who wants a unique web shop, or an entrepreneur who has an
-          idea for an exciting web application.
+          {title.text}
         </Text>
-      </Box>
-
-      <Box
-        display="flex"
-        flexDirection="column"
-        maxWidth={1000}
-        m="auto"
-        my={8}
-      >
-        <Box width={1} m="auto">
+        <Box
+          display="flex"
+          flexDirection={['column', 'column', 'row']}
+          alignItems="center"
+          my={[4, 4, 0]}
+        >
+          <Avatar x={180} y={180} src="profile-picture.jpg" mr={[0, 0, 8]} />
           <Text
             fontColor="primary.7"
-            fontSize={['2xl']}
-            fontWeight="black"
-            mt={8}
-            mb={4}
+            fontSize={['base', 'lg']}
+            withLine
+            mt={6}
+            lineHeight="relaxed"
           >
-            General
+            {about_me.text}
           </Text>
-          {generalRows.map((row, idx) => (
-            <Box display="flex" py={6} borderTop="1px solid rgba(0,0,0,0.1)">
-              <Text
-                width={[1 / 2]}
-                fontFamily="sans"
-                fontColor="primary.7"
-                fontSize={['base', 'lg']}
-                pr={2}
-              >
-                {row.name}
-              </Text>
-              <Text
-                maxWidth={350}
-                width={[5 / 6, 5 / 6, 1 / 2]}
-                fontFamily="sans"
-                fontColor="primary.8"
-                fontSize={['base', 'lg']}
-                pl={2}
-              >
-                {row.text}
-              </Text>
-            </Box>
-          ))}
         </Box>
-        <Box width={1} py={4} m="auto">
-          <Text
-            fontColor="primary.7"
-            fontSize={['2xl']}
-            fontWeight="black"
-            mt={8}
-            mb={4}
-          >
-            Skills
-          </Text>
-          {skillsRows.map((row, idx) => (
-            <Box display="flex" py={6} borderTop="1px solid rgba(0,0,0,0.1)">
+        <Box
+          display="flex"
+          flexDirection="column"
+          maxWidth={1000}
+          m="auto"
+          my={8}
+        >
+          {aboutGroups.map(group => (
+            <Box width={1} m="auto">
               <Text
-                width={[1 / 2]}
-                fontFamily="sans"
                 fontColor="primary.7"
-                fontSize={['base', 'lg']}
-                pr={2}
+                fontSize={['2xl']}
+                fontWeight="black"
+                mt={8}
+                mb={4}
               >
-                {row.name}
+                {group.title}
               </Text>
-              <Text
-                maxWidth={350}
-                width={[5 / 6, 5 / 6, 1 / 2]}
-                fontFamily="sans"
-                fontColor="primary.8"
-                fontSize={['base', 'lg']}
-                pl={2}
-              >
-                {row.text}
-              </Text>
+              {group.rows.map((row, idx) => (
+                <Box
+                  display="flex"
+                  py={6}
+                  borderTop="1px solid rgba(0,0,0,0.1)"
+                >
+                  <Text
+                    width={[1 / 2]}
+                    fontFamily="sans"
+                    fontColor="primary.7"
+                    fontSize={['base', 'lg']}
+                    pr={2}
+                  >
+                    {row.name}
+                  </Text>
+                  <Text
+                    maxWidth={350}
+                    width={[5 / 6, 5 / 6, 1 / 2]}
+                    fontFamily="sans"
+                    fontColor="primary.8"
+                    fontSize={['base', 'lg']}
+                    pl={2}
+                  >
+                    {row.value}
+                  </Text>
+                </Box>
+              ))}
             </Box>
           ))}
         </Box>
       </Box>
-    </Box>
-    <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
-      <BottomBox variant="secondary" />
-    </Box>
-  </Layout>
-)
+      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
+        <BottomBox variant="secondary" />
+      </Box>
+    </Layout>
+  )
+}
 
 export default About
+
+export const pageQuery = graphql`
+  query AboutPage($locale: String!) {
+    about: prismicAbout(lang: { eq: $locale }) {
+      lang
+      data {
+        title {
+          text
+        }
+        about_me {
+          text
+        }
+        about_group {
+          group_title {
+            text
+          }
+          rows1 {
+            document {
+              data {
+                group {
+                  row {
+                    document {
+                      data {
+                        name {
+                          text
+                        }
+                        value {
+                          text
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

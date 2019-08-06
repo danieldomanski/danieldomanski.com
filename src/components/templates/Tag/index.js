@@ -33,7 +33,7 @@ const Tag = ({ data, pageContext }) => {
   const { tag } = pageContext
 
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <Header variant="secondary" />
       <Box m="auto" px={[6, 6, 12, 16, 24]} pt={[8, 8, 16]} flex={1}>
         <Text

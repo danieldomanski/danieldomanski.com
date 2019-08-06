@@ -46,7 +46,7 @@ const Project = ({ data, pageContext }) => {
   const roles = formatInvolvment(data.prismicProjects.data.role)
 
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <Header variant="secondary" />
       <Box py={16} m="auto" px={[4, 8, 16, 24, 32]}>
         <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">

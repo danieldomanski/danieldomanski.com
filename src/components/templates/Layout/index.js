@@ -1,8 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
-import LocaleProvider from '../../../context/LocaleContext'
 import ScrollProvider from '../../../context/ScrollContext'
 import theme from '../../../config/theme'
 
@@ -36,6 +36,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+
+  a {
+    text-decoration: none !important;
+  }
 `
 
 const MainContent = styled.main`
@@ -43,21 +47,27 @@ const MainContent = styled.main`
   min-height: 100vh;
 `
 
-const Layout = ({ children }) => (
+export const LocaleContext = React.createContext()
+
+const Layout = ({ children, locale }) => (
   <>
     <Helmet>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <title>Daniel Domański - Full stack web developer</title>
     </Helmet>
     <GlobalStyle />
-    <LocaleProvider>
+    <LocaleContext.Provider value={[locale]}>
       <ScrollProvider>
         <ThemeProvider theme={theme}>
           <MainContent>{children}</MainContent>
         </ThemeProvider>
       </ScrollProvider>
-    </LocaleProvider>
+    </LocaleContext.Provider>
   </>
 )
+
+Layout.propTypes = {
+  locale: PropTypes.string.isRequired,
+}
 
 export default Layout

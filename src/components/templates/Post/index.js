@@ -18,7 +18,7 @@ const Dot = styled.span`
   ${tw`text-primary-500`}
 `
 
-const Post = ({ data, pageContext }) => {
+const Post = ({ data, pageContext, location }) => {
   const { title, tags, icon, date } = data.prismicPost.data
   const { previous, next } = pageContext.data.siblings
 
@@ -31,7 +31,7 @@ const Post = ({ data, pageContext }) => {
   const estimatedReadTime = timeToRead(wordCount)
 
   return (
-    <Layout>
+    <Layout locale={pageContext.locale}>
       <Header variant="secondary" />
       <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
         <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
