@@ -38,7 +38,7 @@ const activeStyle = {
   paddingBottom: '6px',
 }
 
-const Navigation = ({ locale }) => (
+const Navigation = ({ locale, content }) => (
   <Container>
     <List>
       <Item>
@@ -50,7 +50,7 @@ const Navigation = ({ locale }) => (
           fontColor="primary.7"
           activeStyle={activeStyle}
         >
-          Home
+          {content.home}
         </LocalizedLink>
       </Item>
       <Item>
@@ -63,7 +63,7 @@ const Navigation = ({ locale }) => (
           partiallyActive
           activeStyle={activeStyle}
         >
-          Projects
+          {content.projects}
         </LocalizedLink>
       </Item>
       <Item>
@@ -76,7 +76,7 @@ const Navigation = ({ locale }) => (
           partiallyActive
           activeStyle={activeStyle}
         >
-          Articles
+          {content.articles}
         </LocalizedLink>
       </Item>
       <Item>
@@ -88,7 +88,7 @@ const Navigation = ({ locale }) => (
           fontColor="primary.7"
           activeStyle={activeStyle}
         >
-          About
+          {content.about}
         </LocalizedLink>
       </Item>
     </List>

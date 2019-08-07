@@ -21,7 +21,7 @@ const HeroContainer = styled.section`
   transform: translateY(-50%);
 `
 
-const HomeSlide = () => {
+const HomeSlide = ({ content }) => {
   const windowSize = useWindowSize()
   const [scroll] = useContext(ScrollContext)
   const isMobile = windowSize.width < 768
@@ -42,7 +42,7 @@ const HomeSlide = () => {
           lineHeight="tight"
           mb={8}
         >
-          Full-Stack Web Developer.
+          {content.title}
         </Text>
         <Text
           fontFamily="sans"
@@ -52,9 +52,7 @@ const HomeSlide = () => {
           lineHeight="relaxed"
           maxWidth={1000}
         >
-          Hello! My name is Daniel and I have been creating for the Web for the
-          past 2 years. My job is to help your business grow by providing modern
-          digital products that people enjoy.
+          {content.description}
         </Text>
       </Box>
     )
@@ -84,7 +82,7 @@ const HomeSlide = () => {
               lineHeight="tight"
               mb={8}
             >
-              Full-Stack Web Developer
+              {content.title}
             </Text>
             <Text
               fontFamily="sans"
@@ -94,9 +92,7 @@ const HomeSlide = () => {
               lineHeight="relaxed"
               maxWidth={1000}
             >
-              Hello! My name is Daniel and I have been creating for the Web for
-              the past 2 years. My job is to help your business grow by
-              providing modern digital products that people enjoy.
+              {content.description}
             </Text>
           </Box>
         </HeroContainer>

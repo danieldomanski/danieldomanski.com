@@ -1,5 +1,6 @@
 import React, { useContext, useCallback } from 'react'
 import { Link } from 'gatsby'
+import { Location } from '@reach/router'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
@@ -21,20 +22,42 @@ const LocaleSpan = styled.span`
 
 const Separator = styled.span``
 
+const formatPathname = (pathname, locale) => {
+  const splitted = pathname.split('/')
+  splitted.shift()
+  const currentLocale = splitted[0] === 'en' ? 'en' : 'pl'
+
+  if (currentLocale === locale) return splitted.join('/')
+
+  if (locale === 'en') {
+    splitted.unshift('en')
+  }
+
+  if (locale === 'pl') {
+    splitted.shift('pl')
+  }
+
+  return splitted.join('/')
+}
+
 const LocaleSwitcher = ({ theme }) => {
   const [locale] = useContext(LocaleContext)
 
-  console.log({ locale })
-
   return (
     <Box display="flex" alignItems="center" order="2">
-      <Link to="/en">
-        <LocaleSpan active={locale === 'en-pl'}>en</LocaleSpan>
-      </Link>
-      <Separator>/</Separator>
-      <Link to="/">
-        <LocaleSpan active={locale === 'pl'}>pl</LocaleSpan>
-      </Link>
+      <Location>
+        {({ location }) => (
+          <>
+            <Link to={formatPathname(location.pathname, 'pl')}>
+              <LocaleSpan active={locale === 'pl'}>pl</LocaleSpan>
+            </Link>
+            <Separator>/</Separator>
+            <Link to={formatPathname(location.pathname, 'en')}>
+              <LocaleSpan active={locale === 'en-pl'}>en</LocaleSpan>
+            </Link>
+          </>
+        )}
+      </Location>
     </Box>
   )
 }

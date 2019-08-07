@@ -15,6 +15,7 @@ import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
+import { formatHome } from '../utilitity/format'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
@@ -50,12 +51,11 @@ const TopLayer = styled.section`
   z-index: 4;
 `
 
-const projectsToShowcase = ['szczecin', 'coach']
-
 const Index = ({ data, pageContext }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
-
+  const pageContent = formatHome(data.home.edges[0])
+  console.log({ pageContent })
   if (isMobile) {
     return (
       <Layout locale={pageContext.locale}>
@@ -74,13 +74,16 @@ const Index = ({ data, pageContext }) => {
   return (
     <Layout locale={pageContext.locale}>
       <TopLayer>
-        <Header variant="index" />
-        <HomeSlide />
+        <Header variant="index" content={pageContent.header} />
+        <HomeSlide content={pageContent.hero} />
       </TopLayer>
       <OnTopLayer>
-        <AboutSlide />
-        <ProjectsSlide projects={data.projects.edges} />
-        <BlogSlide posts={data.posts.edges} />
+        <AboutSlide content={pageContent.about} />
+        <ProjectsSlide
+          projects={data.projects.edges}
+          content={pageContent.works}
+        />
+        <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
       </OnTopLayer>
       <Footer variant="primary">
         <UpperBox />
@@ -201,6 +204,72 @@ export const pageQuery = graphql`
             }
             icon {
               text
+            }
+          }
+        }
+      }
+    }
+    home: allPrismicHome(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            hero_title {
+              text
+            }
+            hero_description {
+              text
+            }
+            about_title {
+              text
+            }
+            about_description {
+              text
+            }
+            works_title {
+              text
+            }
+            works_description {
+              text
+            }
+            blog_title {
+              text
+            }
+            blog_description {
+              text
+            }
+            body {
+              __typename
+              ... on PrismicHomeBodyFooter {
+                slice_type
+                primary {
+                  upper_title {
+                    text
+                  }
+                  upper_description {
+                    text
+                  }
+                }
+              }
+              ... on PrismicHomeBodyHeader {
+                slice_type
+                primary {
+                  brand {
+                    text
+                  }
+                  nav_home {
+                    text
+                  }
+                  nav_projects {
+                    text
+                  }
+                  nav_about {
+                    text
+                  }
+                  nav_articles {
+                    text
+                  }
+                }
+              }
             }
           }
         }

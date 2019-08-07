@@ -5,9 +5,8 @@ import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import SlidableButton from '../../atoms/Button/SlidableButton'
-import Button from '../../atoms/Button'
 
-const AboutSlide = () => (
+const AboutSlide = ({ content }) => (
   <Box
     maxWidth={1400}
     m="auto"
@@ -26,7 +25,7 @@ const AboutSlide = () => (
         fontColor="primary.7"
         fontWeight="black"
       >
-        About
+        {content.title}
       </Text>
       <Link to="/blog" display={['none', 'none', 'block']}>
         <SlidableButton>view all posts</SlidableButton>
@@ -52,10 +51,7 @@ const AboutSlide = () => (
       lineHeight="relaxed"
       maxWidth={900}
     >
-      Learning new things is an integral part of every software engineer on a
-      daily basis. Something that always characterized our industry is broad
-      access to free resources. Learning in public is my way to give back some
-      value to the community.
+      {content.description}
     </Text>
   </Box>
 )

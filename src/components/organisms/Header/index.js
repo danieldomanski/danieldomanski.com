@@ -20,10 +20,10 @@ const Brand = styled.div`
   order: 1;
 `
 
-const Header = ({ variant, location }) => {
+const Header = ({ variant, content }) => {
   const [isNavOpen, toggle] = useState(false)
   const [locale] = useContext(LocaleContext)
-  console.log('hh ', locale)
+
   return (
     <Container>
       <Box
@@ -46,12 +46,12 @@ const Header = ({ variant, location }) => {
               hover={{ color: '#0055FF' }}
               style={{ letterSpacing: '-0.6px' }}
             >
-              Daniel Domański
+              {content.brand}
             </Text>
           </LocalizedLink>
         </Brand>
-        <Navigation locale={locale} />
-        <LocaleSwitcher variant={variant} location={location} />
+        <Navigation locale={locale} content={content.nav} />
+        <LocaleSwitcher variant={variant} />
       </Box>
     </Container>
   )
