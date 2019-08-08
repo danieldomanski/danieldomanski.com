@@ -14,7 +14,7 @@ const UpperRect = ({ content }) => (
     width={1}
     height="100%"
     display="flex"
-    bg="#F0F0F0"
+    bg="#E4E4E4"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"
@@ -33,7 +33,7 @@ const UpperRect = ({ content }) => (
     <Text
       fontFamily="sans"
       fontSize={['lg']}
-      fontColor="primary.6"
+      fontColor="primary.7"
       my={[4]}
       maxWidth={1000}
       lineHeight="relaxed"

@@ -61,7 +61,7 @@ const Layout = ({ children, locale }) => (
     </Helmet>
     <GlobalStyle />
     <LocaleContext.Provider value={[locale]}>
-      <ScrollProvider>
+      <ScrollProvider throttle={24}>
         <ThemeProvider theme={theme}>
           <MainContent>{children}</MainContent>
         </ThemeProvider>

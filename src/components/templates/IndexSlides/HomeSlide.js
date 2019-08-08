@@ -4,13 +4,15 @@ import Text from '../../atoms/Text'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
 import Box from '../../atoms/Box'
+import HomeParallax from '../../molecules/HomeParallax'
 
 const HeroText = styled.section`
   ${tw`static md:fixed w-full `};
-  height: calc(100% - 120px);
+  height: 100%;
   display: ${props => (props.visible ? 'block' : 'none')};
-  z-index: 4;
+  z-index: 5;
   transition: 0.25s;
+  top: 0;
 `
 
 const HeroContainer = styled.section`
@@ -46,7 +48,7 @@ const HomeSlide = ({ content }) => {
           fontFamily="sans"
           fontWeight="normal"
           fontSize={['lg', 'lg', 'xl', '2xl']}
-          fontColor="primary.6"
+          fontColor="primary.8"
           lineHeight="relaxed"
           maxWidth={1000}
         >
@@ -58,6 +60,7 @@ const HomeSlide = ({ content }) => {
 
   return (
     <>
+      <HomeParallax />
       <HeroText visible={scroll.y <= windowSize.height}>
         <HeroContainer
           display="flex"
@@ -86,7 +89,7 @@ const HomeSlide = ({ content }) => {
               fontFamily="sans"
               fontWeight="normal"
               fontSize={['lg', 'lg', 'xl', '2xl']}
-              fontColor="primary.6"
+              fontColor="primary.7"
               lineHeight="relaxed"
               maxWidth={1000}
             >

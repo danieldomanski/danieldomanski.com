@@ -25,8 +25,8 @@ const BlogSlide = ({ posts, content }) => (
       mb={[4, 4, 8]}
     >
       <Text
-        fontSize={['4xl', '4xl', '6xl']}
-        fontColor="primary.7"
+        fontSize={['4xl', '4xl', '5xl']}
+        fontColor="primary.8"
         fontWeight="black"
       >
         {content.title}

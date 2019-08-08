@@ -43,6 +43,7 @@ const OnTopLayer = styled.section`
     background-size: cover;
     background-position: center;
     opacity: 1;
+    margin-bottom: 300px;
   }
 `
 

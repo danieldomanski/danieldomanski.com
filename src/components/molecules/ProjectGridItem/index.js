@@ -38,10 +38,7 @@ const BgCover = styled.div`
       transform: translateY(0);
     }
 
-    & > div > div {
-    }
-
-    background-color: rgba(240, 240, 240, 0.9);
+    background-color: rgba(245, 245, 245, 0.95);
   }
 `
 
@@ -85,7 +82,11 @@ const ProjectGridItem = ({ project, area }) => {
               {title.text}
             </Text>
             <SlideUp>
-              <Text fontSize={['sm', 'base']} fontColor="primary.6">
+              <Text
+                maxWidth={400}
+                fontSize={['sm', 'base']}
+                fontColor="primary.6"
+              >
                 {roles.join(' / ')}
               </Text>
             </SlideUp>

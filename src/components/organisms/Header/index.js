@@ -9,8 +9,8 @@ import Navigation from '../Navigation'
 import { LocaleContext } from '../../templates/Layout'
 
 const Container = styled.header`
-  ${tw`text-primary-700`};
-  z-index: 6;
+  ${tw`relative text-primary-700`};
+  z-index: 7;
   width: 100%;
   transition: 0.25s;
 `

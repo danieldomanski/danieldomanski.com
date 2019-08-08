@@ -39,7 +39,7 @@ const SlidableBtn = ({ children }) => (
     <Text
       fontFamily="sans"
       fontSize="base"
-      fontColor="primary.6"
+      fontColor="primary.7"
       fontWeight="bold"
       mr={2}
     >

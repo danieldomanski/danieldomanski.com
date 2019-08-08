@@ -25,7 +25,7 @@ const ProjectsSlide = ({ projects, content }) => (
       mb={[4, 4, 8]}
     >
       <Text
-        fontColor="primary.7"
+        fontColor="primary.8"
         fontWeight="black"
         fontSize={['4xl', '4xl', '5xl']}
       >

@@ -22,7 +22,7 @@ const AboutSlide = ({ content }) => (
     >
       <Text
         fontSize={['4xl', '4xl', '5xl']}
-        fontColor="primary.7"
+        fontColor="primary.8"
         fontWeight="black"
       >
         {content.title}
