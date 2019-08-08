@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import Text from '../../atoms/Text'
-import TextHighlight from '../../atoms/TextHighlight'
 import useWindowSize from '../../../hooks/useWindowSize'
 import { ScrollContext } from '../../../context/ScrollContext'
-import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
 
 const HeroText = styled.section`

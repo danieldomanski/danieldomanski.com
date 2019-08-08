@@ -7,6 +7,10 @@ import ScrollProvider from '../../../context/ScrollContext'
 import theme from '../../../config/theme'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    overflow-y: scroll;
+  }
+  
   body, html {
     height: 100%;
     width: 100%;

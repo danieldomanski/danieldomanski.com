@@ -13,6 +13,7 @@ import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utilitity/date'
 import { countWordsFromSlices, timeToRead } from '../../../utilitity/timeToRead'
 import Tag from '../../atoms/Tag'
+import { formatInvolvment, formatHeader } from '../../../utilitity/format'
 
 const Dot = styled.span`
   ${tw`text-primary-500`}
@@ -30,9 +31,11 @@ const Post = ({ data, pageContext, location }) => {
   const wordCount = countWordsFromSlices(data.prismicPost.data.body)
   const estimatedReadTime = timeToRead(wordCount)
 
+  const headerContent = formatHeader(data.header.edges[0])
+
   return (
     <Layout locale={pageContext.locale}>
-      <Header variant="secondary" />
+      <Header variant="secondary" content={headerContent} />
       <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
         <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
           <Box
@@ -230,6 +233,29 @@ export const pageQuery = graphql`
                 html
                 text
               }
+            }
+          }
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
+              text
             }
           }
         }

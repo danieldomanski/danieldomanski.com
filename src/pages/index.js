@@ -15,7 +15,7 @@ import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
 import IndexBottomBg from '../images/IndexBottomBg.svg'
-import { formatHome } from '../utilitity/format'
+import { formatHome, formatHeader } from '../utilitity/format'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
@@ -55,17 +55,21 @@ const Index = ({ data, pageContext }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const pageContent = formatHome(data.home.edges[0])
-  console.log({ pageContent })
+  const headerContent = formatHeader(data.header.edges[0])
+
   if (isMobile) {
     return (
       <Layout locale={pageContext.locale}>
-        <Header />
-        <HomeSlide />
-        <AboutSlide />
-        <ProjectsSlide projects={data.projects.edges} />
-        <BlogSlide posts={data.posts.edges} />
+        <Header content={headerContent} />
+        <HomeSlide content={pageContent.hero} />
+        <AboutSlide content={pageContent.about} />
+        <ProjectsSlide
+          projects={data.projects.edges}
+          content={pageContent.works}
+        />
+        <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
         <Footer variant="index">
-          <UpperBox />
+          <UpperBox content={pageContent.footer} />
           <BottomBox />
         </Footer>
       </Layout>
@@ -74,7 +78,7 @@ const Index = ({ data, pageContext }) => {
   return (
     <Layout locale={pageContext.locale}>
       <TopLayer>
-        <Header variant="index" content={pageContent.header} />
+        <Header variant="index" content={headerContent} />
         <HomeSlide content={pageContent.hero} />
       </TopLayer>
       <OnTopLayer>
@@ -86,7 +90,7 @@ const Index = ({ data, pageContext }) => {
         <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
       </OnTopLayer>
       <Footer variant="primary">
-        <UpperBox />
+        <UpperBox content={pageContent.footer} />
         <BottomBox variant="primary" />
       </Footer>
     </Layout>
@@ -104,7 +108,6 @@ Index.propTypes = {
   pageContext: PropTypes.shape({
     locale: PropTypes.string.isRequired,
   }).isRequired,
-  location: PropTypes.object.isRequired,
 }
 
 export const pageQuery = graphql`
@@ -225,16 +228,25 @@ export const pageQuery = graphql`
             about_description {
               text
             }
+            about_button {
+              text
+            }
             works_title {
               text
             }
             works_description {
               text
             }
+            works_button {
+              text
+            }
             blog_title {
               text
             }
             blog_description {
+              text
+            }
+            blog_button {
               text
             }
             body {
@@ -250,26 +262,29 @@ export const pageQuery = graphql`
                   }
                 }
               }
-              ... on PrismicHomeBodyHeader {
-                slice_type
-                primary {
-                  brand {
-                    text
-                  }
-                  nav_home {
-                    text
-                  }
-                  nav_projects {
-                    text
-                  }
-                  nav_about {
-                    text
-                  }
-                  nav_articles {
-                    text
-                  }
-                }
-              }
+            }
+          }
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
+              text
             }
           }
         }

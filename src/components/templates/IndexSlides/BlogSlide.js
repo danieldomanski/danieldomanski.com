@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from '../../atoms/Link'
+import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import SlidableButton from '../../atoms/Button/SlidableButton'
-import Button from '../../atoms/Button'
 import PostItem from '../../organisms/PostItem'
 import Icon from '../../atoms/Icon'
 
@@ -32,20 +31,22 @@ const BlogSlide = ({ posts, content }) => (
       >
         {content.title}
       </Text>
-      <Link to="/projects" display={['none', 'none', 'block']}>
-        <SlidableButton>view all projects</SlidableButton>
-      </Link>
-      <Box display={['flex', 'flex', 'none']} alignItems="center">
-        <Text
-          fontFamily="sans"
-          fontSize="base"
-          fontColor="accent.7"
-          fontWeight="bold"
-        >
-          View all
-        </Text>
-        <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
-      </Box>
+      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+        <SlidableButton>{content.button}</SlidableButton>
+      </LocalizedLink>
+      <LocalizedLink to="/blog" display={['block', 'block', 'none']}>
+        <Box display={['flex', 'flex', 'none']} alignItems="center">
+          <Text
+            fontFamily="sans"
+            fontSize="base"
+            fontColor="accent.7"
+            fontWeight="bold"
+          >
+            {content.button}
+          </Text>
+          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
+        </Box>
+      </LocalizedLink>
     </Box>
     <Text
       fontFamily="sans"

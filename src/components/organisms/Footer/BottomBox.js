@@ -26,20 +26,19 @@ const BottomBox = ({ theme, variant }) => {
         justifyContent="space-between"
         px={[0, 12]}
       >
-        <Link
-          display={['none', 'none', 'block']}
-          fontColor={color}
-          fontWeight="bold"
-          fontSize={['base']}
-          to="https://github.com/av3ng3roo"
-        >
-          {`</> code `}
+        <Link to="http://github.com/av3ng3roo">
+          <Text
+            display={['none', 'none', 'block']}
+            fontColor={color}
+            fontWeight="bold"
+            fontSize={['base']}
+            hover={{ color: '#4583FF' }}
+          >{`</> code`}</Text>
         </Link>
         <Text
-          fontFamily="sans"
           fontSize={['base']}
           fontColor={color}
-          fontWeight="black"
+          fontWeight="bold"
           mb={[4, 4, 0]}
         >
           hello@ddomanski.dev

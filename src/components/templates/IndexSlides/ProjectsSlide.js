@@ -1,10 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProjectsSlider from '../../organisms/ProjectsSlider'
-import Button from '../../atoms/Button'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 import Text from '../../atoms/Text'
-import { Link } from '../../atoms/Link'
+import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Icon from '../../atoms/Icon'
 import ProjectsGrid from '../../organisms/ProjectsGrid'
@@ -29,35 +27,28 @@ const ProjectsSlide = ({ projects, content }) => (
       <Text
         fontColor="primary.7"
         fontWeight="black"
-        fontSize={['4xl', '4xl', '6xl']}
+        fontSize={['4xl', '4xl', '5xl']}
       >
         {content.title}
       </Text>
-      <Link to="/projects" display={['none', 'none', 'block']}>
-        <SlidableButton>view all projects</SlidableButton>
-      </Link>
-      <Box display={['flex', 'flex', 'none']} alignItems="center">
-        <Text
-          fontFamily="sans"
-          fontSize="base"
-          fontColor="accent.7"
-          fontWeight="bold"
-        >
-          View all
-        </Text>
-        <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
-      </Box>
+      <LocalizedLink to="/projects" display={['none', 'none', 'block']}>
+        <SlidableButton>{content.button}</SlidableButton>
+      </LocalizedLink>
+      <LocalizedLink to="/about" display={['block', 'block', 'none']}>
+        <Box display={['flex', 'flex', 'none']} alignItems="center">
+          <Text
+            fontFamily="sans"
+            fontSize="base"
+            fontColor="accent.7"
+            fontWeight="bold"
+          >
+            {content.button}
+          </Text>
+          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
+        </Box>
+      </LocalizedLink>
     </Box>
-    <Text
-      fontFamily="sans"
-      fontColor="primary.6"
-      fontSize={['base', 'lg']}
-      lineHeight="relaxed"
-      maxWidth={900}
-    >
-      {content.description}
-    </Text>
-    <ProjectsGrid projects={projects} mt={16} />
+    <ProjectsGrid projects={projects} mt={8} />
   </Box>
 )
 

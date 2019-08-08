@@ -38,9 +38,9 @@ const SlidableBtn = ({ children }) => (
   <SlidableSpan>
     <Text
       fontFamily="sans"
-      fontSize="lg"
-      fontColor="primary.8"
-      fontWeight="semibold"
+      fontSize="base"
+      fontColor="primary.6"
+      fontWeight="bold"
       mr={2}
     >
       {children}

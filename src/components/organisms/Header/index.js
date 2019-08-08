@@ -23,7 +23,7 @@ const Brand = styled.div`
 const Header = ({ variant, content }) => {
   const [isNavOpen, toggle] = useState(false)
   const [locale] = useContext(LocaleContext)
-
+  console.log({ content })
   return (
     <Container>
       <Box

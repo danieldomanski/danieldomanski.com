@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from '../../atoms/Link'
+import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
@@ -21,16 +21,16 @@ const AboutSlide = ({ content }) => (
       mb={[4, 4, 8]}
     >
       <Text
-        fontSize={['4xl', '4xl', '6xl']}
+        fontSize={['4xl', '4xl', '5xl']}
         fontColor="primary.7"
         fontWeight="black"
       >
         {content.title}
       </Text>
-      <Link to="/blog" display={['none', 'none', 'block']}>
-        <SlidableButton>view all posts</SlidableButton>
-      </Link>
-      <Link to="/blog" display={['block', 'block', 'none']}>
+      <LocalizedLink to="/about" display={['none', 'none', 'block']}>
+        <SlidableButton>{content.button}</SlidableButton>
+      </LocalizedLink>
+      <LocalizedLink to="/about" display={['block', 'block', 'none']}>
         <Box display={['flex', 'flex', 'none']} alignItems="center">
           <Text
             fontFamily="sans"
@@ -38,15 +38,15 @@ const AboutSlide = ({ content }) => (
             fontColor="accent.7"
             fontWeight="bold"
           >
-            View all
+            {content.button}
           </Text>
           <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
         </Box>
-      </Link>
+      </LocalizedLink>
     </Box>
     <Text
       fontFamily="sans"
-      fontSize={['base', 'lg']}
+      fontSize={['base', 'base']}
       fontColor="primary.6"
       lineHeight="relaxed"
       maxWidth={900}

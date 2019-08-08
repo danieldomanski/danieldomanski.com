@@ -21,16 +21,9 @@ const Grid = styled.ul`
   display: grid;
 `
 
-const gridTemplates = {
-  0: 'primary',
-  1: 'secondary-1',
-  2: 'secondary-2',
-  3: 'tertiary',
-}
-
 const ProjectsGrid = ({ projects, mt, mb }) => (
   <Grid mt={mt} mb={mb}>
-    {projects.map((project, idx) => {
+    {projects.map(project => {
       const { title } = project.node.data
 
       return (
@@ -45,7 +38,7 @@ const ProjectsGrid = ({ projects, mt, mb }) => (
           >
             {title.text}
           </Text>
-          <ProjectGridItem project={project} area={gridTemplates[idx]} />
+          <ProjectGridItem project={project} />
         </>
       )
     })}

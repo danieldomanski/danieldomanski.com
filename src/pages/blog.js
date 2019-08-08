@@ -8,6 +8,7 @@ import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
+import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
   ${tw`flex flex-wrap m-auto mt-8 mb-4`}
@@ -38,13 +39,16 @@ const Blog = ({ data, pageContext }) => {
     )
   }
 
+  const pageContent = formatBlogPage(data.blogPage.edges[0])
+  const headerContent = formatHeader(data.header.edges[0])
+
   useEffect(() => {
     updatePosts()
   }, [currentFilters])
 
   return (
     <Layout locale={pageContext.locale}>
-      <Header variant="secondary" />
+      <Header content={headerContent} />
       <Box
         width={1}
         pt={[8, 8, 16]}
@@ -58,7 +62,7 @@ const Blog = ({ data, pageContext }) => {
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
         >
-          Articles
+          {pageContent.title}
         </Text>
         <Box>
           <ContentFilters>
@@ -77,7 +81,7 @@ const Blog = ({ data, pageContext }) => {
                 textAlign="center"
                 mt={8}
               >
-                No articles found.
+                No articles yet :(
               </Text>
             ) : (
               filteredPosts.map((post, idx) => <PostItem data={post} />)
@@ -126,6 +130,40 @@ export const pageQuery = graphql`
           slugs
           data {
             tag
+          }
+        }
+      }
+    }
+    blogPage: allPrismicBlogpage(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            page_title {
+              text
+            }
+          }
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
+              text
+            }
           }
         }
       }

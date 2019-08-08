@@ -5,12 +5,11 @@ import BottomBox from '../../organisms/Footer/BottomBox'
 import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
-import Paragraph from '../../atoms/Paragraph'
 import Box from '../../atoms/Box'
 import Column from '../../atoms/Box/Column'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
-import { formatInvolvment } from '../../../utilitity/format'
+import { formatInvolvment, formatHeader } from '../../../utilitity/format'
 
 const Mockups = styled.div`
   ${tw`w-full relative flex justify-center items-center m-auto mt-8 md:mt-12 mb-0 md:mb-16`}
@@ -45,9 +44,11 @@ const Project = ({ data, pageContext }) => {
   const info = getSliceContent(body, 'info')[0]
   const roles = formatInvolvment(data.prismicProjects.data.role)
 
+  const headerContent = formatHeader(data.header.edges[0])
+
   return (
     <Layout locale={pageContext.locale}>
-      <Header variant="secondary" />
+      <Header content={headerContent} />
       <Box py={16} m="auto" px={[4, 8, 16, 24, 32]}>
         <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">
           <Column alignItems="center">
@@ -58,9 +59,9 @@ const Project = ({ data, pageContext }) => {
             >
               {title.text}
             </Text>
-            <Paragraph fontColor="primary.5" fontSize={['lg', '2xl']}>
+            <Text fontColor="primary.5" fontSize={['lg', '2xl']}>
               {description.text}
-            </Paragraph>
+            </Text>
           </Column>
           <Mockups>
             <Mock>
@@ -116,7 +117,7 @@ const Project = ({ data, pageContext }) => {
             </Column>
           </Box>
           <Box px={[8, 8, 8, 8, 16]} flex={[1, 2, 2, 2, 2]}>
-            <Paragraph
+            <Text
               fontColor="primary.5"
               fontSize={['xl', 'lg', 'lg', 'xl', '2xl']}
             >
@@ -127,7 +128,7 @@ const Project = ({ data, pageContext }) => {
               {description.text}
               {description.text}
               {description.text}
-            </Paragraph>
+            </Text>
           </Box>
         </Box>
         <Box
@@ -289,6 +290,29 @@ export const pageQuery = graphql`
         }
         description {
           text
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
+              text
+            }
+          }
         }
       }
     }

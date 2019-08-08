@@ -9,7 +9,7 @@ const ItalicSpan = styled.span`
   ${tw`italic`}
 `
 
-const UpperRect = () => (
+const UpperRect = ({ content }) => (
   <Box
     width={1}
     height="100%"
@@ -28,7 +28,7 @@ const UpperRect = () => (
       fontWeight="bold"
       mb={[0, 4]}
     >
-      Let’s create something <ItalicSpan>beautiful!</ItalicSpan>
+      {content.title}
     </Text>
     <Text
       fontFamily="sans"
@@ -38,15 +38,7 @@ const UpperRect = () => (
       maxWidth={1000}
       lineHeight="relaxed"
     >
-      You may find me on social networks given below, or
-      <CollapsableLink fontSize={['lg']} mx={1} variant="accent">
-        e-mail me directly.
-      </CollapsableLink>
-      If you're a digital or design agency, recruiter or just interested in a
-      hard copy of my resumé as a PDF,
-      <CollapsableLink fontSize={['lg']} mx={1} variant="accent">
-        download it here.
-      </CollapsableLink>
+      {content.description}
     </Text>
   </Box>
 )

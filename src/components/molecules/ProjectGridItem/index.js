@@ -1,9 +1,8 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
-import Box from '../../atoms/Box'
+import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import { getSliceContent } from '../../../utilitity/prismic'
 
@@ -67,14 +66,14 @@ const formatInvolvment = roles =>
 
 const ProjectGridItem = ({ project, area }) => {
   const { uid } = project.node
-  const { body, description, title } = project.node.data
+  const { body, title } = project.node.data
   const roles = formatInvolvment(project.node.data.role)
   const slice = getSliceContent(body, 'image')
   const { localFile } = slice[0]
 
   return (
     <Container area={area}>
-      <Link to={`en/projects/${uid}`}>
+      <LocalizedLink to={`/projects/${uid}`}>
         <BgCover>
           <CoverActions>
             <Text
@@ -95,7 +94,7 @@ const ProjectGridItem = ({ project, area }) => {
         <HoverScale>
           <Img fluid={localFile.childImageSharp.fluid} />
         </HoverScale>
-      </Link>
+      </LocalizedLink>
     </Container>
   )
 }

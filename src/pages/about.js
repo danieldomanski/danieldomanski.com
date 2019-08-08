@@ -1,21 +1,28 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import Layout, { LocaleContext } from '../components/templates/Layout'
+import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import Avatar from '../components/atoms/Avatar'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatAboutGroup } from '../utilitity/format'
+import { formatAboutGroup, formatHeader } from '../utilitity/format'
 
 const About = ({ data, pageContext, location }) => {
   const { title, about_me, about_group } = data.about.data
   const aboutGroups = formatAboutGroup(about_group)
-  console.log({ pageContext })
+  const headerContent = formatHeader(data.header.edges[0])
+
   return (
     <Layout locale={pageContext.locale}>
-      <Header location={location} />
-      <Box pt={[8, 8, 16]} maxWidth={1000} m="auto" px={[6, 6, 12, 16, 24]}>
+      <Header content={headerContent} />
+      <Box
+        width={1}
+        pt={[8, 8, 16]}
+        maxWidth={1000}
+        m="auto"
+        px={[6, 6, 12, 16, 24]}
+      >
         <Text
           display={['block', 'block', 'inline-block']}
           fontColor="primary.8"
@@ -133,6 +140,29 @@ export const pageQuery = graphql`
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
+              text
             }
           }
         }
