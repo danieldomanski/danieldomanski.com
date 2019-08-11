@@ -38,7 +38,7 @@ const BgCover = styled.div`
       transform: translateY(0);
     }
 
-    background-color: rgba(245, 245, 245, 0.95);
+    background-color: rgba(235, 235, 235, 0.9);
   }
 `
 

@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
 import { Location } from '@reach/router'
 import PropTypes from 'prop-types'
@@ -8,10 +8,10 @@ import { LocaleContext } from '../../templates/Layout'
 import Box from '../Box'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase mx-1 cursor-pointer text-sm`}
+  ${tw`relative font-sans uppercase mx-1 cursor-pointer`}
 
 
-  color: ${props => (props.active ? '#111' : '#666')};
+  color: ${props => (props.active ? props.activeColor : props.color)};
   font-weight: ${props => (props.active ? 900 : 400)};
   transition: 0.25s;
 
@@ -40,8 +40,9 @@ const formatPathname = (pathname, locale) => {
   return splitted.join('/')
 }
 
-const LocaleSwitcher = ({ theme }) => {
+const LocaleSwitcher = ({ theme, variant }) => {
   const [locale] = useContext(LocaleContext)
+  const { color, activeColor } = theme.components.localeSwitcher[variant]
 
   return (
     <Box display="flex" alignItems="center" order="2">
@@ -49,11 +50,23 @@ const LocaleSwitcher = ({ theme }) => {
         {({ location }) => (
           <>
             <Link to={formatPathname(location.pathname, 'pl')}>
-              <LocaleSpan active={locale === 'pl'}>pl</LocaleSpan>
+              <LocaleSpan
+                color={color}
+                activeColor={activeColor}
+                active={locale === 'pl'}
+              >
+                pl
+              </LocaleSpan>
             </Link>
             <Separator>/</Separator>
             <Link to={formatPathname(location.pathname, 'en')}>
-              <LocaleSpan active={locale === 'en-pl'}>en</LocaleSpan>
+              <LocaleSpan
+                color={color}
+                activeColor={activeColor}
+                active={locale === 'en-pl'}
+              >
+                en
+              </LocaleSpan>
             </Link>
           </>
         )}

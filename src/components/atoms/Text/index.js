@@ -56,17 +56,17 @@ const Text = ({
 )
 
 Text.propTypes = {
-  fontSize: PropTypes.arrayOf(PropTypes.string),
+  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
   lineHeight: PropTypes.oneOf(['tight', 'normal', 'relaxed', 'loose']),
   fontColor: PropTypes.string,
   children: PropTypes.node.isRequired,
   display: PropTypes.string,
-  mb: PropTypes.number,
-  mt: PropTypes.number,
-  mr: PropTypes.number,
-  ml: PropTypes.number,
+  mb: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  mt: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  mr: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  ml: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
 }
 
 Text.defaultProps = {

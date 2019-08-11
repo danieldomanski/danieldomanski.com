@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react'
-import styled from 'styled-components'
+import PropTypes from 'prop-types'
+import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
@@ -20,10 +21,12 @@ const Brand = styled.div`
   order: 1;
 `
 
-const Header = ({ variant, content }) => {
+const Header = ({ theme, variant, content }) => {
   const [isNavOpen, toggle] = useState(false)
   const [locale] = useContext(LocaleContext)
-  console.log({ content })
+  const { brand } = theme.components
+  const brandColor = brand[variant].color
+
   return (
     <Container>
       <Box
@@ -35,26 +38,34 @@ const Header = ({ variant, content }) => {
         m="auto"
         maxWidth={1400}
         px={[6, 6, 12, 16, 24]}
-        pt={[8]}
+        pt={[12]}
       >
         <Brand>
           <LocalizedLink locale={locale} to="/">
             <Text
               fontSize="xl"
               fontWeight="black"
-              fontColor="primary.8"
-              hover={{ color: '#0055FF' }}
-              style={{ letterSpacing: '-0.6px' }}
+              fontColor={brandColor}
+              hover={{ color: '#4583FF' }}
+              style={{ letterSpacing: '-0.25px' }}
             >
               {content.brand}
             </Text>
           </LocalizedLink>
         </Brand>
-        <Navigation locale={locale} content={content.nav} />
+        <Navigation variant={variant} locale={locale} content={content.nav} />
         <LocaleSwitcher variant={variant} />
       </Box>
     </Container>
   )
 }
 
-export default Header
+Header.propTypes = {
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+}
+
+Header.defaultProps = {
+  variant: 'primary',
+}
+
+export default withTheme(Header)

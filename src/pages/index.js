@@ -22,34 +22,15 @@ const OnTopLayer = styled.section`
   z-index: 5;
   margin-top: 100vh;
   margin-bottom: 500px;
-  background-color: #f5f5f5;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-
-  &:after {
-    content: '';
-    display: block;
-    height: 1200px;
-    min-width: 2000px;
-    pointer-events: none;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    z-index: -1;
-    bottom: 0;
-    background-image: url(${IndexBottomBg});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    opacity: 1;
-    margin-bottom: 300px;
-  }
+  background-color: #fafafa;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 `
 
 const TopLayer = styled.section`
   ${tw`fixed pin-t w-full h-screen`}
   z-index: 4;
+  background-color: #363636;
 `
 
 const Index = ({ data, pageContext }) => {
@@ -79,7 +60,7 @@ const Index = ({ data, pageContext }) => {
   return (
     <Layout locale={pageContext.locale}>
       <TopLayer>
-        <Header variant="index" content={headerContent} />
+        <Header variant="secondary" content={headerContent} />
         <HomeSlide content={pageContent.hero} />
       </TopLayer>
       <OnTopLayer>

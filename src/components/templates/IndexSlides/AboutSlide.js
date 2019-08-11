@@ -46,9 +46,10 @@ const AboutSlide = ({ content }) => (
     </Box>
     <Text
       fontFamily="sans"
-      fontSize={['base', 'base']}
-      fontColor="primary.6"
-      lineHeight="relaxed"
+      fontSize={['base', 'lg']}
+      fontColor="primary.7"
+      fontWeight="normal"
+      lineHeight="loose"
       maxWidth={900}
     >
       {content.description}

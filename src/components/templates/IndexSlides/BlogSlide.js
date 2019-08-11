@@ -48,18 +48,9 @@ const BlogSlide = ({ posts, content }) => (
         </Box>
       </LocalizedLink>
     </Box>
-    <Text
-      fontFamily="sans"
-      fontColor="primary.6"
-      fontSize={['base', 'lg']}
-      lineHeight="relaxed"
-      maxWidth={900}
-    >
-      {content.description}
-    </Text>
     <Box as="ul" maxWidth={800} py={[8, 8, 12]}>
       <Text fontSize="base" fontColor="primary.8" fontWeight="bold" mb={4}>
-        Latest posts.
+        Ostatnie posty.
       </Text>
       {posts.map((post, idx) => (
         <PostItem data={post} />

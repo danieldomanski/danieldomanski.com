@@ -10,7 +10,8 @@ const SlidableSpan = styled.button`
   outline: 0;
 
   &:before {
-    ${tw`absolute pin-y m-auto bg-white rounded-full shadow`}
+    ${tw`absolute pin-y m-auto rounded-full shadow`}
+    background-color: #fff;
     box-sizing: border-box;
     z-index: -1;
     content: '';
@@ -34,12 +35,12 @@ const SlidableSpan = styled.button`
   }
 `
 
-const SlidableBtn = ({ children }) => (
-  <SlidableSpan>
+const SlidableBtn = ({ bg, children }) => (
+  <SlidableSpan bg={bg}>
     <Text
       fontFamily="sans"
       fontSize="base"
-      fontColor="primary.7"
+      fontColor="primary.8"
       fontWeight="bold"
       mr={2}
     >

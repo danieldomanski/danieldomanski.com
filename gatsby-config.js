@@ -21,7 +21,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Merriweather:400,700,900', 'Montserrat:400,500,600'],
+          families: ['Merriweather:300,700,900', 'Montserrat:400,500,600'],
         },
       },
     },

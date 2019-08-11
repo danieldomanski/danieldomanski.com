@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 import { Link } from '../../atoms/Link'
@@ -11,12 +10,7 @@ const BottomBox = ({ theme, variant }) => {
   const { backgroundColor, color } = theme.components.bottomFooter[variant]
 
   return (
-    <Box
-      width={1}
-      bg={backgroundColor}
-      py={8}
-      borderTop="1px solid rgba(0,0,0,0.1)"
-    >
+    <Box width={1} bg={backgroundColor} py={8}>
       <Box
         maxWidth={1400}
         m="auto"

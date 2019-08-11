@@ -18,7 +18,6 @@ const LinkContainer = styled(Link)`
 
 const RegularLink = ({
   children,
-  locale,
   fontSize,
   display,
   fontWeight,
@@ -60,16 +59,16 @@ const RegularLink = ({
 )
 
 RegularLink.propTypes = {
-  size: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
+  fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
   children: PropTypes.node.isRequired,
-  weight: PropTypes.oneOf(['base', 'bold', 'black']),
-  color: PropTypes.string,
+  fontWeight: PropTypes.oneOf(['base', 'bold', 'black']),
+  fontColor: PropTypes.string,
 }
 
 RegularLink.defaultProps = {
-  size: 'base',
-  weight: 'base',
-  color: 'primary.6',
+  fontSize: 'base',
+  fontWeight: 'base',
+  fontColor: 'primary.6',
 }
 
 export default RegularLink

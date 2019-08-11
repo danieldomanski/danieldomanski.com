@@ -1,5 +1,6 @@
 const colors = {
   // theme colors
+  grey: ['#181716', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
 
   // black/gray
   primary: [
@@ -150,7 +151,7 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: theme.colors.primary[8],
+      backgroundColor: theme.colors.grey[1],
       color: theme.colors.primary[2],
     },
     secondary: {
@@ -158,27 +159,30 @@ theme.components = {
       color: theme.colors.primary[7],
     },
   },
-
-  logo: {
+  brand: {
     primary: {
-      color: theme.colors.primary[2],
-      backgroundColor: theme.colors.primary[8],
-      borderColor: theme.colors.primary[5],
+      color: theme.colors.primary[7],
     },
     secondary: {
-      color: theme.colors.primary[8],
-      backgroundColor: theme.colors.primary[4],
-      borderColor: theme.colors.primary[7],
+      color: theme.colors.primary[0],
+    },
+  },
+  navigation: {
+    primary: {
+      color: theme.colors.primary[5],
+    },
+    secondary: {
+      color: theme.colors.primary[4],
     },
   },
   localeSwitcher: {
     primary: {
-      color: theme.colors.primary[4],
-      underlineColor: theme.colors.primary[7],
+      color: theme.colors.primary[5],
+      activeColor: theme.colors.primary[8],
     },
     secondary: {
-      color: theme.colors.primary[8],
-      underlineColor: theme.colors.primary[3],
+      color: theme.colors.primary[6],
+      activeColor: theme.colors.secondary[0],
     },
   },
   highlights: {

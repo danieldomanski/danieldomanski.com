@@ -138,6 +138,17 @@ const colors = {
   'primary-800': '#5A5A5A',
   'primary-900': '#363636',
   //
+  'secondary-100': '#FFF',
+  'secondary-200': '#FEFEFE',
+  'secondary-300': '#FBFBFB',
+  'secondary-400': '#F3F3F3',
+  'secondary-500': '#EBEBEB',
+  'secondary-600': '#E3E3E3',
+  'secondary-700': '#DBDBDB',
+  'secondary-800': '#D4D4D4',
+  'secondary-900': '#C1C1C1',
+
+  //
   'accent-100': '#E7EFFF',
   'accent-200': '#A0BFFF',
   'accent-300': '#8BB1FF',

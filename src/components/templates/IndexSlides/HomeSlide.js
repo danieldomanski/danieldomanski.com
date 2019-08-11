@@ -79,18 +79,17 @@ const HomeSlide = ({ content }) => {
             <Text
               fontWeight="black"
               fontSize={['3xl', '4xl', '6xl']}
-              fontColor="primary.8"
+              fontColor="primary.1"
               lineHeight="tight"
               mb={8}
             >
               {content.title}
             </Text>
             <Text
-              fontFamily="sans"
-              fontWeight="normal"
+              fontWeight="thin"
               fontSize={['lg', 'lg', 'xl', '2xl']}
-              fontColor="primary.7"
-              lineHeight="relaxed"
+              fontColor="primary.3"
+              lineHeight="normal"
               maxWidth={1000}
             >
               {content.description}

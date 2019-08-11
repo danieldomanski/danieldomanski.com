@@ -15,7 +15,7 @@ const Projects = ({ data, pageContext }) => {
 
   return (
     <Layout locale={pageContext.locale}>
-      <Header variant="secondary" content={headerContent} />
+      <Header content={headerContent} />
       <Box
         width={1}
         pt={[8, 8, 16]}

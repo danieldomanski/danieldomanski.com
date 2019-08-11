@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #f4f5f5;
+    background-color: #fff;
     ${tw`font-serif`}
   }
 
@@ -30,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    user-select: text;
   }
 
   .gatsby-image-wrapper {
@@ -44,6 +45,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none !important;
   }
+
 `
 
 const MainContent = styled.main`

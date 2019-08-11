@@ -25,7 +25,6 @@ const calculateTranslate = (offset, idx) =>
 
 const HomeParallax = () => {
   const [scroll] = useContext(ScrollContext)
-  console.log({ scroll })
 
   return (
     <ParallaxContainer>
