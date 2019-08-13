@@ -14,7 +14,6 @@ import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
-import IndexBottomBg from '../images/IndexBottomBg.svg'
 import { formatHome, formatHeader } from '../utilitity/format'
 
 const OnTopLayer = styled.section`
@@ -22,15 +21,13 @@ const OnTopLayer = styled.section`
   z-index: 5;
   margin-top: 100vh;
   margin-bottom: 500px;
-  background-color: #fafafa;
-  border-top: 2px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+  background-color: #f0f0f0;
 `
 
 const TopLayer = styled.section`
   ${tw`fixed pin-t w-full h-screen`}
   z-index: 4;
-  background-color: #363636;
+  background-color: #252627;
 `
 
 const Index = ({ data, pageContext }) => {

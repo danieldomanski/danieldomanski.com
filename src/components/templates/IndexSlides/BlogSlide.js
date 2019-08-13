@@ -6,55 +6,42 @@ import Box from '../../atoms/Box'
 import SlidableButton from '../../atoms/Button/SlidableButton'
 import PostItem from '../../organisms/PostItem'
 import Icon from '../../atoms/Icon'
+import HomeInfoRow from '../../molecules/HomeInfoRow'
+import ArrowButton from '../../atoms/Button/ArrowButton'
 
-const BlogSlide = ({ posts, content }) => (
+const BlogSlide = ({ posts, content: { title, description, button } }) => (
   <Box
-    display="flex"
-    flexDirection="column"
-    justifyContent="center"
-    position="relative"
-    px={[6, 6, 12, 16, 24]}
-    maxWidth={1400}
+    width={1}
+    maxWidth={1480}
     m="auto"
-    pb={[24, 24, 64]}
+    pt={[16, 24, 64]}
+    pb={[16, 24, 64]}
+    px={[6, 6, 12, 16, 24]}
   >
-    <Box
-      display="flex"
-      justifyContent={['space-between']}
-      alignItems="center"
-      mb={[4, 4, 8]}
-    >
+    <HomeInfoRow
+      title={title}
+      description={description}
+      button={button}
+      idx={3}
+    />
+    <Box as="ul" maxWidth={800}>
       <Text
-        fontSize={['4xl', '4xl', '5xl']}
-        fontColor="primary.8"
-        fontWeight="black"
+        fontFamily="sans"
+        fontSize="base"
+        fontColor="primary.6"
+        fontWeight="bold"
+        mb={6}
       >
-        {content.title}
-      </Text>
-      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-        <SlidableButton>{content.button}</SlidableButton>
-      </LocalizedLink>
-      <LocalizedLink to="/blog" display={['block', 'block', 'none']}>
-        <Box display={['flex', 'flex', 'none']} alignItems="center">
-          <Text
-            fontFamily="sans"
-            fontSize="base"
-            fontColor="accent.7"
-            fontWeight="bold"
-          >
-            {content.button}
-          </Text>
-          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
-        </Box>
-      </LocalizedLink>
-    </Box>
-    <Box as="ul" maxWidth={800} py={[8, 8, 12]}>
-      <Text fontSize="base" fontColor="primary.8" fontWeight="bold" mb={4}>
         Ostatnie posty.
       </Text>
       {posts.map((post, idx) => (
         <PostItem data={post} />
       ))}
+    </Box>
+    <Box textAlign="right" mt={24}>
+      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+        <ArrowButton fontColor="primary.7">{button}</ArrowButton>
+      </LocalizedLink>
     </Box>
   </Box>
 )

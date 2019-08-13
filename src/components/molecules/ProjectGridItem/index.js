@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
+import Tilt from 'react-tilt'
 import { LocalizedLink } from '../../atoms/Link'
-import Text from '../../atoms/Text'
+import Box from '../../atoms/Box'
 import { getSliceContent } from '../../../utilitity/prismic'
 
-const Container = styled.li`
+const Container = styled(Tilt)`
   ${tw`relative w-full h-full shadow-lg overflow-hidden`};
   height: 300px;
 
@@ -21,43 +23,26 @@ const Container = styled.li`
   transition: height 0.25s ease-in-out;
 `
 
-const BgCover = styled.div`
-  ${tw`flex items-center justify-center text-center absolute w-full h-full`};
-  background: transparent;
-  z-index: 5;
-  transition: background-color 0.2s ease-in-out;
-
-  &:hover {
-    & + div {
-      transform: scale(1.1);
-    }
-
-    & > div {
-      visibility: visible;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    background-color: rgba(235, 235, 235, 0.9);
-  }
-`
-
-const CoverActions = styled.div`
-  ${tw`invisible opacity-0 absolute flex flex-col justify-center w-full h-fulltext-center px-8`};
-  transition: 0.2s ease-in-out;
-  transition-delay: 0.1s;
-  transform: translateY(50px);
-`
-
 const HoverScale = styled.div`
   width: 100%;
   height: 100%;
   transition: transform 0.2s ease-in-out;
 `
 
-const SlideUp = styled.div`
-  transition: transform 0.2s ease-in-out;
+const BgCover = styled.div`
+  ${tw`flex items-center justify-center text-center absolute w-full h-full`};
+  background: transparent;
+  z-index: 5;
+  transition: transform 0.2s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  &:hover {
+    & > div {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 `
+
 const formatInvolvment = roles =>
   roles.map(role => role.involvment.document[0].data.involvment.text)
 
@@ -69,34 +54,16 @@ const ProjectGridItem = ({ project, area }) => {
   const { localFile } = slice[0]
 
   return (
-    <Container area={area}>
-      <LocalizedLink to={`/projects/${uid}`}>
-        <BgCover>
-          <CoverActions>
-            <Text
-              fontSize={['3xl']}
-              fontColor="primary.8"
-              fontWeight="black"
-              style={{ letterSpacing: '-1px' }}
-            >
-              {title.text}
-            </Text>
-            <SlideUp>
-              <Text
-                maxWidth={400}
-                fontSize={['sm', 'base']}
-                fontColor="primary.6"
-              >
-                {roles.join(' / ')}
-              </Text>
-            </SlideUp>
-          </CoverActions>
-        </BgCover>
-        <HoverScale>
-          <Img fluid={localFile.childImageSharp.fluid} />
-        </HoverScale>
-      </LocalizedLink>
-    </Container>
+    <Box position="relative">
+      <Container area={area} options={{ max: 20, scale: 1.05 }}>
+        <LocalizedLink to={`/projects/${uid}`}>
+          <BgCover />
+          <HoverScale>
+            <Img fluid={localFile.childImageSharp.fluid} />
+          </HoverScale>
+        </LocalizedLink>
+      </Container>
+    </Box>
   )
 }
 

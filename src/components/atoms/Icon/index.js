@@ -17,7 +17,8 @@ const Wrapper = styled.svg`
   transition: fill 0.1s ease-in-out;
 
   &:hover {
-    fill: ${props => props.hoverColor};
+    fill: ${props => (props.hover ? props.hover.color : null)};
+    transform: ${props => (props.hover ? props.hover.transform : null)};
   }
 `
 
@@ -155,12 +156,12 @@ const icons = {
   },
 }
 
-const Icon = ({ icon, ml, mr, hoverColor, ...props }) => (
+const Icon = ({ icon, ml, mr, hover, ...props }) => (
   <Wrapper
     {...props}
     viewBox={icons[icon].viewBox}
     preserveAspectRatio="none"
-    hoverColor={hoverColor}
+    hover={hover}
     ml={ml}
     mr={mr}
   >

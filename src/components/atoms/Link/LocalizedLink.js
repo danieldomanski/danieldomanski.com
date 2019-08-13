@@ -16,7 +16,7 @@ const LinkContainer = styled(Link)`
   ${color};
 `
 
-const RegularLink = ({
+const LocalizedLink = ({
   children,
   fontSize,
   display,
@@ -58,17 +58,17 @@ const RegularLink = ({
   </Location>
 )
 
-RegularLink.propTypes = {
+LocalizedLink.propTypes = {
   fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
   children: PropTypes.node.isRequired,
   fontWeight: PropTypes.oneOf(['base', 'bold', 'black']),
   fontColor: PropTypes.string,
 }
 
-RegularLink.defaultProps = {
+LocalizedLink.defaultProps = {
   fontSize: 'base',
   fontWeight: 'base',
   fontColor: 'primary.6',
 }
 
-export default RegularLink
+export default LocalizedLink

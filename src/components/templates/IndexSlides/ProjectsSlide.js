@@ -6,49 +6,33 @@ import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Icon from '../../atoms/Icon'
 import ProjectsGrid from '../../organisms/ProjectsGrid'
+import HomeInfoRow from '../../molecules/HomeInfoRow'
+import ArrowButton from '../../atoms/Button/ArrowButton'
 
-const ProjectsSlide = ({ projects, content }) => (
+const ProjectsSlide = ({
+  projects,
+  content: { title, description, button },
+}) => (
   <Box
-    maxWidth={1400}
-    display="flex"
-    flexDirection="column"
-    justifyContent="center"
-    position="relative"
-    px={[6, 6, 8, 12, 24]}
-    pb={[24, 24, 64]}
+    width={1}
+    maxWidth={1480}
     m="auto"
+    pt={[16, 24, 64]}
+    pb={[16, 24, 32]}
+    px={[6, 6, 12, 16, 24]}
   >
-    <Box
-      display="flex"
-      justifyContent={['space-between']}
-      alignItems="center"
-      mb={[4, 4, 8]}
-    >
-      <Text
-        fontColor="primary.8"
-        fontWeight="black"
-        fontSize={['4xl', '4xl', '5xl']}
-      >
-        {content.title}
-      </Text>
+    <HomeInfoRow
+      title={title}
+      description={description}
+      button={button}
+      idx={2}
+    />
+    <ProjectsGrid projects={projects} />
+    <Box textAlign="right" mt={32}>
       <LocalizedLink to="/projects" display={['none', 'none', 'block']}>
-        <SlidableButton>{content.button}</SlidableButton>
-      </LocalizedLink>
-      <LocalizedLink to="/about" display={['block', 'block', 'none']}>
-        <Box display={['flex', 'flex', 'none']} alignItems="center">
-          <Text
-            fontFamily="sans"
-            fontSize="base"
-            fontColor="accent.7"
-            fontWeight="bold"
-          >
-            {content.button}
-          </Text>
-          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
-        </Box>
+        <ArrowButton fontColor="primary.7">{button}</ArrowButton>
       </LocalizedLink>
     </Box>
-    <ProjectsGrid projects={projects} mt={8} />
   </Box>
 )
 

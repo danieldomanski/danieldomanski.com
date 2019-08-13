@@ -38,7 +38,7 @@ const Header = ({ theme, variant, content }) => {
         m="auto"
         maxWidth={1400}
         px={[6, 6, 12, 16, 24]}
-        pt={[12]}
+        pt={[8, 8, 12]}
       >
         <Brand>
           <LocalizedLink locale={locale} to="/">

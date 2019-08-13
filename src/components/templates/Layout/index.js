@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #fff;
+    background-color: #fafafa;
     ${tw`font-serif`}
   }
 
@@ -63,7 +63,7 @@ const Layout = ({ children, locale }) => (
     </Helmet>
     <GlobalStyle />
     <LocaleContext.Provider value={[locale]}>
-      <ScrollProvider throttle={24}>
+      <ScrollProvider throttle={0}>
         <ThemeProvider theme={theme}>
           <MainContent>{children}</MainContent>
         </ThemeProvider>

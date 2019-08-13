@@ -6,8 +6,8 @@ import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center py-2 sm:py-4 shadow mb-4`}
-  background-color: #fafafa;
+  ${tw`w-full flex items-center py-2 sm:py-6 shadow-md mb-4`}
+  background-color: #fff;
   transition: 0.4s ease-in-out;
 
   &:focus {
@@ -18,7 +18,7 @@ const Container = styled.a`
 `
 
 const IconContainer = styled.span`
-  ${tw`mx-4 md:mx-8`}
+  ${tw`mx-4 md:mx-6`}
 `
 
 const TextContainer = styled.div`
@@ -43,16 +43,18 @@ const PostItem = ({ data }) => {
       <TextContainer>
         <Text
           fontColor="primary.8"
-          fontSize={['sm', 'lg']}
+          fontSize={['sm', 'base', 'xl']}
           fontWeight="black"
           hover={{ color: '#0055FF' }}
         >
           {title.text}
         </Text>
         <Text
+          fontFamily="sans"
           display={['none', 'none', 'block']}
-          fontColor="primary.5"
-          fontSize="sm"
+          fontColor="primary.6"
+          fontSize="base"
+          mt={1}
         >
           {description.text}
         </Text>

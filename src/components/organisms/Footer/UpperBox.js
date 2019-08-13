@@ -9,24 +9,24 @@ const UpperRect = ({ content }) => (
     width={1}
     height="100%"
     display="flex"
-    bg="grey.2"
+    bg="primary.9"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"
     textAlign="center"
     px={[12, 12, 12, 32]}
-    py={12}
+    py={[16]}
   >
     <Text
       fontColor="primary.1"
-      fontSize={['4xl', '5xl']}
+      fontSize={['3xl', '4xl', '5xl']}
       fontWeight="bold"
       mb={[0, 4]}
     >
       {content.title}
     </Text>
     <Text
-      fontSize={['lg']}
+      fontSize={['base', 'lg']}
       fontColor="primary.5"
       my={[4]}
       maxWidth={1000}

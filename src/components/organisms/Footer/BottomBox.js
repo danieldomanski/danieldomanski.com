@@ -25,12 +25,12 @@ const BottomBox = ({ theme, variant }) => {
             display={['none', 'none', 'block']}
             fontColor={color}
             fontWeight="bold"
-            fontSize={['lg']}
+            fontSize={['base']}
             hover={{ color: '#4583FF' }}
           >{`</> code`}</Text>
         </Link>
         <Text
-          fontSize={['lg']}
+          fontSize={['base']}
           fontColor={color}
           fontWeight="bold"
           mb={[4, 4, 0]}
@@ -40,16 +40,16 @@ const BottomBox = ({ theme, variant }) => {
         <Box>
           <Icon
             icon="github"
-            width={[18, 24]}
+            width={[18, 21]}
             mr={2}
             fill={color}
-            hoverColor="#4583FF"
+            hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={[18, 24]}
+            width={[18, 21]}
             fill={color}
-            hoverColor="#4583FF"
+            hover={{ color: '#4583FF' }}
           />
         </Box>
       </Box>

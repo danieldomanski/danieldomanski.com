@@ -13,6 +13,8 @@ const colors = {
     '#8F8F8F',
     '#5A5A5A',
     '#363636',
+    '#252627',
+    '#181818',
   ],
   // white/gray
   secondary: [
@@ -151,7 +153,7 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: theme.colors.grey[1],
+      backgroundColor: theme.colors.primary[10],
       color: theme.colors.primary[2],
     },
     secondary: {
@@ -172,7 +174,7 @@ theme.components = {
       color: theme.colors.primary[5],
     },
     secondary: {
-      color: theme.colors.primary[4],
+      color: theme.colors.primary[6],
     },
   },
   localeSwitcher: {

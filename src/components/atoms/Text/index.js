@@ -71,11 +71,11 @@ Text.propTypes = {
 
 Text.defaultProps = {
   fontFamily: 'serif',
-  fontSize: ['4xl'],
+  fontSize: 'base',
   lineHeight: 'normal',
   fontWeight: 'normal',
-  fontColor: 'primary.5',
-  display: ['inline-block'],
+  fontColor: 'primary.7',
+  display: 'inline-block',
   mb: 0,
   mt: 0,
   mr: 0,

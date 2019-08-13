@@ -33,10 +33,10 @@ const Item = styled.li`
 `
 
 const activeStyle = {
-  color: '#0055FF',
-  borderBottom: '2px solid #0055FF',
+  color: '#4583FF',
+  borderBottom: '2px solid #4583FF',
   paddingBottom: '6px',
-  fontWeight: 700,
+  fontWeight: 600,
 }
 
 const Navigation = ({ theme, variant, locale, content }) => {
@@ -50,6 +50,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             to="/"
             locale={locale}
             fontSize={['base']}
+            fontWeight="medium"
             fontColor={color}
             activeStyle={activeStyle}
           >
@@ -61,6 +62,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             to="/projects"
             locale={locale}
             fontSize={['base']}
+            fontWeight="medium"
             fontColor={color}
             partiallyActive
             activeStyle={activeStyle}
@@ -73,6 +75,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             to="/blog"
             locale={locale}
             fontSize={['base']}
+            fontWeight="medium"
             fontColor={color}
             partiallyActive
             activeStyle={activeStyle}
@@ -85,6 +88,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             to="/about"
             locale={locale}
             fontSize={['base']}
+            fontWeight="medium"
             fontColor={color}
             activeStyle={activeStyle}
           >

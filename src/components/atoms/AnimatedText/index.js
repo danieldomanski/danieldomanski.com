@@ -1,4 +1,4 @@
-import Description from './Description'
-import Title from './Title'
+import FadeUp from './FadeUp'
+import DirectionalFade from './DirectionalFade'
 
-export { Description, Title }
+export { FadeUp, DirectionalFade }
