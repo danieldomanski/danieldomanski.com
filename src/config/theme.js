@@ -154,7 +154,7 @@ theme.components = {
   bottomFooter: {
     primary: {
       backgroundColor: theme.colors.primary[10],
-      color: theme.colors.primary[2],
+      color: theme.colors.secondary[1],
     },
     secondary: {
       backgroundColor: 'transparent',
@@ -174,7 +174,7 @@ theme.components = {
       color: theme.colors.primary[5],
     },
     secondary: {
-      color: theme.colors.primary[6],
+      color: theme.colors.primary[3],
     },
   },
   localeSwitcher: {

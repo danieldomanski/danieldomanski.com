@@ -6,13 +6,14 @@ import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import ArrowButton from '../../atoms/Button/ArrowButton'
 import HomeInfoRow from '../../molecules/HomeInfoRow'
+import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const rows = [1, 2, 3]
 
 const AboutSlide = ({ content: { title, description, button } }) => (
   <Box
     width={1}
-    maxWidth={1480}
+    maxWidth={1600}
     m="auto"
     pt={[16, 24, 64]}
     pb={[16, 24, 32]}
@@ -26,61 +27,69 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     />
     <Box
       display="flex"
+      justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
       my={32}
     >
       {rows.map((row, idx) => (
-        <Box
-          as="article"
-          display="flex"
-          flex={1}
-          mr={8}
-          mb={[
-            `${idx === rows.length - 1 ? 0 : 8}`,
-            `${idx === rows.length - 1 ? 0 : 8}`,
-            0,
-          ]}
-        >
-          <Text
-            display="inline-block"
-            fontSize="lg"
-            fontFamily="sans"
-            fontWeight="bold"
-            fontColor="primary.8"
-            mr={8}
+        <DirectionalFade delay={0.15 * (idx + 1)}>
+          <Box
+            as="article"
+            display="flex"
+            flex={1}
+            mr={16}
+            mb={[
+              `${idx === rows.length - 1 ? 0 : 8}`,
+              `${idx === rows.length - 1 ? 0 : 8}`,
+              0,
+            ]}
           >
-            01.
-          </Text>
-          <Box display="flex" flexDirection="column">
             <Text
+              display="inline-block"
+              fontSize="xl"
               fontFamily="sans"
               fontWeight="bold"
-              fontSize="lg"
               fontColor="primary.8"
-              style={{ textTransform: 'uppercase' }}
-              mb={4}
+              mr={8}
             >
-              Sketch
+              01.
             </Text>
-            <Text
-              fontFamily="sans"
-              maxWidth={[350, 450, 250]}
-              fontColor="primary.7"
-              fontWeight="medium"
-            >
-              Sketch / idea is part in which we work together on desired
-              outcome.
-            </Text>
+            <Box display="flex" flexDirection="column">
+              <Text
+                fontFamily="sans"
+                fontWeight="bold"
+                fontSize="xl"
+                fontColor="primary.8"
+                style={{ textTransform: 'uppercase' }}
+                mb={4}
+              >
+                Sketch
+              </Text>
+              <Text
+                fontFamily="sans"
+                fontSize={['base', 'base', 'lg']}
+                maxWidth={[350, 450, 400]}
+                fontColor="primary.7"
+                fontWeight="medium"
+              >
+                Sketch / idea is part in which we work together on desired
+                outcome.
+              </Text>
+            </Box>
           </Box>
-        </Box>
+        </DirectionalFade>
       ))}
     </Box>
-    <Box textAlign="right" mt={32}>
-      <LocalizedLink to="/about" display={['none', 'none', 'block']}>
-        <ArrowButton fontColor="primary.8">{button}</ArrowButton>
-      </LocalizedLink>
-    </Box>
+    <DirectionalFade direction="right">
+      <Box textAlign="right" mt={24}>
+        <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+          <ArrowButton fontColor="primary.7" fontSize="lg">
+            {button}
+          </ArrowButton>
+        </LocalizedLink>
+      </Box>
+    </DirectionalFade>
   </Box>
 )
 

@@ -49,8 +49,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
           <LocalizedLink
             to="/"
             locale={locale}
-            fontSize={['base']}
-            fontWeight="medium"
+            fontWeight="normal"
             fontColor={color}
             activeStyle={activeStyle}
           >
@@ -61,8 +60,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
           <LocalizedLink
             to="/projects"
             locale={locale}
-            fontSize={['base']}
-            fontWeight="medium"
+            fontWeight="normal"
             fontColor={color}
             partiallyActive
             activeStyle={activeStyle}
@@ -74,8 +72,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
           <LocalizedLink
             to="/blog"
             locale={locale}
-            fontSize={['base']}
-            fontWeight="medium"
+            fontWeight="normal"
             fontColor={color}
             partiallyActive
             activeStyle={activeStyle}
@@ -87,8 +84,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
           <LocalizedLink
             to="/about"
             locale={locale}
-            fontSize={['base']}
-            fontWeight="medium"
+            fontWeight="normal"
             fontColor={color}
             activeStyle={activeStyle}
           >

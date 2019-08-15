@@ -6,7 +6,8 @@ import { color, typography, space } from 'styled-system'
 import Icon from '../Icon'
 
 const ButtonContainer = styled.button`
-  ${tw`relative font-sans font-bold px-4 cursor-pointer`};
+  ${tw`relative font-sans font-bold px-4 cursor-pointer py-4`};
+
   outline: 0;
   border: 0;
   background: 0;
@@ -24,14 +25,16 @@ const ButtonContainer = styled.button`
   &::after {
     background-color: #e0e0e0;
     content: '';
-    height: 50px;
-    top: -16px;
-    left: 0;
+    height: 60px;
+    top: -8px;
+    left: 8px;
     position: absolute;
     transition: width 0.3s;
     width: 0;
     z-index: -1;
   }
+
+  border: 2px solid rgba(0, 0, 0, 0.75);
 
   ${typography};
   ${color};

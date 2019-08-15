@@ -6,7 +6,7 @@ import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 
 const Container = styled.a`
-  ${tw`w-full flex items-center py-2 sm:py-6 shadow-md mb-4`}
+  ${tw`w-full flex items-center py-2 sm:py-6 shadow-md mb-6`}
   background-color: #fff;
   transition: 0.4s ease-in-out;
 
@@ -18,7 +18,7 @@ const Container = styled.a`
 `
 
 const IconContainer = styled.span`
-  ${tw`mx-4 md:mx-6`}
+  ${tw`mx-4 md:ml-8 mr-16`}
 `
 
 const TextContainer = styled.div`
@@ -27,8 +27,7 @@ const TextContainer = styled.div`
 `
 
 const DateContainer = styled.div`
-  ${tw`hidden md:block font-sans text-sm text-right mx-8 text-primary-700`}
-  flex:1;
+  ${tw`hidden md:block font-sans text-right mx-8 text-primary-500`}
 `
 
 const PostItem = ({ data }) => {
@@ -42,7 +41,7 @@ const PostItem = ({ data }) => {
       </IconContainer>
       <TextContainer>
         <Text
-          fontColor="primary.8"
+          fontColor="primary.10"
           fontSize={['sm', 'base', 'xl']}
           fontWeight="black"
           hover={{ color: '#0055FF' }}
@@ -52,7 +51,7 @@ const PostItem = ({ data }) => {
         <Text
           fontFamily="sans"
           display={['none', 'none', 'block']}
-          fontColor="primary.6"
+          fontColor="primary.8"
           fontSize="base"
           mt={1}
         >

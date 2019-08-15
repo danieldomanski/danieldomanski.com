@@ -10,7 +10,12 @@ const BottomBox = ({ theme, variant }) => {
   const { backgroundColor, color } = theme.components.bottomFooter[variant]
 
   return (
-    <Box width={1} bg={backgroundColor} py={8}>
+    <Box
+      width={1}
+      bg={backgroundColor}
+      py={8}
+      borderTop="1px solid rgba(0,0,0,0.1)"
+    >
       <Box
         maxWidth={1400}
         m="auto"
@@ -25,12 +30,12 @@ const BottomBox = ({ theme, variant }) => {
             display={['none', 'none', 'block']}
             fontColor={color}
             fontWeight="bold"
-            fontSize={['base']}
+            fontSize={['lg']}
             hover={{ color: '#4583FF' }}
           >{`</> code`}</Text>
         </Link>
         <Text
-          fontSize={['base']}
+          fontSize={['lg']}
           fontColor={color}
           fontWeight="bold"
           mb={[4, 4, 0]}
@@ -40,14 +45,14 @@ const BottomBox = ({ theme, variant }) => {
         <Box>
           <Icon
             icon="github"
-            width={[18, 21]}
-            mr={2}
+            width={[18, 24]}
+            mr={3}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={[18, 21]}
+            width={[18, 24]}
             fill={color}
             hover={{ color: '#4583FF' }}
           />

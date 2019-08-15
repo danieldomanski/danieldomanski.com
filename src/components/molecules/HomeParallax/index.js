@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-
+import { DirectionalFade } from '../AnimatedBox'
 import Layer1 from '../../../images/Layer1.png'
 import Layer2 from '../../../images/Layer2.png'
 import Layer3 from '../../../images/Layer3.png'

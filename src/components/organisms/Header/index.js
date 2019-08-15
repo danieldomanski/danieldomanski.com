@@ -36,7 +36,7 @@ const Header = ({ theme, variant, content }) => {
         flexWrap="wrap"
         alignItems={['center']}
         m="auto"
-        maxWidth={1400}
+        maxWidth={1600}
         px={[6, 6, 12, 16, 24]}
         pt={[8, 8, 12]}
       >

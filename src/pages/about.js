@@ -29,6 +29,7 @@ const About = ({ data, pageContext, location }) => {
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
           textAlign={['center', 'center', 'left']}
+          mb={8}
         >
           {title.text}
         </Text>
@@ -40,6 +41,7 @@ const About = ({ data, pageContext, location }) => {
         >
           <Avatar x={180} y={180} src="profile-picture.jpg" mr={[0, 0, 8]} />
           <Text
+            maxWidth={800}
             fontColor="primary.7"
             fontSize={['base', 'lg']}
             withLine
@@ -49,13 +51,7 @@ const About = ({ data, pageContext, location }) => {
             {about_me.text}
           </Text>
         </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          maxWidth={1000}
-          m="auto"
-          my={8}
-        >
+        <Box display="flex" flexDirection="column" my={8} maxWidth={1080}>
           {aboutGroups.map(group => (
             <Box width={1} m="auto">
               <Text
@@ -83,7 +79,7 @@ const About = ({ data, pageContext, location }) => {
                     {row.name}
                   </Text>
                   <Text
-                    maxWidth={350}
+                    maxWidth={500}
                     width={[5 / 6, 5 / 6, 1 / 2]}
                     fontFamily="sans"
                     fontColor="primary.8"

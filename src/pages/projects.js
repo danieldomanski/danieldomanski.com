@@ -19,7 +19,7 @@ const Projects = ({ data, pageContext }) => {
       <Box
         width={1}
         pt={[8, 8, 16]}
-        maxWidth={1400}
+        maxWidth={1800}
         m="auto"
         px={[6, 6, 12, 16, 24]}
         flex={1}

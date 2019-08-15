@@ -8,13 +8,14 @@ import PostItem from '../../organisms/PostItem'
 import Icon from '../../atoms/Icon'
 import HomeInfoRow from '../../molecules/HomeInfoRow'
 import ArrowButton from '../../atoms/Button/ArrowButton'
+import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const BlogSlide = ({ posts, content: { title, description, button } }) => (
   <Box
     width={1}
-    maxWidth={1480}
+    maxWidth={1600}
     m="auto"
-    pt={[16, 24, 64]}
+    pt={[16, 24, 32]}
     pb={[16, 24, 64]}
     px={[6, 6, 12, 16, 24]}
   >
@@ -24,25 +25,32 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
       button={button}
       idx={3}
     />
-    <Box as="ul" maxWidth={800}>
+    <Box as="ul" maxWidth={1024}>
       <Text
         fontFamily="sans"
-        fontSize="base"
+        fontSize="xl"
         fontColor="primary.6"
         fontWeight="bold"
-        mb={6}
+        mb={8}
       >
         Ostatnie posty.
       </Text>
+
       {posts.map((post, idx) => (
-        <PostItem data={post} />
+        <DirectionalFade delay={0.075}>
+          <PostItem data={post} />
+        </DirectionalFade>
       ))}
     </Box>
-    <Box textAlign="right" mt={24}>
-      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-        <ArrowButton fontColor="primary.7">{button}</ArrowButton>
-      </LocalizedLink>
-    </Box>
+    <DirectionalFade direction="right">
+      <Box textAlign="right" mt={24}>
+        <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+          <ArrowButton fontColor="primary.10" fontSize="lg">
+            {button}
+          </ArrowButton>
+        </LocalizedLink>
+      </Box>
+    </DirectionalFade>
   </Box>
 )
 

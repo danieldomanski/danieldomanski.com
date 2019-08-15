@@ -25,9 +25,10 @@ const OnTopLayer = styled.section`
 `
 
 const TopLayer = styled.section`
-  ${tw`fixed pin-t w-full h-screen`}
+  ${tw`fixed pin-t w-full`}
+  height: 100vh;
   z-index: 4;
-  background-color: #252627;
+  background-color: #181818;
 `
 
 const Index = ({ data, pageContext }) => {

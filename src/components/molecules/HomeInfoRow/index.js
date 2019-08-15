@@ -1,37 +1,35 @@
 import React, { useEffect, useRef } from 'react'
 import styled from 'styled-components'
-import { useInView } from 'react-intersection-observer'
-import { useSpring, animated } from 'react-spring'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import Icon from '../../atoms/Icon'
 import { LocalizedLink } from '../../atoms/Link'
-import { FadeUp, DirectionalFade } from '../../atoms/AnimatedText'
+import { DirectionalFade } from '../AnimatedBox'
 
 const Line = styled.span`
   display: block;
   width: 60px;
   height: 4px;
   background-color: #181818;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 `
 
 const HomeInfoRow = ({ title, description, button, idx }) => (
   <>
-    <Box display="flex" justifyContent="space-between" mb={[24]}>
-      <FadeUp delay={0.1}>
+    <Box display="flex" justifyContent="space-between" mb={[16]}>
+      <Box>
         <Text
           display={['none', 'none', 'block']}
-          fontFamily="sans"
           fontSize={['base', '4xl']}
           fontColor="primary.10"
-          fontWeight="bold"
-          minWidth={100}
+          fontWeight="black"
+          minWidth={250}
+          mr={8}
         >
           {title}
         </Text>
         <Line />
-      </FadeUp>
+      </Box>
       <LocalizedLink to="/about" display={['block', 'block', 'none']}>
         <Box display={['flex', 'flex', 'none']} alignItems="center">
           <Text
@@ -45,21 +43,17 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
           <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
         </Box>
       </LocalizedLink>
-      <Box>
-        <DirectionalFade direction="right" px={80} delay={0.5}>
-          <Text
-            display={['none', 'none', 'block']}
-            fontFamily="sans"
-            fontSize={['base', 'xl']}
-            fontColor="primary.8"
-            fontWeight="medium"
-            lineHeight="loose"
-            maxWidth={800}
-          >
-            {description}
-          </Text>
-        </DirectionalFade>
-      </Box>
+      <Text
+        display={['none', 'none', 'block']}
+        fontFamily="sans"
+        fontSize={['base', 'xl']}
+        fontColor="primary.9"
+        fontWeight="medium"
+        lineHeight="relaxed"
+        maxWidth={960}
+      >
+        {description}
+      </Text>
     </Box>
   </>
 )

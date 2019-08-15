@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import VisibilitySensor from 'react-visibility-sensor'
+import styled, { keyframes } from 'styled-components'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParallax from '../../molecules/HomeParallax'
+import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const HeroText = styled.section`
   ${tw`static md:fixed w-full `};
@@ -20,9 +20,17 @@ const HeroContainer = styled.section`
   transform: translateY(-50%);
 `
 
+const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100% { opacity: 1 }
+`
+
+const FadeIn = styled.div`
+  animation: ${fadeIn} 1.5s 0.25s both;
+`
+
 const HomeSlide = ({ content }) => (
   <>
-    <HomeParallax />
     <HeroText>
       <HeroContainer
         display="flex"
@@ -33,29 +41,36 @@ const HomeSlide = ({ content }) => (
         transform="translateY(-50%)"
       >
         <Box
-          maxWidth={1400}
+          width={1}
+          maxWidth={1600}
           m="auto"
           px={[6, 6, 12, 16, 24]}
           textAlign={['center', 'center', 'left']}
         >
-          <Text
-            fontWeight="black"
-            fontSize={['3xl', '4xl', '6xl']}
-            fontColor="primary.1"
-            lineHeight="tight"
-            mb={8}
-          >
-            {content.title}
-          </Text>
-          <Text
-            fontWeight="thin"
-            fontSize={['lg', 'lg', 'xl', '2xl']}
-            fontColor="primary.3"
-            lineHeight="normal"
-            maxWidth={1000}
-          >
-            {content.description}
-          </Text>
+          <FadeIn>
+            <Text
+              fontWeight="black"
+              fontSize={['3xl', '4xl', '6xl']}
+              fontColor="secondary.1"
+              lineHeight="tight"
+              mb={8}
+            >
+              {content.title}
+            </Text>
+          </FadeIn>
+
+          <DirectionalFade direction="left" delay={1.25}>
+            <Text
+              fontFamily="sans"
+              fontWeight="thin"
+              fontSize={['lg', 'lg', 'xl', '2xl']}
+              fontColor="primary.1"
+              lineHeight="normal"
+              maxWidth={1000}
+            >
+              {content.description}
+            </Text>
+          </DirectionalFade>
         </Box>
       </HeroContainer>
     </HeroText>

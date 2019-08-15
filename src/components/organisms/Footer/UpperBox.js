@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 
@@ -18,17 +17,17 @@ const UpperRect = ({ content }) => (
     py={[16]}
   >
     <Text
-      fontColor="primary.1"
+      fontColor="secondary.1"
       fontSize={['3xl', '4xl', '5xl']}
       fontWeight="bold"
-      mb={[0, 4]}
+      mb={[0, 6]}
     >
       {content.title}
     </Text>
     <Text
-      fontSize={['base', 'lg']}
-      fontColor="primary.5"
-      my={[4]}
+      fontFamily="sans"
+      fontSize={['base', 'xl']}
+      fontColor="primary.2"
       maxWidth={1000}
       lineHeight="relaxed"
     >

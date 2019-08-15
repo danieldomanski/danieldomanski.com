@@ -17,16 +17,21 @@ const AnimatedContainer = styled.div`
       : getTransform(props.direction, props.px)};
   opacity: ${props => (props.visible ? 1 : 0)};
   transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
-    transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-delay: ${props => props.delay}s;
 `
 
 export default React.memo(
-  ({ children, delay = 0, direction = 'bottom', px = 40 }) => {
+  ({ children, delay = 0, direction = 'bottom', px = 120, offset = 450 }) => {
     const [visible, set] = React.useState(false)
 
     return (
-      <VisibilitySensor onChange={vis => set(vis)} active={!visible}>
+      <VisibilitySensor
+        onChange={vis => set(vis)}
+        active={!visible}
+        partialVisibility
+        offset={{ top: offset }}
+      >
         <AnimatedContainer
           visible={visible}
           delay={delay}

@@ -11,7 +11,7 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap m-auto mt-8 mb-4`}
+  ${tw`flex flex-wrap m-auto mt-8 mb-8`}
   list-style: none;
 `
 
@@ -52,6 +52,7 @@ const Blog = ({ data, pageContext }) => {
       <Box
         width={1}
         pt={[8, 8, 16]}
+        pb={[8, 8, 32]}
         maxWidth={1000}
         m="auto"
         px={[6, 6, 12, 16, 24]}
@@ -64,7 +65,7 @@ const Blog = ({ data, pageContext }) => {
         >
           {pageContent.title}
         </Text>
-        <Box>
+        <Box mt={16} maxWidth={1200}>
           <ContentFilters>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>

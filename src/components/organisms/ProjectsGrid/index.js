@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import VisibilitySensor from 'react-visibility-sensor'
 import Text from '../../atoms/Text'
 import ProjectGridItem from '../../molecules/ProjectGridItem'
-import FadeUp from '../../atoms/AnimatedText/FadeUp'
+import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const Grid = styled.ul`
   ${space};
@@ -14,7 +13,7 @@ const Grid = styled.ul`
   grid-gap: 0.5em;
   list-style: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
 
     grid-gap: 3em;
@@ -34,7 +33,7 @@ const ProjectsGrid = ({ projects, mt, mb }) => {
         const { title } = project.node.data
 
         return (
-          <FadeUp delay={0.1 * idx}>
+          <DirectionalFade delay={0.1 * (idx + 1)}>
             <Text
               display={['inline-block', 'inline-block', 'none']}
               fontFamily="sans"
@@ -46,7 +45,7 @@ const ProjectsGrid = ({ projects, mt, mb }) => {
               {title.text}
             </Text>
             <ProjectGridItem project={project} />
-          </FadeUp>
+          </DirectionalFade>
         )
       })}
     </Grid>
