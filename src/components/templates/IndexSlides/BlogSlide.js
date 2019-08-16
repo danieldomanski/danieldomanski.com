@@ -25,22 +25,22 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
       button={button}
       idx={3}
     />
-    <Box as="ul" maxWidth={1024}>
+    <Box display="flex" justifyContent="space-between" as="ul" maxWidth={1024}>
       <Text
         fontFamily="sans"
         fontSize="xl"
-        fontColor="primary.6"
+        fontColor="primary.4"
         fontWeight="bold"
-        mb={8}
       >
         Ostatnie posty.
       </Text>
-
-      {posts.map((post, idx) => (
-        <DirectionalFade delay={0.075}>
-          <PostItem data={post} />
-        </DirectionalFade>
-      ))}
+      <Box display="flex" flexDirection="column">
+        {posts.map((post, idx) => (
+          <DirectionalFade delay={0.075}>
+            <PostItem data={post} />
+          </DirectionalFade>
+        ))}
+      </Box>
     </Box>
     <DirectionalFade direction="right">
       <Box textAlign="right" mt={24}>

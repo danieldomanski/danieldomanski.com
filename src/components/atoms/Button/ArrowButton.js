@@ -25,8 +25,8 @@ const ButtonContainer = styled.button`
   &::after {
     background-color: #e0e0e0;
     content: '';
-    height: 60px;
-    top: -8px;
+    height: 56px;
+    top: 6px;
     left: 8px;
     position: absolute;
     transition: width 0.3s;

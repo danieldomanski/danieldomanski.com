@@ -33,8 +33,8 @@ const Item = styled.li`
 `
 
 const activeStyle = {
-  color: '#4583FF',
-  borderBottom: '2px solid #4583FF',
+  color: '#fff',
+  borderBottom: '2px solid #333',
   paddingBottom: '6px',
   fontWeight: 600,
 }
