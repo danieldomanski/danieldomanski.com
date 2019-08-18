@@ -16,7 +16,7 @@ const ProjectsSlide = ({
 }) => (
   <Box
     width={1}
-    maxWidth={1600}
+    maxWidth={1400}
     m="auto"
     pt={[16, 24, 32]}
     pb={[16, 24, 32]}

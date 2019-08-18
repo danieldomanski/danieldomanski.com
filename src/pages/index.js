@@ -28,7 +28,7 @@ const TopLayer = styled.section`
   ${tw`fixed pin-t w-full`}
   height: 100vh;
   z-index: 4;
-  background-color: #181818;
+  background: linear-gradient(135deg, #1b2125 0%, #0d0f11 100%);
 `
 
 const Index = ({ data, pageContext }) => {

@@ -13,7 +13,7 @@ const rows = [1, 2, 3]
 const AboutSlide = ({ content: { title, description, button } }) => (
   <Box
     width={1}
-    maxWidth={1600}
+    maxWidth={1400}
     m="auto"
     pt={[16, 24, 64]}
     pb={[16, 24, 32]}
@@ -30,7 +30,6 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
-      my={32}
     >
       {rows.map((row, idx) => (
         <DirectionalFade delay={0.15 * (idx + 1)}>
@@ -67,7 +66,6 @@ const AboutSlide = ({ content: { title, description, button } }) => (
                 Sketch
               </Text>
               <Text
-                fontFamily="sans"
                 fontSize={['base', 'base', 'lg']}
                 maxWidth={[350, 450, 400]}
                 fontColor="primary.7"

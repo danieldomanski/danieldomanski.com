@@ -16,7 +16,7 @@ import Tag from '../../atoms/Tag'
 import { formatInvolvment, formatHeader } from '../../../utilitity/format'
 
 const Dot = styled.span`
-  ${tw`text-primary-500`}
+  ${tw`text-primary-600 mx-2`}
 `
 
 const Post = ({ data, pageContext, location }) => {
@@ -35,41 +35,44 @@ const Post = ({ data, pageContext, location }) => {
 
   return (
     <Layout locale={pageContext.locale}>
-      <Header variant="secondary" content={headerContent} />
-      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
+      <Header variant="primary" content={headerContent} />
+      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]} pt={[8, 8]}>
+        <Box maxWidth={760} width={1} m="auto" py={[0, 0, 8]}>
           <Box
             as="header"
             width={1}
             display="flex"
+            justifyContent="center"
             flexDirection={['column', 'column', 'row']}
             alignItems={['center', 'center', 'center']}
             px={4}
-            my={8}
+            mb={8}
           >
-            <Box my={4}>
-              <Icon icon={icon.text} width={[100, 120]} mr={[0, 0, 8]} />
-            </Box>
-            <Box display="flex" flexDirection="column">
+            <Box
+              display="flex"
+              flexDirection="column"
+              textAlign="center"
+              mb={8}
+            >
               <Text
-                fontColor="primary.8"
+                fontFamily="sans"
+                fontColor="primary.10"
                 fontWeight="black"
-                fontSize={['2xl', '3xl', '4xl']}
+                fontSize={['2xl', '3xl', '5xl']}
+                lineHeight="tight"
+                my={4}
               >
                 {title.text}
               </Text>
               <Box display="flex" flexDirection="column">
                 <Box
                   display="flex"
-                  justifyContent={['center', 'center', 'flex-start']}
+                  justifyContent={['center', 'center']}
                   alignItems="center"
-                  mt={2}
                 >
-                  <Text fontFamily="sans" fontSize={['sm']} mr={[3]}>
-                    {formatDate(date)}
-                  </Text>
+                  <Text fontColor="primary.6">{formatDate(date)}</Text>
                   <Dot>•</Dot>
-                  <Text fontFamily="sans" fontSize={['sm']} ml={[3]}>
+                  <Text fontColor="primary.6">
                     {`${estimatedReadTime} minutes to read`}
                   </Text>
                 </Box>

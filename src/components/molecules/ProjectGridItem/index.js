@@ -17,7 +17,7 @@ const Container = styled(Tilt)`
   }
 
   @media screen and (min-width: 1024px) {
-    height: 560px;
+    height: 500px;
   }
 
   transition: height 0.25s ease-in-out;

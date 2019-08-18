@@ -13,7 +13,7 @@ import { DirectionalFade } from '../../molecules/AnimatedBox'
 const BlogSlide = ({ posts, content: { title, description, button } }) => (
   <Box
     width={1}
-    maxWidth={1600}
+    maxWidth={1400}
     m="auto"
     pt={[16, 24, 32]}
     pb={[16, 24, 64]}
@@ -25,16 +25,18 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
       button={button}
       idx={3}
     />
-    <Box display="flex" justifyContent="space-between" as="ul" maxWidth={1024}>
+    <Box display="flex" justifyContent="space-between" as="ul">
       <Text
         fontFamily="sans"
         fontSize="xl"
         fontColor="primary.4"
         fontWeight="bold"
+        minWidth={250}
+        mr={8}
       >
         Ostatnie posty.
       </Text>
-      <Box display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column" maxWidth={800} flex={1}>
         {posts.map((post, idx) => (
           <DirectionalFade delay={0.075}>
             <PostItem data={post} />

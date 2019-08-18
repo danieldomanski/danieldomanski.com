@@ -13,7 +13,7 @@ const BottomBox = ({ theme, variant }) => {
     <Box
       width={1}
       bg={backgroundColor}
-      py={8}
+      py={12}
       borderTop="1px solid rgba(0,0,0,0.1)"
     >
       <Box
@@ -27,6 +27,7 @@ const BottomBox = ({ theme, variant }) => {
       >
         <Link to="http://github.com/av3ng3roo">
           <Text
+            fontFamily="sans"
             display={['none', 'none', 'block']}
             fontColor={color}
             fontWeight="bold"
@@ -35,6 +36,7 @@ const BottomBox = ({ theme, variant }) => {
           >{`</> code`}</Text>
         </Link>
         <Text
+          fontFamily="sans"
           fontSize={['lg']}
           fontColor={color}
           fontWeight="bold"

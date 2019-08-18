@@ -3,8 +3,8 @@ import { css } from 'styled-components'
 export default css`
   div > p,
   li {
-    font: 100%/1.75 'Montserrat';
-    font-size: 16px;
+    font: 100%/1.75 'Merriweather';
+    font-size: 18px;
     margin-bottom: 2rem;
     color: #000;
   }
@@ -40,7 +40,7 @@ export default css`
   }
 
   h1 {
-    font-family: 'Roboto';
+    font-family: 'Merriweather';
     font-size: 28px;
     font-weight: 900;
     margin-top: 3rem;

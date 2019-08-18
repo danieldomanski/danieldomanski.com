@@ -8,23 +8,22 @@ import { DirectionalFade } from '../AnimatedBox'
 
 const Line = styled.span`
   display: block;
-  width: 60px;
+  width: 80px;
   height: 4px;
   background-color: #181818;
-  margin-top: 1.5rem;
+  margin-top: 1em;
 `
 
 const HomeInfoRow = ({ title, description, button, idx }) => (
   <>
-    <Box display="flex" justifyContent="space-between" mb={[16]}>
-      <Box>
+    <Box as="header" display="flex" justifyContent="space-between" mb={[24]}>
+      <Box minWidth={250} mr={8}>
         <Text
+          fontFamily="sans"
           display={['none', 'none', 'block']}
-          fontSize={['base', '4xl']}
+          fontSize={['base', '5xl']}
           fontColor="primary.10"
           fontWeight="black"
-          minWidth={250}
-          mr={8}
         >
           {title}
         </Text>
@@ -45,12 +44,11 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
       </LocalizedLink>
       <Text
         display={['none', 'none', 'block']}
-        fontFamily="sans"
         fontSize={['base', 'xl']}
         fontColor="primary.9"
         fontWeight="medium"
         lineHeight="relaxed"
-        maxWidth={960}
+        maxWidth={800}
       >
         {description}
       </Text>

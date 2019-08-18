@@ -11,7 +11,7 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap m-auto mt-8 mb-8`}
+  ${tw`flex flex-wrap m-auto`}
   list-style: none;
 `
 
@@ -53,19 +53,27 @@ const Blog = ({ data, pageContext }) => {
         width={1}
         pt={[8, 8, 16]}
         pb={[8, 8, 32]}
-        maxWidth={1000}
+        maxWidth={1600}
         m="auto"
         px={[6, 6, 12, 16, 24]}
         flex={1}
       >
         <Text
-          fontColor="primary.7"
+          fontFamily="sans"
+          display="block"
+          fontColor="primary.10"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
+          textAlign="center"
         >
           {pageContent.title}
         </Text>
-        <Box mt={16} maxWidth={1200}>
+        <Box
+          mt={8}
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+        >
           <ContentFilters>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
@@ -73,14 +81,13 @@ const Blog = ({ data, pageContext }) => {
               </Filter>
             ))}
           </ContentFilters>
-          <Box>
+          <Box m="auto" mt={16} maxWidth={800}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
                 fontSize={['base', 'lg']}
                 fontColor="primary.3"
                 textAlign="center"
-                mt={8}
               >
                 No articles yet :(
               </Text>
@@ -90,7 +97,7 @@ const Blog = ({ data, pageContext }) => {
           </Box>
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} maxWidth={1600} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

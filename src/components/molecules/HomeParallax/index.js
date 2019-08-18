@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { DirectionalFade } from '../AnimatedBox'
 import Layer1 from '../../../images/Layer1.png'
 import Layer2 from '../../../images/Layer2.png'
@@ -18,24 +18,31 @@ const Layer = styled.img`
   transform: translateY(0px);
   height: 100%;
   width: 100%;
+  opacity: 0.4;
 `
 
 const calculateTranslate = (offset, idx) =>
-  `translateY(-${(offset * idx) / 3}px)`
+  `translateY(-${(offset * idx) / 2}px)`
 
 const HomeParallax = () => {
   const [scroll] = useContext(ScrollContext)
 
   return (
     <ParallaxContainer>
-      <Layer src={Layer1} />
+      <Layer src={Layer1} style={{ opacity: 0.1 }} />
       <Layer
         src={Layer2}
-        style={{ transform: `${calculateTranslate(scroll.y, 1)}` }}
+        style={{
+          transform: `${calculateTranslate(scroll.y, 1)}`,
+          opacity: 0.55,
+        }}
       />
       <Layer
         src={Layer3}
-        style={{ transform: `${calculateTranslate(scroll.y, 2)}` }}
+        style={{
+          transform: `${calculateTranslate(scroll.y, 2)}`,
+          opacity: 0.85,
+        }}
       />
     </ParallaxContainer>
   )

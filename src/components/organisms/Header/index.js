@@ -36,7 +36,7 @@ const Header = ({ theme, variant, content }) => {
         flexWrap="wrap"
         alignItems={['center']}
         m="auto"
-        maxWidth={1600}
+        maxWidth={1400}
         px={[6, 6, 12, 16, 24]}
         pt={[8, 8, 12]}
       >
@@ -47,7 +47,6 @@ const Header = ({ theme, variant, content }) => {
               fontWeight="black"
               fontColor={brandColor}
               hover={{ color: '#4583FF' }}
-              style={{ letterSpacing: '-0.25px' }}
             >
               {content.brand}
             </Text>

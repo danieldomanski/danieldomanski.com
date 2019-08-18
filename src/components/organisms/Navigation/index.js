@@ -32,16 +32,16 @@ const Item = styled.li`
   ${tw`mr-8 my-2`}
 `
 
-const activeStyle = {
-  color: '#fff',
-  borderBottom: '2px solid #333',
-  paddingBottom: '6px',
-  fontWeight: 600,
-}
+const getActiveStyle = active => ({
+    color: active.color,
+    borderBottom: `2px solid ${active.border}`,
+    paddingBottom: '6px',
+    fontWeight: 600,
+  })
 
 const Navigation = ({ theme, variant, locale, content }) => {
-  const { color } = theme.components.navigation[variant]
-
+  const { color, active } = theme.components.navigation[variant]
+  const activeStyle = getActiveStyle(active)
   return (
     <Container>
       <List>

@@ -1,6 +1,6 @@
 const colors = {
   // theme colors
-  grey: ['#181716', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
+  grey: ['#191E22', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
 
   // black/gray
   primary: [
@@ -121,7 +121,7 @@ const theme = {
     lg: '1.125rem', // 18px
     xl: '1.25rem', // 20px
     '2xl': '1.5rem', // 24px
-    '3xl': '1.875rem', // 30px
+    '3xl': '1.75rem', // 30px
     '4xl': '2.25rem', // 36px
     '5xl': '3rem', // 48px
     '6xl': '4rem', // 64px
@@ -153,7 +153,7 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: theme.colors.primary[10],
+      backgroundColor: theme.colors.grey[0],
       color: theme.colors.secondary[1],
     },
     secondary: {
@@ -163,7 +163,7 @@ theme.components = {
   },
   brand: {
     primary: {
-      color: theme.colors.primary[7],
+      color: theme.colors.primary[10],
     },
     secondary: {
       color: theme.colors.primary[0],
@@ -171,10 +171,18 @@ theme.components = {
   },
   navigation: {
     primary: {
-      color: theme.colors.primary[5],
+      color: theme.colors.primary[6],
+      active: {
+        color: theme.colors.primary[10],
+        border: theme.colors.primary[7],
+      },
     },
     secondary: {
-      color: theme.colors.primary[3],
+      color: theme.colors.primary[6],
+      active: {
+        color: theme.colors.primary[0],
+        border: theme.colors.primary[6],
+      },
     },
   },
   localeSwitcher: {

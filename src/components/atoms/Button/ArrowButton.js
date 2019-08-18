@@ -23,19 +23,17 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #e0e0e0;
+    background-color: #e4e4e4;
     content: '';
     height: 56px;
-    top: 6px;
-    left: 8px;
+    left: 0;
+    top: 0;
     position: absolute;
     transition: width 0.3s;
     width: 0;
     z-index: -1;
   }
-
   border: 2px solid rgba(0, 0, 0, 0.75);
-
   ${typography};
   ${color};
   ${space};

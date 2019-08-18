@@ -31,6 +31,7 @@ const FadeIn = styled.div`
 
 const HomeSlide = ({ content }) => (
   <>
+    <HomeParallax />
     <HeroText>
       <HeroContainer
         display="flex"
@@ -42,16 +43,17 @@ const HomeSlide = ({ content }) => (
       >
         <Box
           width={1}
-          maxWidth={1600}
+          maxWidth={1400}
           m="auto"
           px={[6, 6, 12, 16, 24]}
           textAlign={['center', 'center', 'left']}
         >
           <FadeIn>
             <Text
+              fontFamily="sans"
               fontWeight="black"
               fontSize={['3xl', '4xl', '6xl']}
-              fontColor="secondary.1"
+              fontColor="secondary.0"
               lineHeight="tight"
               mb={8}
             >
@@ -61,11 +63,10 @@ const HomeSlide = ({ content }) => (
 
           <DirectionalFade direction="left" delay={1.25}>
             <Text
-              fontFamily="sans"
-              fontWeight="thin"
+              fontWeight="medium"
               fontSize={['lg', 'lg', 'xl', '2xl']}
-              fontColor="primary.1"
-              lineHeight="normal"
+              fontColor="primary.2"
+              lineHeight="relaxed"
               maxWidth={1000}
             >
               {content.description}
