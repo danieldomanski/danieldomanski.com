@@ -21,7 +21,7 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
         <Text
           fontFamily="sans"
           display={['none', 'none', 'block']}
-          fontSize={['base', '5xl']}
+          fontSize={['base', '4xl']}
           fontColor="primary.10"
           fontWeight="black"
         >
@@ -45,10 +45,10 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
       <Text
         display={['none', 'none', 'block']}
         fontSize={['base', 'xl']}
-        fontColor="primary.9"
+        fontColor="primary.10"
         fontWeight="medium"
         lineHeight="relaxed"
-        maxWidth={800}
+        maxWidth={920}
       >
         {description}
       </Text>

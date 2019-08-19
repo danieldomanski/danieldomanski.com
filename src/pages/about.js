@@ -19,17 +19,17 @@ const About = ({ data, pageContext, location }) => {
       <Box
         width={1}
         pt={[8, 8, 16]}
-        maxWidth={1000}
+        maxWidth={960}
         m="auto"
-        px={[6, 6, 12, 16, 24]}
+        px={[6, 6, 12, 0, 0]}
       >
         <Text
-          fontFamily="sans"
           display="block"
+          textAlign="center"
+          fontFamily="sans"
           fontColor="primary.10"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
-          textAlign="center"
           mb={8}
         >
           {title.text}

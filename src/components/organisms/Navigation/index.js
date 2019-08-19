@@ -33,11 +33,11 @@ const Item = styled.li`
 `
 
 const getActiveStyle = active => ({
-    color: active.color,
-    borderBottom: `2px solid ${active.border}`,
-    paddingBottom: '6px',
-    fontWeight: 600,
-  })
+  color: active.color,
+  borderBottom: `3px solid ${active.border}`,
+  paddingBottom: '6px',
+  fontWeight: 600,
+})
 
 const Navigation = ({ theme, variant, locale, content }) => {
   const { color, active } = theme.components.navigation[variant]

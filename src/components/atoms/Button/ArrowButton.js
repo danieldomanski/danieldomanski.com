@@ -33,7 +33,7 @@ const ButtonContainer = styled.button`
     width: 0;
     z-index: -1;
   }
-  border: 2px solid rgba(0, 0, 0, 0.75);
+
   ${typography};
   ${color};
   ${space};

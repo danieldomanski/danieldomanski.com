@@ -6,13 +6,14 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { LocaleContext } from '../../templates/Layout'
 import Box from '../Box'
+import Icon from '../Icon'
 
 const LocaleSpan = styled.span`
   ${tw`relative font-sans uppercase mx-1 cursor-pointer`}
 
 
   color: ${props => (props.active ? props.activeColor : props.color)};
-  font-weight: ${props => (props.active ? 900 : 400)};
+  font-weight: ${props => (props.active ? 700 : 400)};
   transition: 0.25s;
 
   &:focus {
@@ -50,23 +51,28 @@ const LocaleSwitcher = ({ theme, variant }) => {
         {({ location }) => (
           <>
             <Link to={formatPathname(location.pathname, 'pl')}>
-              <LocaleSpan
-                color={color}
-                activeColor={activeColor}
-                active={locale === 'pl'}
-              >
-                pl
-              </LocaleSpan>
+              <Icon
+                icon="poland"
+                width={28}
+                height={26}
+                style={{
+                  display: locale === 'pl' ? 'none' : 'inline-block',
+                  border: '2px solid #fff',
+                  borderRadius: '50%',
+                }}
+              />
             </Link>
-            <Separator>/</Separator>
             <Link to={formatPathname(location.pathname, 'en')}>
-              <LocaleSpan
-                color={color}
-                activeColor={activeColor}
-                active={locale === 'en-pl'}
-              >
-                en
-              </LocaleSpan>
+              <Icon
+                icon="greatBritain"
+                width={28}
+                height={26}
+                style={{
+                  display: locale === 'en-pl' ? 'none' : 'inline-block',
+                  border: '2px solid #fff',
+                  borderRadius: '50%',
+                }}
+              />
             </Link>
           </>
         )}

@@ -20,7 +20,7 @@ const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
   z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 500px;
+  margin-bottom: 600px;
   background-color: #f0f0f0;
 `
 
@@ -28,7 +28,7 @@ const TopLayer = styled.section`
   ${tw`fixed pin-t w-full`}
   height: 100vh;
   z-index: 4;
-  background: linear-gradient(135deg, #1b2125 0%, #0d0f11 100%);
+  background: linear-gradient(135deg, #1b2125 0%, #1f262b 100%);
 `
 
 const Index = ({ data, pageContext }) => {

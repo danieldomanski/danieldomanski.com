@@ -16,8 +16,8 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     maxWidth={1400}
     m="auto"
     pt={[16, 24, 64]}
-    pb={[16, 24, 32]}
-    px={[6, 6, 12, 16, 24]}
+    pb={[16, 24, 48]}
+    px={[6, 6, 12, 0, 0]}
   >
     <HomeInfoRow
       title={title}
@@ -26,18 +26,17 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       idx={1}
     />
     <Box
+      width={1}
       display="flex"
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
     >
       {rows.map((row, idx) => (
-        <DirectionalFade delay={0.15 * (idx + 1)}>
+        <DirectionalFade delay={0.15 * idx}>
           <Box
             as="article"
             display="flex"
-            flex={1}
-            mr={16}
             mb={[
               `${idx === rows.length - 1 ? 0 : 8}`,
               `${idx === rows.length - 1 ? 0 : 8}`,
@@ -48,27 +47,28 @@ const AboutSlide = ({ content: { title, description, button } }) => (
               display="inline-block"
               fontSize="xl"
               fontFamily="sans"
-              fontWeight="bold"
-              fontColor="primary.8"
+              fontWeight="black"
+              fontColor="primary.10"
+              style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
               mr={8}
             >
-              01.
+              {`0${idx + 1}.`}
             </Text>
             <Box display="flex" flexDirection="column">
               <Text
                 fontFamily="sans"
-                fontWeight="bold"
+                fontWeight="black"
                 fontSize="xl"
-                fontColor="primary.8"
-                style={{ textTransform: 'uppercase' }}
-                mb={4}
+                fontColor="primary.10"
+                style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
+                mb={6}
               >
                 Sketch
               </Text>
               <Text
                 fontSize={['base', 'base', 'lg']}
                 maxWidth={[350, 450, 400]}
-                fontColor="primary.7"
+                fontColor="primary.10"
                 fontWeight="medium"
               >
                 Sketch / idea is part in which we work together on desired
@@ -79,15 +79,13 @@ const AboutSlide = ({ content: { title, description, button } }) => (
         </DirectionalFade>
       ))}
     </Box>
-    <DirectionalFade direction="right">
-      <Box textAlign="right" mt={24}>
-        <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-          <ArrowButton fontColor="primary.7" fontSize="lg">
-            {button}
-          </ArrowButton>
-        </LocalizedLink>
-      </Box>
-    </DirectionalFade>
+    <Box textAlign="right" mt={20}>
+      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+        <ArrowButton fontColor="primary.2" fontSize="lg">
+          {button}
+        </ArrowButton>
+      </LocalizedLink>
+    </Box>
   </Box>
 )
 

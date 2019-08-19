@@ -11,7 +11,7 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap m-auto`}
+  ${tw`flex flex-wrap m-auto mt-8 mb-16`}
   list-style: none;
 `
 
@@ -53,27 +53,22 @@ const Blog = ({ data, pageContext }) => {
         width={1}
         pt={[8, 8, 16]}
         pb={[8, 8, 32]}
-        maxWidth={1600}
+        maxWidth={960}
         m="auto"
-        px={[6, 6, 12, 16, 24]}
+        px={[6, 6, 12, 0, 0]}
         flex={1}
       >
         <Text
-          fontFamily="sans"
           display="block"
+          textAlign="center"
+          fontFamily="sans"
           fontColor="primary.10"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
-          textAlign="center"
         >
           {pageContent.title}
         </Text>
-        <Box
-          mt={8}
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-        >
+        <Box display="flex" flexDirection="column" justifyContent="center">
           <ContentFilters>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
@@ -81,7 +76,7 @@ const Blog = ({ data, pageContext }) => {
               </Filter>
             ))}
           </ContentFilters>
-          <Box m="auto" mt={16} maxWidth={800}>
+          <Box maxWidth={960}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
@@ -97,7 +92,7 @@ const Blog = ({ data, pageContext }) => {
           </Box>
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1600} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} maxWidth={1400} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

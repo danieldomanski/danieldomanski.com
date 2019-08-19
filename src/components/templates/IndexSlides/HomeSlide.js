@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
@@ -45,12 +45,11 @@ const HomeSlide = ({ content }) => (
           width={1}
           maxWidth={1400}
           m="auto"
-          px={[6, 6, 12, 16, 24]}
+          px={[6, 6, 12, 0, 0]}
           textAlign={['center', 'center', 'left']}
         >
           <FadeIn>
             <Text
-              fontFamily="sans"
               fontWeight="black"
               fontSize={['3xl', '4xl', '6xl']}
               fontColor="secondary.0"
@@ -63,6 +62,7 @@ const HomeSlide = ({ content }) => (
 
           <DirectionalFade direction="left" delay={1.25}>
             <Text
+              fontFamily="sans"
               fontWeight="medium"
               fontSize={['lg', 'lg', 'xl', '2xl']}
               fontColor="primary.2"

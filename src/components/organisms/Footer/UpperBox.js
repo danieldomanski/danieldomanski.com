@@ -8,7 +8,7 @@ const UpperRect = ({ content }) => (
     width={1}
     height="100%"
     display="flex"
-    bg="#1B2125"
+    bg="#1F262B"
     flexDirection="column"
     justifyContent="center"
     alignItems="center"
@@ -17,7 +17,6 @@ const UpperRect = ({ content }) => (
     py={[24]}
   >
     <Text
-      fontFamily="sans"
       fontColor="secondary.1"
       fontSize={['3xl', '4xl', '5xl']}
       fontWeight="bold"
@@ -26,6 +25,7 @@ const UpperRect = ({ content }) => (
       {content.title}
     </Text>
     <Text
+      fontFamily="sans"
       fontSize={['base', 'xl']}
       fontColor="primary.2"
       maxWidth={1000}

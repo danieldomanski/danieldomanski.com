@@ -1,6 +1,6 @@
 const colors = {
   // theme colors
-  grey: ['#191E22', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
+  grey: ['#1B2125', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
 
   // black/gray
   primary: [
@@ -73,6 +73,7 @@ const theme = {
     '20': '5rem',
     '24': '6rem',
     '32': '8rem',
+    '40': '10rem',
     '48': '12rem',
     '64': '15rem',
   },
@@ -166,22 +167,22 @@ theme.components = {
       color: theme.colors.primary[10],
     },
     secondary: {
-      color: theme.colors.primary[0],
+      color: theme.colors.primary[3],
     },
   },
   navigation: {
     primary: {
-      color: theme.colors.primary[6],
+      color: theme.colors.primary[5],
       active: {
-        color: theme.colors.primary[10],
-        border: theme.colors.primary[7],
+        color: theme.colors.primary[7],
+        border: theme.colors.primary[3],
       },
     },
     secondary: {
       color: theme.colors.primary[6],
       active: {
-        color: theme.colors.primary[0],
-        border: theme.colors.primary[6],
+        color: theme.colors.primary[1],
+        border: theme.colors.primary[8],
       },
     },
   },
@@ -192,7 +193,7 @@ theme.components = {
     },
     secondary: {
       color: theme.colors.primary[6],
-      activeColor: theme.colors.secondary[0],
+      activeColor: theme.colors.primary[3],
     },
   },
   highlights: {

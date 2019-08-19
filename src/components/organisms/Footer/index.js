@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
   @media screen and (min-width: 768px) {
     display: ${props =>
       !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
-    height: 500px;
+    height: 600px;
     z-index: 4;
   }
 `

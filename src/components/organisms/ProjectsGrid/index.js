@@ -33,7 +33,7 @@ const ProjectsGrid = ({ projects, mt, mb }) => {
         const { title } = project.node.data
 
         return (
-          <DirectionalFade delay={0.1 * (idx + 1)}>
+          <DirectionalFade delay={0.1 * idx}>
             <Text
               display={['inline-block', 'inline-block', 'none']}
               fontFamily="sans"

@@ -19,8 +19,8 @@ const ProjectsSlide = ({
     maxWidth={1400}
     m="auto"
     pt={[16, 24, 32]}
-    pb={[16, 24, 32]}
-    px={[6, 6, 8, 12, 16]}
+    pb={[16, 24, 48]}
+    px={[6, 6, 12, 0, 0]}
   >
     <HomeInfoRow
       title={title}
@@ -29,15 +29,13 @@ const ProjectsSlide = ({
       idx={2}
     />
     <ProjectsGrid projects={projects} />
-    <DirectionalFade direction="right">
-      <Box textAlign="right" mt={24}>
-        <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-          <ArrowButton fontColor="primary.7" fontSize="lg">
-            {button}
-          </ArrowButton>
-        </LocalizedLink>
-      </Box>
-    </DirectionalFade>
+    <Box textAlign="right" mt={20}>
+      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
+        <ArrowButton fontColor="primary.7" fontSize="lg">
+          {button}
+        </ArrowButton>
+      </LocalizedLink>
+    </Box>
   </Box>
 )
 

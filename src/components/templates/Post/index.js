@@ -157,7 +157,7 @@ const Post = ({ data, pageContext, location }) => {
           <Bio mt={12} />
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

@@ -21,16 +21,16 @@ const Projects = ({ data, pageContext }) => {
         pt={[8, 8, 16]}
         maxWidth={1400}
         m="auto"
-        px={[6, 6, 12, 16, 24]}
+        px={[6, 6, 12, 0, 0]}
         flex={1}
       >
         <Text
-          fontFamily="sans"
           display="block"
+          textAlign="center"
+          fontFamily="sans"
           fontColor="primary.8"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
-          textAlign="center"
         >
           {pageContent.title}
         </Text>
@@ -40,7 +40,7 @@ const Projects = ({ data, pageContext }) => {
           mb={[0, 0, 32]}
         />
       </Box>
-      <Box as="footer" width={1} maxWidth={1600} m="auto" px={8} mt={8}>
+      <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={8}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>
