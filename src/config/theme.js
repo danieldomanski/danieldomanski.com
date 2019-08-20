@@ -167,22 +167,22 @@ theme.components = {
       color: theme.colors.primary[10],
     },
     secondary: {
-      color: theme.colors.primary[3],
+      color: theme.colors.secondary[0],
     },
   },
   navigation: {
     primary: {
       color: theme.colors.primary[5],
       active: {
-        color: theme.colors.primary[7],
-        border: theme.colors.primary[3],
+        color: theme.colors.primary[8],
+        border: theme.colors.primary[2],
       },
     },
     secondary: {
       color: theme.colors.primary[6],
       active: {
         color: theme.colors.primary[1],
-        border: theme.colors.primary[8],
+        border: theme.colors.primary[4],
       },
     },
   },

@@ -36,8 +36,8 @@ const Projects = ({ data, pageContext }) => {
         </Text>
         <ProjectsGrid
           projects={data.projects.edges}
-          mt={[0, 0, 16]}
-          mb={[0, 0, 32]}
+          mt={[8, 8, 16]}
+          mb={[16, 8, 32]}
         />
       </Box>
       <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={8}>

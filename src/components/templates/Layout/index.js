@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #fafafa;
     ${tw`font-serif`}
   }
 

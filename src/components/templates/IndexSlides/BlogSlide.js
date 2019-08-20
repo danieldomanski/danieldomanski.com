@@ -13,9 +13,9 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[16, 24, 32]}
-    pb={[16, 24, 64]}
-    px={[6, 6, 12, 0, 0]}
+    pt={[8, 16, 48, 64]}
+    pb={[16, 24, 48]}
+    px={[8, 8, 12]}
   >
     <HomeInfoRow
       title={title}
@@ -23,28 +23,41 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
       button={button}
       idx={3}
     />
-    <Box display="flex" justifyContent="space-between" as="ul">
+    <Box
+      display="flex"
+      flexDirection={['column', 'column', 'row']}
+      justifyContent="space-between"
+      as="ul"
+    >
       <Text
         fontFamily="sans"
-        fontSize="xl"
+        fontSize={['lg', 'lg', 'xl']}
         fontColor="primary.4"
         fontWeight="bold"
         minWidth={250}
-        mr={8}
+        mr={[16, 16, 16, 32]}
+        mb={[8, 8, 0]}
       >
         Ostatnie posty.
       </Text>
       <Box display="flex" flexDirection="column" maxWidth={920} flex={1}>
         {posts.map((post, idx) => (
           <DirectionalFade delay={0.075}>
-            <PostItem data={post} />
+            <PostItem
+              data={post}
+              pb={8}
+              mb={idx === posts.length - 1 ? 0 : 8}
+              borderBottom={
+                idx === posts.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
+              }
+            />
           </DirectionalFade>
         ))}
       </Box>
     </Box>
-    <Box textAlign="right" mt={8}>
-      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-        <ArrowButton fontColor="primary.10" fontSize="lg">
+    <Box textAlign={['left', 'left', 'right']} my={[12, 16, 20]}>
+      <LocalizedLink to="/blog" display={['block']}>
+        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'lg']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

@@ -9,7 +9,7 @@ const Container = styled.nav`
   order: 3;
 
   @media screen and (min-width: 768px) {
-    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-16`}
+    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-12`}
     order: 2;
     width: auto;
     margin-top: 0;
@@ -19,7 +19,7 @@ const Container = styled.nav`
 `
 
 const List = styled.ul`
-  ${tw`flex flex-wrap`}
+  ${tw`flex flex-wrap mt-2`}
 
   list-style: none;
 
@@ -29,13 +29,13 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`mr-8 my-2`}
+  ${tw`mr-6 pb-4`}
 `
 
 const getActiveStyle = active => ({
   color: active.color,
-  borderBottom: `3px solid ${active.border}`,
-  paddingBottom: '6px',
+  borderBottom: `2px solid ${active.border}`,
+  paddingBottom: '4px',
   fontWeight: 600,
 })
 
@@ -49,7 +49,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
           <LocalizedLink
             to="/"
             locale={locale}
-            fontWeight="normal"
+            fontWeight="light"
             fontColor={color}
             activeStyle={activeStyle}
           >

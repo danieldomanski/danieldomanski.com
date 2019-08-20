@@ -6,22 +6,16 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { LocaleContext } from '../../templates/Layout'
 import Box from '../Box'
-import Icon from '../Icon'
+import Text from '../Text'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase mx-1 cursor-pointer`}
+  ${tw`relative font-sans uppercase cursor-pointer `}
 
 
   color: ${props => (props.active ? props.activeColor : props.color)};
   font-weight: ${props => (props.active ? 700 : 400)};
-  transition: 0.25s;
 
-  &:focus {
-    box-shadow: 0px 0px 0px 3px rgba(0, 85, 255, 0.5);
-  }
 `
-
-const Separator = styled.span``
 
 const formatPathname = (pathname, locale) => {
   const splitted = pathname.split('/')
@@ -51,28 +45,25 @@ const LocaleSwitcher = ({ theme, variant }) => {
         {({ location }) => (
           <>
             <Link to={formatPathname(location.pathname, 'pl')}>
-              <Icon
-                icon="poland"
-                width={28}
-                height={26}
-                style={{
-                  display: locale === 'pl' ? 'none' : 'inline-block',
-                  border: '2px solid #fff',
-                  borderRadius: '50%',
-                }}
-              />
+              <LocaleSpan
+                color={color}
+                activeColor={activeColor}
+                active={locale === 'pl'}
+              >
+                Pl
+              </LocaleSpan>
             </Link>
+            <Text as="span" fontColor="primary.5" mx={2}>
+              /
+            </Text>
             <Link to={formatPathname(location.pathname, 'en')}>
-              <Icon
-                icon="greatBritain"
-                width={28}
-                height={26}
-                style={{
-                  display: locale === 'en-pl' ? 'none' : 'inline-block',
-                  border: '2px solid #fff',
-                  borderRadius: '50%',
-                }}
-              />
+              <LocaleSpan
+                color={color}
+                activeColor={activeColor}
+                active={locale === 'en-pl'}
+              >
+                En
+              </LocaleSpan>
             </Link>
           </>
         )}

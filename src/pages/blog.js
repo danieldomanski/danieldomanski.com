@@ -11,7 +11,7 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap m-auto mt-8 mb-16`}
+  ${tw`flex flex-wrap justify-center m-auto mt-8 mb-16`}
   list-style: none;
 `
 
@@ -87,7 +87,18 @@ const Blog = ({ data, pageContext }) => {
                 No articles yet :(
               </Text>
             ) : (
-              filteredPosts.map((post, idx) => <PostItem data={post} />)
+              filteredPosts.map((post, idx) => (
+                <PostItem
+                  data={post}
+                  pb={8}
+                  mb={8}
+                  borderBottom={
+                    idx === filteredPosts.length - 1
+                      ? 'none'
+                      : '1px solid rgba(0,0,0,0.05)'
+                  }
+                />
+              ))
             )}
           </Box>
         </Box>

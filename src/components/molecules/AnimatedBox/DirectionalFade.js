@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import VisibilitySensor from 'react-visibility-sensor'
+import useWindowSize from '../../../hooks/useWindowSize'
 
 const getTranslateValue = (direction, px) =>
   direction === 'bottom' || direction === 'right' ? px : -px
@@ -22,18 +23,22 @@ const AnimatedContainer = styled.div`
 `
 
 export default React.memo(
-  ({ children, delay = 0, direction = 'bottom', px = 120, offset = 450 }) => {
+  ({ children, delay = 0, direction = 'bottom', px = 60, offset = 450 }) => {
     const [visible, set] = React.useState(false)
+    const { width, height } = useWindowSize()
+    const isMobile = width < 768
 
     return (
       <VisibilitySensor
-        onChange={vis => set(vis)}
+        onChange={vis => {
+          set(vis)
+        }}
         active={!visible}
         partialVisibility
-        offset={{ top: offset }}
+        offset={{ top: offset, left: offset }}
       >
         <AnimatedContainer
-          visible={visible}
+          visible={isMobile ? true : visible}
           delay={delay}
           direction={direction}
           px={px}

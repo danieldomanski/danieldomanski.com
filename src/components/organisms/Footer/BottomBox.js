@@ -13,7 +13,7 @@ const BottomBox = ({ theme, variant }) => {
     <Box
       width={1}
       bg={backgroundColor}
-      py={12}
+      py={8}
       borderTop="1px solid rgba(0,0,0,0.1)"
     >
       <Box
@@ -37,24 +37,24 @@ const BottomBox = ({ theme, variant }) => {
         </Link>
         <Text
           fontFamily="sans"
-          fontSize={['lg']}
+          fontSize={['base', 'base', 'lg']}
           fontColor={color}
           fontWeight="bold"
-          mb={[4, 4, 0]}
+          mb={[3, 3, 0]}
         >
           hello@ddomanski.dev
         </Text>
         <Box>
           <Icon
             icon="github"
-            width={[18, 24]}
-            mr={3}
+            width={[20, 24]}
+            mr={2}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={[18, 24]}
+            width={[20, 24]}
             fill={color}
             hover={{ color: '#4583FF' }}
           />

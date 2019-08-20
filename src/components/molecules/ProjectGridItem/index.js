@@ -10,7 +10,7 @@ import { getSliceContent } from '../../../utilitity/prismic'
 
 const Container = styled(Tilt)`
   ${tw`relative w-full h-full shadow-lg overflow-hidden`};
-  height: 300px;
+  height: 280px;
 
   @media screen and (min-width: 420px) {
     height: 380px;
@@ -49,7 +49,6 @@ const formatInvolvment = roles =>
 const ProjectGridItem = ({ project, area }) => {
   const { uid } = project.node
   const { body, title } = project.node.data
-  const roles = formatInvolvment(project.node.data.role)
   const slice = getSliceContent(body, 'image')
   const { localFile } = slice[0]
 

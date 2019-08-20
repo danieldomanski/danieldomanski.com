@@ -19,6 +19,7 @@ const About = ({ data, pageContext, location }) => {
       <Box
         width={1}
         pt={[8, 8, 16]}
+        pb={[8, 8, 32]}
         maxWidth={960}
         m="auto"
         px={[6, 6, 12, 0, 0]}
@@ -30,19 +31,19 @@ const About = ({ data, pageContext, location }) => {
           fontColor="primary.10"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
-          mb={8}
         >
           {title.text}
         </Text>
         <Box
           display="flex"
           flexDirection={['column', 'column', 'row']}
+          justifyContent="center"
           alignItems="center"
           my={[4, 4, 0]}
         >
-          <Avatar x={180} y={180} src="profile-picture.jpg" mr={[0, 0, 8]} />
+          <Avatar x={200} y={200} src="profile-picture.jpg" mr={[0, 0, 8]} />
           <Text
-            maxWidth={800}
+            maxWidth={600}
             fontColor="primary.10"
             fontWeight="medium"
             fontSize={['base', 'lg']}
@@ -57,8 +58,8 @@ const About = ({ data, pageContext, location }) => {
           display="flex"
           flexDirection="column"
           maxWidth={1080}
-          mt={[0, 0, 16]}
-          mb={[0, 0, 32]}
+          mt={[0, 0, 8]}
+          mb={[0, 0, 16]}
         >
           {aboutGroups.map(group => (
             <Box width={1} m="auto">
@@ -68,14 +69,14 @@ const About = ({ data, pageContext, location }) => {
                 fontSize={['2xl']}
                 fontWeight="black"
                 mt={8}
-                mb={4}
+                mb={8}
               >
                 {group.title}
               </Text>
               {group.rows.map((row, idx) => (
                 <Box
                   display="flex"
-                  py={6}
+                  py={4}
                   borderTop="1px solid rgba(0,0,0,0.1)"
                 >
                   <Text
@@ -83,7 +84,7 @@ const About = ({ data, pageContext, location }) => {
                     fontColor="primary.10"
                     fontWeight="medium"
                     fontSize={['base', 'lg']}
-                    pr={2}
+                    pr={3}
                   >
                     {row.name}
                   </Text>
@@ -102,7 +103,7 @@ const About = ({ data, pageContext, location }) => {
           ))}
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={8}>
+      <Box as="footer" width={1} maxWidth={1400} m="auto" px={8} mt={8}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

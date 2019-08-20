@@ -13,21 +13,21 @@ const UpperRect = ({ content }) => (
     justifyContent="center"
     alignItems="center"
     textAlign="center"
-    px={[12, 12, 12, 32]}
-    py={[24]}
+    px={[6, 8, 12]}
+    py={[16, 16, 24]}
   >
     <Text
-      fontColor="secondary.1"
+      fontColor="secondary.0"
       fontSize={['3xl', '4xl', '5xl']}
-      fontWeight="bold"
-      mb={[0, 4]}
+      fontWeight="black"
+      pb={[6, 6, 6]}
     >
       {content.title}
     </Text>
     <Text
       fontFamily="sans"
       fontSize={['base', 'xl']}
-      fontColor="primary.2"
+      fontColor="primary.1"
       maxWidth={1000}
       lineHeight="relaxed"
     >

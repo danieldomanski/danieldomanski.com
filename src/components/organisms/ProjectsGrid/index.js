@@ -41,6 +41,7 @@ const ProjectsGrid = ({ projects, mt, mb }) => {
               fontSize={['xl', '3xl']}
               fontWeight="bold"
               mt={idx === 0 ? 0 : 8}
+              mb={2}
             >
               {title.text}
             </Text>

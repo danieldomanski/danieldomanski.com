@@ -7,21 +7,27 @@ import { LocalizedLink } from '../../atoms/Link'
 import { DirectionalFade } from '../AnimatedBox'
 
 const Line = styled.span`
+  ${tw`mt-2 md:mt-4`}
   display: block;
   width: 80px;
   height: 4px;
   background-color: #181818;
-  margin-top: 1em;
 `
 
 const HomeInfoRow = ({ title, description, button, idx }) => (
   <>
-    <Box as="header" display="flex" justifyContent="space-between" mb={[24]}>
-      <Box minWidth={250} mr={8}>
+    <Box
+      as="header"
+      display="flex"
+      justifyContent="space-between"
+      alignItems={['center', 'center', 'flex-start']}
+      mb={[12, 12, 20]}
+    >
+      <Box minWidth={[0, 0, 250]} mr={[4, 8, 16, 32]}>
         <Text
           fontFamily="sans"
-          display={['none', 'none', 'block']}
-          fontSize={['base', '4xl']}
+          display={['block']}
+          fontSize={['2xl', '3xl', '4xl']}
           fontColor="primary.10"
           fontWeight="black"
         >
@@ -29,22 +35,9 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
         </Text>
         <Line />
       </Box>
-      <LocalizedLink to="/about" display={['block', 'block', 'none']}>
-        <Box display={['flex', 'flex', 'none']} alignItems="center">
-          <Text
-            fontFamily="sans"
-            fontSize="sm"
-            fontColor="accent.7"
-            fontWeight="bold"
-          >
-            {button}
-          </Text>
-          <Icon icon="caret" width={7} fill="#2E73FF" ml={2} />
-        </Box>
-      </LocalizedLink>
       <Text
         display={['none', 'none', 'block']}
-        fontSize={['base', 'xl']}
+        fontSize={['base', 'base', 'lg', 'xl']}
         fontColor="primary.10"
         fontWeight="medium"
         lineHeight="relaxed"

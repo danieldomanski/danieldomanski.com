@@ -15,9 +15,9 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[16, 24, 64]}
-    pb={[16, 24, 48]}
-    px={[6, 6, 12, 0, 0]}
+    pt={[8, 16, 48, 64]}
+    pb={[0, 0, 24, 48]}
+    px={[8, 8, 12]}
   >
     <HomeInfoRow
       title={title}
@@ -45,12 +45,12 @@ const AboutSlide = ({ content: { title, description, button } }) => (
           >
             <Text
               display="inline-block"
-              fontSize="xl"
+              fontSize={['lg', 'lg', 'xl']}
               fontFamily="sans"
               fontWeight="black"
               fontColor="primary.10"
               style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
-              mr={8}
+              mr={[4, 4, 8]}
             >
               {`0${idx + 1}.`}
             </Text>
@@ -58,10 +58,10 @@ const AboutSlide = ({ content: { title, description, button } }) => (
               <Text
                 fontFamily="sans"
                 fontWeight="black"
-                fontSize="xl"
+                fontSize={['lg', 'lg', 'xl']}
                 fontColor="primary.10"
                 style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
-                mb={6}
+                mb={[2, 4, 6]}
               >
                 Sketch
               </Text>
@@ -79,9 +79,9 @@ const AboutSlide = ({ content: { title, description, button } }) => (
         </DirectionalFade>
       ))}
     </Box>
-    <Box textAlign="right" mt={20}>
-      <LocalizedLink to="/blog" display={['none', 'none', 'block']}>
-        <ArrowButton fontColor="primary.2" fontSize="lg">
+    <Box textAlign={['left', 'left', 'right']} my={[12, 16, 20]}>
+      <LocalizedLink to="/about" display={['block']}>
+        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'lg']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

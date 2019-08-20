@@ -10,7 +10,7 @@ import Navigation from '../Navigation'
 import { LocaleContext } from '../../templates/Layout'
 
 const Container = styled.header`
-  ${tw`relative text-primary-700`};
+  ${tw`relative `};
   z-index: 7;
   width: 100%;
   transition: 0.25s;
@@ -22,7 +22,6 @@ const Brand = styled.div`
 `
 
 const Header = ({ theme, variant, content }) => {
-  const [isNavOpen, toggle] = useState(false)
   const [locale] = useContext(LocaleContext)
   const { brand } = theme.components
   const brandColor = brand[variant].color
@@ -37,16 +36,17 @@ const Header = ({ theme, variant, content }) => {
         alignItems={['center']}
         m="auto"
         maxWidth={1400}
-        px={[6, 6, 12, 0, 0]}
+        px={[8, 8, 12]}
         pt={[8, 8, 12]}
       >
         <Brand>
           <LocalizedLink locale={locale} to="/">
             <Text
-              fontSize="xl"
+              fontSize={['lg', 'xl']}
               fontWeight="black"
               fontColor={brandColor}
               hover={{ color: '#4583FF' }}
+              style={{ letterSpacing: '-0.5px' }}
             >
               {content.brand}
             </Text>

@@ -6,12 +6,13 @@ import { color, typography, space } from 'styled-system'
 import Icon from '../Icon'
 
 const ButtonContainer = styled.button`
-  ${tw`relative font-sans font-bold px-4 cursor-pointer py-4`};
+  ${tw`relative font-sans font-black cursor-pointer p-0 px-4 py-4`};
 
   outline: 0;
   border: 0;
   background: 0;
   transition: 0.15s ease-in-out;
+  text-transform: uppercase;
 
   &:hover {
     &::after {
@@ -23,15 +24,20 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #e4e4e4;
+    background-color: #eee;
     content: '';
-    height: 56px;
+    width: 100%;
+    height: 50px;
     left: 0;
     top: 0;
     position: absolute;
     transition: width 0.3s;
-    width: 0;
     z-index: -1;
+
+    @media screen and (min-width: 768px) {
+      width: 0;
+      height: 50px;
+    }
   }
 
   ${typography};
@@ -55,7 +61,7 @@ Button.propTypes = {
 
 Button.defaultProps = {
   fontSize: 'base',
-  color: 'primary.8',
+  color: 'primary.10',
   width: 32,
 }
 
