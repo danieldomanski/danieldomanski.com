@@ -1,6 +1,6 @@
 const colors = {
   // theme colors
-  grey: ['#1B2125', '#2D2D2D', '#363636', '#453f3d', '#57504d'],
+  grey: ['#151B1E', '#1E2529', '#363636', '#453f3d', '#57504d'],
 
   // black/gray
   primary: [
@@ -154,12 +154,14 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: theme.colors.grey[0],
-      color: theme.colors.secondary[1],
+      backgroundColor: 'rgba(22, 26, 29, .8)',
+      color: theme.colors.secondary[8],
+      secondaryColor: theme.colors.primary[7],
     },
     secondary: {
       backgroundColor: 'transparent',
       color: theme.colors.primary[7],
+      secondaryColor: theme.colors.primary[4],
     },
   },
   brand: {

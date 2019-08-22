@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import HomeParallax from '../../molecules/HomeParallax'
+import HomeParticles from '../../molecules/HomeParticles'
 import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const HeroText = styled.section`
@@ -23,60 +23,69 @@ const HeroContainer = styled.section`
   }
 `
 
-const fadeIn = keyframes`
-  0% { opacity: 0 }
-  100% { opacity: 1 }
+/* GIL */
+
+const containerAnim = keyframes`
+0% { opacity: 0; transform: translateX(0px) translateY(180px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg)  },
+100% { opacity: .5; transform: translateX(0px) translateY(0px) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg) }
 `
 
-const slideLeft = keyframes`
-  0% { opacity: 0; transform: translateX(-60px)  },
-  100% { opacity: 1; transform: translateX(0) }
+const textAnim = keyframes`
+0% { transform: translateX(-250px); opacity: 0  },
+100% { transform: translateX(0px); opacity: 1  }
 `
 
-const FadeIn = styled.div`
+const TitleText = styled.div`
+  will-change: transform;
+  pointer-events: auto;
   @media screen and (min-width: 768px) {
-    animation: ${fadeIn} 1.5s 0.25s both;
+    animation: ${containerAnim} 1s 0.2s both;
   }
 `
 
 const SlideLeft = styled.div`
+  will-change: transform;
+  pointer-events: auto;
   @media screen and (min-width: 768px) {
-    animation: ${slideLeft} 1.5s 1.25s both;
+    animation: ${textAnim} 0.75s 1.2s both;
   }
 `
 
 const HomeSlide = ({ content }) => (
   <>
+    <HomeParticles />
     <HeroText>
       <HeroContainer display="flex" flexDirection="column" m="auto">
         <Box
-          maxWidth={1400}
-          m="auto 0"
-          mx={[6, 6, 12]}
+          display="flex"
+          flexDirection="column"
+          textAlign="center"
+          m="auto"
           pt={[8, 8, 0]}
           pb={[16, 16, 0]}
-          textAlign={['left']}
           borderBottom="1px solid rgba(0,0,0,0.05)"
         >
-          <FadeIn>
-            <Text
-              fontWeight="black"
-              fontSize={['4xl', '4xl', '6xl']}
-              fontColor={['primary.10', 'secondary.10', 'secondary.0']}
-              lineHeight="tight"
-              mb={8}
-            >
-              {content.title}
-            </Text>
-          </FadeIn>
+          <Box overflow="hidden">
+            <TitleText>
+              <Text
+                fontWeight="black"
+                fontSize={['4xl', '4xl', '6xl']}
+                fontColor={['primary.10', 'secondary.10', 'secondary.0']}
+                lineHeight="tight"
+                mb={8}
+              >
+                {content.title}
+              </Text>
+            </TitleText>
+          </Box>
           <SlideLeft>
             <Text
+              maxWidth={1080}
               fontFamily="sans"
               fontWeight="medium"
               fontSize={['lg', 'lg', 'xl', '2xl']}
-              fontColor={['primary.10', 'primary.10', 'secondary.0']}
+              fontColor={['primary.10', 'primary.10', 'secondary.7']}
               lineHeight="relaxed"
-              maxWidth={1000}
             >
               {content.description}
             </Text>

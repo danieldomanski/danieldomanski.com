@@ -7,37 +7,52 @@ import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 
 const BottomBox = ({ theme, variant }) => {
-  const { backgroundColor, color } = theme.components.bottomFooter[variant]
+  const {
+    backgroundColor,
+    color,
+    secondaryColor,
+  } = theme.components.bottomFooter[variant]
 
   return (
     <Box
       width={1}
       bg={backgroundColor}
       py={8}
-      borderTop="1px solid rgba(0,0,0,0.1)"
+      borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.1)' : 'none'}
+      zIndex={12}
     >
       <Box
-        maxWidth={1400}
         m="auto"
         display="flex"
         flexDirection={['column', 'column', 'row']}
         alignItems="center"
         justifyContent="space-between"
-        px={[0, 12]}
+        px={[8, 8, 8, 24]}
       >
         <Link to="http://github.com/av3ng3roo">
           <Text
             fontFamily="sans"
             display={['none', 'none', 'block']}
-            fontColor={color}
-            fontWeight="bold"
-            fontSize={['lg']}
+            fontColor={secondaryColor}
+            fontSize={['base']}
             hover={{ color: '#4583FF' }}
-          >{`</> code`}</Text>
+          >
+            Source code here.
+          </Text>
+          <Text
+            fontFamily="sans"
+            display={['none', 'none', 'block']}
+            fontColor={color}
+            fontWeight="black"
+            fontSize={['xl']}
+            hover={{ color: '#4583FF' }}
+          >
+            Daniel.
+          </Text>
         </Link>
         <Text
           fontFamily="sans"
-          fontSize={['base', 'base', 'lg']}
+          fontSize={['base', 'base', 'xl']}
           fontColor={color}
           fontWeight="bold"
           mb={[3, 3, 0]}
@@ -47,14 +62,14 @@ const BottomBox = ({ theme, variant }) => {
         <Box>
           <Icon
             icon="github"
-            width={[20, 24]}
+            width={[18, 21]}
             mr={2}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={[20, 24]}
+            width={[18, 21]}
             fill={color}
             hover={{ color: '#4583FF' }}
           />

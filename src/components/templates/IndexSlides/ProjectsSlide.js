@@ -1,14 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
-import SlidableButton from '../../atoms/Button/SlidableButton'
-import Text from '../../atoms/Text'
 import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
-import Icon from '../../atoms/Icon'
 import ProjectsGrid from '../../organisms/ProjectsGrid'
 import HomeInfoRow from '../../molecules/HomeInfoRow'
 import ArrowButton from '../../atoms/Button/ArrowButton'
-import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const ProjectsSlide = ({
   projects,
@@ -29,9 +24,9 @@ const ProjectsSlide = ({
       idx={2}
     />
     <ProjectsGrid projects={projects} />
-    <Box textAlign={['left', 'left', 'right']} my={[12, 16, 20]}>
+    <Box textAlign={['left', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/projects" display={['block']}>
-        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'lg']}>
+        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

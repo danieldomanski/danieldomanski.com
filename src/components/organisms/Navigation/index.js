@@ -9,7 +9,7 @@ const Container = styled.nav`
   order: 3;
 
   @media screen and (min-width: 768px) {
-    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-12`}
+    ${tw`w-auto mt-0 ml-auto md:mr-12 xl:mr-24`}
     order: 2;
     width: auto;
     margin-top: 0;
@@ -19,7 +19,7 @@ const Container = styled.nav`
 `
 
 const List = styled.ul`
-  ${tw`flex flex-wrap mt-2`}
+  ${tw`flex flex-wrap mt-2 md:mt-0`}
 
   list-style: none;
 
@@ -29,7 +29,7 @@ const List = styled.ul`
 `
 
 const Item = styled.li`
-  ${tw`mr-6 pb-4`}
+  ${tw`mr-6 pb-4 sm:pb-0`}
 `
 
 const getActiveStyle = active => ({

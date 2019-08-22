@@ -17,7 +17,7 @@ const Container = styled(Tilt)`
   }
 
   @media screen and (min-width: 1024px) {
-    height: 530px;
+    height: 460px;
   }
 
   transition: height 0.25s ease-in-out;
@@ -43,9 +43,6 @@ const BgCover = styled.div`
   }
 `
 
-const formatInvolvment = roles =>
-  roles.map(role => role.involvment.document[0].data.involvment.text)
-
 const ProjectGridItem = ({ project, area }) => {
   const { uid } = project.node
   const { body, title } = project.node.data
@@ -54,7 +51,7 @@ const ProjectGridItem = ({ project, area }) => {
 
   return (
     <Box position="relative">
-      <Container area={area} options={{ max: 20, scale: 1.05 }}>
+      <Container area={area} options={{ max: 20, scale: 1.02 }}>
         <LocalizedLink to={`/projects/${uid}`}>
           <BgCover />
           <HoverScale>

@@ -1,102 +1,71 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { useState } from 'react'
-import styled from 'styled-components'
-import { useSpring, animated } from 'react-spring'
+import styled, { keyframes } from 'styled-components'
 
-const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
+const random = max => Math.floor(Math.random() * (max + 1))
 
-const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`
-const trans3 = (x, y) => `translate3d(${x / 6 - 150}px,${y / 6 - 200}px,0)`
-const trans1 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`
+const generateStars = n => {
+  const values = []
 
-const RECTANGLES_COLORS = ['#00FFF0', '#05DA34', '#F0F0F0', '#15BEFF']
-
-const getRandomInt = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min)
-
-const isCollide = (a, b) =>
-  !(
-    a.y + a.height < b.y ||
-    a.y > b.y + b.height ||
-    a.x + a.width < b.x ||
-    a.x > b.x + b.width
-  )
-
-const checkOverlap = (rectangles, currentRect) => {
-  for (let i = 0; i < rectangles.length; i++) {
-    if (isCollide(rectangles[i].props, currentRect)) {
-      return true
-    }
+  for (let i = 0; i < n; i++) {
+    values.push(`${random(2000)}px ${random(2000)}px #FFF`)
   }
 
-  return false
+  return values.join(',')
 }
 
-const generateCircleDimensions = radius => {
-  const x = getRandomInt(radius + 50, 1000 - radius)
-  const y = getRandomInt(radius + 50, 300 - radius)
+const Container = styled.div`
+  ${tw`absolute pin-t`}
 
-  return { x, y }
-}
-
-const generateCircles = (amount, radius) => {
-  const circles = []
-
-  for (let i = 0; i < amount; i++) {
-    const newRectangle = generateRectangleDimensions(circles)
-    const overlapped = checkOverlap(circles, newRectangle)
-
-    if (overlapped) {
-      i--
-      continue
-    }
-
-    circles.push(
-      <circle
-        key={i}
-        r={newRectangle.width}
-        cx={newRectangle.x}
-        cy={newRectangle.y}
-        fill="#fff"
-      />
-    )
-  }
-
-  return circles
-}
-
-const OnMouseContainer = styled.div`
-  ${tw`absolute w-full pin-t pin-x md:m-auto`}
+  width: 100%;
   height: 100%;
 `
 
-const Container = styled.div`
-  ${tw`absolute pin-y`}
-  margin: auto;
-  width: 100%;
-  max-height: 700px;
+const starsAnimation = keyframes`
+0% { transform: translate3d(0, 0, 0); }
+100% {transform: translate3d(550px, -2000px, 0)}
 `
 
-const SvgParticle = styled.svg`
-  ${tw`w-full max-w-2xl m-auto`}
-  opacity: 0.4;
-  height: 250px;
+const starsAnimation1 = keyframes`
+0% { transform: translate3d(0, 0, 0) }
+100% {transform: translate3d(0, -2000px, 0)}
 `
+
+const smStars = generateStars(700)
+const mdStars = generateStars(200)
+const lgStars = generateStars(50)
+
+const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
+  width: ${width}px;
+  height: ${width}px;
+  background: transparent;
+  box-shadow: ${stars};
+  animation: ${animation} ${time}s linear infinite;
+  border-radius: 50%;
+  opacity: ${opacity};
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 2000px;
+    left: 0;
+    width: ${width}px;
+    height: ${width}px;
+    background: transparent;
+    box-shadow: ${stars};
+    border-radius: 50%;
+  }
+`
+const SmallStars = StarsComponent(smStars, 150, starsAnimation1, 1, 0.4)
+const MediumStars = StarsComponent(mdStars, 80, starsAnimation1, 2, 0.6)
+const BigStars = StarsComponent(lgStars, 50, starsAnimation1, 3, 0.8)
 
 const BgParticles = () => (
-    <OnMouseContainer>
-      <Container>
-        <SvgParticle viewBox="0 0 1000 300">
-          {generateCircles(12, 6)}
-        </SvgParticle>
-        <SvgParticle viewBox="0 0 1000 300">
-          {generateCircles(12, 6)}
-        </SvgParticle>
-        <SvgParticle viewBox="0 0 1000 300">
-          {generateCircles(12, 6)}
-        </SvgParticle>
-      </Container>
-    </OnMouseContainer>
-  )
+  <Container>
+    <SmallStars />
+    <MediumStars />
+    <BigStars />
+  </Container>
+)
 
 export default BgParticles

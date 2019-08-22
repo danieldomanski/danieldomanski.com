@@ -11,8 +11,16 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
 const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap justify-center m-auto mt-8 mb-16`}
+  ${tw`flex flex-wrap justify-center md:justify-start my-12`}
   list-style: none;
+`
+
+const Line = styled.span`
+  ${tw`mt-2 md:mt-4`}
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #181818;
 `
 
 const Blog = ({ data, pageContext }) => {
@@ -53,21 +61,44 @@ const Blog = ({ data, pageContext }) => {
         width={1}
         pt={[8, 8, 16]}
         pb={[8, 8, 32]}
-        maxWidth={960}
+        maxWidth={800}
         m="auto"
         px={[6, 6, 12, 0, 0]}
         flex={1}
       >
-        <Text
-          display="block"
-          textAlign="center"
-          fontFamily="sans"
-          fontColor="primary.10"
-          fontWeight="black"
-          fontSize={['3xl', '4xl', '5xl']}
-        >
-          {pageContent.title}
-        </Text>
+        <Box>
+          <Text
+            display="block"
+            fontFamily="sans"
+            fontColor="primary.10"
+            fontWeight="black"
+            fontSize={['3xl', '4xl', '5xl']}
+          >
+            {pageContent.title}
+            <Line />
+          </Text>
+        </Box>
+
+        <Box my={12}>
+          <Text lineHeight="relaxed" fontColor="primary.6" fontSize="lg">
+            “You already know that you will never be done learning. But most
+            people "learn in private", and lurk. They consume content without
+            creating any themselves. Whatever your thing is, make the thing you
+            wish you had found when you were learning. The biggest beneficiary
+            of you trying to help past you is future you. If others benefit,
+            that's icing.”
+          </Text>
+          <Text
+            display="block"
+            textAlign="right"
+            fontFamily="sans"
+            fontWeight="bold"
+            fontColor="primary.10"
+            mt={2}
+          >
+            learn in public, swyx.io
+          </Text>
+        </Box>
         <Box display="flex" flexDirection="column" justifyContent="center">
           <ContentFilters>
             {tags.map(tag => (
@@ -103,7 +134,7 @@ const Blog = ({ data, pageContext }) => {
           </Box>
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1400} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} m="auto" px={24} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

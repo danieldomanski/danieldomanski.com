@@ -13,8 +13,8 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[8, 16, 48, 64]}
-    pb={[16, 24, 48]}
+    pt={[12, 16, 48, 64]}
+    pb={[0, 0, 24, 48]}
     px={[8, 8, 12]}
   >
     <HomeInfoRow
@@ -55,9 +55,9 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
         ))}
       </Box>
     </Box>
-    <Box textAlign={['left', 'left', 'right']} my={[12, 16, 20]}>
+    <Box textAlign={['left', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/blog" display={['block']}>
-        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'lg']}>
+        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
@@ -8,8 +9,15 @@ import Box from '../components/atoms/Box'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatProjectsPage, formatHeader } from '../utilitity/format'
 
+const Line = styled.span`
+  ${tw`mt-2 md:mt-4`}
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #181818;
+`
+
 const Projects = ({ data, pageContext }) => {
-  console.log({ data })
   const pageContent = formatProjectsPage(data.projectsPage.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
 
@@ -21,18 +29,17 @@ const Projects = ({ data, pageContext }) => {
         pt={[8, 8, 16]}
         maxWidth={1400}
         m="auto"
-        px={[6, 6, 12, 0, 0]}
+        px={[8, 8, 12]}
         flex={1}
       >
         <Text
-          display="block"
-          textAlign="center"
           fontFamily="sans"
           fontColor="primary.8"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
         >
           {pageContent.title}
+          <Line />
         </Text>
         <ProjectsGrid
           projects={data.projects.edges}
@@ -40,7 +47,7 @@ const Projects = ({ data, pageContext }) => {
           mb={[16, 8, 32]}
         />
       </Box>
-      <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={8}>
+      <Box as="footer" m="auto" mx={[8, 8, 12]} mt={8}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

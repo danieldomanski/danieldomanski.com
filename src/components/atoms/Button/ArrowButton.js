@@ -6,14 +6,14 @@ import { color, typography, space } from 'styled-system'
 import Icon from '../Icon'
 
 const ButtonContainer = styled.button`
-  ${tw`relative font-sans font-black cursor-pointer p-0 px-4 py-4`};
+  ${tw`relative font-sans font-black cursor-pointer p-0 px-6 py-4`};
 
   outline: 0;
   border: 0;
   background: 0;
   transition: 0.15s ease-in-out;
   text-transform: uppercase;
-
+  border: 3px solid rgba(0, 0, 0, 0.9);
   &:hover {
     &::after {
       width: 100%;

@@ -5,7 +5,7 @@ import { ScrollContext } from '../../../context/ScrollContext'
 
 const FooterContainer = styled.footer`
   ${tw`static md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
-
+  background: radial-gradient(ellipse at top, #2d363d 0%, #0b0d0f 100%);
   box-sizing: border-box;
   z-index: 5;
 

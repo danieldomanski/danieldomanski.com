@@ -15,6 +15,7 @@ import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
 import { formatHome, formatHeader } from '../utilitity/format'
+import Frame from '../images/Frame.svg'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
@@ -28,7 +29,7 @@ const TopLayer = styled.section`
   ${tw`fixed pin-t w-full`}
   height: 100vh;
   z-index: 4;
-  background: linear-gradient(135deg, #1b2125 0%, #1f262b 100%);
+  background: radial-gradient(ellipse at bottom, #2d343d 0%, #0b0d0f 100%);
 `
 
 const Index = ({ data, pageContext }) => {

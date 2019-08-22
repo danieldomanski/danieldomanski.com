@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/templates/Layout'
 import Header from '../components/organisms/Header'
@@ -8,7 +9,15 @@ import Avatar from '../components/atoms/Avatar'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatAboutGroup, formatHeader } from '../utilitity/format'
 
-const About = ({ data, pageContext, location }) => {
+const Line = styled.span`
+  ${tw`mt-2 md:mt-4`}
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #181818;
+`
+
+const About = ({ data, pageContext }) => {
   const { title, about_me, about_group } = data.about.data
   const aboutGroups = formatAboutGroup(about_group)
   const headerContent = formatHeader(data.header.edges[0])
@@ -20,35 +29,33 @@ const About = ({ data, pageContext, location }) => {
         width={1}
         pt={[8, 8, 16]}
         pb={[8, 8, 32]}
-        maxWidth={960}
+        maxWidth={800}
         m="auto"
         px={[6, 6, 12, 0, 0]}
       >
         <Text
-          display="block"
-          textAlign="center"
           fontFamily="sans"
           fontColor="primary.10"
           fontWeight="black"
           fontSize={['3xl', '4xl', '5xl']}
         >
           {title.text}
+          <Line />
         </Text>
         <Box
           display="flex"
           flexDirection={['column', 'column', 'row']}
           justifyContent="center"
           alignItems="center"
-          my={[4, 4, 0]}
+          my={[8, 8, 0]}
         >
-          <Avatar x={200} y={200} src="profile-picture.jpg" mr={[0, 0, 8]} />
           <Text
-            maxWidth={600}
+            maxWidth={960}
             fontColor="primary.10"
             fontWeight="medium"
             fontSize={['base', 'lg']}
             withLine
-            mt={6}
+            mt={8}
             lineHeight="relaxed"
           >
             {about_me.text}
@@ -103,7 +110,7 @@ const About = ({ data, pageContext, location }) => {
           ))}
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1400} m="auto" px={8} mt={8}>
+      <Box as="footer" width={1} m="auto" px={[8, 8, 24]} mt={8}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>
