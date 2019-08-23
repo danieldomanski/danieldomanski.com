@@ -21,7 +21,7 @@ const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
   z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 600px;
+  margin-bottom: 700px;
   background-color: #f0f0f0;
 `
 
@@ -29,7 +29,12 @@ const TopLayer = styled.section`
   ${tw`fixed pin-t w-full`}
   height: 100vh;
   z-index: 4;
-  background: radial-gradient(ellipse at bottom, #2d343d 0%, #0b0d0f 100%);
+  background: radial-gradient(
+    1250px at 50% 120%,
+    #56657f 0%,
+    #25273c 45%,
+    #0b0b12 100%
+  );
 `
 
 const Index = ({ data, pageContext }) => {

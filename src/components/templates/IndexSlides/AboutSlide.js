@@ -31,7 +31,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
-      my={24}
+      my={[12, 16, 24]}
     >
       {rows.map((row, idx) => (
         <DirectionalFade delay={0.15 * idx}>
@@ -80,7 +80,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
         </DirectionalFade>
       ))}
     </Box>
-    <Box textAlign={['left', 'left', 'right']} mt={[12, 16, 24]}>
+    <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/about" display={['block']}>
         <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
           {button}

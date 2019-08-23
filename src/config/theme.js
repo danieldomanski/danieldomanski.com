@@ -154,9 +154,9 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: 'rgba(22, 26, 29, .8)',
-      color: theme.colors.secondary[8],
-      secondaryColor: theme.colors.primary[7],
+      backgroundColor: 'rgba(22, 22, 32, .9)',
+      color: theme.colors.secondary[5],
+      secondaryColor: theme.colors.primary[6],
     },
     secondary: {
       backgroundColor: 'transparent',

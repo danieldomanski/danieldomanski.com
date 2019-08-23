@@ -17,20 +17,21 @@ const UpperRect = ({ content }) => (
       px={[6, 8, 12]}
       py={[16, 16, 16]}
     >
-      <HomeParticles />
+      <HomeParticles variant="footer" />
       <Text
-        fontColor="secondary.3"
-        fontSize={['3xl', '4xl', '5xl']}
+        fontFamily="sans"
+        fontSize={['4xl', '4xl', '5xl']}
+        fontColor={['primary.10', 'secondary.9', 'secondary.0']}
+        mb={6}
         fontWeight="black"
-        pb={[6, 6, 6]}
       >
         {content.title}
       </Text>
       <Text
-        fontFamily="sans"
-        fontSize={['base', 'xl']}
-        fontColor="secondary.8"
-        maxWidth={1000}
+        maxWidth={960}
+        fontWeight="normal"
+        fontSize={['lg', 'lg', 'xl', 'xl']}
+        fontColor={['primary.10', 'primary.10', 'secondary.7']}
         lineHeight="relaxed"
       >
         {content.description}

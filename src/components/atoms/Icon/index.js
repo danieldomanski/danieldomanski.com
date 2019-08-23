@@ -14,7 +14,6 @@ const Wrapper = styled.svg`
   top: ${props => props.top};
 
   vertical-align: middle;
-  transition: fill 0.1s ease-in-out;
 
   &:hover {
     fill: ${props => (props.hover ? props.hover.color : null)};
@@ -154,35 +153,16 @@ const icons = {
     ),
     viewBox: '0 0 48 48',
   },
-  poland: {
+  comet: {
     shape: (
       <>
-        <rect width="60" height="38" fill="white" />
-        <rect width="60" height="19" fill="white" />
-        <rect y="19" width="60" height="19" fill="#DC143C" />
-      </>
-    ),
-    viewBox: '0 0 60 38',
-  },
-  greatBritain: {
-    shape: (
-      <>
-        <clipPath id="t">
-          <path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-        </clipPath>
-        <path d="M0,0 v30 h60 v-30 z" fill="#00247d" />
-        <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
         <path
-          d="M0,0 L60,30 M60,0 L0,30"
-          clipPath="url(#t)"
-          stroke="#cf142b"
-          strokeWidth="4"
+          d="M90 65C86.7408 68.2592 82 65.5 82 65.5L0.5 0L89.5 58C89.5 58 93 62 90 65Z"
+          fill="#61657A"
         />
-        <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
-        <path d="M30,0 v30 M0,15 h60" stroke="#cf142b" strokeWidth="6" />
       </>
     ),
-    viewBox: '0 0 60 30',
+    viewBox: '0 0 92 67',
   },
 }
 

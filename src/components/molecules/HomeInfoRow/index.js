@@ -21,7 +21,7 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
       display="flex"
       justifyContent="space-between"
       alignItems={['center', 'center', 'flex-start']}
-      mb={[12, 12, 20]}
+      mb={[8, 8, 12, 20]}
     >
       <Box minWidth={[0, 0, 250]} mr={[4, 8, 16, 32]}>
         <Text

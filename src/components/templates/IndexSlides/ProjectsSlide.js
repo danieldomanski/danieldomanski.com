@@ -13,7 +13,7 @@ const ProjectsSlide = ({
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[12, 16, 48, 64]}
+    pt={[24, 16, 48, 64]}
     pb={[0, 0, 24, 48]}
     px={[8, 8, 12]}
   >
@@ -24,7 +24,7 @@ const ProjectsSlide = ({
       idx={2}
     />
     <ProjectsGrid projects={projects} />
-    <Box textAlign={['left', 'left', 'right']} mt={[12, 16, 24]}>
+    <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/projects" display={['block']}>
         <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
           {button}

@@ -17,7 +17,7 @@ const BottomBox = ({ theme, variant }) => {
     <Box
       width={1}
       bg={backgroundColor}
-      py={8}
+      py={6}
       borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.1)' : 'none'}
       zIndex={12}
     >
@@ -34,8 +34,7 @@ const BottomBox = ({ theme, variant }) => {
             fontFamily="sans"
             display={['none', 'none', 'block']}
             fontColor={secondaryColor}
-            fontSize={['base']}
-            hover={{ color: '#4583FF' }}
+            fontSize={['sm']}
           >
             Source code here.
           </Text>
