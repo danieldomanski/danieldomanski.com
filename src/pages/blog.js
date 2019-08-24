@@ -10,11 +10,6 @@ import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 
-const ContentFilters = styled.ul`
-  ${tw`flex flex-wrap justify-center md:justify-start my-12`}
-  list-style: none;
-`
-
 const Line = styled.span`
   ${tw`mt-2 md:mt-4`}
   display: block;
@@ -59,11 +54,10 @@ const Blog = ({ data, pageContext }) => {
       <Header content={headerContent} />
       <Box
         width={1}
-        pt={[8, 8, 16]}
-        pb={[8, 8, 32]}
+        pb={[4, 8, 16]}
         maxWidth={800}
-        m="auto"
-        px={[6, 6, 12, 0, 0]}
+        m={[0, 0, 0, 0, 'auto']}
+        px={[6, 8, 12, 12, 0, 0]}
         flex={1}
       >
         <Box>
@@ -78,9 +72,13 @@ const Blog = ({ data, pageContext }) => {
             <Line />
           </Text>
         </Box>
-
-        <Box my={12}>
-          <Text lineHeight="relaxed" fontColor="primary.6" fontSize="lg">
+        <Box my={[8, 8, 12]}>
+          <Text
+            lineHeight="relaxed"
+            fontColor="primary.5"
+            fontSize={['base', 'sm', 'lg']}
+            style={{ fontStyle: 'italic' }}
+          >
             “You already know that you will never be done learning. But most
             people "learn in private", and lurk. They consume content without
             creating any themselves. Whatever your thing is, make the thing you
@@ -92,22 +90,27 @@ const Blog = ({ data, pageContext }) => {
             display="block"
             textAlign="right"
             fontFamily="sans"
+            fontSize={['sm', 'base', 'lg']}
             fontWeight="bold"
             fontColor="primary.10"
-            mt={2}
+            mt={[6, 4]}
           >
             learn in public, swyx.io
           </Text>
         </Box>
-        <Box display="flex" flexDirection="column" justifyContent="center">
-          <ContentFilters>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent={['flex-start', 'flex-start', 'center']}
+        >
+          <Box as="ul" display="flex" flexWrap="wrap" mt={[8, 8, 16]} mb={6}>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
                 {tag.node.data.tag}
               </Filter>
             ))}
-          </ContentFilters>
-          <Box maxWidth={960}>
+          </Box>
+          <Box>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
@@ -121,8 +124,8 @@ const Blog = ({ data, pageContext }) => {
               filteredPosts.map((post, idx) => (
                 <PostItem
                   data={post}
-                  pb={8}
-                  mb={8}
+                  pb={6}
+                  mb={6}
                   borderBottom={
                     idx === filteredPosts.length - 1
                       ? 'none'
@@ -134,7 +137,7 @@ const Blog = ({ data, pageContext }) => {
           </Box>
         </Box>
       </Box>
-      <Box as="footer" width={1} m="auto" px={24} mt={16}>
+      <Box as="footer" width={1} m="auto" px={[8, 8, 24]} mt={8}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

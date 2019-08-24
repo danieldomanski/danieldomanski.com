@@ -55,26 +55,30 @@ const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
 `
 
 const meteorAnimation1 = keyframes`
-0% { transform: translate3d(-20vw, -60vh, 0); opacity: 1 }
-20% { transform: translate3d(100vw, 100vh, 0);  opacity: 0}
+0% { transform: translate3d(-20vw, -60vh, 0); opacity: 0 }
+1% { transform: translate3d(-20vw, -60vh, 0); opacity: 1 }
+21% { transform: translate3d(100vw, 100vh, 0);  opacity: 0}
 100% { transform: translate3d(100vw, 100vh, 0);  opacity: 0 }
 `
 
 const meteorAnimation2 = keyframes`
-0% { transform: translate3d(40vw, -40vh, 0); opacity: 1 }
-20% { transform: translate3d(120vw, 100vh, 0); opacity: 0 }
+0% { transform: translate3d(40vw, -40vh, 0); opacity: 0 }
+1% { transform: translate3d(40vw, -40vh, 0); opacity: 1 }
+21% { transform: translate3d(120vw, 100vh, 0); opacity: 0 }
 100% { transform: translate3d(120vw, 100vh, 0); opacity: 0 }
 `
 
 const meteorAnimation3 = keyframes`
-0% { transform: translate3d(-20vw, -20vh, 0);  opacity: 1 }
-20% { transform: translate3d(80vw, 120vh, 0); opacity: 0 }
+0% { transform: translate3d(-20vw, -20vh, 0);  opacity: 0 }
+1% { transform: translate3d(-20vw, -20vh, 0);  opacity: 1 }
+21% { transform: translate3d(80vw, 120vh, 0); opacity: 0 }
 100% { transform: translate3d(80vw, 120vh, 0); opacity: 0 }
 `
 
 const meteorAnimation4 = keyframes`
-0% { transform: translate3d(-20vw, 20vh, 0); opacity: 1 }
-20% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
+0% { transform: translate3d(-20vw, 20vh, 0); opacity: 0 }
+1% { transform: translate3d(-20vw, 20vh, 0); opacity: 1 }
+21% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
 100% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
 `
 
@@ -109,8 +113,8 @@ const Meteors = styled.div`
   }
 `
 
-const SmallStars = StarsComponent(smStars, 150, starsAnimation, 1, 0.6)
-const MediumStars = StarsComponent(mdStars, 80, starsAnimation, 2, 0.8)
+const SmallStars = StarsComponent(smStars, 150, starsAnimation, 1, 0.5)
+const MediumStars = StarsComponent(mdStars, 80, starsAnimation, 2, 0.6)
 const BigStars = StarsComponent(lgStars, 50, starsAnimation, 3, 1)
 
 const BgParticles = ({ variant }) => {
@@ -121,10 +125,10 @@ const BgParticles = ({ variant }) => {
       <MediumStars />
       <BigStars />
       <Meteors visible={variant === 'hero'}>
-        <Icon icon="comet" width={32} fill="red" />
+        <Icon icon="comet" width={32} />
         <Icon icon="comet" width={48} />
         <Icon icon="comet" width={64} />
-        <Icon icon="comet" width={48} />
+        <Icon icon="comet" width={80} />
         <Icon icon="comet" width={64} />
         <Icon icon="comet" width={80} />
       </Meteors>

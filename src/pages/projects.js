@@ -26,10 +26,9 @@ const Projects = ({ data, pageContext }) => {
       <Header content={headerContent} />
       <Box
         width={1}
-        pt={[8, 8, 16]}
-        maxWidth={1400}
-        m="auto"
-        px={[8, 8, 12]}
+        maxWidth={1200}
+        m={[0, 0, 0, 0, 'auto']}
+        px={[6, 8, 12, 12, 12, 0]}
         flex={1}
       >
         <Text

@@ -30,10 +30,10 @@ const TopLayer = styled.section`
   height: 100vh;
   z-index: 4;
   background: radial-gradient(
-    1250px at 50% 120%,
-    #56657f 0%,
+    1300px at 50% 125%,
+    #53617a -8%,
     #25273c 45%,
-    #0b0b12 100%
+    #161723 100%
   );
 `
 

@@ -9,7 +9,7 @@ import Box from '../Box'
 import Text from '../Text'
 
 const LocaleSpan = styled.span`
-  ${tw`relative font-sans uppercase cursor-pointer `}
+  ${tw`relative text-sm  font-sans uppercase cursor-pointer `}
 
 
   color: ${props => (props.active ? props.activeColor : props.color)};
@@ -53,7 +53,7 @@ const LocaleSwitcher = ({ theme, variant }) => {
                 Pl
               </LocaleSpan>
             </Link>
-            <Text as="span" fontColor="primary.5" mx={2}>
+            <Text fontSize="sm" as="span" fontColor="primary.5" mx={2}>
               /
             </Text>
             <Link to={formatPathname(location.pathname, 'en')}>

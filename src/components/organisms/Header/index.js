@@ -35,17 +35,18 @@ const Header = ({ theme, variant, content }) => {
         flexWrap="wrap"
         alignItems={['center']}
         m="auto"
-        px={[8, 8, 8, 24]}
-        pt={[8, 8, 16]}
+        px={[6, 8, 12, 12, 12, 16]}
+        py={[6, 8, 16]}
       >
         <Brand>
           <LocalizedLink locale={locale} to="/">
             <Text
-              fontSize={['lg', 'xl']}
+              fontFamily="sans"
+              fontSize={['lg', 'lg', 'xl']}
               fontWeight="black"
               fontColor={brandColor}
               hover={{ color: '#72A6FF' }}
-              style={{ letterSpacing: '-0.5px' }}
+              style={{ letterSpacing: '-1px' }}
             >
               {content.brand}
             </Text>

@@ -5,7 +5,7 @@ import tw from 'tailwind.macro'
 import { LocalizedLink } from '../../atoms/Link'
 
 const Container = styled.nav`
-  ${tw`flex items-center w-full md:ml-auto mt-4`}
+  ${tw`flex items-center w-full md:ml-auto mt-2`}
   order: 3;
 
   @media screen and (min-width: 768px) {
@@ -51,6 +51,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             locale={locale}
             fontWeight="light"
             fontColor={color}
+            fontSize="sm"
             activeStyle={activeStyle}
           >
             {content.home}
@@ -63,6 +64,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             fontWeight="normal"
             fontColor={color}
             partiallyActive
+            fontSize="sm"
             activeStyle={activeStyle}
           >
             {content.projects}
@@ -75,6 +77,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             fontWeight="normal"
             fontColor={color}
             partiallyActive
+            fontSize="sm"
             activeStyle={activeStyle}
           >
             {content.articles}
@@ -86,6 +89,7 @@ const Navigation = ({ theme, variant, locale, content }) => {
             locale={locale}
             fontWeight="normal"
             fontColor={color}
+            fontSize="sm"
             activeStyle={activeStyle}
           >
             {content.about}

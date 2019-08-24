@@ -15,7 +15,7 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
     m="auto"
     pt={[12, 16, 48, 64]}
     pb={[24, 24, 24, 48]}
-    px={[8, 8, 12]}
+    px={[6, 8, 12, 12, 12, 16]}
   >
     <HomeInfoRow
       title={title}

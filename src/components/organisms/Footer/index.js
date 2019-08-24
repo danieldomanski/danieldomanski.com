@@ -5,16 +5,17 @@ import { ScrollContext } from '../../../context/ScrollContext'
 
 const FooterContainer = styled.footer`
   ${tw`static md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
-  background: radial-gradient(
-    1200px at 50% -30%,
-    #56657f 0%,
-    #25273c 50%,
-    #0b0b12 100%
-  );
+  background: #eee;
   box-sizing: border-box;
   z-index: 5;
 
   @media screen and (min-width: 768px) {
+    background: radial-gradient(
+      1300px at 50% -50%,
+      #56657f 0%,
+      #25273c 50%,
+      #0b0b12 100%
+    );
     display: ${props =>
       !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
     height: 700px;

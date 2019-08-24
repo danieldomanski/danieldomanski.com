@@ -28,7 +28,7 @@ const PostItem = ({ data, ...rest }) => {
           fontFamily="sans"
           fontColor="primary.10"
           fontSize={['lg', 'xl', '3xl']}
-          fontWeight="black"
+          fontWeight="bold"
           lineHeight="tight"
           hover={{ color: '#0055FF' }}
         >

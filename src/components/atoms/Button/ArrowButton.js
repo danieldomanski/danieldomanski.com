@@ -12,7 +12,7 @@ const generateStars = n => {
   const values = []
 
   for (let i = 0; i < n; i++) {
-    values.push(`${random(240)}px ${random(100)}px #FFF`)
+    values.push(`${random(320)}px ${random(100)}px #FFF`)
   }
 
   return values.join(',')
@@ -20,7 +20,7 @@ const generateStars = n => {
 
 const starsAnimation = keyframes`
 0% { transform: translate3d(0, 0px, 0) }
-100% {transform: translate3d(0, 100px, 0)}
+100% {transform: translate3d(0, -100px, 0)}
 `
 
 const smStars = generateStars(30)
@@ -32,15 +32,15 @@ const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
   height: ${width}px;
   background: transparent;
   box-shadow: ${stars};
-  animation: ${animation} ${time}s linear infinite;
+  animation: ${animation} ${time}s linear infinite both;
   border-radius: 50%;
   opacity: ${opacity};
 
   &:after {
-    content: ' ';
+    content: '';
     position: absolute;
-    top: -100px;
-    left: 0;
+    top: 100px;
+    left: -0px;
     width: ${width}px;
     height: ${width}px;
     background: transparent;
@@ -49,7 +49,7 @@ const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
   }
 `
 
-const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.7)
+const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.8)
 const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
 
 const ButtonContainer = styled.button`
@@ -62,12 +62,11 @@ const ButtonContainer = styled.button`
 
   text-transform: uppercase;
   border: 3px solid #25273c;
-  color: ${props => props.color};
 
   &:hover {
     ${tw`shadow-lg`}
 
-    & > div {
+    & > div > div {
       display: block;
     }
 
@@ -88,18 +87,13 @@ const ButtonContainer = styled.button`
   &::after {
     background-color: #25273c;
     content: '';
-    width: 100%;
+    width: 0;
     height: 100%;
     left: 0;
     top: 0;
     position: absolute;
     transition: width 0.33s cubic-bezier(0.8, 0, 0.16, 1);
     z-index: -1;
-
-    @media screen and (min-width: 768px) {
-      width: 0;
-      height: 100%;
-    }
   }
 
   ${typography};
@@ -107,27 +101,36 @@ const ButtonContainer = styled.button`
   ${space};
 `
 
-const Button = ({ children, width, fontSize, color }) => (
-  <ButtonContainer color={color} fontSize={fontSize}>
-    <Text as="span" fontFamily="sans" fontWeight="bold" fontColor={color}>
+const Container = styled.div`
+  ${tw`hidden md:block absolute pin-l pin-t`}
+
+  width: 100%;
+  height: 100%;
+`
+
+const Button = ({ children, width, fontSize, fontColor }) => (
+  <ButtonContainer fontSize={fontSize}>
+    <Text as="span" fontFamily="sans" fontWeight="bold" color={color}>
       {children}
     </Text>
     <Icon icon="arrow" width={width} ml={2} fill={color} />
-    <MediumStars />
-    <SmallStars />
+    <Container>
+      <MediumStars />
+      <SmallStars />
+    </Container>
   </ButtonContainer>
 )
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   fontSize: PropTypes.string,
-  color: PropTypes.string,
+  fontColor: PropTypes.string,
   width: PropTypes.number,
 }
 
 Button.defaultProps = {
   fontSize: 'base',
-  color: '#000',
+  fontColor: '#000',
   width: 32,
 }
 

@@ -3,11 +3,10 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 
 const FilterContainer = styled.li`
-  ${tw`font-sans text-sm flex justify-between items-center px-3 py-2 font-medium mr-2 mb-2 rounded cursor-pointer`}
+  ${tw`font-sans text-sm flex justify-between items-center px-6 py-2 font-bold mr-2 mb-2 rounded cursor-pointer`}
   transition: 0.1s ease-in-out;
   color: ${props =>
     props.active ? props.config.active.color : props.config.color};
-  border: 1px solid ${props => props.config.hoverColor};
 
   &:hover {
     background-color: ${props =>

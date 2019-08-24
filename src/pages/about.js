@@ -27,11 +27,10 @@ const About = ({ data, pageContext }) => {
       <Header content={headerContent} />
       <Box
         width={1}
-        pt={[8, 8, 16]}
-        pb={[8, 8, 32]}
+        pb={[4, 8, 24]}
         maxWidth={800}
-        m="auto"
-        px={[6, 6, 12, 0, 0]}
+        m={[0, 0, 0, 0, 'auto']}
+        px={[6, 8, 12, 12, 0, 0]}
       >
         <Text
           fontFamily="sans"
@@ -47,15 +46,13 @@ const About = ({ data, pageContext }) => {
           flexDirection={['column', 'column', 'row']}
           justifyContent="center"
           alignItems="center"
-          my={[8, 8, 0]}
+          my={8}
         >
           <Text
-            maxWidth={960}
             fontColor="primary.10"
             fontWeight="medium"
             fontSize={['base', 'lg']}
             withLine
-            mt={8}
             lineHeight="relaxed"
           >
             {about_me.text}

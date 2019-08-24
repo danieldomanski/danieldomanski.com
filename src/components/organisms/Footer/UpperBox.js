@@ -15,20 +15,22 @@ const UpperRect = ({ content }) => (
       alignItems="center"
       textAlign="center"
       px={[6, 8, 12]}
-      py={[16, 16, 16]}
+      py={[20, 24, 16]}
     >
       <HomeParticles variant="footer" />
       <Text
         fontFamily="sans"
+        lineHeight="tight"
         fontSize={['4xl', '4xl', '5xl']}
         fontColor={['primary.10', 'secondary.9', 'secondary.0']}
         mb={6}
-        fontWeight="black"
+        fontWeight="bold"
       >
         {content.title}
       </Text>
       <Text
-        maxWidth={960}
+        fontFamily="sans"
+        maxWidth={1200}
         fontWeight="normal"
         fontSize={['lg', 'lg', 'xl', 'xl']}
         fontColor={['primary.10', 'primary.10', 'secondary.7']}

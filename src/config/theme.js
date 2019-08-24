@@ -16,30 +16,32 @@ const colors = {
     '#252627',
     '#181818',
   ],
+
+  cosmic: ['#25273D', '#212235', '#191A28'],
   // white/gray
   secondary: [
-    '#FFF',
+    '#F4F5FF',
     '#FEFEFE',
     '#FBFBFB',
     '#F3F3F3',
     '#EBEBEB',
     '#E3E3E3',
     '#DBDBDB',
-    '#D4D4D4',
+    '#C8CBD1',
     '#C1C1C1',
   ],
   // blue
   accent: [
     '#DCE4F8',
-    '#E7EFFF',
-    '#C8D6F4',
+    '#BABEC5',
+    '#D7F0F4',
     '#8BB1FF',
     '#A2C1FF',
     '#8BB1FF',
     '#73A2FF',
     '#4583FF',
     '#2E73FF',
-    '#0055FF',
+    '#9FB0CE',
   ],
 }
 
@@ -154,7 +156,7 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: 'rgba(22, 22, 32, .9)',
+      backgroundColor: 'rgba(12, 12, 20, .9)',
       color: theme.colors.secondary[5],
       secondaryColor: theme.colors.primary[6],
     },
@@ -177,14 +179,14 @@ theme.components = {
       color: theme.colors.primary[5],
       active: {
         color: theme.colors.primary[8],
-        border: theme.colors.primary[2],
+        border: theme.colors.accent[1],
       },
     },
     secondary: {
       color: theme.colors.primary[6],
       active: {
         color: theme.colors.primary[1],
-        border: theme.colors.primary[4],
+        border: theme.colors.accent[9],
       },
     },
   },

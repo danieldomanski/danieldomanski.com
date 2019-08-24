@@ -3,7 +3,6 @@ import styled, { keyframes } from 'styled-components'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
-import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const HeroText = styled.section`
   ${tw`static md:fixed w-full `};
@@ -60,29 +59,32 @@ const HomeSlide = ({ content }) => (
         <Box
           display="flex"
           flexDirection="column"
-          textAlign="center"
-          m="auto"
-          pt={[8, 8, 0]}
-          pb={[16, 16, 0]}
+          textAlign={['left', 'left', 'left', 'left', 'center']}
+          m={[0, 0, 0, 0, 0, 'auto']}
+          mx={[6, 8, 12, 12, 12, 16]}
+          pt={[0, 8]}
+          pb={[8, 8, 0]}
           borderBottom="1px solid rgba(0,0,0,0.05)"
         >
           <TitleText>
             <Text
               fontFamily="sans"
-              fontWeight="black"
+              fontWeight="bold"
               fontSize={['4xl', '4xl', '6xl']}
               fontColor={['primary.10', 'secondary.9', 'secondary.0']}
-              mb={6}
+              lineHeight="tight"
               style={{ letterSpacing: '-1.5px' }}
+              mb={6}
             >
               {content.title}
             </Text>
           </TitleText>
           <SlideLeft>
             <Text
+              fontFamily="sans"
               maxWidth={860}
               fontWeight="normal"
-              fontSize={['lg', 'lg', 'xl', '2xl']}
+              fontSize={['lg', 'lg', 'xl', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.7']}
             >
               {content.description}

@@ -17,7 +17,7 @@ const BottomBox = ({ theme, variant }) => {
     <Box
       width={1}
       bg={backgroundColor}
-      py={6}
+      py={[8, 8, 12]}
       borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.1)' : 'none'}
       zIndex={12}
     >
@@ -33,17 +33,9 @@ const BottomBox = ({ theme, variant }) => {
           <Text
             fontFamily="sans"
             display={['none', 'none', 'block']}
-            fontColor={secondaryColor}
-            fontSize={['sm']}
-          >
-            Source code here.
-          </Text>
-          <Text
-            fontFamily="sans"
-            display={['none', 'none', 'block']}
             fontColor={color}
             fontWeight="black"
-            fontSize={['xl']}
+            fontSize={['lg']}
             hover={{ color: '#4583FF' }}
           >
             Daniel.
@@ -51,7 +43,7 @@ const BottomBox = ({ theme, variant }) => {
         </Link>
         <Text
           fontFamily="sans"
-          fontSize={['base', 'base', 'xl']}
+          fontSize={['base', 'base', 'lg']}
           fontColor={color}
           fontWeight="bold"
           mb={[3, 3, 0]}
