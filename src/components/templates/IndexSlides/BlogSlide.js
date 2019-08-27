@@ -13,9 +13,9 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[12, 16, 48, 64]}
-    pb={[24, 24, 24, 48]}
-    px={[6, 8, 12, 12, 12, 16]}
+    pt={[12, 16, 48, 16]}
+    pb={[24, 24, 24, 64]}
+    px={[6, 8, 12, 12, 16, 16]}
   >
     <HomeInfoRow
       title={title}
@@ -35,7 +35,7 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
         fontColor="primary.4"
         fontWeight="bold"
         minWidth={250}
-        mr={[16, 16, 16, 32]}
+        mr={[4, 8, 8, 16, 32]}
         mb={[8, 8, 0]}
       >
         Ostatnie posty.
@@ -45,7 +45,7 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
           <DirectionalFade delay={0.075}>
             <PostItem
               data={post}
-              pb={8}
+              pb={idx === posts.length - 1 ? 0 : 8}
               mb={idx === posts.length - 1 ? 0 : 8}
               borderBottom={
                 idx === posts.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
@@ -57,7 +57,7 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
     </Box>
     <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/blog" display={['block']}>
-        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
+        <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

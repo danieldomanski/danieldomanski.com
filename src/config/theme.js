@@ -15,20 +15,22 @@ const colors = {
     '#363636',
     '#252627',
     '#181818',
+    '#0C0C0C',
   ],
 
-  cosmic: ['#25273D', '#212235', '#191A28'],
+  cosmic: ['#25273D', '#212235', '#101020'],
   // white/gray
   secondary: [
     '#F4F5FF',
-    '#FEFEFE',
-    '#FBFBFB',
-    '#F3F3F3',
-    '#EBEBEB',
-    '#E3E3E3',
-    '#DBDBDB',
-    '#C8CBD1',
-    '#C1C1C1',
+    '#E8EAF4',
+    '#D5D6E0',
+    '#CBCDD6',
+    '#C1C3CC',
+    '#B8B9C1',
+    '#AEAFB7',
+    '#A4A6AD',
+    '#9B9CA3',
+    '#929399',
   ],
   // blue
   accent: [
@@ -118,8 +120,8 @@ const theme = {
     ],
   },
   fontSizes: {
-    xs: '.75rem', // 12px
-    sm: '.875rem', // 14px
+    xs: '.775rem', // 12.4px
+    sm: '.9rem', // 14.4px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
     xl: '1.25rem', // 20px
@@ -156,48 +158,48 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: 'rgba(12, 12, 20, .9)',
-      color: theme.colors.secondary[5],
-      secondaryColor: theme.colors.primary[6],
+      backgroundColor: 'rgba(12, 12, 20, .2)',
+      color: theme.colors.secondary[1],
+      secondaryColor: theme.colors.secondary[9],
     },
     secondary: {
-      backgroundColor: 'transparent',
-      color: theme.colors.primary[7],
-      secondaryColor: theme.colors.primary[4],
+      backgroundColor: 'rgba(144, 144, 144, .1)',
+      color: theme.colors.primary[9],
+      secondaryColor: theme.colors.primary[6],
     },
   },
   brand: {
     primary: {
-      color: theme.colors.primary[10],
+      color: theme.colors.secondary[0],
     },
     secondary: {
-      color: theme.colors.secondary[0],
+      color: theme.colors.primary[9],
     },
   },
   navigation: {
     primary: {
-      color: theme.colors.primary[5],
+      color: theme.colors.secondary[7],
       active: {
-        color: theme.colors.primary[8],
-        border: theme.colors.accent[1],
+        color: theme.colors.secondary[1],
+        border: theme.colors.secondary[9],
       },
     },
     secondary: {
       color: theme.colors.primary[6],
       active: {
-        color: theme.colors.primary[1],
-        border: theme.colors.accent[9],
+        color: theme.colors.primary[9],
+        border: theme.colors.accent[3],
       },
     },
   },
   localeSwitcher: {
     primary: {
-      color: theme.colors.primary[5],
-      activeColor: theme.colors.primary[8],
+      color: theme.colors.secondary[5],
+      activeColor: theme.colors.secondary[1],
     },
     secondary: {
       color: theme.colors.primary[6],
-      activeColor: theme.colors.primary[3],
+      activeColor: theme.colors.primary[9],
     },
   },
   highlights: {

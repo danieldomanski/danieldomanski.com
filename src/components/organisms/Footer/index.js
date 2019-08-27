@@ -4,21 +4,21 @@ import tw from 'tailwind.macro'
 import { ScrollContext } from '../../../context/ScrollContext'
 
 const FooterContainer = styled.footer`
-  ${tw`static md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
+  ${tw`md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
   background: #eee;
   box-sizing: border-box;
   z-index: 5;
 
   @media screen and (min-width: 768px) {
     background: radial-gradient(
-      1300px at 50% -50%,
+      1300px at 50% -40%,
       #56657f 0%,
-      #25273c 50%,
+      #25273c 40%,
       #0b0b12 100%
     );
     display: ${props =>
       !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
-    height: 700px;
+    height: 800px;
     z-index: 4;
   }
 `

@@ -15,7 +15,7 @@ const UpperRect = ({ content }) => (
       alignItems="center"
       textAlign="center"
       px={[6, 8, 12]}
-      py={[20, 24, 16]}
+      py={[16, 16, 0]}
     >
       <HomeParticles variant="footer" />
       <Text

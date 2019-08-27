@@ -4,6 +4,7 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
 import ScrollProvider from '../../../context/ScrollContext'
+import ContentProvider from '../../../context/ContentContext'
 import theme from '../../../config/theme'
 
 const GlobalStyle = createGlobalStyle`
@@ -53,8 +54,6 @@ const MainContent = styled.main`
   min-height: 100vh;
 `
 
-export const LocaleContext = React.createContext()
-
 const Layout = ({ children, locale }) => (
   <>
     <Helmet>
@@ -62,13 +61,12 @@ const Layout = ({ children, locale }) => (
       <title>Daniel Domański - Full stack web developer</title>
     </Helmet>
     <GlobalStyle />
-    <LocaleContext.Provider value={[locale]}>
-      <ScrollProvider throttle={0}>
-        <ThemeProvider theme={theme}>
-          <MainContent>{children}</MainContent>
-        </ThemeProvider>
-      </ScrollProvider>
-    </LocaleContext.Provider>
+
+    <ScrollProvider throttle={0}>
+      <ThemeProvider theme={theme}>
+        <MainContent>{children}</MainContent>
+      </ThemeProvider>
+    </ScrollProvider>
   </>
 )
 

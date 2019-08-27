@@ -7,12 +7,8 @@
 
 // You can delete this file if you're not using it
 import React from 'react'
-import ProjectsProvider from './src/context/ProjectsContext'
+import ContentProvider from './src/context/ContentContext'
 
-export const wrapPageElement = ({ element, props }) => {
-  // wrap index and projects pages with ProjectsProvider
-  // to allow these pages to set Context for Projects dependent components
-  if (element.key !== '/' && element.key !== '/projects') return element
-
-  return <ProjectsProvider>{element}</ProjectsProvider>
-}
+export const wrapPageElement = ({ element, props }) => (
+  <ContentProvider>{element}</ContentProvider>
+)

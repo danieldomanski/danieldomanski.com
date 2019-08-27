@@ -9,9 +9,11 @@ import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
+import { usePageContent } from '../context/ContentContext'
+import UnderlineText from '../components/atoms/UnderlineText'
 
 const Line = styled.span`
-  ${tw`mt-2 md:mt-4`}
+  ${tw`mt-1 md:mt-2`}
   display: block;
   width: 80px;
   height: 4px;
@@ -19,6 +21,7 @@ const Line = styled.span`
 `
 
 const Blog = ({ data, pageContext }) => {
+  const [content] = usePageContent(data)
   const [currentFilters, setFilters] = useState([])
   const [filteredPosts, filterPosts] = useState(data.posts.edges)
   const [tags] = useState(data.tags.edges)
@@ -51,7 +54,7 @@ const Blog = ({ data, pageContext }) => {
 
   return (
     <Layout locale={pageContext.locale}>
-      <Header content={headerContent} />
+      <Header content={headerContent} variant="secondary" />
       <Box
         width={1}
         pb={[4, 8, 16]}
@@ -60,23 +63,20 @@ const Blog = ({ data, pageContext }) => {
         px={[6, 8, 12, 12, 0, 0]}
         flex={1}
       >
-        <Box>
+        <UnderlineText>{pageContent.title}</UnderlineText>
+        <Box
+          mt={[8, 8, 2]}
+          mb={16}
+          bg="rgba(144,144,144,.1)"
+          px={12}
+          py={8}
+          boxShadow="md"
+        >
           <Text
-            display="block"
             fontFamily="sans"
-            fontColor="primary.10"
-            fontWeight="black"
-            fontSize={['3xl', '4xl', '5xl']}
-          >
-            {pageContent.title}
-            <Line />
-          </Text>
-        </Box>
-        <Box my={[8, 8, 12]}>
-          <Text
             lineHeight="relaxed"
-            fontColor="primary.5"
-            fontSize={['base', 'sm', 'lg']}
+            fontColor="primary.8"
+            fontSize={['base', 'base', 'base']}
             style={{ fontStyle: 'italic' }}
           >
             “You already know that you will never be done learning. But most
@@ -90,10 +90,10 @@ const Blog = ({ data, pageContext }) => {
             display="block"
             textAlign="right"
             fontFamily="sans"
-            fontSize={['sm', 'base', 'lg']}
+            fontSize={['sm', 'base', 'base']}
             fontWeight="bold"
-            fontColor="primary.10"
-            mt={[6, 4]}
+            fontColor="primary.7"
+            mt={[6, 1]}
           >
             learn in public, swyx.io
           </Text>
@@ -103,14 +103,14 @@ const Blog = ({ data, pageContext }) => {
           flexDirection="column"
           justifyContent={['flex-start', 'flex-start', 'center']}
         >
-          <Box as="ul" display="flex" flexWrap="wrap" mt={[8, 8, 16]} mb={6}>
+          <Box as="ul" display="flex" flexWrap="wrap" mt={[8, 8, 8]} mb={8}>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
                 {tag.node.data.tag}
               </Filter>
             ))}
           </Box>
-          <Box>
+          <Box minHeight={500}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
@@ -129,7 +129,7 @@ const Blog = ({ data, pageContext }) => {
                   borderBottom={
                     idx === filteredPosts.length - 1
                       ? 'none'
-                      : '1px solid rgba(0,0,0,0.05)'
+                      : '1px solid rgba(0,0,0,0.1)'
                   }
                 />
               ))
@@ -137,7 +137,7 @@ const Blog = ({ data, pageContext }) => {
           </Box>
         </Box>
       </Box>
-      <Box as="footer" width={1} m="auto" px={[8, 8, 24]} mt={8}>
+      <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

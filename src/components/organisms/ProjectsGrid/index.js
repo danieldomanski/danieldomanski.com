@@ -10,13 +10,13 @@ const Grid = styled.ul`
 
   ${tw`w-full h-full`};
   grid-template-columns: 100%;
-  grid-gap: 0.5em;
+  grid-gap: 1em;
   list-style: none;
 
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
 
-    grid-gap: 1.5em;
+    grid-gap: 2.5em;
   }
 
   display: grid;

@@ -7,7 +7,7 @@ import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../atoms/LocaleSwitcher'
 import Box from '../../atoms/Box'
 import Navigation from '../Navigation'
-import { LocaleContext } from '../../templates/Layout'
+import { ContentContext } from '../../../context/ContentContext'
 
 const Container = styled.header`
   ${tw`relative `};
@@ -21,25 +21,27 @@ const Brand = styled.div`
   order: 1;
 `
 
-const Header = ({ theme, variant, content }) => {
-  const [locale] = useContext(LocaleContext)
+const Header = ({ theme, variant }) => {
+  const [content] = useContext(ContentContext)
   const { brand } = theme.components
   const brandColor = brand[variant].color
+  const { header } = content
 
   return (
     <Container>
       <Box
         width={1}
+        maxWidth={['unset', 'unset', 'unset', 'unset', '80vw']}
         display="flex"
         justifyContent="space-between"
         flexWrap="wrap"
         alignItems={['center']}
         m="auto"
-        px={[6, 8, 12, 12, 12, 16]}
-        py={[6, 8, 16]}
+        px={[6, 8, 8, 12, 12, 16]}
+        py={[6, 8, 12]}
       >
         <Brand>
-          <LocalizedLink locale={locale} to="/">
+          <LocalizedLink to="/">
             <Text
               fontFamily="sans"
               fontSize={['lg', 'lg', 'xl']}
@@ -48,11 +50,11 @@ const Header = ({ theme, variant, content }) => {
               hover={{ color: '#72A6FF' }}
               style={{ letterSpacing: '-1px' }}
             >
-              {content.brand}
+              {header.brand}
             </Text>
           </LocalizedLink>
         </Brand>
-        <Navigation variant={variant} locale={locale} content={content.nav} />
+        <Navigation variant={variant} content={header.nav} />
         <LocaleSwitcher variant={variant} />
       </Box>
     </Container>

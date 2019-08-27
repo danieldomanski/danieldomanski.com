@@ -2,25 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { layout, typography, color, space, flexbox } from 'styled-system'
+import Text from '../Text'
 
-const TextContainer = styled.p`
-  ${tw`h-auto`};
-
-  ${layout};
-  ${typography};
-  ${color};
-  ${space};
-  ${flexbox};
-
-  &:hover {
-    color: ${props => (props.hover ? props.hover.color : null)};
-  }
-
-  transition: color 0.1s ease-in-out;
+const Line = styled.span`
+  ${tw`mt-1 md:mt-2`}
+  display: block;
+  width: 80px;
+  height: 4px;
+  background-color: #181818;
 `
 
-const Text = ({
+const UnderlineText = ({
   children,
   display,
   fontFamily,
@@ -36,9 +28,9 @@ const Text = ({
   ml,
   ...rest
 }) => (
-  <TextContainer
+  <Text
     display={display}
-    fontSize={fontSize}
+    fontSize={['3xl', '4xl', '5xl']}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
@@ -52,10 +44,11 @@ const Text = ({
     {...rest}
   >
     {children}
-  </TextContainer>
+    <Line />
+  </Text>
 )
 
-Text.propTypes = {
+UnderlineText.propTypes = {
   fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   fontWeight: PropTypes.oneOf(['normal', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
@@ -67,19 +60,21 @@ Text.propTypes = {
   mt: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   mr: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   ml: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  my: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
 }
 
-Text.defaultProps = {
+UnderlineText.defaultProps = {
   fontFamily: 'sans',
-  fontSize: 'base',
+  fontSize: ['3xl', '4xl', '5xl'],
   lineHeight: 'normal',
-  fontWeight: 'normal',
-  fontColor: 'primary.7',
+  fontWeight: 'black',
+  fontColor: 'primary.11',
   display: 'inline-block',
+  my: 8,
   mb: 0,
   mt: 0,
   mr: 0,
   ml: 0,
 }
 
-export default Text
+export default UnderlineText

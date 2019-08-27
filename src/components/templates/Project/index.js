@@ -49,17 +49,29 @@ const Project = ({ data, pageContext }) => {
   return (
     <Layout locale={pageContext.locale}>
       <Header content={headerContent} />
-      <Box py={16} m="auto" px={[4, 8, 16, 24, 32]}>
+      <Box
+        width={1}
+        pb={[4, 8, 16]}
+        maxWidth={1250}
+        m={[0, 0, 0, 0, 'auto']}
+        px={[6, 8, 12, 12, 0, 0]}
+      >
         <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">
           <Column alignItems="center">
             <Text
+              fontFamily="sans"
               fontSize={['4xl', '5xl']}
               fontColor="primary.7"
               fontWeight="black"
+              mb={2}
             >
               {title.text}
             </Text>
-            <Text fontColor="primary.5" fontSize={['lg', '2xl']}>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.5"
+              fontSize={['lg', 'xl']}
+            >
               {description.text}
             </Text>
           </Column>
@@ -118,8 +130,9 @@ const Project = ({ data, pageContext }) => {
           </Box>
           <Box px={[8, 8, 8, 8, 16]} flex={[1, 2, 2, 2, 2]}>
             <Text
+              fontFamily="sans"
               fontColor="primary.5"
-              fontSize={['xl', 'lg', 'lg', 'xl', '2xl']}
+              fontSize={['xl', 'lg', 'lg', 'xl', 'xl']}
             >
               {description.text}
               {description.text}
@@ -139,10 +152,7 @@ const Project = ({ data, pageContext }) => {
           my={16}
           mb={[8, 8, 0]}
         >
-          {details.map((detail, idx) => {
-            const even = idx % 2 === 0
-
-            return (
+          {details.map((detail, idx) => (
               <Box
                 width={1}
                 my={8}
@@ -151,34 +161,17 @@ const Project = ({ data, pageContext }) => {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Column py={[8]} flex={1} width={1 / 4}>
-                  <Text
-                    fontWeight="black"
-                    fontSize={['3xl', '4xl']}
-                    fontColor="primary.7"
-                    mb={2}
-                  >
-                    {detail.title}
-                  </Text>
-                  <Text
-                    fontFamily="sans"
-                    fontSize={['base', 'lg']}
-                    fontColor="primary.5"
-                  >
-                    {detail.description}
-                    {detail.description}
-                    {detail.description}
-                    {detail.description}
-                    {detail.description}
-                    {detail.description}
-                    {detail.description}
-                  </Text>
-                </Column>
+                <Text
+                  fontWeight="black"
+                  fontSize={['3xl', '4xl']}
+                  fontColor="primary.7"
+                  mb={2}
+                >
+                  {detail.title}
+                </Text>
                 <Box />
-                <Img src={detail.url} />
               </Box>
-            )
-          })}
+            ))}
         </Box>
       </Box>
       <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>

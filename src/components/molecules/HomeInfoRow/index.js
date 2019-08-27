@@ -7,7 +7,7 @@ import { LocalizedLink } from '../../atoms/Link'
 import { DirectionalFade } from '../AnimatedBox'
 
 const Line = styled.span`
-  ${tw`mt-2 md:mt-4`}
+  ${tw`mt-1 md:mt-2`}
   display: block;
   width: 80px;
   height: 4px;
@@ -19,16 +19,17 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
     <Box
       as="header"
       display="flex"
+      flexDirection={['column', 'column', 'row']}
       justifyContent="space-between"
-      alignItems={['center', 'center', 'flex-start']}
-      mb={[8, 8, 12, 20]}
+      alignItems={['flex-start']}
+      mb={[8, 8, 16, 20, 20]}
     >
-      <Box minWidth={[0, 0, 250]} mr={[4, 8, 16, 32]}>
+      <Box minWidth={[0, 0, 250]} mr={[4, 8, 8, 16, 32]}>
         <Text
           fontFamily="sans"
           display={['block']}
-          fontSize={['2xl', '3xl', '4xl']}
-          fontColor="cosmic.0"
+          fontSize={['3xl', '4xl', '4xl']}
+          fontColor="cosmic.2"
           fontWeight="black"
         >
           {title}
@@ -36,8 +37,9 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
         <Line />
       </Box>
       <Text
-        display={['none', 'none', 'block']}
-        fontSize={['base', 'base', 'lg', 'xl']}
+        fontFamily="sans"
+        display={['none', 'block']}
+        fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
         fontColor="cosmic.2"
         fontWeight="medium"
         lineHeight="relaxed"

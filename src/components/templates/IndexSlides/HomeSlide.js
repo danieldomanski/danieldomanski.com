@@ -62,7 +62,7 @@ const HomeSlide = ({ content }) => (
           textAlign={['left', 'left', 'left', 'left', 'center']}
           m={[0, 0, 0, 0, 0, 'auto']}
           mx={[6, 8, 12, 12, 12, 16]}
-          pt={[0, 8]}
+          pt={[2, 8, 0]}
           pb={[8, 8, 0]}
           borderBottom="1px solid rgba(0,0,0,0.05)"
         >
@@ -71,7 +71,7 @@ const HomeSlide = ({ content }) => (
               fontFamily="sans"
               fontWeight="bold"
               fontSize={['4xl', '4xl', '6xl']}
-              fontColor={['primary.10', 'secondary.9', 'secondary.0']}
+              fontColor={['primary.10', 'primary.8', 'secondary.0']}
               lineHeight="tight"
               style={{ letterSpacing: '-1.5px' }}
               mb={6}
@@ -83,9 +83,9 @@ const HomeSlide = ({ content }) => (
             <Text
               fontFamily="sans"
               maxWidth={860}
-              fontWeight="normal"
+              fontWeight="medium"
               fontSize={['lg', 'lg', 'xl', 'xl']}
-              fontColor={['primary.10', 'primary.10', 'secondary.7']}
+              fontColor={['primary.10', 'primary.10', 'secondary.5']}
             >
               {content.description}
             </Text>

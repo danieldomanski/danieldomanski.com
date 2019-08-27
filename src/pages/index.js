@@ -14,14 +14,18 @@ import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
-import { formatHome, formatHeader } from '../utilitity/format'
-import Frame from '../images/Frame.svg'
+import {
+  formatHome,
+  formatHeader,
+  formatRawDataToContext,
+} from '../utilitity/format'
+import { usePageContent } from '../context/ContentContext'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
   z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 700px;
+  margin-bottom: 800px;
   background-color: #f0f0f0;
 `
 
@@ -43,10 +47,13 @@ const Index = ({ data, pageContext }) => {
   const pageContent = formatHome(data.home.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
 
+  const [content] = usePageContent(data)
+  console.log({ content })
+
   if (isMobile) {
     return (
       <Layout locale={pageContext.locale}>
-        <Header content={headerContent} />
+        <Header variant="secondary" />
         <HomeSlide content={pageContent.hero} />
         <AboutSlide content={pageContent.about} />
         <ProjectsSlide
@@ -64,7 +71,7 @@ const Index = ({ data, pageContext }) => {
   return (
     <Layout locale={pageContext.locale}>
       <TopLayer>
-        <Header variant="secondary" content={headerContent} />
+        <Header content={headerContent} />
         <HomeSlide content={pageContent.hero} />
       </TopLayer>
       <OnTopLayer>

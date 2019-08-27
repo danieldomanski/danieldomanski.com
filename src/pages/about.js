@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../components/templates/Layout'
@@ -8,39 +8,28 @@ import Box from '../components/atoms/Box'
 import Avatar from '../components/atoms/Avatar'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatAboutGroup, formatHeader } from '../utilitity/format'
-
-const Line = styled.span`
-  ${tw`mt-2 md:mt-4`}
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #181818;
-`
+import { usePageContent } from '../context/ContentContext'
+import UnderlineText from '../components/atoms/UnderlineText'
 
 const About = ({ data, pageContext }) => {
+  const [content] = usePageContent(data)
+
   const { title, about_me, about_group } = data.about.data
   const aboutGroups = formatAboutGroup(about_group)
   const headerContent = formatHeader(data.header.edges[0])
 
+  console.log({ content })
   return (
     <Layout locale={pageContext.locale}>
-      <Header content={headerContent} />
+      <Header content={headerContent} variant="secondary" />
       <Box
         width={1}
-        pb={[4, 8, 24]}
+        pb={[24]}
         maxWidth={800}
         m={[0, 0, 0, 0, 'auto']}
         px={[6, 8, 12, 12, 0, 0]}
       >
-        <Text
-          fontFamily="sans"
-          fontColor="primary.10"
-          fontWeight="black"
-          fontSize={['3xl', '4xl', '5xl']}
-        >
-          {title.text}
-          <Line />
-        </Text>
+        <UnderlineText>{title.text}</UnderlineText>
         <Box
           display="flex"
           flexDirection={['column', 'column', 'row']}
@@ -49,6 +38,7 @@ const About = ({ data, pageContext }) => {
           my={8}
         >
           <Text
+            fontFamily="sans"
             fontColor="primary.10"
             fontWeight="medium"
             fontSize={['base', 'lg']}
@@ -84,6 +74,7 @@ const About = ({ data, pageContext }) => {
                   borderTop="1px solid rgba(0,0,0,0.1)"
                 >
                   <Text
+                    fontFamily="sans"
                     width={[1 / 2]}
                     fontColor="primary.10"
                     fontWeight="medium"
@@ -93,9 +84,11 @@ const About = ({ data, pageContext }) => {
                     {row.name}
                   </Text>
                   <Text
+                    fontFamily="sans"
                     maxWidth={500}
                     width={[5 / 6, 5 / 6, 1 / 2]}
                     fontColor="primary.10"
+                    fontWeight="medium"
                     fontSize={['base', 'lg']}
                     pl={2}
                   >
@@ -107,7 +100,7 @@ const About = ({ data, pageContext }) => {
           ))}
         </Box>
       </Box>
-      <Box as="footer" width={1} m="auto" px={[8, 8, 24]} mt={8}>
+      <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

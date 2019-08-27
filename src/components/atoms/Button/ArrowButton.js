@@ -23,8 +23,8 @@ const starsAnimation = keyframes`
 100% {transform: translate3d(0, -100px, 0)}
 `
 
-const smStars = generateStars(30)
-const mdStars = generateStars(5)
+const smStars = generateStars(15)
+const mdStars = generateStars(3)
 
 const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
   display: none;
@@ -54,14 +54,15 @@ const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
 
 const ButtonContainer = styled.button`
   ${tw`relative cursor-pointer p-0 px-4 md:px-6 py-4`};
-  height: 64px;
+  width: 280px;
+
   overflow: hidden;
   outline: 0;
   border: 0;
   background: 0;
 
   text-transform: uppercase;
-  border: 3px solid #25273c;
+  border: 3px solid rgba(16, 16, 32, 1);
 
   &:hover {
     ${tw`shadow-lg`}
@@ -85,7 +86,7 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #25273c;
+    background-color: #101020;
     content: '';
     width: 0;
     height: 100%;
@@ -110,10 +111,9 @@ const Container = styled.div`
 
 const Button = ({ children, width, fontSize, fontColor }) => (
   <ButtonContainer fontSize={fontSize}>
-    <Text as="span" fontFamily="sans" fontWeight="bold" color={color}>
+    <Text as="span" fontFamily="sans" fontWeight="bold" color={fontColor}>
       {children}
     </Text>
-    <Icon icon="arrow" width={width} ml={2} fill={color} />
     <Container>
       <MediumStars />
       <SmallStars />

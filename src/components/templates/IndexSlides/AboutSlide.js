@@ -17,7 +17,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     m="auto"
     pt={[12, 16, 48, 64]}
     pb={[0, 0, 24, 48]}
-    px={[6, 8, 12, 12, 12, 16]}
+    px={[6, 8, 12, 12, 16, 16]}
   >
     <HomeInfoRow
       title={title}
@@ -31,58 +31,60 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
-      my={[12, 16, 24]}
+      my={[12, 16, 16]}
     >
       {rows.map((row, idx) => (
-        <DirectionalFade delay={0.15 * idx}>
-          <Box
-            as="article"
-            display="flex"
-            mb={[
-              `${idx === rows.length - 1 ? 0 : 8}`,
-              `${idx === rows.length - 1 ? 0 : 8}`,
-              0,
-            ]}
+        <Box
+          as="article"
+          display="flex"
+          mb={[
+            `${idx === rows.length - 1 ? 0 : 8}`,
+            `${idx === rows.length - 1 ? 0 : 8}`,
+            `${idx === rows.length - 1 ? 0 : 8}`,
+            0,
+          ]}
+          flex={1}
+        >
+          <Text
+            display="inline-block"
+            fontSize={['lg', 'lg', 'xl']}
+            fontFamily="sans"
+            fontWeight="bold"
+            fontColor="primary.10"
+            style={{ textTransform: 'uppercase' }}
+            mr={[4, 4, 6]}
           >
+            {`0${idx + 1}.`}
+          </Text>
+          <Box display="flex" flexDirection="column">
             <Text
-              display="inline-block"
-              fontSize={['lg', 'lg', 'xl']}
               fontFamily="sans"
-              fontWeight="black"
-              fontColor="primary.10"
-              style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
-              mr={[4, 4, 8]}
+              fontWeight="bold"
+              fontSize={['lg', 'lg', 'xl']}
+              fontColor="cosmic.2"
+              style={{ textTransform: 'uppercase' }}
+              mb={[2, 2, 4]}
             >
-              {`0${idx + 1}.`}
+              Sketch
             </Text>
-            <Box display="flex" flexDirection="column">
-              <Text
-                fontFamily="sans"
-                fontWeight="black"
-                fontSize={['lg', 'lg', 'xl']}
-                fontColor="primary.10"
-                style={{ textTransform: 'uppercase', letterSpacing: '1px' }}
-                mb={[2, 4, 6]}
-              >
-                Sketch
-              </Text>
-              <Text
-                fontSize={['base', 'base', 'lg']}
-                maxWidth={[350, 450, 400]}
-                fontColor="primary.10"
-                fontWeight="medium"
-              >
-                Sketch / idea is part in which we work together on desired
-                outcome.
-              </Text>
-            </Box>
+            <Text
+              fontFamily="sans"
+              fontSize={['base', 'lg', 'lg']}
+              maxWidth={[350]}
+              fontColor="cosmic.2"
+              fontWeight="medium"
+              lineHeight="relaxed"
+            >
+              Sketch / idea is part in which we work together on desired
+              outcome.
+            </Text>
           </Box>
-        </DirectionalFade>
+        </Box>
       ))}
     </Box>
     <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/about" display={['block']}>
-        <ArrowButton fontColor="primary.2" fontSize={['sm', 'base', 'base']}>
+        <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

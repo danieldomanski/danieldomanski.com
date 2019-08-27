@@ -78,7 +78,7 @@ const meteorAnimation3 = keyframes`
 const meteorAnimation4 = keyframes`
 0% { transform: translate3d(-20vw, 20vh, 0); opacity: 0 }
 1% { transform: translate3d(-20vw, 20vh, 0); opacity: 1 }
-21% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
+15% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
 100% { transform: translate3d(80vw, 140vh, 0); opacity: 0 }
 `
 
@@ -93,7 +93,7 @@ const Meteors = styled.div`
   }
 
   & svg:nth-child(2) {
-    animation: ${meteorAnimation2} 15s linear 4s infinite backwards;
+    animation: ${meteorAnimation2} 10s linear 4s infinite backwards;
   }
 
   & svg:nth-child(3) {
@@ -109,7 +109,7 @@ const Meteors = styled.div`
   }
 
   & svg:last-child {
-    animation: ${meteorAnimation4} 14s linear 3s infinite backwards;
+    animation: ${meteorAnimation4} 12s linear 3s infinite backwards;
   }
 `
 

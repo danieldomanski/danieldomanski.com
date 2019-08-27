@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
 import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
+import Navigation from '../Navigation'
+import { ContentContext } from '../../../context/ContentContext'
 
 const BottomBox = ({ theme, variant }) => {
+  const [content] = useContext(ContentContext)
   const {
     backgroundColor,
     color,
@@ -16,54 +19,47 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
+      display="flex"
       bg={backgroundColor}
-      py={[8, 8, 12]}
-      borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.1)' : 'none'}
+      alignItems="center"
+      py={[6, 8, 12]}
       zIndex={12}
     >
       <Box
         m="auto"
         display="flex"
-        flexDirection={['column', 'column', 'row']}
+        flexDirection={['column', 'column', 'column']}
         alignItems="center"
-        justifyContent="space-between"
-        px={[8, 8, 8, 24]}
+        justifyContent="center"
+        maxWidth={1400}
       >
-        <Link to="http://github.com/av3ng3roo">
-          <Text
-            fontFamily="sans"
-            display={['none', 'none', 'block']}
-            fontColor={color}
-            fontWeight="black"
-            fontSize={['lg']}
-            hover={{ color: '#4583FF' }}
-          >
-            Daniel.
-          </Text>
-        </Link>
-        <Text
-          fontFamily="sans"
-          fontSize={['base', 'base', 'lg']}
-          fontColor={color}
-          fontWeight="bold"
-          mb={[3, 3, 0]}
-        >
-          hello@ddomanski.dev
-        </Text>
-        <Box>
+        <Navigation
+          variant={variant}
+          content={content.header.nav}
+          placement="footer"
+        />
+        <Box my={6}>
           <Icon
             icon="github"
-            width={[18, 21]}
-            mr={2}
+            width={20}
+            mr={4}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={[18, 21]}
+            width={20}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
+        </Box>
+        <Box display="flex">
+          <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
+            Code available on
+          </Text>
+          <Text fontColor={color} fontWeight="bold" fontSize="base">
+            Github
+          </Text>
         </Box>
       </Box>
     </Box>
@@ -75,7 +71,7 @@ BottomBox.propTypes = {
 }
 
 BottomBox.defaultProps = {
-  variant: 'primary',
+  variant: 'secondary',
 }
 
 export default withTheme(BottomBox)

@@ -8,9 +8,11 @@ import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatProjectsPage, formatHeader } from '../utilitity/format'
+import UnderlineText from '../components/atoms/UnderlineText'
+import { usePageContent } from '../context/ContentContext'
 
 const Line = styled.span`
-  ${tw`mt-2 md:mt-4`}
+  ${tw`mt-1 md:mt-2`}
   display: block;
   width: 80px;
   height: 4px;
@@ -18,35 +20,28 @@ const Line = styled.span`
 `
 
 const Projects = ({ data, pageContext }) => {
+  const [content] = usePageContent(data)
   const pageContent = formatProjectsPage(data.projectsPage.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
 
   return (
     <Layout locale={pageContext.locale}>
-      <Header content={headerContent} />
+      <Header content={headerContent} variant="secondary" />
       <Box
         width={1}
-        maxWidth={1200}
+        maxWidth={1250}
         m={[0, 0, 0, 0, 'auto']}
         px={[6, 8, 12, 12, 12, 0]}
         flex={1}
       >
-        <Text
-          fontFamily="sans"
-          fontColor="primary.8"
-          fontWeight="black"
-          fontSize={['3xl', '4xl', '5xl']}
-        >
-          {pageContent.title}
-          <Line />
-        </Text>
+        <UnderlineText>{pageContent.title}</UnderlineText>
         <ProjectsGrid
           projects={data.projects.edges}
           mt={[8, 8, 16]}
           mb={[16, 8, 32]}
         />
       </Box>
-      <Box as="footer" m="auto" mx={[8, 8, 12]} mt={8}>
+      <Box as="footer" m="auto" width={1}>
         <BottomBox variant="secondary" />
       </Box>
     </Layout>

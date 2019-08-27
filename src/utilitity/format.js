@@ -95,3 +95,23 @@ export const formatBlogPage = blog => {
 
 export const formatUrlToLocale = url =>
   url.split('/')[1] === 'en' ? 'en-pl' : 'pl'
+
+export const formatRawDataToContext = context => {
+  const contextKeys = Object.keys(context)
+  let data = {}
+  console.log({ context })
+  contextKeys.map(key => {
+    switch (key) {
+      case 'home':
+        data = { home: formatHome(context.home.edges[0]), ...data }
+        break
+      case 'header':
+        data = { header: formatHeader(context.header.edges[0]), ...data }
+        break
+      default:
+        return data
+    }
+  })
+
+  return data
+}
