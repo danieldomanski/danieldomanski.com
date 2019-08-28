@@ -70,7 +70,7 @@ UnderlineText.defaultProps = {
   fontWeight: 'black',
   fontColor: 'primary.11',
   display: 'inline-block',
-  my: 8,
+  my: [0, 8],
   mb: 0,
   mt: 0,
   mr: 0,

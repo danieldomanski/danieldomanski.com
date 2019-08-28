@@ -38,12 +38,13 @@ const HomeInfoRow = ({ title, description, button, idx }) => (
       </Box>
       <Text
         fontFamily="sans"
-        display={['none', 'block']}
-        fontSize={['lg', 'lg', 'xl', 'xl', 'xl']}
+        display={['block']}
+        fontSize={['base', 'base', 'xl', 'xl', 'xl']}
         fontColor="cosmic.2"
         fontWeight="medium"
         lineHeight="relaxed"
         maxWidth={920}
+        mt={[8, 8, 0]}
       >
         {description}
       </Text>

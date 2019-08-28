@@ -1,8 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Layout from '../components/templates/Layout'
-import Header from '../components/organisms/Header'
 import ProjectsGrid from '../components/organisms/ProjectsGrid'
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
@@ -10,23 +7,15 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatProjectsPage, formatHeader } from '../utilitity/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
+import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Line = styled.span`
-  ${tw`mt-1 md:mt-2`}
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #181818;
-`
-
-const Projects = ({ data, pageContext }) => {
+const Projects = ({ data, pageContext, location }) => {
   const [content] = usePageContent(data)
   const pageContent = formatProjectsPage(data.projectsPage.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
 
   return (
-    <Layout locale={pageContext.locale}>
-      <Header content={headerContent} variant="secondary" />
+    <FadeIn>
       <Box
         width={1}
         maxWidth={1250}
@@ -44,7 +33,7 @@ const Projects = ({ data, pageContext }) => {
       <Box as="footer" m="auto" width={1}>
         <BottomBox variant="secondary" />
       </Box>
-    </Layout>
+    </FadeIn>
   )
 }
 

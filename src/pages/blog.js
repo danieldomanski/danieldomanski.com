@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Layout from '../components/templates/Layout'
-import Header from '../components/organisms/Header'
 import Text from '../components/atoms/Text'
 import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
@@ -11,16 +8,9 @@ import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatBlogPage, formatHeader } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
+import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Line = styled.span`
-  ${tw`mt-1 md:mt-2`}
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #181818;
-`
-
-const Blog = ({ data, pageContext }) => {
+const Blog = ({ data, pageContext, location }) => {
   const [content] = usePageContent(data)
   const [currentFilters, setFilters] = useState([])
   const [filteredPosts, filterPosts] = useState(data.posts.edges)
@@ -53,8 +43,7 @@ const Blog = ({ data, pageContext }) => {
   }, [currentFilters])
 
   return (
-    <Layout locale={pageContext.locale}>
-      <Header content={headerContent} variant="secondary" />
+    <FadeIn>
       <Box
         width={1}
         pb={[4, 8, 16]}
@@ -65,18 +54,19 @@ const Blog = ({ data, pageContext }) => {
       >
         <UnderlineText>{pageContent.title}</UnderlineText>
         <Box
-          mt={[8, 8, 2]}
-          mb={16}
-          bg="rgba(144,144,144,.1)"
-          px={12}
-          py={8}
-          boxShadow="md"
+          mt={[8, 8, 0]}
+          mb={[8, 8, 12]}
+          bg="rgba(245, 245, 245, 1)"
+          px={[6, 10]}
+          pt={[8, 12]}
+          pb={[6, 8]}
+          boxShadow="default"
         >
           <Text
             fontFamily="sans"
             lineHeight="relaxed"
             fontColor="primary.8"
-            fontSize={['base', 'base', 'base']}
+            fontSize={['sm', 'base', 'base']}
             style={{ fontStyle: 'italic' }}
           >
             “You already know that you will never be done learning. But most
@@ -93,7 +83,7 @@ const Blog = ({ data, pageContext }) => {
             fontSize={['sm', 'base', 'base']}
             fontWeight="bold"
             fontColor="primary.7"
-            mt={[6, 1]}
+            mt={[4, 4]}
           >
             learn in public, swyx.io
           </Text>
@@ -110,37 +100,37 @@ const Blog = ({ data, pageContext }) => {
               </Filter>
             ))}
           </Box>
-          <Box minHeight={500}>
-            {filteredPosts.length === 0 ? (
-              <Text
-                display="block"
-                fontSize={['base', 'lg']}
-                fontColor="primary.3"
-                textAlign="center"
-              >
-                No articles yet :(
-              </Text>
-            ) : (
-              filteredPosts.map((post, idx) => (
-                <PostItem
-                  data={post}
-                  pb={6}
-                  mb={6}
-                  borderBottom={
-                    idx === filteredPosts.length - 1
-                      ? 'none'
-                      : '1px solid rgba(0,0,0,0.1)'
-                  }
-                />
-              ))
-            )}
-          </Box>
+        </Box>
+        <Box minHeight={400} mt={[0, 0, 8]} pb={[8]}>
+          {filteredPosts.length === 0 ? (
+            <Text
+              display="block"
+              fontSize={['base', 'lg']}
+              fontColor="primary.3"
+              textAlign="center"
+            >
+              No articles yet :(
+            </Text>
+          ) : (
+            filteredPosts.map((post, idx) => (
+              <PostItem
+                data={post}
+                pb={6}
+                mb={6}
+                borderBottom={
+                  idx === filteredPosts.length - 1
+                    ? 'none'
+                    : '1px solid rgba(0,0,0,0.1)'
+                }
+              />
+            ))
+          )}
         </Box>
       </Box>
       <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
-    </Layout>
+    </FadeIn>
   )
 }
 export default Blog

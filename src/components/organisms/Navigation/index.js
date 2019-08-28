@@ -1,31 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react'
+import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
-import styled, { withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import { LocalizedLink } from '../../atoms/Link'
-
-const List = styled.ul`
-  ${tw`flex flex-wrap mt-2 md:mt-0`}
-  text-transform: uppercase;
-  list-style: none;
-
-  & > li:last-child {
-    margin-right: 0;
-  }
-`
 
 const getActiveStyle = (active, placement) =>
   placement === 'header'
     ? {
         color: active.color,
-        borderBottom: `2px solid ${active.border}`,
+        borderBottom: `3px solid ${active.border}`,
         paddingBottom: '4px',
-        fontWeight: 600,
       }
     : {
         color: active.color,
-        fontWeight: 600,
       }
 
 const headerNavStyles = {
@@ -33,10 +20,29 @@ const headerNavStyles = {
   ml: [0, 0, 'auto'],
   mr: [0, 0, 8, 16, 16, 64],
   mt: [2, 2, 0],
+  textTransform: 'uppercase',
 }
 
-const FooterNavStyles = {
-  justifyContent: 'center',
+const footerNavStyles = {
+  flexDirection: 'column',
+}
+
+const headerListStyles = {
+  mt: [2, 2, 0],
+}
+
+const footerListStyles = {
+  flexDirection: ['column', 'row'],
+}
+
+const headerItemStyles = {
+  mr: 6,
+  pb: [3, 3, 0],
+}
+
+const footerItemStyles = {
+  mr: [0, 0, 6],
+  pb: [6, 0, 0],
 }
 
 const Navigation = ({ theme, variant, locale, placement, content }) => {
@@ -44,16 +50,33 @@ const Navigation = ({ theme, variant, locale, placement, content }) => {
 
   const { color, active } = theme.components.navigation[variant]
   const activeStyle = getActiveStyle(active, placement)
-  const styles = placement === 'header' ? headerNavStyles : FooterNavStyles
+
+  const navStyles = placement === 'header' ? headerNavStyles : footerNavStyles
+  const listStyles =
+    placement === 'header' ? headerListStyles : footerListStyles
+  const itemStyles =
+    placement === 'header' ? headerItemStyles : footerItemStyles
 
   return (
-    <Box width={[1, 1, 'auto']} display="flex" alignItems="center" {...styles}>
-      <List>
-        <Box mr={6} pb={[4, 0]}>
+    <Box
+      width={[1, 1, 'auto']}
+      display="flex"
+      alignItems="center"
+      {...navStyles}
+    >
+      <Box
+        as="ul"
+        display="flex"
+        alignItems="center"
+        flexWrap="wrap"
+        style={{ textTransform: 'uppercase' }}
+        {...listStyles}
+      >
+        <Box {...itemStyles}>
           <LocalizedLink
             to="/"
             locale={locale}
-            fontWeight="medium"
+            fontWeight="bold"
             fontColor={color}
             fontSize={['sm', 'sm']}
             activeStyle={activeStyle}
@@ -61,11 +84,11 @@ const Navigation = ({ theme, variant, locale, placement, content }) => {
             {home}
           </LocalizedLink>
         </Box>
-        <Box mr={6} pb={[4, 0]}>
+        <Box {...itemStyles}>
           <LocalizedLink
             to="/projects"
             locale={locale}
-            fontWeight="medium"
+            fontWeight="bold"
             fontColor={color}
             partiallyActive
             fontSize={['sm', 'sm']}
@@ -74,11 +97,11 @@ const Navigation = ({ theme, variant, locale, placement, content }) => {
             {projects}
           </LocalizedLink>
         </Box>
-        <Box mr={6} pb={[4, 0]}>
+        <Box {...itemStyles}>
           <LocalizedLink
             to="/blog"
             locale={locale}
-            fontWeight="medium"
+            fontWeight="bold"
             fontColor={color}
             partiallyActive
             fontSize={['sm', 'sm']}
@@ -88,11 +111,11 @@ const Navigation = ({ theme, variant, locale, placement, content }) => {
             {articles}
           </LocalizedLink>
         </Box>
-        <Box pb={[4, 0]}>
+        <Box {...itemStyles} pb={[4, 4, 0]}>
           <LocalizedLink
             to="/about"
             locale={locale}
-            fontWeight="medium"
+            fontWeight="bold"
             fontColor={color}
             fontSize={['sm', 'sm']}
             activeStyle={activeStyle}
@@ -100,7 +123,7 @@ const Navigation = ({ theme, variant, locale, placement, content }) => {
             {about}
           </LocalizedLink>
         </Box>
-      </List>
+      </Box>
     </Box>
   )
 }

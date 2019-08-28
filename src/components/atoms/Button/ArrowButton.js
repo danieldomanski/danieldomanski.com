@@ -76,12 +76,17 @@ const ButtonContainer = styled.button`
     }
 
     &::after {
-      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: 100%;
+      }
     }
 
     & svg {
       margin-left: 8px;
       fill: white;
+    }
+    &:focus {
+      ${tw`shadow-lg`}
     }
   }
 

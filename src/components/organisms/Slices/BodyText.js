@@ -7,16 +7,12 @@ const Wrapper = styled.div`
   padding: 0 0.625em;
 `
 
-const BodyText = ({ data }) => {
-  console.log({ data })
-
-  return (
+const BodyText = ({ data }) => (
     <Wrapper
       className="body-text"
       dangerouslySetInnerHTML={{ __html: data.primary.text.html }}
     />
   )
-}
 
 export default BodyText
 

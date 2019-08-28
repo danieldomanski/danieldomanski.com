@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import HomeParticles from '../../molecules/HomeParticles'

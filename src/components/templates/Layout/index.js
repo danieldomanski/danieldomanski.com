@@ -4,8 +4,9 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
 import ScrollProvider from '../../../context/ScrollContext'
-import ContentProvider from '../../../context/ContentContext'
 import theme from '../../../config/theme'
+import Header from '../../organisms/Header'
+import useWindowSize from '../../../hooks/useWindowSize'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -54,21 +55,38 @@ const MainContent = styled.main`
   min-height: 100vh;
 `
 
-const Layout = ({ children, locale }) => (
-  <>
-    <Helmet>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      <title>Daniel Domański - Full stack web developer</title>
-    </Helmet>
-    <GlobalStyle />
+const primaryHeaderPages = ['', 'en']
 
-    <ScrollProvider throttle={0}>
-      <ThemeProvider theme={theme}>
-        <MainContent>{children}</MainContent>
-      </ThemeProvider>
-    </ScrollProvider>
-  </>
-)
+const getVariantByLocation = (pathname, width) => {
+  const path = pathname.replace(/^\/|\/$/g, '')
+  console.log({ path })
+  return primaryHeaderPages.includes(path) && width > 768
+    ? 'primary'
+    : 'secondary'
+}
+
+const Layout = ({ children, locale, location }) => {
+  const { width } = useWindowSize()
+
+  return (
+    <>
+      <Helmet>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Daniel Domański - Full stack web developer</title>
+      </Helmet>
+      <GlobalStyle />
+
+      <ScrollProvider throttle={0}>
+        <ThemeProvider theme={theme}>
+          <MainContent>
+            <Header variant={getVariantByLocation(location.pathname, width)} />
+            {children}
+          </MainContent>
+        </ThemeProvider>
+      </ScrollProvider>
+    </>
+  )
+}
 
 Layout.propTypes = {
   locale: PropTypes.string.isRequired,

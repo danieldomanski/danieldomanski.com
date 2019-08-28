@@ -40,9 +40,7 @@ const createPosts = (posts, createPage, template) =>
     const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
 
     const siblings = getPostSiblings(posts, edge.node.uid)
-    console.log({ siblings: siblings[idx] })
     const { previous, next } = siblings[idx]
-    console.log({ previous, next })
 
     createPage({
       path: `${localPrefix}/blog/${edge.node.uid}`,

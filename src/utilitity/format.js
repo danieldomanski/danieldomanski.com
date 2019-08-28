@@ -99,7 +99,7 @@ export const formatUrlToLocale = url =>
 export const formatRawDataToContext = context => {
   const contextKeys = Object.keys(context)
   let data = {}
-  console.log({ context })
+
   contextKeys.map(key => {
     switch (key) {
       case 'home':

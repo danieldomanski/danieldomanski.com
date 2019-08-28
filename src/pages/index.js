@@ -20,6 +20,7 @@ import {
   formatRawDataToContext,
 } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
+import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden`}
@@ -41,19 +42,17 @@ const TopLayer = styled.section`
   );
 `
 
-const Index = ({ data, pageContext }) => {
+const Index = ({ data, pageContext, location }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const pageContent = formatHome(data.home.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
 
   const [content] = usePageContent(data)
-  console.log({ content })
 
   if (isMobile) {
     return (
-      <Layout locale={pageContext.locale}>
-        <Header variant="secondary" />
+      <FadeIn>
         <HomeSlide content={pageContent.hero} />
         <AboutSlide content={pageContent.about} />
         <ProjectsSlide
@@ -65,13 +64,12 @@ const Index = ({ data, pageContext }) => {
           <UpperBox content={pageContent.footer} />
           <BottomBox />
         </Footer>
-      </Layout>
+      </FadeIn>
     )
   }
   return (
-    <Layout locale={pageContext.locale}>
+    <>
       <TopLayer>
-        <Header content={headerContent} />
         <HomeSlide content={pageContent.hero} />
       </TopLayer>
       <OnTopLayer>
@@ -86,7 +84,7 @@ const Index = ({ data, pageContext }) => {
         <UpperBox content={pageContent.footer} />
         <BottomBox variant="primary" />
       </Footer>
-    </Layout>
+    </>
   )
 }
 

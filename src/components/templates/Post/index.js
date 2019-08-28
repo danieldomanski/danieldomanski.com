@@ -3,9 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Link } from '../../atoms/Link'
 import Layout from '../Layout'
-import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
-import Icon from '../../atoms/Icon'
 import Box from '../../atoms/Box'
 import BottomBox from '../../organisms/Footer/BottomBox'
 import Bio from '../../organisms/Bio'
@@ -13,13 +11,15 @@ import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utilitity/date'
 import { countWordsFromSlices, timeToRead } from '../../../utilitity/timeToRead'
 import Tag from '../../atoms/Tag'
-import { formatInvolvment, formatHeader } from '../../../utilitity/format'
+import { usePageContent } from '../../../context/ContentContext'
+import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const Dot = styled.span`
   ${tw`text-primary-600 mx-2`}
 `
 
 const Post = ({ data, pageContext, location }) => {
+  const [content] = usePageContent(data)
   const { title, tags, icon, date } = data.prismicPost.data
   const { previous, next } = pageContext.data.siblings
 
@@ -31,11 +31,8 @@ const Post = ({ data, pageContext, location }) => {
   const wordCount = countWordsFromSlices(data.prismicPost.data.body)
   const estimatedReadTime = timeToRead(wordCount)
 
-  const headerContent = formatHeader(data.header.edges[0])
-
   return (
-    <Layout locale={pageContext.locale}>
-      <Header variant="primary" content={headerContent} />
+    <FadeIn>
       <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]} pt={[8, 8]}>
         <Box maxWidth={760} width={1} m="auto" py={[0, 0, 8]}>
           <Box
@@ -160,7 +157,7 @@ const Post = ({ data, pageContext, location }) => {
       <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={16}>
         <BottomBox variant="secondary" />
       </Box>
-    </Layout>
+    </FadeIn>
   )
 }
 

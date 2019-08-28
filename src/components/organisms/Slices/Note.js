@@ -14,15 +14,11 @@ const Container = styled.blockquote`
   line-height: 1.5;
 `
 
-const Note = ({ data }) => {
-  console.log({ data })
-
-  return (
+const Note = ({ data }) => (
     <Container
       dangerouslySetInnerHTML={{ __html: data.primary.note_text.html }}
     />
   )
-}
 
 export default Note
 

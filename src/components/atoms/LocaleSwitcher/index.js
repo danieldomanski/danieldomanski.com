@@ -28,9 +28,8 @@ const formatPathname = (pathname, locale) => {
   }
 
   if (locale === 'pl') {
-    splitted.shift('pl')
+    splitted.shift()
   }
-
   return splitted.join('/')
 }
 

@@ -10,8 +10,11 @@ import Navigation from '../Navigation'
 import { ContentContext } from '../../../context/ContentContext'
 
 const Container = styled.header`
-  ${tw`relative `};
-  z-index: 7;
+  @media screen and (min-width: 768px) {
+    position: ${props => (props.variant === 'primary' ? 'fixed' : 'relative')};
+  }
+
+  z-index: 5;
   width: 100%;
   transition: 0.25s;
 `
@@ -28,10 +31,10 @@ const Header = ({ theme, variant }) => {
   const { header } = content
 
   return (
-    <Container>
+    <Container variant={variant}>
       <Box
         width={1}
-        maxWidth={['unset', 'unset', 'unset', 'unset', '80vw']}
+        maxWidth={['unset', 'unset', 'unset', 'unset', 'unset', '80vw']}
         display="flex"
         justifyContent="space-between"
         flexWrap="wrap"

@@ -9,6 +9,14 @@ module.exports = {
     title: 'ddomanski.dev',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(
+          `./src/components/templates/Layout/index.js`
+        ),
+      },
+    },
     'gatsby-plugin-tailwindcss',
     {
       resolve: 'gatsby-plugin-styled-components',

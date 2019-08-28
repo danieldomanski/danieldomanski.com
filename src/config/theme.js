@@ -18,7 +18,7 @@ const colors = {
     '#0C0C0C',
   ],
 
-  cosmic: ['#25273D', '#212235', '#101020'],
+  cosmic: ['#25273D', '#212235', '#101020', '#BED6FF', '#CAD4E6'],
   // white/gray
   secondary: [
     '#F4F5FF',
@@ -34,8 +34,8 @@ const colors = {
   ],
   // blue
   accent: [
-    '#DCE4F8',
-    '#BABEC5',
+    '#E2EAFF',
+    '#D1DEFF',
     '#D7F0F4',
     '#8BB1FF',
     '#A2C1FF',
@@ -121,7 +121,7 @@ const theme = {
   },
   fontSizes: {
     xs: '.775rem', // 12.4px
-    sm: '.9rem', // 14.4px
+    sm: '.875rem', // 14.4px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
     xl: '1.25rem', // 20px
@@ -158,12 +158,12 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: 'rgba(12, 12, 20, .2)',
+      backgroundColor: 'rgba(24, 24, 32, .75)',
       color: theme.colors.secondary[1],
       secondaryColor: theme.colors.secondary[9],
     },
     secondary: {
-      backgroundColor: 'rgba(144, 144, 144, .1)',
+      backgroundColor: 'rgba(245, 245, 245, 1)',
       color: theme.colors.primary[9],
       secondaryColor: theme.colors.primary[6],
     },
@@ -181,14 +181,14 @@ theme.components = {
       color: theme.colors.secondary[7],
       active: {
         color: theme.colors.secondary[1],
-        border: theme.colors.secondary[9],
+        border: theme.colors.cosmic[3],
       },
     },
     secondary: {
-      color: theme.colors.primary[6],
+      color: theme.colors.primary[5],
       active: {
-        color: theme.colors.primary[9],
-        border: theme.colors.accent[3],
+        color: theme.colors.primary[11],
+        border: theme.colors.cosmic[4],
       },
     },
   },
@@ -236,9 +236,9 @@ theme.components = {
       hoverColor: theme.colors.accent[1],
       backgroundColor: theme.colors.accent[0],
       active: {
-        backgroundColor: theme.colors.accent[6],
-        hoverColor: theme.colors.accent[7],
-        color: theme.colors.secondary[1],
+        backgroundColor: theme.colors.accent[7],
+        hoverColor: theme.colors.accent[6],
+        color: theme.colors.secondary[0],
       },
     },
   },

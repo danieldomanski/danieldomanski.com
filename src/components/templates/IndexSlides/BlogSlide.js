@@ -45,8 +45,8 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => (
           <DirectionalFade delay={0.075}>
             <PostItem
               data={post}
-              pb={idx === posts.length - 1 ? 0 : 8}
-              mb={idx === posts.length - 1 ? 0 : 8}
+              pb={idx === posts.length - 1 ? 0 : 6}
+              mb={idx === posts.length - 1 ? 0 : 6}
               borderBottom={
                 idx === posts.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
               }

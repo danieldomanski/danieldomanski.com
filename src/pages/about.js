@@ -1,27 +1,23 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Layout from '../components/templates/Layout'
-import Header from '../components/organisms/Header'
+
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
-import Avatar from '../components/atoms/Avatar'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatAboutGroup, formatHeader } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
+import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const About = ({ data, pageContext }) => {
+const About = ({ data, pageContext, location }) => {
   const [content] = usePageContent(data)
 
   const { title, about_me, about_group } = data.about.data
   const aboutGroups = formatAboutGroup(about_group)
   const headerContent = formatHeader(data.header.edges[0])
 
-  console.log({ content })
   return (
-    <Layout locale={pageContext.locale}>
-      <Header content={headerContent} variant="secondary" />
+    <FadeIn>
       <Box
         width={1}
         pb={[24]}
@@ -103,7 +99,7 @@ const About = ({ data, pageContext }) => {
       <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
-    </Layout>
+    </FadeIn>
   )
 }
 
