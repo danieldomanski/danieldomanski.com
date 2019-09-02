@@ -36,10 +36,15 @@ exports.onCreatePage = ({ page, actions }) => {
 
     // Remove the leading AND traling slash from path, e.g. --> blog
     const name = replaceBoth(page.path)
+
     // Create the "slugs" for the pages like in "onCreateNode". Unless default language, add prefix àla "/en"
     const localizedPath = locales[lang].default
       ? page.path
       : `${locales[lang].path}${page.path}`
+    // not creating english version of blog
+    if (name === 'blog' && locales[lang].path === 'en') {
+      return
+    }
 
     return createPage({
       ...page,

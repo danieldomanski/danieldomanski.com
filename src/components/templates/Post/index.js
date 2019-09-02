@@ -33,40 +33,29 @@ const Post = ({ data, pageContext, location }) => {
 
   return (
     <FadeIn>
-      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]} pt={[8, 8]}>
-        <Box maxWidth={760} width={1} m="auto" py={[0, 0, 8]}>
+      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
+        <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
           <Box
             as="header"
             width={1}
             display="flex"
-            justifyContent="center"
             flexDirection={['column', 'column', 'row']}
             alignItems={['center', 'center', 'center']}
-            px={4}
-            mb={8}
+            px={2}
+            mb={4}
           >
-            <Box
-              display="flex"
-              flexDirection="column"
-              textAlign="center"
-              mb={8}
-            >
+            <Box display="flex" flexDirection="column" mb={16}>
               <Text
                 fontFamily="sans"
                 fontColor="primary.10"
                 fontWeight="black"
-                fontSize={['2xl', '3xl', '5xl']}
-                lineHeight="tight"
-                my={4}
+                fontSize={['4xl', '4xl', '5xl']}
+                lineHeight="none"
               >
                 {title.text}
               </Text>
-              <Box display="flex" flexDirection="column">
-                <Box
-                  display="flex"
-                  justifyContent={['center', 'center']}
-                  alignItems="center"
-                >
+              <Box display="flex" flexDirection="column" mt={[6, 4]} mb={[4]}>
+                <Box display="flex" alignItems="center">
                   <Text fontColor="primary.6">{formatDate(date)}</Text>
                   <Dot>•</Dot>
                   <Text fontColor="primary.6">
@@ -74,58 +63,40 @@ const Post = ({ data, pageContext, location }) => {
                   </Text>
                 </Box>
               </Box>
+              <Box>
+                {tagsData.map(tag => (
+                  <Tag data={tag} />
+                ))}
+              </Box>
             </Box>
           </Box>
           <PostContent data={data.prismicPost.data.body} />
-          <Box
-            display="flex"
-            flexDirection="column"
-            alignItems="flex-start"
-            py={8}
-            mt={16}
-            borderTop="1px solid rgba(0,0,0,0.1)"
-            borderBottom="1px solid rgba(0,0,0,0.1)"
-          >
-            <Text
-              fontFamily="sans"
-              fontWeight="bold"
-              fontColor="primary.7"
-              fontSize="lg"
-              mb={4}
-            >
-              Tags
-            </Text>
-            <Box>
-              {tagsData.map(tag => (
-                <Tag data={tag} />
-              ))}
-            </Box>
-          </Box>
           <Box
             width={1}
             display="flex"
             flexDirection={['column', 'column', 'row']}
             flexWrap="wrap"
             justifyContent={['flex-start', 'flex-start', 'space-between']}
-            mt={12}
+            borderTop="1px solid rgba(0,0,0,0.1)"
+            pt={[8, 12]}
+            mt={[12, 16]}
           >
             <Link to={`/blog/${previous.node.uid}`} maxWidth={300}>
               <Box
                 display="flex"
                 flexDirection="column"
-                pb={[4, 4, 0]}
+                pb={[8, 4, 0]}
                 mr={[0, 0, 4]}
               >
                 <Text
-                  fontColor="accent.8"
-                  fontFamily="sans"
-                  fontWeight="bold"
-                  fontSize={['base', 'base', 'base']}
-                  mb={1}
+                  fontColor="primary.11"
+                  fontWeight="black"
+                  mb={2}
+                  style={{ textTransform: 'uppercase' }}
                 >
                   Previous
                 </Text>
-                <Text fontColor="accent.6" fontFamily="sans" fontSize={['lg']}>
+                <Text fontWeight="medium" fontFamily="serif">
                   {previous.node.data.title.text}
                 </Text>
               </Box>
@@ -137,24 +108,23 @@ const Post = ({ data, pageContext, location }) => {
                 textAlign={['left', 'left', 'right']}
               >
                 <Text
-                  fontColor="accent.8"
-                  fontFamily="sans"
-                  fontWeight="bold"
-                  fontSize={['base']}
-                  mb={1}
+                  fontColor="primary.8"
+                  fontWeight="black"
+                  mb={2}
+                  style={{ textTransform: 'uppercase' }}
                 >
                   Next
                 </Text>
-                <Text fontColor="accent.6" fontFamily="sans" fontSize={['lg']}>
+                <Text fontWeight="medium" fontFamily="serif">
                   {next.node.data.title.text}
                 </Text>
               </Box>
             </Link>
           </Box>
-          <Bio mt={12} />
+          <Bio mt={12} mb={24} />
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1500} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
     </FadeIn>

@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Container = styled.blockquote`
-  ${tw`flex justify-center rounded text-base md:text-lg`}
+  ${tw`flex justify-center rounded text-base md:text-lg shadow-default`}
   color: rgba(0, 0, 0, 0.7);
-  border: 1.5px solid #e6e0a1;
-  background: #f6f7d6;
+
+  background: #fffae1;
   margin: 0;
   margin-bottom: 2rem;
   padding: 1.5rem;
@@ -15,10 +15,10 @@ const Container = styled.blockquote`
 `
 
 const Note = ({ data }) => (
-    <Container
-      dangerouslySetInnerHTML={{ __html: data.primary.note_text.html }}
-    />
-  )
+  <Container
+    dangerouslySetInnerHTML={{ __html: data.primary.note_text.html }}
+  />
+)
 
 export default Note
 

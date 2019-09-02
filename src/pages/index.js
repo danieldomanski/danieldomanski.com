@@ -23,10 +23,10 @@ import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const OnTopLayer = styled.section`
-  ${tw`relative overflow-hidden`}
+  ${tw`relative overflow-hidden py-24 xl:py-32 shadow-lg`}
   z-index: 5;
   margin-top: 100vh;
-  margin-bottom: 800px;
+  margin-bottom: 90vh;
   background-color: #f0f0f0;
 `
 
@@ -54,7 +54,6 @@ const Index = ({ data, pageContext, location }) => {
     return (
       <FadeIn>
         <HomeSlide content={pageContent.hero} />
-        <AboutSlide content={pageContent.about} />
         <ProjectsSlide
           projects={data.projects.edges}
           content={pageContent.works}

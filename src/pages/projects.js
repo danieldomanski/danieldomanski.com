@@ -20,13 +20,13 @@ const Projects = ({ data, pageContext, location }) => {
         width={1}
         maxWidth={1250}
         m={[0, 0, 0, 0, 'auto']}
-        px={[6, 8, 12, 12, 12, 0]}
+        px={[8, 8, 12, 12, 12, 0]}
         flex={1}
       >
         <UnderlineText>{pageContent.title}</UnderlineText>
         <ProjectsGrid
           projects={data.projects.edges}
-          mt={[8, 8, 16]}
+          mt={[0, 0, 16]}
           mb={[16, 8, 32]}
         />
       </Box>

@@ -84,7 +84,9 @@ const meteorAnimation4 = keyframes`
 
 const Meteors = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
+  ${tw`hidden md:block`}
   position: absolute;
+  z-index: -1;
   width: 100%;
   height: 100%;
 
@@ -118,20 +120,20 @@ const MediumStars = StarsComponent(mdStars, 80, starsAnimation, 2, 0.6)
 const BigStars = StarsComponent(lgStars, 50, starsAnimation, 3, 1)
 
 const BgParticles = ({ variant }) => (
-    <Container>
-      <SmallStars />
-      <MediumStars />
-      <BigStars />
-      <Meteors visible={variant === 'hero'}>
-        <Icon icon="comet" width={32} />
-        <Icon icon="comet" width={48} />
-        <Icon icon="comet" width={64} />
-        <Icon icon="comet" width={80} />
-        <Icon icon="comet" width={64} />
-        <Icon icon="comet" width={80} />
-      </Meteors>
-    </Container>
-  )
+  <Container>
+    <SmallStars />
+    <MediumStars />
+    <BigStars />
+    <Meteors visible={variant === 'hero'}>
+      <Icon icon="comet" width={32} />
+      <Icon icon="comet" width={48} />
+      <Icon icon="comet" width={64} />
+      <Icon icon="comet" width={80} />
+      <Icon icon="comet" width={64} />
+      <Icon icon="comet" width={80} />
+    </Meteors>
+  </Container>
+)
 BgParticles.propTypes = {
   variant: PropTypes.string,
 }

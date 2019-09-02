@@ -21,9 +21,9 @@ const About = ({ data, pageContext, location }) => {
       <Box
         width={1}
         pb={[24]}
-        maxWidth={800}
-        m={[0, 0, 0, 0, 'auto']}
-        px={[6, 8, 12, 12, 0, 0]}
+        maxWidth={686}
+        m={[0, 0, 'auto']}
+        px={[8, 8, 12, 12, 0, 0]}
       >
         <UnderlineText>{title.text}</UnderlineText>
         <Box
@@ -57,7 +57,7 @@ const About = ({ data, pageContext, location }) => {
                 fontFamily="sans"
                 fontColor="primary.10"
                 fontSize={['2xl']}
-                fontWeight="black"
+                fontWeight="bold"
                 mt={8}
                 mb={8}
               >

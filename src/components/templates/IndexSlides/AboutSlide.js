@@ -15,9 +15,8 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[12, 16, 48, 64]}
-    pb={[0, 0, 24, 48]}
-    px={[6, 8, 12, 12, 16, 16]}
+    py={[8, 8, 16, 24]}
+    px={[8, 8, 12, 12, 16, 16]}
   >
     <HomeInfoRow
       title={title}
@@ -25,13 +24,25 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       button={button}
       idx={1}
     />
+    <Text
+      fontFamily="sans"
+      fontSize={['lg', 'lg', 'xl']}
+      textAlign={['center', 'left']}
+      fontColor="primary.5"
+      fontWeight="bold"
+      minWidth={250}
+      mr={[4, 8, 8, 16, 32]}
+      mb={16}
+    >
+      Proces.
+    </Text>
     <Box
       width={1}
       display="flex"
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
-      my={[12, 16, 16]}
+      mb={[12, 16, 16]}
     >
       {rows.map((row, idx) => (
         <Box
@@ -47,8 +58,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
         >
           <Text
             display="inline-block"
-            fontSize={['lg', 'lg', 'xl']}
-            fontFamily="sans"
+            fontSize={['base', 'lg', 'lg', 'xl']}
             fontWeight="bold"
             fontColor="primary.10"
             style={{ textTransform: 'uppercase' }}
@@ -58,9 +68,8 @@ const AboutSlide = ({ content: { title, description, button } }) => (
           </Text>
           <Box display="flex" flexDirection="column">
             <Text
-              fontFamily="sans"
               fontWeight="bold"
-              fontSize={['lg', 'lg', 'xl']}
+              fontSize={['base', 'lg', 'lg', 'xl']}
               fontColor="cosmic.2"
               style={{ textTransform: 'uppercase' }}
               mb={[2, 2, 4]}
@@ -68,10 +77,10 @@ const AboutSlide = ({ content: { title, description, button } }) => (
               Sketch
             </Text>
             <Text
-              fontFamily="sans"
-              fontSize={['base', 'lg', 'lg']}
+              fontFamily="serif"
+              fontSize={['base', 'base', 'base', 'lg']}
               maxWidth={[350]}
-              fontColor="cosmic.2"
+              fontColor="primary.7"
               fontWeight="medium"
               lineHeight="relaxed"
             >

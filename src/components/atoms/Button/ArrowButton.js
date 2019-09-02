@@ -53,31 +53,32 @@ const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.8)
 const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
 
 const ButtonContainer = styled.button`
-  ${tw`relative cursor-pointer p-0 px-4 md:px-6 py-4`};
-  width: 280px;
-
+  ${tw`text-sm md:text-base  relative cursor-pointer p-0 px-4 md:px-6 py-4`};
+  width: 250px;
+  @media screen and (min-width: 768px) {
+    width: 280px;
+  }
   overflow: hidden;
   outline: 0;
   border: 0;
   background: 0;
 
   text-transform: uppercase;
-  border: 3px solid rgba(16, 16, 32, 1);
+  border: 2px solid rgba(16, 16, 32, 1);
 
   &:hover {
-    ${tw`shadow-lg`}
-
     & > div > div {
       display: block;
     }
 
-    & span {
-      color: white !important;
-    }
-
-    &::after {
-      @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
+      ${tw`shadow-lg`}
+      &::after {
         width: 100%;
+      }
+
+      & span {
+        color: white;
       }
     }
 
@@ -116,7 +117,7 @@ const Container = styled.div`
 
 const Button = ({ children, width, fontSize, fontColor }) => (
   <ButtonContainer fontSize={fontSize}>
-    <Text as="span" fontFamily="sans" fontWeight="bold" color={fontColor}>
+    <Text as="span" fontFamily="sans" fontWeight="semibold" color={fontColor}>
       {children}
     </Text>
     <Container>

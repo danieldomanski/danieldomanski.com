@@ -3,10 +3,9 @@ import { css } from 'styled-components'
 export default css`
   div > p,
   li {
-    font: 100%/1.75 'Merriweather';
-    font-size: 18px;
+    ${tw`font-serif md:text-lg leading-loose`}
     margin-bottom: 2rem;
-    color: #000;
+    color: #17191c;
   }
 
   .anchor a {
@@ -40,12 +39,11 @@ export default css`
   }
 
   h1 {
-    font-family: 'Merriweather';
-    font-size: 28px;
-    font-weight: 900;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: #444;
+    ${tw`font-sans text-xl md:text-3xl`}
+    line-height: 125%;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    padding-bottom: 1.25rem;
   }
 
   code[class*='language-'],

@@ -41,10 +41,11 @@ const UnderlineText = ({
     mb={mb}
     mr={mr}
     ml={ml}
+    textAlign={['center']}
+    style={{ letterSpacing: '-1px' }}
     {...rest}
   >
     {children}
-    <Line />
   </Text>
 )
 
@@ -69,10 +70,9 @@ UnderlineText.defaultProps = {
   lineHeight: 'normal',
   fontWeight: 'black',
   fontColor: 'primary.11',
-  display: 'inline-block',
-  my: [0, 8],
-  mb: 0,
-  mt: 0,
+  display: 'block',
+  mb: 8,
+  mt: 4,
   mr: 0,
   ml: 0,
 }

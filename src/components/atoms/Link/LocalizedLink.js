@@ -13,8 +13,7 @@ const LinkContainer = styled(Link)`
   ${space}
   ${layout}
   ${typography};
-  ${color};
-
+  ${color}
 
 `
 
@@ -31,6 +30,7 @@ const LocalizedLink = ({
   activeStyle,
   hover,
   to,
+  ...rest
 }) => (
   <Location>
     {({ location }) => {
@@ -53,8 +53,9 @@ const LocalizedLink = ({
           activeStyle={activeStyle}
           partiallyActive={partiallyActive}
           to={path}
-          style={{ transition: '0.3s all' }}
+          style={{ transition: '0.3s padding' }}
           hover={hover}
+          {...rest}
         >
           {children}
         </LinkContainer>

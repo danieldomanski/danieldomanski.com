@@ -21,6 +21,10 @@ export const formatSlice = slice => {
         mobile: slice.primary.mobile.localFile,
       }
 
+    case 'fullwidthimage':
+      return {
+        localFile: slice.primary.image.localFile,
+      }
     case 'info':
       return {
         role: slice.primary.role.text,

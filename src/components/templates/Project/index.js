@@ -5,29 +5,35 @@ import BottomBox from '../../organisms/Footer/BottomBox'
 import Layout from '../Layout'
 import Header from '../../organisms/Header'
 import Text from '../../atoms/Text'
+import UnderlineText from '../../atoms/UnderlineText'
 import Box from '../../atoms/Box'
 import Column from '../../atoms/Box/Column'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
 import { formatInvolvment, formatHeader } from '../../../utilitity/format'
+import { usePageContent } from '../../../context/ContentContext'
+import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const Mockups = styled.div`
-  ${tw`w-full relative flex justify-center items-center m-auto mt-8 md:mt-12 mb-0 md:mb-16`}
+  ${tw`w-full relative flex justify-center items-center m-auto mt-8 mb-0 md:mb-16`}
 
   & > div:nth-child(1) {
     ${tw`hidden md:block`}
     width: 20%;
-    margin-right: -1em;
+
+    margin-right: -12em;
   }
 
   & > div:nth-child(2) {
+    & img {
+    }
     ${tw`w-full md:w-3/4`}
     z-index: 10;
   }
 `
 
 const Mock = styled.div`
-  ${tw`h-full `}
+  ${tw``}
 `
 
 const Img = styled.img`
@@ -36,51 +42,50 @@ const Img = styled.img`
 `
 
 const Project = ({ data, pageContext }) => {
+  const [content] = usePageContent(data)
   const { title, description } = pageContext.data.node.data
   const { body } = data.prismicProjects.data
 
   const details = getSliceContent(body, 'detail')
   const mockups = getSliceContent(body, 'mockup')[0]
   const info = getSliceContent(body, 'info')[0]
+  const fullWidthImages = getSliceContent(body, 'fullwidthimage')
   const roles = formatInvolvment(data.prismicProjects.data.role)
 
-  const headerContent = formatHeader(data.header.edges[0])
-
   return (
-    <Layout locale={pageContext.locale}>
-      <Header content={headerContent} />
+    <FadeIn>
       <Box
         width={1}
         pb={[4, 8, 16]}
-        maxWidth={1250}
+        maxWidth={1300}
         m={[0, 0, 0, 0, 'auto']}
-        px={[6, 8, 12, 12, 0, 0]}
+        px={[4, 8, 12, 12, 0, 0]}
       >
-        <Box maxWidth={1280} width={1} m="auto" my={8} textAlign="center">
+        <Box maxWidth={1280} width={1} m="auto" my={8}>
           <Column alignItems="center">
             <Text
               fontFamily="sans"
               fontSize={['4xl', '5xl']}
-              fontColor="primary.7"
+              fontColor="primary.11"
               fontWeight="black"
-              mb={2}
             >
               {title.text}
-            </Text>
-            <Text
-              fontFamily="sans"
-              fontColor="primary.5"
-              fontSize={['lg', 'xl']}
-            >
-              {description.text}
             </Text>
           </Column>
           <Mockups>
             <Mock>
-              <ProjectCoverImage input={mockups.mobile} fit="contain" />
+              <ProjectCoverImage
+                input={mockups.mobile}
+                fit="contain"
+                maxHeight={400}
+              />
             </Mock>
             <Mock>
-              <ProjectCoverImage input={mockups.desktop} fit="contain" />
+              <ProjectCoverImage
+                input={mockups.desktop}
+                fit="contain"
+                maxHeight={500}
+              />
             </Mock>
           </Mockups>
         </Box>
@@ -103,15 +108,20 @@ const Project = ({ data, pageContext }) => {
             py={8}
             mb={8}
           >
-            <Column my={1}>
-              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
+            <Column mb={4}>
+              <Text
+                fontFamily="sans"
+                fontColor="primary.3"
+                fontSize={['sm']}
+                fontWeight="bold"
+              >
                 Role
               </Text>
               <Text fontFamily="sans" fontSize={['base']}>
                 {roles.join(', ')}
               </Text>
             </Column>
-            <Column my={1}>
+            <Column mb={4}>
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Technologies
               </Text>
@@ -119,7 +129,7 @@ const Project = ({ data, pageContext }) => {
                 {info.technologies}
               </Text>
             </Column>
-            <Column my={1}>
+            <Column>
               <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
                 Client
               </Text>
@@ -135,12 +145,6 @@ const Project = ({ data, pageContext }) => {
               fontSize={['xl', 'lg', 'lg', 'xl', 'xl']}
             >
               {description.text}
-              {description.text}
-              {description.text}
-              {description.text}
-              {description.text}
-              {description.text}
-              {description.text}
             </Text>
           </Box>
         </Box>
@@ -153,31 +157,36 @@ const Project = ({ data, pageContext }) => {
           mb={[8, 8, 0]}
         >
           {details.map((detail, idx) => (
-              <Box
-                width={1}
-                my={8}
-                display="flex"
-                flexDirection="row"
-                justifyContent="center"
-                alignItems="center"
+            <Box
+              width={1}
+              my={8}
+              display="flex"
+              flexDirection="row"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Text
+                fontWeight="black"
+                fontSize={['3xl', '4xl']}
+                fontColor="primary.7"
+                mb={2}
               >
-                <Text
-                  fontWeight="black"
-                  fontSize={['3xl', '4xl']}
-                  fontColor="primary.7"
-                  mb={2}
-                >
-                  {detail.title}
-                </Text>
-                <Box />
-              </Box>
-            ))}
+                {detail.title}
+              </Text>
+              <Box />
+            </Box>
+          ))}
+          {fullWidthImages.map((img, idx) => (
+            <Box mb={16}>
+              <ProjectCoverImage input={img.localFile} fit="cover" />
+            </Box>
+          ))}
         </Box>
       </Box>
-      <Box as="footer" width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+      <Box as="footer" width={1} m="auto">
         <BottomBox variant="secondary" />
       </Box>
-    </Layout>
+    </FadeIn>
   )
 }
 
@@ -253,6 +262,23 @@ export const pageQuery = graphql`
               }
             }
           }
+          ... on PrismicProjectsBodyFullwidthimage {
+            slice_type
+            id
+            primary {
+              image {
+                alt
+                url
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
           ... on PrismicProjectsBodyMockup {
             slice_type
             id
@@ -278,6 +304,7 @@ export const pageQuery = graphql`
             }
           }
         }
+
         title {
           text
         }

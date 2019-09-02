@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import styled, { withTheme } from 'styled-components'
+import { withTheme } from 'styled-components'
 import Icon from '../../atoms/Icon'
 import Text from '../../atoms/Text'
-import { Link } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Navigation from '../Navigation'
 import { ContentContext } from '../../../context/ContentContext'
@@ -22,7 +21,7 @@ const BottomBox = ({ theme, variant }) => {
       display="flex"
       bg={backgroundColor}
       alignItems="center"
-      py={[12, 8, 12]}
+      py={[8, 12, 12]}
       zIndex={12}
       borderTop="1px solid rgba(0,0,0,0.05)"
     >
@@ -39,17 +38,17 @@ const BottomBox = ({ theme, variant }) => {
           content={content.header.nav}
           placement="footer"
         />
-        <Box my={6}>
+        <Box mt={8} mb={6}>
           <Icon
             icon="github"
-            width={20}
+            width={22}
             mr={4}
             fill={color}
             hover={{ color: '#4583FF' }}
           />
           <Icon
             icon="linkedin"
-            width={20}
+            width={22}
             fill={color}
             hover={{ color: '#4583FF' }}
           />

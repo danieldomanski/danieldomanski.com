@@ -13,9 +13,8 @@ const ProjectsSlide = ({
     width={1}
     maxWidth={1400}
     m="auto"
-    pt={[24, 16, 48, 16]}
-    pb={[0, 0, 24, 48]}
-    px={[6, 8, 12, 12, 16, 16]}
+    px={[8, 8, 12, 12, 16, 16]}
+    py={[8, 8, 16, 24]}
   >
     <HomeInfoRow
       title={title}
@@ -24,7 +23,7 @@ const ProjectsSlide = ({
       idx={2}
     />
     <ProjectsGrid projects={projects} />
-    <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
+    <Box textAlign={['center', 'left', 'right']} mt={[16, 24, 24]}>
       <LocalizedLink to="/projects" display={['block']}>
         <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
           {button}

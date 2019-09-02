@@ -29,7 +29,7 @@ const Bio = ({ mt, mb }) => (
       >
         Daniel Domański
       </Text>
-      <Text fontSize={['sm', 'base']}>
+      <Text fontSize={['sm', 'base']} fontFamily="serif" lineHeight="relaxed">
         I’m well-rounded web developer with strong desire to create outstanding
         products. Always eager to learn and share my experience.
       </Text>

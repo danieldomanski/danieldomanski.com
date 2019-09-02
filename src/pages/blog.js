@@ -46,54 +46,20 @@ const Blog = ({ data, pageContext, location }) => {
     <FadeIn>
       <Box
         width={1}
-        pb={[4, 8, 16]}
-        maxWidth={800}
-        m={[0, 0, 0, 0, 'auto']}
-        px={[6, 8, 12, 12, 0, 0]}
+        pb={[8, 8, 16]}
+        maxWidth={760}
+        m={[0, 0, 'auto', 'auto', 'auto']}
+        px={[8, 8, 12, 12, 0, 0]}
         flex={1}
       >
         <UnderlineText>{pageContent.title}</UnderlineText>
-        <Box
-          mt={[8, 8, 0]}
-          mb={[8, 8, 12]}
-          bg="rgba(245, 245, 245, 1)"
-          px={[6, 10]}
-          pt={[8, 12]}
-          pb={[6, 8]}
-          boxShadow="default"
-        >
-          <Text
-            fontFamily="sans"
-            lineHeight="relaxed"
-            fontColor="primary.8"
-            fontSize={['sm', 'base', 'base']}
-            style={{ fontStyle: 'italic' }}
+        <Box display="flex" flexDirection="column" my={[8, 8, 12]}>
+          <Box
+            as="ul"
+            display="flex"
+            flexWrap="wrap"
+            justifyContent={['flex-start', 'center']}
           >
-            “You already know that you will never be done learning. But most
-            people "learn in private", and lurk. They consume content without
-            creating any themselves. Whatever your thing is, make the thing you
-            wish you had found when you were learning. The biggest beneficiary
-            of you trying to help past you is future you. If others benefit,
-            that's icing.”
-          </Text>
-          <Text
-            display="block"
-            textAlign="right"
-            fontFamily="sans"
-            fontSize={['sm', 'base', 'base']}
-            fontWeight="bold"
-            fontColor="primary.7"
-            mt={[4, 4]}
-          >
-            learn in public, swyx.io
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent={['flex-start', 'flex-start', 'center']}
-        >
-          <Box as="ul" display="flex" flexWrap="wrap" mt={[8, 8, 8]} mb={8}>
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
                 {tag.node.data.tag}
@@ -101,7 +67,7 @@ const Blog = ({ data, pageContext, location }) => {
             ))}
           </Box>
         </Box>
-        <Box minHeight={400} mt={[0, 0, 8]} pb={[8]}>
+        <Box minHeight={520} pb={[8]}>
           {filteredPosts.length === 0 ? (
             <Text
               display="block"
@@ -115,12 +81,13 @@ const Blog = ({ data, pageContext, location }) => {
             filteredPosts.map((post, idx) => (
               <PostItem
                 data={post}
-                pb={6}
-                mb={6}
+                pb={idx === posts.length - 1 ? 0 : [8, 8, 12]}
+                pt={idx === 0 ? 0 : [4, 4, 8]}
+                mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
                 borderBottom={
-                  idx === filteredPosts.length - 1
+                  idx === posts.length - 1
                     ? 'none'
-                    : '1px solid rgba(0,0,0,0.1)'
+                    : '1px solid rgba(0,0,0,0.05)'
                 }
               />
             ))

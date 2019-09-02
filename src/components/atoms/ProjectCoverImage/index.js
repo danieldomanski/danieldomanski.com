@@ -2,26 +2,23 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import Img from 'gatsby-image'
+import Img from 'gatsby-image/withIEPolyfill'
 
 const BgImage = styled(Img)`
   ${tw``}
   transition: 0.75s ease-in-out;
 
-  @media screen and (max-width: 1200px) {
-    min-height: unset;
-    max-height: 500px;
-  }
+  max-height: ${props => props.maxHeight}px;
 `
 
-const Image = ({ input, type, fit }) => {
+const Image = ({ input, type, fit, maxHeight }) => {
   const img =
     type === 'fluid' ? input.childImageSharp.fluid : input.childImageSharp.fixed
 
   return type === 'fluid' ? (
-    <BgImage fit={fit} fluid={img} />
+    <BgImage objectFit={fit} fluid={img} maxHeight={maxHeight} />
   ) : (
-    <BgImage fit={fit} fixed={img} />
+    <BgImage objectFit={fit} fixed={img} maxHeight={maxHeight} />
   )
 }
 

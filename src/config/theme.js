@@ -124,15 +124,13 @@ const theme = {
     sm: '.875rem', // 14.4px
     base: '1rem', // 16px
     lg: '1.125rem', // 18px
-    xl: '1.25rem', // 20px
-    '2xl': '1.5rem', // 24px
-    '3xl': '1.75rem', // 30px
+    xl: '1.375rem', // 20px
+    '2xl': '1.625rem', // 24px
+    '3xl': '1.875rem', // 30px
     '4xl': '2.25rem', // 36px
     '5xl': '3rem', // 48px
-    '6xl': '4rem', // 64px
-    '8xl': '6rem', // 96px
-    '10xl': '8rem', // 128px
-    '12xl': '10rem', // 160px
+    '6xl': '3.5rem', // 54px
+    '8xl': '4.5rem', // 72px
   },
   fontWeights: {
     hairline: 100,
@@ -158,7 +156,7 @@ const theme = {
 theme.components = {
   bottomFooter: {
     primary: {
-      backgroundColor: 'rgba(24, 24, 32, .75)',
+      backgroundColor: 'transparent',
       color: theme.colors.secondary[1],
       secondaryColor: theme.colors.secondary[9],
     },
@@ -188,7 +186,7 @@ theme.components = {
       color: theme.colors.primary[5],
       active: {
         color: theme.colors.primary[11],
-        border: theme.colors.cosmic[4],
+        border: theme.colors.secondary[3],
       },
     },
   },
