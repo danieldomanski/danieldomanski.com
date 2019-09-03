@@ -41,14 +41,14 @@ const Header = ({ theme, variant }) => {
         alignItems={['center']}
         m="auto"
         px={[8, 8, 8, 12, 12, 16]}
-        py={[8, 8, 12]}
+        my={[8, 8, 12]}
       >
         <Brand>
           <LocalizedLink to="/">
             <Text
               fontFamily="sans"
               fontSize={['lg', 'lg', 'xl']}
-              fontWeight="black"
+              fontWeight="bold"
               fontColor={brandColor}
               hover={{ color: '#72A6FF' }}
               style={{ letterSpacing: '-1px' }}

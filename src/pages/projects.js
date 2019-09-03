@@ -58,6 +58,7 @@ export const pageQuery = graphql`
                 }
               }
             }
+            released
             body {
               ... on PrismicProjectsBodyDetail {
                 slice_type

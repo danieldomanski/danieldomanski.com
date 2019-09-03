@@ -42,12 +42,11 @@ const TopLayer = styled.section`
   );
 `
 
-const Index = ({ data, pageContext, location }) => {
+const Index = ({ data }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const pageContent = formatHome(data.home.edges[0])
   const headerContent = formatHeader(data.header.edges[0])
-
   const [content] = usePageContent(data)
 
   if (isMobile) {
@@ -122,6 +121,7 @@ export const pageQuery = graphql`
                 }
               }
             }
+            released
             body {
               ... on PrismicProjectsBodyDetail {
                 slice_type
@@ -245,9 +245,15 @@ export const pageQuery = graphql`
                 slice_type
                 primary {
                   upper_title {
+                    html
+                    text
+                  }
+                  upper_subtitle {
+                    html
                     text
                   }
                   upper_description {
+                    html
                     text
                   }
                 }

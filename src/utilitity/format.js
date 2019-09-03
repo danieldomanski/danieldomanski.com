@@ -51,8 +51,9 @@ export const formatHome = home => {
       button: works_button.text,
     },
     footer: {
-      title: footer.upper_title.text,
-      description: footer.upper_description.text,
+      title: footer.upper_title.html,
+      subtitle: footer.upper_subtitle.html,
+      description: footer.upper_description.html,
     },
   }
 }

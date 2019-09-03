@@ -53,7 +53,7 @@ const Blog = ({ data, pageContext, location }) => {
         flex={1}
       >
         <UnderlineText>{pageContent.title}</UnderlineText>
-        <Box display="flex" flexDirection="column" my={[8, 8, 12]}>
+        <Box display="flex" flexDirection="column" my={[8, 8, 8]}>
           <Box
             as="ul"
             display="flex"
@@ -67,7 +67,7 @@ const Blog = ({ data, pageContext, location }) => {
             ))}
           </Box>
         </Box>
-        <Box minHeight={520} pb={[8]}>
+        <Box minHeight={520} pb={[12]}>
           {filteredPosts.length === 0 ? (
             <Text
               display="block"
@@ -82,7 +82,7 @@ const Blog = ({ data, pageContext, location }) => {
               <PostItem
                 data={post}
                 pb={idx === posts.length - 1 ? 0 : [8, 8, 12]}
-                pt={idx === 0 ? 0 : [4, 4, 8]}
+                pt={idx === 0 ? 4 : [4, 4, 8]}
                 mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
                 borderBottom={
                   idx === posts.length - 1

@@ -183,10 +183,10 @@ theme.components = {
       },
     },
     secondary: {
-      color: theme.colors.primary[5],
+      color: theme.colors.primary[45],
       active: {
         color: theme.colors.primary[11],
-        border: theme.colors.secondary[3],
+        border: theme.colors.secondary[2],
       },
     },
   },

@@ -32,7 +32,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       fontWeight="bold"
       minWidth={250}
       mr={[4, 8, 8, 16, 32]}
-      mb={16}
+      mb={12}
     >
       Proces.
     </Text>
@@ -93,7 +93,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     </Box>
     <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
       <LocalizedLink to="/about" display={['block']}>
-        <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
+        <ArrowButton fontColor="cosmic.0" fontSize={['sm', 'base', 'base']}>
           {button}
         </ArrowButton>
       </LocalizedLink>

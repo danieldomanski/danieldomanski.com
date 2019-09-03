@@ -3,7 +3,29 @@ import { Location } from '@reach/router'
 import { formatRawDataToContext } from '../utilitity/format'
 
 const initialState = {
-  home: {},
+  home: {
+    hero: {
+      title: '',
+      description: '',
+    },
+    about: {
+      title: '',
+      description: '',
+    },
+    works: {
+      title: '',
+      description: '',
+    },
+    blog: {
+      title: '',
+      description: '',
+    },
+    footer: {
+      title: '',
+      subtitle: '',
+      description: '',
+    },
+  },
   header: {
     nav: {
       home: '',
@@ -42,7 +64,8 @@ export const usePageContent = data => {
   const [content, setContent] = useContext(ContentContext)
 
   useEffect(() => {
-    setContent(formatRawDataToContext(data))
+    const formattedData = formatRawDataToContext(data)
+    setContent({ ...content, ...formattedData })
   }, [data])
 
   return [content]

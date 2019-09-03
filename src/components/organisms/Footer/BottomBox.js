@@ -20,7 +20,7 @@ const BottomBox = ({ theme, variant }) => {
       width={1}
       display="flex"
       bg={backgroundColor}
-      alignItems="center"
+      alignItems="flex-end"
       py={[8, 12, 12]}
       zIndex={12}
       borderTop="1px solid rgba(0,0,0,0.05)"

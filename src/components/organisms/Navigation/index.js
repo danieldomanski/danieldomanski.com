@@ -10,12 +10,9 @@ const getActiveStyle = (active, placement) =>
     ? {
         color: active.color,
         borderBottom: `2px solid ${active.border}`,
-        paddingBottom: '4px',
-        fontWeight: 600,
       }
     : {
         color: active.color,
-        fontWeight: 600,
       }
 
 const headerNavStyles = {
@@ -28,7 +25,7 @@ const headerNavStyles = {
 
 const footerNavStyles = {
   flexDirection: 'column',
-  py: 4,
+  py: 2,
 }
 
 const headerListStyles = {
@@ -40,13 +37,14 @@ const footerListStyles = {
 }
 
 const headerItemStyles = {
-  mr: 6,
-  pb: [2, 2, 0],
+  mr: 8,
+  py: [1, 1, 1],
+  borderBottom: `2px solid transparent`,
   fontSize: ['sm', 'sm'],
 }
 
 const footerItemStyles = {
-  mr: [0, 6],
+  mr: [0, 8],
   pb: [6, 0, 0],
   fontSize: ['sm', 'base'],
 }
@@ -69,13 +67,13 @@ const Navigation = ({ theme, variant, placement, content }) => {
       width={[1, 1, 'auto']}
       display="flex"
       alignItems="center"
+      textAlign="center"
       {...navStyles}
     >
       <Box
         as="ul"
         display="flex"
-        alignItems="center"
-        flexWrap="wrap"
+        alignContent="center"
         style={{ textTransform: 'uppercase' }}
         {...listStyles}
       >
@@ -84,24 +82,24 @@ const Navigation = ({ theme, variant, placement, content }) => {
           locale={locale}
           fontWeight="medium"
           fontColor={color}
+          fontSize={['sm', 'sm']}
           activeStyle={activeStyle}
           {...itemStyles}
         >
           {home}
         </LocalizedLink>
-
         <LocalizedLink
           to="/projects"
           locale={locale}
           fontWeight="medium"
           fontColor={color}
           partiallyActive
+          fontSize={['sm', 'sm']}
           activeStyle={activeStyle}
           {...itemStyles}
         >
           {projects}
         </LocalizedLink>
-
         <LocalizedLink
           display={locale === 'en' ? 'none' : 'block'}
           to="/blog"
@@ -109,22 +107,21 @@ const Navigation = ({ theme, variant, placement, content }) => {
           fontWeight="medium"
           fontColor={color}
           partiallyActive
+          fontSize={['sm', 'sm']}
           style={{ textTransform: 'uppercase' }}
           activeStyle={activeStyle}
           {...itemStyles}
         >
           {articles}
         </LocalizedLink>
-
         <LocalizedLink
           to="/about"
           locale={locale}
           fontWeight="medium"
           fontColor={color}
+          fontSize={['sm', 'sm']}
           activeStyle={activeStyle}
           {...itemStyles}
-          mr={0}
-          pb={placement === 'header' ? 2 : 0}
         >
           {about}
         </LocalizedLink>
