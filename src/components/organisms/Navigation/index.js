@@ -10,6 +10,7 @@ const getActiveStyle = (active, placement) =>
     ? {
         color: active.color,
         borderBottom: `2px solid ${active.border}`,
+        fontWeight: 600,
       }
     : {
         color: active.color,
@@ -18,7 +19,7 @@ const getActiveStyle = (active, placement) =>
 const headerNavStyles = {
   order: [3, 3, 2, 2, 2, 2],
   ml: [0, 0, 'auto'],
-  mr: [0, 0, 8, 8, 8, 32],
+  mr: [0, 0, 8, 8, 16, 32],
   mt: [2, 2, 0],
   textTransform: 'uppercase',
 }
@@ -46,7 +47,7 @@ const headerItemStyles = {
 const footerItemStyles = {
   mr: [0, 8],
   pb: [6, 0, 0],
-  fontSize: ['sm', 'base'],
+  fontSize: ['sm', 'sm'],
 }
 
 const Navigation = ({ theme, variant, placement, content }) => {
@@ -80,7 +81,6 @@ const Navigation = ({ theme, variant, placement, content }) => {
         <LocalizedLink
           to="/"
           locale={locale}
-          fontWeight="medium"
           fontColor={color}
           fontSize={['sm', 'sm']}
           activeStyle={activeStyle}
@@ -122,6 +122,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
           fontSize={['sm', 'sm']}
           activeStyle={activeStyle}
           {...itemStyles}
+          mr={0}
         >
           {about}
         </LocalizedLink>

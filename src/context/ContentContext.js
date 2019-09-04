@@ -34,6 +34,16 @@ const initialState = {
       about: '',
     },
   },
+  notFoundPage: {
+    title: '',
+    subtitle: '',
+    description: '',
+  },
+  projectPage: {
+    role: '',
+    client: '',
+    technologies: '',
+  },
 }
 
 export const ContentContext = React.createContext(initialState)

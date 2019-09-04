@@ -58,6 +58,16 @@ export const formatHome = home => {
   }
 }
 
+export const format404 = notFoundPage => {
+  const { title, subtitle, description } = notFoundPage.node.data
+
+  return {
+    title: title.html,
+    subtitle: subtitle.html,
+    description: description.html,
+  }
+}
+
 export const formatHeader = header => {
   const {
     brand,
@@ -86,6 +96,20 @@ export const formatProjectsPage = projects => {
   }
 }
 
+export const formatSingleProjectPage = singleProjectPage => {
+  const {
+    role,
+    technologies,
+    client,
+  } = singleProjectPage.node.data.body[0].items[0]
+
+  return {
+    role: role.text,
+    technologies: technologies.text,
+    client: client.text,
+  }
+}
+
 export const formatBlogPage = blog => {
   const { page_title } = blog.node.data
 
@@ -100,6 +124,7 @@ export const formatUrlToLocale = url =>
 export const formatRawDataToContext = context => {
   const contextKeys = Object.keys(context)
   let data = {}
+  console.log({ contextKeys, context })
 
   contextKeys.map(key => {
     switch (key) {
@@ -108,6 +133,18 @@ export const formatRawDataToContext = context => {
         break
       case 'header':
         data = { header: formatHeader(context.header.edges[0]), ...data }
+        break
+      case 'notFoundPage':
+        data = {
+          notFoundPage: format404(context.notFoundPage.edges[0]),
+          ...data,
+        }
+        break
+      case 'projectPage':
+        data = {
+          projectPage: formatSingleProjectPage(context.projectPage.edges[0]),
+          ...data,
+        }
         break
       default:
         return data

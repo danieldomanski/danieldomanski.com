@@ -129,7 +129,7 @@ const theme = {
     '3xl': '1.875rem', // 30px
     '4xl': '2.25rem', // 36px
     '5xl': '3rem', // 48px
-    '6xl': '3.5rem', // 54px
+    '6xl': '4rem', // 54px
     '8xl': '4.5rem', // 72px
   },
   fontWeights: {
@@ -168,7 +168,7 @@ theme.components = {
   },
   brand: {
     primary: {
-      color: theme.colors.secondary[0],
+      color: theme.colors.secondary[1],
     },
     secondary: {
       color: theme.colors.primary[9],

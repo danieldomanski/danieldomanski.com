@@ -15,7 +15,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
     width={1}
     maxWidth={1400}
     m="auto"
-    py={[8, 8, 16, 24]}
+    py={[8, 8, 16, 32]}
     px={[8, 8, 12, 12, 16, 16]}
   >
     <HomeInfoRow

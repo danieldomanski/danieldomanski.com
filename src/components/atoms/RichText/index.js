@@ -17,16 +17,17 @@ const Container = styled.div`
   }
   p {
     max-width: 900px;
-    ${tw`font-sans text-lg text-primary.7 md:text-secondary.8 leading-loose`}
+    ${tw`inline-block font-sans text-lg font-medium text-primary.7 md:text-secondary.4 leading-loose`}
 
     a {
-      color: #d1e1fd;
-      border-bottom: 0px solid transparent;
-      transition: padding-bottom 0.25s ease;
-
+      color: #a0b1e5;
+      padding-bottom: 6px;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s ease;
+      font-weight: 600;
       &:hover {
-        padding-bottom: 3px;
-        border-bottom: 2px solid #d1e1fd;
+        padding-bottom: 2px;
+        border-bottom: 2px solid #8e9dcc;
       }
     }
   }

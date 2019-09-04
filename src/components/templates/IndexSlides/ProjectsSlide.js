@@ -14,7 +14,7 @@ const ProjectsSlide = ({
     maxWidth={1400}
     m="auto"
     px={[8, 8, 12, 12, 16, 16]}
-    py={[8, 8, 16, 24]}
+    py={[8, 12, 16, 32]}
   >
     <HomeInfoRow
       title={title}

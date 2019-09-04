@@ -18,10 +18,10 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
+      py={[12, 12, 12]}
       display="flex"
       bg={backgroundColor}
       alignItems="flex-end"
-      py={[8, 12, 12]}
       zIndex={12}
       borderTop="1px solid rgba(0,0,0,0.05)"
     >
@@ -38,7 +38,7 @@ const BottomBox = ({ theme, variant }) => {
           content={content.header.nav}
           placement="footer"
         />
-        <Box mt={8} mb={6}>
+        <Box my={4}>
           <Icon
             icon="github"
             width={22}
@@ -53,7 +53,7 @@ const BottomBox = ({ theme, variant }) => {
             hover={{ color: '#4583FF' }}
           />
         </Box>
-        <Box display="flex">
+        <Box display="flex" mt={2}>
           <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
             Code available on
           </Text>

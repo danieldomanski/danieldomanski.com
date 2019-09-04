@@ -33,13 +33,13 @@ const HoverScale = styled.div`
   }
 
   &:hover {
-    & img {
-      transform: scale(1.08);
-    }
-
     & > div {
-      background: rgba(255, 255, 255, 1);
-      opacity: 1;
+      visibility: visible;
+      height: 100%;
+
+      & p {
+        opacity: 1;
+      }
     }
   }
 
@@ -55,21 +55,15 @@ const HoverScale = styled.div`
 `
 
 const BgCover = styled.div`
-  ${tw`absolute w-full h-full flex flex-col justify-center items-center`}
-  background: transparent;
+  ${tw`absolute w-full  flex flex-col justify-center items-center`}
+  background: rgba(255, 255, 255, 1);
   z-index: 6;
-  transition: all 0.4s ease 0.6s;
-  opacity: 0;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  transition: all 0.2s ease 0.2s;
+  height: 0;
+  & p {
     opacity: 0;
-    z-index: 6;
-    top: 0;
-    left: 0;
+
+    transition: opacity 0.1s ease 0.2s;
   }
 `
 

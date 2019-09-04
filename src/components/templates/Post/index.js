@@ -44,7 +44,7 @@ const Post = ({ data, pageContext, location }) => {
             px={2}
             mb={4}
           >
-            <Box display="flex" flexDirection="column" mb={16}>
+            <Box display="flex" flexDirection="column" mb={10}>
               <Text
                 fontFamily="sans"
                 fontColor="primary.10"

@@ -7,18 +7,17 @@ import { ContentContext } from '../../../context/ContentContext'
 import RichText from '../../atoms/RichText'
 
 const Line = styled.span`
-  ${tw`m-auto my-10`}
+  ${tw`m-auto my-8 xl:my-10`}
   display: block;
 
   width: 80px;
   height: 4px;
   background-color: #a0a6b2;
-  opacity: 0.8;
+  opacity: 1;
 `
 
 const UpperRect = () => {
   const [content] = useContext(ContentContext)
-  console.log({ content })
   const { title, subtitle, description } = content.home.footer
 
   return (
@@ -31,7 +30,7 @@ const UpperRect = () => {
         alignItems="center"
         textAlign="center"
         mx={[6, 8, 12]}
-        py={[16, 16, 32]}
+        py={[16, 16, 0]}
         borderTop="1px solid rgba(0,0,0,0.1)"
       >
         <HomeParticles variant="footer" />

@@ -1,33 +1,44 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { graphql } from 'gatsby'
 import BottomBox from '../../organisms/Footer/BottomBox'
-import Layout from '../Layout'
-import Header from '../../organisms/Header'
+
 import Text from '../../atoms/Text'
-import UnderlineText from '../../atoms/UnderlineText'
 import Box from '../../atoms/Box'
-import Column from '../../atoms/Box/Column'
 import ProjectCoverImage from '../../atoms/ProjectCoverImage'
 import { getSliceContent } from '../../../utilitity/prismic'
-import { formatInvolvment, formatHeader } from '../../../utilitity/format'
+import { formatInvolvment } from '../../../utilitity/format'
 import { usePageContent } from '../../../context/ContentContext'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
+const SlideLeft = keyframes`
+0% {
+  margin-right: -16em;
+}
+
+50% {
+  margin-right: 1em;
+}
+
+100% {
+  margin-right: -1em;
+}
+`
+
 const Mockups = styled.div`
-  ${tw`w-full relative flex justify-center items-center m-auto mt-8 mb-0 md:mb-16`}
+  ${tw`w-full relative flex justify-center items-center m-auto mt-16 mb-16`}
 
   & > div:nth-child(1) {
     ${tw`hidden md:block`}
-    width: 20%;
-
-    margin-right: -12em;
+    width: 200px;
+    animation: ${SlideLeft} 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.75s
+      both;
+    margin-right: -1em;
   }
 
   & > div:nth-child(2) {
-    & img {
-    }
-    ${tw`w-full md:w-3/4`}
+    width: 750px;
+
     z-index: 10;
   }
 `
@@ -41,17 +52,43 @@ const Img = styled.img`
   width: 75%;
 `
 
+const InfoBoxRow = ({ children, ...rest }) => (
+  <Box display="flex" flexDirection="column" {...rest}>
+    {children}
+  </Box>
+)
+
+const InfoBoxRowTitle = ({ children }) => (
+  <Text
+    fontFamily="sans"
+    fontColor="primary.4"
+    fontWeight="medium"
+    fontSize="sm"
+  >
+    {children}
+  </Text>
+)
+
+const InfoBoxRowDescription = ({ children }) => (
+  <Text fontFamily="sans" fontSize={['base']} fontWeight="medium">
+    {children}
+  </Text>
+)
+
 const Project = ({ data, pageContext }) => {
   const [content] = usePageContent(data)
   const { title, description } = pageContext.data.node.data
   const { body } = data.prismicProjects.data
+  console.log({ content })
+  const { client, role, technologies } = content.projectPage
 
   const details = getSliceContent(body, 'detail')
   const mockups = getSliceContent(body, 'mockup')[0]
   const info = getSliceContent(body, 'info')[0]
   const fullWidthImages = getSliceContent(body, 'fullwidthimage')
   const roles = formatInvolvment(data.prismicProjects.data.role)
-
+  console.log({ details })
+  console.log({ info })
   return (
     <FadeIn>
       <Box
@@ -61,31 +98,23 @@ const Project = ({ data, pageContext }) => {
         m={[0, 0, 0, 0, 'auto']}
         px={[4, 8, 12, 12, 0, 0]}
       >
-        <Box maxWidth={1280} width={1} m="auto" my={8}>
-          <Column alignItems="center">
-            <Text
-              fontFamily="sans"
-              fontSize={['4xl', '5xl']}
-              fontColor="primary.11"
-              fontWeight="black"
-            >
-              {title.text}
-            </Text>
-          </Column>
+        <Box width={1} m="auto" textAlign="center" mt={8}>
+          <Text
+            fontFamily="sans"
+            fontColor="primary.10"
+            fontWeight="black"
+            fontSize={['4xl', '4xl', '5xl']}
+            lineHeight="none"
+          >
+            {title.text}
+          </Text>
+
           <Mockups>
             <Mock>
-              <ProjectCoverImage
-                input={mockups.mobile}
-                fit="contain"
-                maxHeight={400}
-              />
+              <ProjectCoverImage input={mockups.mobile} fit="contain" />
             </Mock>
             <Mock>
-              <ProjectCoverImage
-                input={mockups.desktop}
-                fit="contain"
-                maxHeight={500}
-              />
+              <ProjectCoverImage input={mockups.desktop} fit="contain" />
             </Mock>
           </Mockups>
         </Box>
@@ -93,7 +122,7 @@ const Project = ({ data, pageContext }) => {
           display="flex"
           flexDirection={['column', 'column', 'row']}
           width={1}
-          maxWidth={1480}
+          maxWidth={1400}
           m="auto"
         >
           <Box
@@ -103,46 +132,33 @@ const Project = ({ data, pageContext }) => {
             flexDirection="column"
             justifyContent="center"
             bg="#fff"
-            boxShadow="lg"
-            px={8}
-            py={8}
-            mb={8}
+            boxShadow="md"
+            p={10}
           >
-            <Column mb={4}>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.3"
-                fontSize={['sm']}
-                fontWeight="bold"
-              >
-                Role
-              </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
-                {roles.join(', ')}
-              </Text>
-            </Column>
-            <Column mb={4}>
-              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
-                Technologies
-              </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
-                {info.technologies}
-              </Text>
-            </Column>
-            <Column>
-              <Text fontFamily="sans" fontSize={['sm']} fontWeight="bold">
-                Client
-              </Text>
-              <Text fontFamily="sans" fontSize={['base']}>
-                {info.client}
-              </Text>
-            </Column>
+            <InfoBoxRow mb={4}>
+              <InfoBoxRowTitle>{role}</InfoBoxRowTitle>
+              <InfoBoxRowDescription>{roles.join(', ')}</InfoBoxRowDescription>
+            </InfoBoxRow>
+            <InfoBoxRow mb={4}>
+              <InfoBoxRowTitle>{technologies}</InfoBoxRowTitle>
+              <InfoBoxRowDescription>{info.technologies}</InfoBoxRowDescription>
+            </InfoBoxRow>
+            <InfoBoxRow>
+              <InfoBoxRowTitle>{client}</InfoBoxRowTitle>
+              <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
+            </InfoBoxRow>
           </Box>
-          <Box px={[8, 8, 8, 8, 16]} flex={[1, 2, 2, 2, 2]}>
+          <Box
+            display="flex"
+            alignItems="center"
+            px={[8, 8, 8, 8, 16]}
+            flex={[1, 2, 2, 2, 2]}
+          >
             <Text
-              fontFamily="sans"
-              fontColor="primary.5"
-              fontSize={['xl', 'lg', 'lg', 'xl', 'xl']}
+              fontFamily="serif"
+              fontColor="primary.9"
+              fontSize={['lg']}
+              lineHeight="relaxed"
             >
               {description.text}
             </Text>
@@ -156,29 +172,38 @@ const Project = ({ data, pageContext }) => {
           my={16}
           mb={[8, 8, 0]}
         >
-          {details.map((detail, idx) => (
-            <Box
-              width={1}
-              my={8}
-              display="flex"
-              flexDirection="row"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Text
-                fontWeight="black"
-                fontSize={['3xl', '4xl']}
-                fontColor="primary.7"
-                mb={2}
-              >
-                {detail.title}
-              </Text>
-              <Box />
-            </Box>
-          ))}
           {fullWidthImages.map((img, idx) => (
-            <Box mb={16}>
+            <Box>
               <ProjectCoverImage input={img.localFile} fit="cover" />
+              {details[idx] ? (
+                <Box
+                  maxWidth={800}
+                  display="flex"
+                  flexDirection="column"
+                  mt={12}
+                  mb={16}
+                  ml="auto"
+                  lineHeight="loose"
+                >
+                  <Text
+                    fontWeight="bold"
+                    fontSize={['lg', 'xl']}
+                    fontColor="primary.8"
+                    mb={1}
+                  >
+                    {details[idx].title}
+                  </Text>
+                  <Text
+                    fontFamily="serif"
+                    fontWeight="normal"
+                    fontSize={['3xl', 'lg']}
+                    fontColor="primary.6"
+                  >
+                    {details[idx].description}
+                  </Text>
+                  <Box />
+                </Box>
+              ) : null}
             </Box>
           ))}
         </Box>
@@ -310,6 +335,31 @@ export const pageQuery = graphql`
         }
         description {
           text
+        }
+      }
+    }
+    projectPage: allPrismicSingleprojectpage(
+      filter: { lang: { eq: $locale } }
+    ) {
+      edges {
+        node {
+          data {
+            body {
+              ... on PrismicSingleprojectpageBodyInfobox {
+                items {
+                  role {
+                    text
+                  }
+                  technologies {
+                    text
+                  }
+                  client {
+                    text
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

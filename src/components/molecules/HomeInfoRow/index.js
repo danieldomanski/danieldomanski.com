@@ -31,7 +31,7 @@ const HomeInfoRow = ({ title, description }) => (
           fontWeight="black"
           lineHeight="tight"
         >
-          {title}
+          {title}.
         </Text>
       </Box>
       <Text

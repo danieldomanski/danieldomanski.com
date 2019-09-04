@@ -23,9 +23,6 @@ exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions
 
   // Only create one 404 page at /404.html
-  if (page.path.includes('404')) {
-    return
-  }
 
   // First delete the pages so we can re-create them
   deletePage(page)
@@ -46,7 +43,7 @@ exports.onCreatePage = ({ page, actions }) => {
       return
     }
 
-    return createPage({
+    createPage({
       ...page,
       path: localizedPath,
       context: {

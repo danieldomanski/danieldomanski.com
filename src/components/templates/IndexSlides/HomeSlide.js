@@ -70,7 +70,7 @@ const HomeSlide = ({ content }) => (
             <Text
               fontFamily="sans"
               fontWeight="bold"
-              fontSize={['3xl', '4xl', '5xl', '6xl']}
+              fontSize={['3xl', '43xl', '5xl', '5xl', '6xl']}
               fontColor={['primary.10', 'primary.8', 'secondary.1']}
               lineHeight="tight"
               mb={[6, 6, 8]}
@@ -80,10 +80,10 @@ const HomeSlide = ({ content }) => (
           </TitleText>
           <SlideLeft>
             <Text
-              maxWidth={800}
+              maxWidth={960}
               fontWeight="medium"
-              fontSize={['base', 'lg', 'lg', 'xl']}
-              fontColor={['primary.10', 'primary.10', 'secondary.4']}
+              fontSize={['base', 'lg', 'lg', 'lg', 'xl']}
+              fontColor={['primary.10', 'primary.10', 'secondary.3']}
               lineHeight="relaxed"
             >
               {content.description}

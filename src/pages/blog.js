@@ -81,9 +81,9 @@ const Blog = ({ data, pageContext, location }) => {
             filteredPosts.map((post, idx) => (
               <PostItem
                 data={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 8, 12]}
+                pb={idx === posts.length - 1 ? 0 : [8, 8, 10]}
                 pt={idx === 0 ? 4 : [4, 4, 8]}
-                mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
+                mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
                 borderBottom={
                   idx === posts.length - 1
                     ? 'none'

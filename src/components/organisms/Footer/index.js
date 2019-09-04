@@ -18,8 +18,12 @@ const FooterContainer = styled.footer`
       #25273c 45%,
       #161723 100%
     );
-    height: 90vh;
-    z-index: 4;
+    height: 800px;
+    z-index: 5;
+  }
+
+  @media screen and (max-height: 768px and min-width: 768px) {
+    position: absolute;
   }
 `
 

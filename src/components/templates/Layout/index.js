@@ -55,14 +55,14 @@ const MainContent = styled.main`
   min-height: 100vh;
 `
 
-const primaryHeaderPages = ['', 'en']
+const primaryHeaderPages = ['about', 'projects', 'blog']
 
 const getVariantByLocation = (pathname, width) => {
-  const path = pathname.replace(/^\/|\/$/g, '')
+  const path = pathname.replace(/^\/|\/$/g, '').split('/')
   console.log({ path })
-  return primaryHeaderPages.includes(path) && width > 768
-    ? 'primary'
-    : 'secondary'
+  return primaryHeaderPages.some(url => path.includes(url)) || width < 768
+    ? 'secondary'
+    : 'primary'
 }
 
 const Layout = ({ children, locale, location }) => {

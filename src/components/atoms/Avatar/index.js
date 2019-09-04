@@ -26,13 +26,13 @@ const Avatar = ({ x, y, src, mt, mb, mr, ml }) => (
   />
 )
 
-Text.propTypes = {
+Avatar.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   src: PropTypes.string.isRequired,
 }
 
-Text.defaultProps = {
+Avatar.defaultProps = {
   x: 100,
   y: 100,
 }

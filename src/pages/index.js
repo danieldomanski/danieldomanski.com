@@ -14,19 +14,16 @@ import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
 import useWindowSize from '../hooks/useWindowSize'
-import {
-  formatHome,
-  formatHeader,
-  formatRawDataToContext,
-} from '../utilitity/format'
+import { formatHome, formatHeader } from '../utilitity/format'
+
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden py-24 xl:py-32 shadow-lg`}
-  z-index: 5;
+  z-index: 6;
   margin-top: 100vh;
-  margin-bottom: 90vh;
+  margin-bottom: 800px;
   background-color: #f0f0f0;
 `
 
