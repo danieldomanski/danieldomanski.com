@@ -1,5 +1,5 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import Icon from '../../atoms/Icon'
@@ -9,7 +9,7 @@ const random = max => Math.floor(Math.random() * (max + 1))
 const generateStars = n => {
   const values = []
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i += 1) {
     values.push(`${random(2000)}px ${random(2000)}px #FFF`)
   }
 

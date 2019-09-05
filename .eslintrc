@@ -11,6 +11,10 @@
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": [0],
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
+    "global-require": 0,
+    "jsx-a11y/accessible-emoji": "off",
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "import/no-dynamic-require": 0
   }
 }

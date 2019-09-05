@@ -1,18 +1,16 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import ProjectsGrid from '../components/organisms/ProjectsGrid'
-import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatProjectsPage, formatHeader } from '../utilitity/format'
+import { formatProjectsPage } from '../utilitity/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Projects = ({ data, pageContext, location }) => {
-  const [content] = usePageContent(data)
+const Projects = ({ data }) => {
+  usePageContent(data)
   const pageContent = formatProjectsPage(data.projectsPage.edges[0])
-  const headerContent = formatHeader(data.header.edges[0])
 
   return (
     <FadeIn>

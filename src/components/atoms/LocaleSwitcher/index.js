@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
@@ -6,11 +6,9 @@ import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import Box from '../Box'
 import Text from '../Text'
-import { LocaleContext } from '../../../context/ContentContext'
 
 const LocaleSpan = styled.span`
   ${tw`relative text-sm font-sans uppercase cursor-pointer px-2`}
-
 
   color: ${props => (props.active ? props.activeColor : props.color)};
   font-weight: ${props => (props.active ? 600 : 500)};
@@ -35,8 +33,6 @@ const formatPathname = (pathname, locale) => {
 
 const LocaleSwitcher = ({ theme, variant }) => {
   const { color, activeColor } = theme.components.localeSwitcher[variant]
-  const [locale] = useContext(LocaleContext)
-  console.log({ locale })
 
   return (
     <Box display="flex" alignItems="center" order="2">

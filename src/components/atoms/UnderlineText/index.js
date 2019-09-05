@@ -1,16 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import Text from '../Text'
-
-const Line = styled.span`
-  ${tw`mt-1 md:mt-2`}
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: #181818;
-`
 
 const UnderlineText = ({
   children,
@@ -75,6 +65,7 @@ UnderlineText.defaultProps = {
   mt: 4,
   mr: 0,
   ml: 0,
+  my: 0,
 }
 
 export default UnderlineText

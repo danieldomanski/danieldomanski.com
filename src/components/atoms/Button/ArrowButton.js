@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { keyframes, withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { color, typography, space } from 'styled-system'
-import Icon from '../Icon'
 import Text from '../Text'
 
 const random = max => Math.floor(Math.random() * (max + 1))
@@ -11,7 +10,7 @@ const random = max => Math.floor(Math.random() * (max + 1))
 const generateStars = n => {
   const values = []
 
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < n; i += 1) {
     values.push(`${random(320)}px ${random(100)}px #FFF`)
   }
 
@@ -53,11 +52,14 @@ const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.8)
 const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
 
 const ButtonContainer = styled.button`
-  ${tw`text-sm md:text-base  relative cursor-pointer p-0 px-4 md:px-6 py-4`};
+  ${tw`text-sm md:text-base relative cursor-pointer p-0 px-4 md:px-6 py-4`};
+
   width: 250px;
+
   @media screen and (min-width: 768px) {
     width: 280px;
   }
+
   overflow: hidden;
   outline: 0;
   border: 0;
@@ -115,7 +117,7 @@ const Container = styled.div`
   height: 100%;
 `
 
-const Button = ({ children, width, fontSize, fontColor }) => (
+const Button = ({ children, fontSize, fontColor }) => (
   <ButtonContainer fontSize={fontSize}>
     <Text as="span" fontFamily="sans" fontWeight="semibold" color={fontColor}>
       {children}
@@ -131,13 +133,11 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   fontSize: PropTypes.string,
   fontColor: PropTypes.string,
-  width: PropTypes.number,
 }
 
 Button.defaultProps = {
   fontSize: 'base',
   fontColor: '#000',
-  width: 32,
 }
 
 export default withTheme(Button)

@@ -1,20 +1,19 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
-import Layout from '../components/templates/Layout'
-import Header from '../components/organisms/Header'
-import Footer from '../components/organisms/Footer'
-import UpperBox from '../components/organisms/Footer/UpperBox'
-import BottomBox from '../components/organisms/Footer/BottomBox'
 
 import HomeSlide from '../components/templates/IndexSlides/HomeSlide'
 import ProjectsSlide from '../components/templates/IndexSlides/ProjectsSlide'
 import BlogSlide from '../components/templates/IndexSlides/BlogSlide'
 import AboutSlide from '../components/templates/IndexSlides/AboutSlide'
+
+import Footer from '../components/organisms/Footer'
+import UpperBox from '../components/organisms/Footer/UpperBox'
+import BottomBox from '../components/organisms/Footer/BottomBox'
+
 import useWindowSize from '../hooks/useWindowSize'
-import { formatHome, formatHeader } from '../utilitity/format'
+import { formatHome } from '../utilitity/format'
 
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -43,8 +42,7 @@ const Index = ({ data }) => {
   const windowSize = useWindowSize()
   const isMobile = windowSize.width < 768
   const pageContent = formatHome(data.home.edges[0])
-  const headerContent = formatHeader(data.header.edges[0])
-  const [content] = usePageContent(data)
+  usePageContent(data)
 
   if (isMobile) {
     return (

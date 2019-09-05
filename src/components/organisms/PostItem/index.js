@@ -1,14 +1,13 @@
+/* eslint-disable camelcase */
+
 import React from 'react'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import { formatDate } from '../../../utilitity/date'
 import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import Icon from '../../atoms/Icon'
 
 const PostItem = ({ data, ...rest }) => {
-  const { title, description, icon } = data.node.data
+  const { title, description } = data.node.data
   const { last_publication_date } = data.node
 
   return (

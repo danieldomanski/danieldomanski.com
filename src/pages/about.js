@@ -1,20 +1,21 @@
-import React, { useContext } from 'react'
+/* eslint-disable camelcase */
+
+import React from 'react'
 import { graphql } from 'gatsby'
 
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatAboutGroup, formatHeader } from '../utilitity/format'
+import { formatAboutGroup } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const About = ({ data, pageContext, location }) => {
-  const [content] = usePageContent(data)
+const About = ({ data }) => {
+  usePageContent(data)
 
   const { title, about_me, about_group } = data.about.data
   const aboutGroups = formatAboutGroup(about_group)
-  const headerContent = formatHeader(data.header.edges[0])
 
   return (
     <FadeIn>
@@ -72,7 +73,7 @@ const About = ({ data, pageContext, location }) => {
               >
                 {group.title}
               </Text>
-              {group.rows.map((row, idx) => (
+              {group.rows.map(row => (
                 <Box
                   display="flex"
                   py={4}

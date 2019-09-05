@@ -21,6 +21,7 @@ const ButtonContainer = styled.button`
 `
 
 const Button = ({ children, variant, size, theme }) => {
+  // eslint-disable-next-line no-shadow
   const { backgroundColor, color } = theme.buttons.colors[variant]
   const { px, py, fontSize } = theme.buttons.sizes[size]
 

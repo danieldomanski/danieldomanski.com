@@ -37,10 +37,10 @@ const Line = styled.span`
   opacity: 1;
 `
 
-const NotFoundPage = ({ data, pageContext, location }) => {
+const NotFoundPage = ({ data }) => {
   const [content] = usePageContent(data)
   const { title, subtitle, description } = content.notFoundPage
-  console.log({ content })
+
   return (
     <Container>
       <HomeParticles />

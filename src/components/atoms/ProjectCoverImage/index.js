@@ -25,7 +25,7 @@ const Image = ({ input, type, fit, maxHeight }) => {
 export default Image
 
 Image.propTypes = {
-  input: PropTypes.object.isRequired,
+  input: PropTypes.oneOfType([PropTypes.object]).isRequired,
   type: PropTypes.oneOf(['fixed', 'fluid']),
   fit: PropTypes.string,
 }

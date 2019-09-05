@@ -1,12 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
-import Icon from '../../atoms/Icon'
 import ArrowButton from '../../atoms/Button/ArrowButton'
 import HomeInfoRow from '../../molecules/HomeInfoRow'
-import { DirectionalFade } from '../../molecules/AnimatedBox'
 
 const rows = [1, 2, 3]
 

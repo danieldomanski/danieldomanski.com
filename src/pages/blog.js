@@ -5,13 +5,13 @@ import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatBlogPage, formatHeader } from '../utilitity/format'
+import { formatBlogPage } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Blog = ({ data, pageContext, location }) => {
-  const [content] = usePageContent(data)
+const Blog = ({ data }) => {
+  usePageContent(data)
   const [currentFilters, setFilters] = useState([])
   const [filteredPosts, filterPosts] = useState(data.posts.edges)
   const [tags] = useState(data.tags.edges)
@@ -36,7 +36,6 @@ const Blog = ({ data, pageContext, location }) => {
   }
 
   const pageContent = formatBlogPage(data.blogPage.edges[0])
-  const headerContent = formatHeader(data.header.edges[0])
 
   useEffect(() => {
     updatePosts()

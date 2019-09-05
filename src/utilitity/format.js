@@ -1,4 +1,6 @@
+/* eslint-disable camelcase */
 /* eslint-disable import/prefer-default-export */
+
 export const formatInvolvment = roles =>
   roles.map(role => role.involvment.document[0].data.involvment.text)
 
@@ -124,9 +126,8 @@ export const formatUrlToLocale = url =>
 export const formatRawDataToContext = context => {
   const contextKeys = Object.keys(context)
   let data = {}
-  console.log({ contextKeys, context })
 
-  contextKeys.map(key => {
+  contextKeys.forEach(key => {
     switch (key) {
       case 'home':
         data = { home: formatHome(context.home.edges[0]), ...data }
@@ -147,7 +148,7 @@ export const formatRawDataToContext = context => {
         }
         break
       default:
-        return data
+        break
     }
   })
 

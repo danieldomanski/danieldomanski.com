@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import { BodyText, CodeBlock, Image, Note } from '../Slices'
 import codeMarkup from '../../../utilitity/codeMarkup'
 

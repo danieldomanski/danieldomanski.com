@@ -59,13 +59,13 @@ const primaryHeaderPages = ['about', 'projects', 'blog']
 
 const getVariantByLocation = (pathname, width) => {
   const path = pathname.replace(/^\/|\/$/g, '').split('/')
-  console.log({ path })
+
   return primaryHeaderPages.some(url => path.includes(url)) || width < 768
     ? 'secondary'
     : 'primary'
 }
 
-const Layout = ({ children, locale, location }) => {
+const Layout = ({ children, location }) => {
   const { width } = useWindowSize()
 
   return (
@@ -89,7 +89,7 @@ const Layout = ({ children, locale, location }) => {
 }
 
 Layout.propTypes = {
-  locale: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
 }
 
 export default Layout

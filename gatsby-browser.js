@@ -9,6 +9,6 @@
 import React from 'react'
 import ContentProvider from './src/context/ContentContext'
 
-export const wrapPageElement = ({ element, props }) => (
+export const wrapPageElement = ({ element }) => (
   <ContentProvider>{element}</ContentProvider>
 )

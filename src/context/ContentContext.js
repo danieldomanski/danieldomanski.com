@@ -1,3 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
+
 import React, { useState, useEffect, useContext } from 'react'
 import { Location } from '@reach/router'
 import { formatRawDataToContext } from '../utilitity/format'

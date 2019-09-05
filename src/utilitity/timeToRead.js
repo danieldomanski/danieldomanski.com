@@ -22,10 +22,10 @@ export const countWordsFromSlices = slices => {
  * @returns {string} - The content of the slice in text form
  */
 
-export const timeToRead = words => {
+export const timeToRead = wordsAmount => {
   const wordsPerMinute = 226
 
-  const time = Math.ceil(words / wordsPerMinute)
+  const time = Math.ceil(wordsAmount / wordsPerMinute)
 
   return time
 }

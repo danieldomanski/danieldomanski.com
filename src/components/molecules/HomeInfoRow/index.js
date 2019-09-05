@@ -1,16 +1,6 @@
-import React, { useEffect, useRef } from 'react'
-import styled from 'styled-components'
+import React from 'react'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
-
-const Line = styled.span`
-  ${tw`mt-1 md:mt-3`}
-  display: block;
-  width: 60px;
-  height: 4px;
-
-  background-color: #181818;
-`
 
 const HomeInfoRow = ({ title, description }) => (
   <>

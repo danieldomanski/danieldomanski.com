@@ -1,14 +1,15 @@
+/* eslint-disable no-nested-ternary */
 const locales = require('../config/locales')
 
 const getPostSiblings = (posts, currentSlug) =>
   posts.map(post => {
     const locale = post.node.lang
-    const localePosts = posts.filter(post => post.node.lang === locale)
+    const localePosts = posts.filter(p => p.node.lang === locale)
 
-    const idx = localePosts.findIndex(post => post.node.uid === currentSlug)
+    const idx = localePosts.findIndex(p => p.node.uid === currentSlug)
 
     const previousIdx = idx - 1 === -1 ? idx + 1 : idx - 1
-    // eslint-disable-next-line no-nested-ternary
+
     const nextIdx =
       idx - 1 === -1 ? idx + 2 : idx + 1 === posts.length ? idx - 2 : idx + 1
 
@@ -40,7 +41,6 @@ const createPosts = (posts, createPage, template) =>
     const localPrefix = locales[lang].default ? '' : `${locales[lang].path}`
 
     const siblings = getPostSiblings(posts, edge.node.uid)
-    const { previous, next } = siblings[idx]
 
     createPage({
       path: `${localPrefix}/blog/${edge.node.uid}`,

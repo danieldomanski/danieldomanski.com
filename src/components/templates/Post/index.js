@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Link } from '../../atoms/Link'
-import Layout from '../Layout'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import BottomBox from '../../organisms/Footer/BottomBox'
@@ -18,9 +17,9 @@ const Dot = styled.span`
   ${tw`text-primary-600 mx-2`}
 `
 
-const Post = ({ data, pageContext, location }) => {
-  const [content] = usePageContent(data)
-  const { title, tags, icon, date } = data.prismicPost.data
+const Post = ({ data, pageContext }) => {
+  usePageContent(data)
+  const { title, tags, date } = data.prismicPost.data
   const { previous, next } = pageContext.data.siblings
 
   const tagsData = tags.map(t => ({

@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-param-reassign */
 /**
  * Implement Gatsby's Node APIs in this file.
  *
@@ -8,6 +10,7 @@
 const path = require('path')
 const locales = require('./src/config/locales')
 const graphQuery = require('./src/gatsby/graphQuery')
+
 const {
   createProjects,
   createPosts,

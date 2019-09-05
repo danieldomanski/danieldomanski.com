@@ -71,7 +71,6 @@ const Project = ({ data, pageContext }) => {
   const [content] = usePageContent(data)
   const { title, description } = pageContext.data.node.data
   const { body } = data.prismicProjects.data
-  console.log({ content })
   const { client, role, technologies } = content.projectPage
 
   const details = getSliceContent(body, 'detail')
@@ -79,8 +78,7 @@ const Project = ({ data, pageContext }) => {
   const info = getSliceContent(body, 'info')[0]
   const fullWidthImages = getSliceContent(body, 'fullwidthimage')
   const roles = formatInvolvment(data.prismicProjects.data.role)
-  console.log({ details })
-  console.log({ info })
+
   return (
     <FadeIn>
       <Box

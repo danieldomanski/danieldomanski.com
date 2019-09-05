@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 import Box from '../../atoms/Box'

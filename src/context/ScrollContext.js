@@ -3,7 +3,7 @@ import useWindowScrollPosition from '@rehooks/window-scroll-position'
 
 export const ScrollContext = React.createContext()
 
-const ScrollProvider = ({ children, throttle }) => {
+const ScrollProvider = ({ children }) => {
   const position = useWindowScrollPosition({ throttle: 0 })
 
   return (

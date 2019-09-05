@@ -25,7 +25,7 @@ const AnimatedContainer = styled.div`
 export default React.memo(
   ({ children, delay = 0, direction = 'bottom', px = 60, offset = 450 }) => {
     const [visible, set] = React.useState(false)
-    const { width, height } = useWindowSize()
+    const { width } = useWindowSize()
     const isMobile = width < 768
 
     return (
