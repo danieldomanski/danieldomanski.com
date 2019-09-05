@@ -16,9 +16,6 @@ const SlideLeft = keyframes`
   margin-right: -16em;
 }
 
-50% {
-  margin-right: 1em;
-}
 
 100% {
   margin-right: -1em;
@@ -45,11 +42,6 @@ const Mockups = styled.div`
 
 const Mock = styled.div`
   ${tw``}
-`
-
-const Img = styled.img`
-  ${tw`shadow-lg`}
-  width: 75%;
 `
 
 const InfoBoxRow = ({ children, ...rest }) => (

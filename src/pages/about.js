@@ -51,15 +51,24 @@ const About = ({ data, pageContext, location }) => {
           mt={[0, 0, 8]}
           mb={[0, 0, 16]}
         >
+          <Text
+            fontFamily="sans"
+            fontColor="primary.10"
+            fontSize={['2xl']}
+            fontWeight="bold"
+            mt={8}
+          >
+            TL;DR
+          </Text>
           {aboutGroups.map(group => (
             <Box width={1} m="auto">
               <Text
                 fontFamily="sans"
-                fontColor="primary.10"
-                fontSize={['2xl']}
+                fontColor="primary.7"
+                fontSize={['lg']}
                 fontWeight="bold"
                 mt={8}
-                mb={8}
+                mb={4}
               >
                 {group.title}
               </Text>
@@ -72,9 +81,9 @@ const About = ({ data, pageContext, location }) => {
                   <Text
                     fontFamily="sans"
                     width={[1 / 2]}
-                    fontColor="primary.10"
+                    fontColor="primary.7"
                     fontWeight="medium"
-                    fontSize={['base', 'lg']}
+                    fontSize={['base', 'base']}
                     pr={3}
                   >
                     {row.name}

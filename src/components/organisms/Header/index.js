@@ -48,7 +48,7 @@ const Header = ({ theme, variant }) => {
             <Text
               fontFamily="sans"
               fontSize={['lg', 'lg', 'xl']}
-              fontWeight="bold"
+              fontWeight="black"
               fontColor={brandColor}
               hover={{ color: '#72A6FF' }}
               style={{ letterSpacing: '-1px' }}
