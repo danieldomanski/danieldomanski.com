@@ -34,15 +34,12 @@ const Layout = ({ children, location }) => {
         <title>Daniel Domański - Full stack web developer</title>
       </Helmet>
       <GlobalStyle />
-
-      <ScrollProvider throttle={0}>
-        <ThemeProvider theme={theme}>
-          <MainContent>
-            <Header variant={getVariantByLocation(location.pathname, width)} />
-            {children}
-          </MainContent>
-        </ThemeProvider>
-      </ScrollProvider>
+      <ThemeProvider theme={theme}>
+        <MainContent>
+          <Header variant={getVariantByLocation(location.pathname, width)} />
+          {children}
+        </MainContent>
+      </ThemeProvider>
     </>
   )
 }
