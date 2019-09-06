@@ -38,20 +38,24 @@ const Line = styled.span`
 `
 
 const NotFoundPage = ({ data }) => {
-  const [content] = usePageContent(data)
-  const { title, subtitle, description } = content.notFoundPage
+  if (typeof window !== `undefined`) {
+    const [content] = usePageContent(data)
+    const { title, subtitle, description } = content.notFoundPage
 
-  return (
-    <Container>
-      <HomeParticles />
-      <HeroContainer>
-        <RichText content={title} />
-        <RichText content={subtitle} />
-        <Line />
-        <RichText content={description} />
-      </HeroContainer>
-    </Container>
-  )
+    return (
+      <Container>
+        <HomeParticles />
+        <HeroContainer>
+          <RichText content={title} />
+          <RichText content={subtitle} />
+          <Line />
+          <RichText content={description} />
+        </HeroContainer>
+      </Container>
+    )
+  }
+
+  return null
 }
 
 export default NotFoundPage

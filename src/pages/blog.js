@@ -11,92 +11,96 @@ import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const Blog = ({ data }) => {
-  usePageContent(data)
-  const [currentFilters, setFilters] = useState([])
-  const [filteredPosts, filterPosts] = useState(data.posts.edges)
-  const [tags] = useState(data.tags.edges)
-  const [posts] = useState(data.posts.edges)
+  if (typeof window !== `undefined`) {
+    usePageContent(data)
+    const [currentFilters, setFilters] = useState([])
+    const [filteredPosts, filterPosts] = useState(data.posts.edges)
+    const [tags] = useState(data.tags.edges)
+    const [posts] = useState(data.posts.edges)
 
-  const updateFilter = filter => {
-    if (!currentFilters.includes(filter)) {
-      setFilters([...currentFilters, filter])
-    } else {
-      setFilters(currentFilters.filter(name => name !== filter))
+    const updateFilter = filter => {
+      if (!currentFilters.includes(filter)) {
+        setFilters([...currentFilters, filter])
+      } else {
+        setFilters(currentFilters.filter(name => name !== filter))
+      }
     }
-  }
 
-  const updatePosts = () => {
-    filterPosts(
-      posts.filter(post => {
-        const postTags = post.node.data.tags.map(item => item.tag.slug)
+    const updatePosts = () => {
+      filterPosts(
+        posts.filter(post => {
+          const postTags = post.node.data.tags.map(item => item.tag.slug)
 
-        return currentFilters.every(filter => postTags.includes(filter))
-      })
+          return currentFilters.every(filter => postTags.includes(filter))
+        })
+      )
+    }
+
+    const pageContent = formatBlogPage(data.blogPage.edges[0])
+
+    useEffect(() => {
+      updatePosts()
+    }, [currentFilters])
+
+    return (
+      <FadeIn>
+        <Box
+          width={1}
+          pb={[8, 8, 16]}
+          maxWidth={760}
+          m={[0, 0, 'auto', 'auto', 'auto']}
+          px={[8, 8, 12, 12, 0, 0]}
+          flex={1}
+        >
+          <UnderlineText>{pageContent.title}</UnderlineText>
+          <Box display="flex" flexDirection="column" my={[8, 8, 8]}>
+            <Box
+              as="ul"
+              display="flex"
+              flexWrap="wrap"
+              justifyContent={['flex-start', 'flex-start', 'center']}
+            >
+              {tags.map(tag => (
+                <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
+                  {tag.node.data.tag}
+                </Filter>
+              ))}
+            </Box>
+          </Box>
+          <Box minHeight={520} pb={[12]} pt={8}>
+            {filteredPosts.length === 0 ? (
+              <Text
+                display="block"
+                fontSize={['base', 'lg']}
+                fontColor="primary.3"
+                textAlign="center"
+              >
+                No articles yet :(
+              </Text>
+            ) : (
+              filteredPosts.map((post, idx) => (
+                <PostItem
+                  data={post}
+                  pb={idx === posts.length - 1 ? 0 : [8, 8, 8]}
+                  pt={idx === 0 ? 4 : [4, 4, 8]}
+                  borderBottom={
+                    idx === posts.length - 1
+                      ? 'none'
+                      : '1px solid rgba(0,0,0,0.05)'
+                  }
+                />
+              ))
+            )}
+          </Box>
+        </Box>
+        <Box as="footer" width={1} m="auto">
+          <BottomBox variant="secondary" />
+        </Box>
+      </FadeIn>
     )
   }
 
-  const pageContent = formatBlogPage(data.blogPage.edges[0])
-
-  useEffect(() => {
-    updatePosts()
-  }, [currentFilters])
-
-  return (
-    <FadeIn>
-      <Box
-        width={1}
-        pb={[8, 8, 16]}
-        maxWidth={760}
-        m={[0, 0, 'auto', 'auto', 'auto']}
-        px={[8, 8, 12, 12, 0, 0]}
-        flex={1}
-      >
-        <UnderlineText>{pageContent.title}</UnderlineText>
-        <Box display="flex" flexDirection="column" my={[8, 8, 8]}>
-          <Box
-            as="ul"
-            display="flex"
-            flexWrap="wrap"
-            justifyContent={['flex-start', 'flex-start', 'center']}
-          >
-            {tags.map(tag => (
-              <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
-                {tag.node.data.tag}
-              </Filter>
-            ))}
-          </Box>
-        </Box>
-        <Box minHeight={520} pb={[12]} pt={8}>
-          {filteredPosts.length === 0 ? (
-            <Text
-              display="block"
-              fontSize={['base', 'lg']}
-              fontColor="primary.3"
-              textAlign="center"
-            >
-              No articles yet :(
-            </Text>
-          ) : (
-            filteredPosts.map((post, idx) => (
-              <PostItem
-                data={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 8, 8]}
-                pt={idx === 0 ? 4 : [4, 4, 8]}
-                borderBottom={
-                  idx === posts.length - 1
-                    ? 'none'
-                    : '1px solid rgba(0,0,0,0.05)'
-                }
-              />
-            ))
-          )}
-        </Box>
-      </Box>
-      <Box as="footer" width={1} m="auto">
-        <BottomBox variant="secondary" />
-      </Box>
-    </FadeIn>
-  )
+  return null
 }
 export default Blog
 

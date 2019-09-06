@@ -12,105 +12,109 @@ import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const About = ({ data }) => {
-  usePageContent(data)
+  if (typeof window !== `undefined`) {
+    usePageContent(data)
 
-  const { title, about_me, about_group } = data.about.data
-  const aboutGroups = formatAboutGroup(about_group)
+    const { title, about_me, about_group } = data.about.data
+    const aboutGroups = formatAboutGroup(about_group)
 
-  return (
-    <FadeIn>
-      <Box
-        width={1}
-        pb={[24]}
-        maxWidth={686}
-        m={[0, 0, 'auto']}
-        px={[8, 8, 12, 12, 0, 0]}
-      >
-        <UnderlineText>{title.text}</UnderlineText>
+    return (
+      <FadeIn>
         <Box
-          display="flex"
-          flexDirection={['column', 'column', 'row']}
-          justifyContent="center"
-          alignItems="center"
-          my={8}
+          width={1}
+          pb={[24]}
+          maxWidth={686}
+          m={[0, 0, 'auto']}
+          px={[8, 8, 12, 12, 0, 0]}
         >
-          <Text
-            fontFamily="sans"
-            fontColor="primary.10"
-            fontWeight="medium"
-            fontSize={['base', 'lg']}
-            withLine
-            lineHeight="relaxed"
+          <UnderlineText>{title.text}</UnderlineText>
+          <Box
+            display="flex"
+            flexDirection={['column', 'column', 'row']}
+            justifyContent="center"
+            alignItems="center"
+            my={8}
           >
-            {about_me.text}
-          </Text>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          maxWidth={1080}
-          mt={[0, 0, 8]}
-          mb={[0, 0, 16]}
-        >
-          <Text
-            fontFamily="sans"
-            fontColor="primary.10"
-            fontSize={['2xl']}
-            fontWeight="bold"
-            mt={8}
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontWeight="medium"
+              fontSize={['base', 'lg']}
+              withLine
+              lineHeight="relaxed"
+            >
+              {about_me.text}
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            maxWidth={1080}
+            mt={[0, 0, 8]}
+            mb={[0, 0, 16]}
           >
-            TL;DR
-          </Text>
-          {aboutGroups.map(group => (
-            <Box width={1} m="auto">
-              <Text
-                fontFamily="sans"
-                fontColor="primary.10"
-                fontSize={['lg']}
-                fontWeight="bold"
-                mt={10}
-                mb={6}
-              >
-                {group.title}
-              </Text>
-              {group.rows.map(row => (
-                <Box
-                  display="flex"
-                  py={4}
-                  borderTop="1px solid rgba(0,0,0,0.1)"
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontSize={['2xl']}
+              fontWeight="bold"
+              mt={8}
+            >
+              TL;DR
+            </Text>
+            {aboutGroups.map(group => (
+              <Box width={1} m="auto">
+                <Text
+                  fontFamily="sans"
+                  fontColor="primary.10"
+                  fontSize={['lg']}
+                  fontWeight="bold"
+                  mt={10}
+                  mb={6}
                 >
-                  <Text
-                    fontFamily="sans"
-                    width={[1 / 2]}
-                    fontColor="primary.7"
-                    fontWeight="medium"
-                    fontSize={['base', 'base']}
-                    pr={3}
+                  {group.title}
+                </Text>
+                {group.rows.map(row => (
+                  <Box
+                    display="flex"
+                    py={4}
+                    borderTop="1px solid rgba(0,0,0,0.1)"
                   >
-                    {row.name}
-                  </Text>
-                  <Text
-                    fontFamily="sans"
-                    maxWidth={500}
-                    width={[5 / 6, 5 / 6, 1 / 2]}
-                    fontColor="primary.10"
-                    fontWeight="medium"
-                    fontSize={['base', 'lg']}
-                    pl={2}
-                  >
-                    {row.value}
-                  </Text>
-                </Box>
-              ))}
-            </Box>
-          ))}
+                    <Text
+                      fontFamily="sans"
+                      width={[1 / 2]}
+                      fontColor="primary.7"
+                      fontWeight="medium"
+                      fontSize={['base', 'base']}
+                      pr={3}
+                    >
+                      {row.name}
+                    </Text>
+                    <Text
+                      fontFamily="sans"
+                      maxWidth={500}
+                      width={[5 / 6, 5 / 6, 1 / 2]}
+                      fontColor="primary.10"
+                      fontWeight="medium"
+                      fontSize={['base', 'lg']}
+                      pl={2}
+                    >
+                      {row.value}
+                    </Text>
+                  </Box>
+                ))}
+              </Box>
+            ))}
+          </Box>
         </Box>
-      </Box>
-      <Box as="footer" width={1} m="auto">
-        <BottomBox variant="secondary" />
-      </Box>
-    </FadeIn>
-  )
+        <Box as="footer" width={1} m="auto">
+          <BottomBox variant="secondary" />
+        </Box>
+      </FadeIn>
+    )
+  }
+
+  return null
 }
 
 export default About

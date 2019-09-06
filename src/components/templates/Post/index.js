@@ -13,118 +13,122 @@ import { usePageContent } from '../../../context/ContentContext'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const Post = ({ data, pageContext }) => {
-  usePageContent(data)
-  const { title, tags, date } = data.prismicPost.data
-  const { previous, next } = pageContext.data.siblings
+  if (typeof window !== `undefined`) {
+    usePageContent(data)
+    const { title, tags, date } = data.prismicPost.data
+    const { previous, next } = pageContext.data.siblings
 
-  const tagsData = tags.map(t => ({
-    name: t.tag.document[0].data.tag,
-    slug: t.tag.slug,
-  }))
+    const tagsData = tags.map(t => ({
+      name: t.tag.document[0].data.tag,
+      slug: t.tag.slug,
+    }))
 
-  const wordCount = countWordsFromSlices(data.prismicPost.data.body)
-  const estimatedReadTime = timeToRead(wordCount)
+    const wordCount = countWordsFromSlices(data.prismicPost.data.body)
+    const estimatedReadTime = timeToRead(wordCount)
 
-  return (
-    <FadeIn>
-      <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
-        <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
-          <Box
-            as="header"
-            width={1}
-            display="flex"
-            flexDirection={['column', 'column', 'row']}
-            alignItems={['center', 'center', 'center']}
-            px={2}
-            mb={4}
-          >
-            <Box display="flex" flexDirection="column" mb={10}>
-              <Text
-                fontFamily="sans"
-                fontColor="primary.10"
-                fontWeight="black"
-                fontSize={['4xl', '4xl', '5xl']}
-                lineHeight="none"
-              >
-                {title.text}
-              </Text>
-              <Box display="flex" flexDirection="column" mt={[6, 4]} mb={[4]}>
-                <Box display="flex" alignItems="center">
-                  <Text fontColor="primary.6">{formatDate(date)}</Text>
-                  <Text as="span" fontColor="primary.6" mx={2}>
-                    •
-                  </Text>
-                  <Text fontColor="primary.6">
-                    {`${estimatedReadTime} minutes to read`}
-                  </Text>
+    return (
+      <FadeIn>
+        <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
+          <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
+            <Box
+              as="header"
+              width={1}
+              display="flex"
+              flexDirection={['column', 'column', 'row']}
+              alignItems={['center', 'center', 'center']}
+              px={2}
+              mb={4}
+            >
+              <Box display="flex" flexDirection="column" mb={10}>
+                <Text
+                  fontFamily="sans"
+                  fontColor="primary.10"
+                  fontWeight="black"
+                  fontSize={['4xl', '4xl', '5xl']}
+                  lineHeight="none"
+                >
+                  {title.text}
+                </Text>
+                <Box display="flex" flexDirection="column" mt={[6, 4]} mb={[4]}>
+                  <Box display="flex" alignItems="center">
+                    <Text fontColor="primary.6">{formatDate(date)}</Text>
+                    <Text as="span" fontColor="primary.6" mx={2}>
+                      •
+                    </Text>
+                    <Text fontColor="primary.6">
+                      {`${estimatedReadTime} minutes to read`}
+                    </Text>
+                  </Box>
+                </Box>
+                <Box>
+                  {tagsData.map(tag => (
+                    <Tag data={tag} />
+                  ))}
                 </Box>
               </Box>
-              <Box>
-                {tagsData.map(tag => (
-                  <Tag data={tag} />
-                ))}
-              </Box>
             </Box>
-          </Box>
-          <PostContent data={data.prismicPost.data.body} />
-          <Box
-            width={1}
-            display="flex"
-            flexDirection={['column', 'column', 'row']}
-            flexWrap="wrap"
-            justifyContent={['flex-start', 'flex-start', 'space-between']}
-            borderTop="1px solid rgba(0,0,0,0.1)"
-            pt={[8, 12]}
-            mt={[12, 16]}
-          >
-            <Link to={`/blog/${previous.node.uid}`} maxWidth={300}>
-              <Box
-                display="flex"
-                flexDirection="column"
-                pb={[8, 4, 0]}
-                mr={[0, 0, 4]}
-              >
-                <Text
-                  fontColor="primary.11"
-                  fontWeight="black"
-                  mb={2}
-                  style={{ textTransform: 'uppercase' }}
+            <PostContent data={data.prismicPost.data.body} />
+            <Box
+              width={1}
+              display="flex"
+              flexDirection={['column', 'column', 'row']}
+              flexWrap="wrap"
+              justifyContent={['flex-start', 'flex-start', 'space-between']}
+              borderTop="1px solid rgba(0,0,0,0.1)"
+              pt={[8, 12]}
+              mt={[12, 16]}
+            >
+              <Link to={`/blog/${previous.node.uid}`} maxWidth={300}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  pb={[8, 4, 0]}
+                  mr={[0, 0, 4]}
                 >
-                  Previous
-                </Text>
-                <Text fontWeight="medium" fontFamily="serif">
-                  {previous.node.data.title.text}
-                </Text>
-              </Box>
-            </Link>
-            <Link width={1} to={`/blog/${next.node.uid}`} maxWidth={300}>
-              <Box
-                display="flex"
-                flexDirection="column"
-                textAlign={['left', 'left', 'right']}
-              >
-                <Text
-                  fontColor="primary.8"
-                  fontWeight="black"
-                  mb={2}
-                  style={{ textTransform: 'uppercase' }}
+                  <Text
+                    fontColor="primary.11"
+                    fontWeight="black"
+                    mb={2}
+                    style={{ textTransform: 'uppercase' }}
+                  >
+                    Previous
+                  </Text>
+                  <Text fontWeight="medium" fontFamily="serif">
+                    {previous.node.data.title.text}
+                  </Text>
+                </Box>
+              </Link>
+              <Link width={1} to={`/blog/${next.node.uid}`} maxWidth={300}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  textAlign={['left', 'left', 'right']}
                 >
-                  Next
-                </Text>
-                <Text fontWeight="medium" fontFamily="serif">
-                  {next.node.data.title.text}
-                </Text>
-              </Box>
-            </Link>
+                  <Text
+                    fontColor="primary.8"
+                    fontWeight="black"
+                    mb={2}
+                    style={{ textTransform: 'uppercase' }}
+                  >
+                    Next
+                  </Text>
+                  <Text fontWeight="medium" fontFamily="serif">
+                    {next.node.data.title.text}
+                  </Text>
+                </Box>
+              </Link>
+            </Box>
+            <Bio mt={12} mb={24} />
           </Box>
-          <Bio mt={12} mb={24} />
         </Box>
-      </Box>
-      <Box as="footer" width={1} m="auto">
-        <BottomBox variant="secondary" />
-      </Box>
-    </FadeIn>
-  )
+        <Box as="footer" width={1} m="auto">
+          <BottomBox variant="secondary" />
+        </Box>
+      </FadeIn>
+    )
+  }
+
+  return null
 }
 
 export default Post

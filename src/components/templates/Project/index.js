@@ -57,147 +57,155 @@ const InfoBoxRowDescription = ({ children }) => (
 )
 
 const Project = ({ data, pageContext }) => {
-  const [content] = usePageContent(data)
-  const { title, description } = pageContext.data.node.data
-  const { body } = data.prismicProjects.data
-  const { client, role, technologies } = content.projectPage
+  if (typeof window !== `undefined`) {
+    const [content] = usePageContent(data)
+    const { title, description } = pageContext.data.node.data
+    const { body } = data.prismicProjects.data
+    const { client, role, technologies } = content.projectPage
 
-  const details = getSliceContent(body, 'detail')
-  const mockups = getSliceContent(body, 'mockup')[0]
-  const info = getSliceContent(body, 'info')[0]
-  const fullWidthImages = getSliceContent(body, 'fullwidthimage')
-  const roles = formatInvolvment(data.prismicProjects.data.role)
+    const details = getSliceContent(body, 'detail')
+    const mockups = getSliceContent(body, 'mockup')[0]
+    const info = getSliceContent(body, 'info')[0]
+    const fullWidthImages = getSliceContent(body, 'fullwidthimage')
+    const roles = formatInvolvment(data.prismicProjects.data.role)
 
-  return (
-    <FadeIn>
-      <Box
-        width={1}
-        pb={[4, 8, 16]}
-        maxWidth={1300}
-        m={[0, 0, 0, 0, 'auto']}
-        px={[4, 8, 12, 12, 0, 0]}
-      >
-        <Box width={1} m="auto" textAlign="center" mt={8}>
-          <Text
-            fontFamily="sans"
-            fontColor="primary.10"
-            fontWeight="black"
-            fontSize={['4xl', '4xl', '5xl']}
-            lineHeight="none"
-          >
-            {title.text}
-          </Text>
-          <Box
-            width={1}
-            position="relative"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            my={16}
-          >
-            <MobileMockup>
-              <Image input={mockups.mobile} fit="contain" />
-            </MobileMockup>
-            <Box width={750}>
-              <Image input={mockups.desktop} fit="contain" />
+    return (
+      <FadeIn>
+        <Box
+          width={1}
+          pb={[4, 8, 16]}
+          maxWidth={1300}
+          m={[0, 0, 0, 0, 'auto']}
+          px={[4, 8, 12, 12, 0, 0]}
+        >
+          <Box width={1} m="auto" textAlign="center" mt={8}>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontWeight="black"
+              fontSize={['4xl', '4xl', '5xl']}
+              lineHeight="none"
+            >
+              {title.text}
+            </Text>
+            <Box
+              width={1}
+              position="relative"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              my={16}
+            >
+              <MobileMockup>
+                <Image input={mockups.mobile} fit="contain" />
+              </MobileMockup>
+              <Box width={750}>
+                <Image input={mockups.desktop} fit="contain" />
+              </Box>
             </Box>
           </Box>
-        </Box>
-        <Box
-          display="flex"
-          flexDirection={['column', 'column', 'row']}
-          width={1}
-          maxWidth={1400}
-          m="auto"
-        >
           <Box
-            width={[1, 1, 0]}
-            flex={1}
+            display="flex"
+            flexDirection={['column', 'column', 'row']}
+            width={1}
+            maxWidth={1400}
+            m="auto"
+          >
+            <Box
+              width={[1, 1, 0]}
+              flex={1}
+              display="flex"
+              flexDirection="column"
+              justifyContent="center"
+              bg="#fff"
+              boxShadow="md"
+              p={10}
+            >
+              <InfoBoxRow mb={4}>
+                <InfoBoxRowTitle>{role}</InfoBoxRowTitle>
+                <InfoBoxRowDescription>
+                  {roles.join(', ')}
+                </InfoBoxRowDescription>
+              </InfoBoxRow>
+              <InfoBoxRow mb={4}>
+                <InfoBoxRowTitle>{technologies}</InfoBoxRowTitle>
+                <InfoBoxRowDescription>
+                  {info.technologies}
+                </InfoBoxRowDescription>
+              </InfoBoxRow>
+              <InfoBoxRow>
+                <InfoBoxRowTitle>{client}</InfoBoxRowTitle>
+                <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
+              </InfoBoxRow>
+            </Box>
+            <Box
+              display="flex"
+              alignItems="center"
+              px={[8, 8, 8, 8, 16]}
+              flex={[1, 2, 2, 2, 2]}
+            >
+              <Text
+                fontFamily="serif"
+                fontColor="primary.9"
+                fontSize={['lg']}
+                lineHeight="relaxed"
+              >
+                {description.text}
+              </Text>
+            </Box>
+          </Box>
+          <Box
             display="flex"
             flexDirection="column"
-            justifyContent="center"
-            bg="#fff"
-            boxShadow="md"
-            p={10}
+            justifyContent="space-between"
+            maxWidth={1480}
+            my={16}
+            mb={[8, 8, 0]}
           >
-            <InfoBoxRow mb={4}>
-              <InfoBoxRowTitle>{role}</InfoBoxRowTitle>
-              <InfoBoxRowDescription>{roles.join(', ')}</InfoBoxRowDescription>
-            </InfoBoxRow>
-            <InfoBoxRow mb={4}>
-              <InfoBoxRowTitle>{technologies}</InfoBoxRowTitle>
-              <InfoBoxRowDescription>{info.technologies}</InfoBoxRowDescription>
-            </InfoBoxRow>
-            <InfoBoxRow>
-              <InfoBoxRowTitle>{client}</InfoBoxRowTitle>
-              <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
-            </InfoBoxRow>
-          </Box>
-          <Box
-            display="flex"
-            alignItems="center"
-            px={[8, 8, 8, 8, 16]}
-            flex={[1, 2, 2, 2, 2]}
-          >
-            <Text
-              fontFamily="serif"
-              fontColor="primary.9"
-              fontSize={['lg']}
-              lineHeight="relaxed"
-            >
-              {description.text}
-            </Text>
+            {fullWidthImages.map((img, idx) => (
+              <Box>
+                <Image input={img.localFile} fit="cover" />
+                {details[idx] ? (
+                  <Box
+                    maxWidth={800}
+                    display="flex"
+                    flexDirection="column"
+                    mt={12}
+                    mb={16}
+                    ml="auto"
+                    lineHeight="loose"
+                  >
+                    <Text
+                      fontWeight="bold"
+                      fontSize={['lg', 'xl']}
+                      fontColor="primary.8"
+                      mb={1}
+                    >
+                      {details[idx].title}
+                    </Text>
+                    <Text
+                      fontFamily="serif"
+                      fontWeight="normal"
+                      fontSize={['3xl', 'lg']}
+                      fontColor="primary.6"
+                    >
+                      {details[idx].description}
+                    </Text>
+                    <Box />
+                  </Box>
+                ) : null}
+              </Box>
+            ))}
           </Box>
         </Box>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="space-between"
-          maxWidth={1480}
-          my={16}
-          mb={[8, 8, 0]}
-        >
-          {fullWidthImages.map((img, idx) => (
-            <Box>
-              <Image input={img.localFile} fit="cover" />
-              {details[idx] ? (
-                <Box
-                  maxWidth={800}
-                  display="flex"
-                  flexDirection="column"
-                  mt={12}
-                  mb={16}
-                  ml="auto"
-                  lineHeight="loose"
-                >
-                  <Text
-                    fontWeight="bold"
-                    fontSize={['lg', 'xl']}
-                    fontColor="primary.8"
-                    mb={1}
-                  >
-                    {details[idx].title}
-                  </Text>
-                  <Text
-                    fontFamily="serif"
-                    fontWeight="normal"
-                    fontSize={['3xl', 'lg']}
-                    fontColor="primary.6"
-                  >
-                    {details[idx].description}
-                  </Text>
-                  <Box />
-                </Box>
-              ) : null}
-            </Box>
-          ))}
+        <Box as="footer" width={1} m="auto">
+          <BottomBox variant="secondary" />
         </Box>
-      </Box>
-      <Box as="footer" width={1} m="auto">
-        <BottomBox variant="secondary" />
-      </Box>
-    </FadeIn>
-  )
+      </FadeIn>
+    )
+  }
+
+  return null
 }
 
 export default Project

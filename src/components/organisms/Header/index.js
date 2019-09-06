@@ -25,43 +25,47 @@ const Brand = styled.div`
 `
 
 const Header = ({ theme, variant }) => {
-  const [content] = useContext(ContentContext)
-  const { brand } = theme.components
-  const brandColor = brand[variant].color
-  const { header } = content
+  if (typeof window !== `undefined`) {
+    const [content] = useContext(ContentContext)
+    const { brand } = theme.components
+    const brandColor = brand[variant].color
+    const { header } = content
 
-  return (
-    <Container variant={variant}>
-      <Box
-        width={1}
-        maxWidth={['unset', 'unset', 'unset', 'unset', 'unset', '80vw']}
-        display="flex"
-        justifyContent="space-between"
-        flexWrap="wrap"
-        alignItems={['center']}
-        m="auto"
-        px={[8, 8, 8, 12, 12, 16]}
-        my={[8, 8, 12]}
-      >
-        <Brand>
-          <LocalizedLink to="/">
-            <Text
-              fontFamily="sans"
-              fontSize={['lg', 'lg', 'xl']}
-              fontWeight="black"
-              fontColor={brandColor}
-              hover={{ color: '#72A6FF' }}
-              style={{ letterSpacing: '-1px' }}
-            >
-              {header.brand}
-            </Text>
-          </LocalizedLink>
-        </Brand>
-        <Navigation variant={variant} content={header.nav} />
-        <LocaleSwitcher variant={variant} />
-      </Box>
-    </Container>
-  )
+    return (
+      <Container variant={variant}>
+        <Box
+          width={1}
+          maxWidth={['unset', 'unset', 'unset', 'unset', 'unset', '80vw']}
+          display="flex"
+          justifyContent="space-between"
+          flexWrap="wrap"
+          alignItems={['center']}
+          m="auto"
+          px={[8, 8, 8, 12, 12, 16]}
+          my={[8, 8, 12]}
+        >
+          <Brand>
+            <LocalizedLink to="/">
+              <Text
+                fontFamily="sans"
+                fontSize={['lg', 'lg', 'xl']}
+                fontWeight="black"
+                fontColor={brandColor}
+                hover={{ color: '#72A6FF' }}
+                style={{ letterSpacing: '-1px' }}
+              >
+                {header.brand}
+              </Text>
+            </LocalizedLink>
+          </Brand>
+          <Navigation variant={variant} content={header.nav} />
+          <LocaleSwitcher variant={variant} />
+        </Box>
+      </Container>
+    )
+  }
+
+  return null
 }
 
 Header.propTypes = {

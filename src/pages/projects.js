@@ -9,30 +9,33 @@ import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const Projects = ({ data }) => {
-  usePageContent(data)
-  const pageContent = formatProjectsPage(data.projectsPage.edges[0])
+  if (typeof window !== `undefined`) {
+    usePageContent(data)
+    const pageContent = formatProjectsPage(data.projectsPage.edges[0])
 
-  return (
-    <FadeIn>
-      <Box
-        width={1}
-        maxWidth={1250}
-        m={[0, 0, 0, 0, 'auto']}
-        px={[8, 8, 12, 12, 12, 0]}
-        flex={1}
-      >
-        <UnderlineText>{pageContent.title}</UnderlineText>
-        <ProjectsGrid
-          projects={data.projects.edges}
-          mt={[0, 0, 16]}
-          mb={[16, 8, 32]}
-        />
-      </Box>
-      <Box as="footer" m="auto" width={1}>
-        <BottomBox variant="secondary" />
-      </Box>
-    </FadeIn>
-  )
+    return (
+      <FadeIn>
+        <Box
+          width={1}
+          maxWidth={1250}
+          m={[0, 0, 0, 0, 'auto']}
+          px={[8, 8, 12, 12, 12, 0]}
+          flex={1}
+        >
+          <UnderlineText>{pageContent.title}</UnderlineText>
+          <ProjectsGrid
+            projects={data.projects.edges}
+            mt={[0, 0, 16]}
+            mb={[16, 8, 32]}
+          />
+        </Box>
+        <Box as="footer" m="auto" width={1}>
+          <BottomBox variant="secondary" />
+        </Box>
+      </FadeIn>
+    )
+  }
+  return null
 }
 
 export default Projects

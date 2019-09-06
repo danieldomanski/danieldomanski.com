@@ -39,46 +39,49 @@ const TopLayer = styled.section`
 `
 
 const Index = ({ data }) => {
-  const windowSize = useWindowSize()
-  const isMobile = windowSize.width < 768
-  const pageContent = formatHome(data.home.edges[0])
-  usePageContent(data)
+  if (typeof window !== `undefined`) {
+    const windowSize = useWindowSize()
+    const isMobile = windowSize.width < 768
+    const pageContent = formatHome(data.home.edges[0])
+    usePageContent(data)
 
-  if (isMobile) {
+    if (isMobile) {
+      return (
+        <FadeIn>
+          <HomeSlide content={pageContent.hero} />
+          <ProjectsSlide
+            projects={data.projects.edges}
+            content={pageContent.works}
+          />
+          <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
+          <Footer variant="index">
+            <UpperBox content={pageContent.footer} />
+            <BottomBox />
+          </Footer>
+        </FadeIn>
+      )
+    }
     return (
-      <FadeIn>
-        <HomeSlide content={pageContent.hero} />
-        <ProjectsSlide
-          projects={data.projects.edges}
-          content={pageContent.works}
-        />
-        <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
-        <Footer variant="index">
+      <>
+        <TopLayer>
+          <HomeSlide content={pageContent.hero} />
+        </TopLayer>
+        <OnTopLayer>
+          <AboutSlide content={pageContent.about} />
+          <ProjectsSlide
+            projects={data.projects.edges}
+            content={pageContent.works}
+          />
+          <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
+        </OnTopLayer>
+        <Footer variant="primary">
           <UpperBox content={pageContent.footer} />
-          <BottomBox />
+          <BottomBox variant="primary" />
         </Footer>
-      </FadeIn>
+      </>
     )
   }
-  return (
-    <>
-      <TopLayer>
-        <HomeSlide content={pageContent.hero} />
-      </TopLayer>
-      <OnTopLayer>
-        <AboutSlide content={pageContent.about} />
-        <ProjectsSlide
-          projects={data.projects.edges}
-          content={pageContent.works}
-        />
-        <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
-      </OnTopLayer>
-      <Footer variant="primary">
-        <UpperBox content={pageContent.footer} />
-        <BottomBox variant="primary" />
-      </Footer>
-    </>
-  )
+  return null
 }
 
 export default Index

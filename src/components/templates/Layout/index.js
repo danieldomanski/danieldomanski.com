@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
-import ScrollProvider from '../../../context/ScrollContext'
 import theme from '../../../config/theme'
 import Header from '../../organisms/Header'
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -34,6 +33,7 @@ const Layout = ({ children, location }) => {
         <title>Daniel Domański - Full stack web developer</title>
       </Helmet>
       <GlobalStyle />
+
       <ThemeProvider theme={theme}>
         <MainContent>
           <Header variant={getVariantByLocation(location.pathname, width)} />

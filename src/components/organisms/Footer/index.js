@@ -1,13 +1,17 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { ScrollContext } from '../../../context/ScrollContext'
+import useWindowScrollPosition from '@rehooks/window-scroll-position'
 
 const FooterContainer = styled.footer`
   ${tw`md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
 
   box-sizing: border-box;
   z-index: 5;
+
+  @media screen and (max-height: 768px) and (min-width: 768px) {
+    position: absolute;
+  }
 
   @media screen and (min-width: 768px) {
     display: ${props =>
@@ -21,17 +25,17 @@ const FooterContainer = styled.footer`
     height: 800px;
     z-index: 5;
   }
-
-  @media screen and (max-height: 768px and min-width: 768px) {
-    position: absolute;
-  }
 `
 
 const Footer = ({ children, variant }) => {
-  const [scroll] = useContext(ScrollContext)
+  const scroll = useWindowScrollPosition({ throttle: 50 })
   const visible = scroll.y > 920
 
-  return <FooterContainer variant={variant}>{children}</FooterContainer>
+  return (
+    <FooterContainer visible={visible} variant={variant}>
+      {children}
+    </FooterContainer>
+  )
 }
 
 export default Footer
