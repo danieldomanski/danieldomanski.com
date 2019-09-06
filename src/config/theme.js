@@ -210,24 +210,6 @@ theme.components = {
       to: 'rgba(255, 255, 255, 0.75)',
     },
   },
-  collapsable: {
-    primary: {
-      height: '2px',
-      bottom: '0',
-      backgroundColor: theme.colors.primary[2],
-      borderColor: theme.colors.primary[2],
-      hoverColor: theme.colors.primary[1],
-      fontColor: theme.colors.primary[8],
-    },
-    accent: {
-      height: '2px',
-      bottom: '3px',
-      backgroundColor: theme.colors.accent[0],
-      borderColor: theme.colors.accent[2],
-      hoverColor: theme.colors.accent[8],
-      fontColor: theme.colors.accent[7],
-    },
-  },
   filters: {
     primary: {
       color: theme.colors.accent[7],

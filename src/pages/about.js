@@ -65,11 +65,11 @@ const About = ({ data }) => {
             <Box width={1} m="auto">
               <Text
                 fontFamily="sans"
-                fontColor="primary.7"
+                fontColor="primary.10"
                 fontSize={['lg']}
                 fontWeight="bold"
-                mt={8}
-                mb={4}
+                mt={10}
+                mb={6}
               >
                 {group.title}
               </Text>

@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { Link } from '../../atoms/Link'
 import Text from '../../atoms/Text'
@@ -12,10 +11,6 @@ import { countWordsFromSlices, timeToRead } from '../../../utilitity/timeToRead'
 import Tag from '../../atoms/Tag'
 import { usePageContent } from '../../../context/ContentContext'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
-
-const Dot = styled.span`
-  ${tw`text-primary-600 mx-2`}
-`
 
 const Post = ({ data, pageContext }) => {
   usePageContent(data)
@@ -56,7 +51,9 @@ const Post = ({ data, pageContext }) => {
               <Box display="flex" flexDirection="column" mt={[6, 4]} mb={[4]}>
                 <Box display="flex" alignItems="center">
                   <Text fontColor="primary.6">{formatDate(date)}</Text>
-                  <Dot>•</Dot>
+                  <Text as="span" fontColor="primary.6" mx={2}>
+                    •
+                  </Text>
                   <Text fontColor="primary.6">
                     {`${estimatedReadTime} minutes to read`}
                   </Text>

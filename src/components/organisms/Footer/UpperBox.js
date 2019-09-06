@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
 import { ContentContext } from '../../../context/ContentContext'
-import RichText from '../../atoms/RichText'
+import RichText from '../Slices/RichText'
 
 const Line = styled.span`
   ${tw`m-auto my-8 xl:my-10`}

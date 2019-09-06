@@ -1,5 +1,4 @@
 /* eslint-disable camelcase */
-
 import React from 'react'
 import { formatDate } from '../../../utilitity/date'
 import { LocalizedLink } from '../../atoms/Link'
@@ -24,7 +23,6 @@ const PostItem = ({ data, ...rest }) => {
             {title.text}
           </Text>
         </LocalizedLink>
-
         <Box mt={3}>
           <Text fontSize="sm" fontFamily="serif" fontColor="primary.6">
             {formatDate(last_publication_date)}

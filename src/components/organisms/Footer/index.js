@@ -31,11 +31,7 @@ const Footer = ({ children, variant }) => {
   const [scroll] = useContext(ScrollContext)
   const visible = scroll.y > 920
 
-  return (
-    <FooterContainer visible={visible} variant={variant}>
-      {children}
-    </FooterContainer>
-  )
+  return <FooterContainer variant={variant}>{children}</FooterContainer>
 }
 
 export default Footer

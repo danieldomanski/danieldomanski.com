@@ -6,7 +6,8 @@
     "node": true
   },
   "globals": {
-    "tw": true
+    "tw": true,
+    "jest": true
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],

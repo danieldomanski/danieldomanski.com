@@ -1,54 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
 import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
 import ScrollProvider from '../../../context/ScrollContext'
 import theme from '../../../config/theme'
 import Header from '../../organisms/Header'
 import useWindowSize from '../../../hooks/useWindowSize'
-
-const GlobalStyle = createGlobalStyle`
-  html {
-    overflow-y: scroll;
-  }
-  
-  body, html {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    background-color: #fafafa;
-    ${tw`font-serif`}
-  }
-
-  #___gatsby, #___gatsby > div {
-    ${tw`h-full`}
-  }
-
-  ul, li {
-    margin: 0;
-    padding: 0;
-  }
-
-  * {
-    box-sizing: border-box;
-    user-select: text;
-  }
-
-  .gatsby-image-wrapper {
-    height: 100%;
-  }
-
-  h1,h2,h3,h4,p,span {
-    margin: 0;
-    padding: 0;
-  }
-
-  a {
-    text-decoration: none !important;
-  }
-
-`
+import { GlobalStyle } from '../../../utilitity/styles'
 
 const MainContent = styled.main`
   ${tw`flex flex-col relative`}

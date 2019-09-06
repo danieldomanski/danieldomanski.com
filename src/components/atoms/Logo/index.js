@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { getComponentTheme } from '../../helpers/styles'
+import { getComponentTheme } from '../../../utilitity/styles'
 
 const LogoContainer = styled.span`
   ${tw`flex justify-center items-center relative w-10 h-10 font-black text-xl mr-0 md:mr-4`};

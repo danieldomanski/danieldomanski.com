@@ -1,47 +1,36 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { graphql } from 'gatsby'
-import BottomBox from '../../organisms/Footer/BottomBox'
-
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import ProjectCoverImage from '../../atoms/ProjectCoverImage'
+import Image from '../../atoms/Image'
+import BottomBox from '../../organisms/Footer/BottomBox'
+import FadeIn from '../../molecules/AnimatedBox/FadeIn'
+
 import { getSliceContent } from '../../../utilitity/prismic'
 import { formatInvolvment } from '../../../utilitity/format'
 import { usePageContent } from '../../../context/ContentContext'
-import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const SlideLeft = keyframes`
 0% {
   margin-right: -16em;
 }
 
-
 100% {
   margin-right: -1em;
 }
 `
 
-const Mockups = styled.div`
-  ${tw`w-full relative flex justify-center items-center m-auto mt-16 mb-16`}
+const MobileMockup = styled.div`
+  display: hidden;
 
-  & > div:nth-child(1) {
-    ${tw`hidden md:block`}
-    width: 200px;
-    animation: ${SlideLeft} 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.75s
-      both;
-    margin-right: -1em;
+  @media screen and (min-width: 768px) {
+    display: block;
   }
 
-  & > div:nth-child(2) {
-    width: 750px;
-
-    z-index: 10;
-  }
-`
-
-const Mock = styled.div`
-  ${tw``}
+  width: 200px;
+  animation: ${SlideLeft} 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.75s both;
+  margin-right: -1em;
 `
 
 const InfoBoxRow = ({ children, ...rest }) => (
@@ -98,15 +87,21 @@ const Project = ({ data, pageContext }) => {
           >
             {title.text}
           </Text>
-
-          <Mockups>
-            <Mock>
-              <ProjectCoverImage input={mockups.mobile} fit="contain" />
-            </Mock>
-            <Mock>
-              <ProjectCoverImage input={mockups.desktop} fit="contain" />
-            </Mock>
-          </Mockups>
+          <Box
+            width={1}
+            position="relative"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            my={16}
+          >
+            <MobileMockup>
+              <Image input={mockups.mobile} fit="contain" />
+            </MobileMockup>
+            <Box width={750}>
+              <Image input={mockups.desktop} fit="contain" />
+            </Box>
+          </Box>
         </Box>
         <Box
           display="flex"
@@ -164,7 +159,7 @@ const Project = ({ data, pageContext }) => {
         >
           {fullWidthImages.map((img, idx) => (
             <Box>
-              <ProjectCoverImage input={img.localFile} fit="cover" />
+              <Image input={img.localFile} fit="cover" />
               {details[idx] ? (
                 <Box
                   maxWidth={800}

@@ -57,7 +57,7 @@ const Blog = ({ data }) => {
             as="ul"
             display="flex"
             flexWrap="wrap"
-            justifyContent={['flex-start', 'center']}
+            justifyContent={['flex-start', 'flex-start', 'center']}
           >
             {tags.map(tag => (
               <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
@@ -66,7 +66,7 @@ const Blog = ({ data }) => {
             ))}
           </Box>
         </Box>
-        <Box minHeight={520} pb={[12]}>
+        <Box minHeight={520} pb={[12]} pt={8}>
           {filteredPosts.length === 0 ? (
             <Text
               display="block"
@@ -80,9 +80,8 @@ const Blog = ({ data }) => {
             filteredPosts.map((post, idx) => (
               <PostItem
                 data={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 8, 10]}
+                pb={idx === posts.length - 1 ? 0 : [8, 8, 8]}
                 pt={idx === 0 ? 4 : [4, 4, 8]}
-                mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
                 borderBottom={
                   idx === posts.length - 1
                     ? 'none'

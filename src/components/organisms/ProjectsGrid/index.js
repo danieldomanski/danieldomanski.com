@@ -8,7 +8,8 @@ import { DirectionalFade } from '../../molecules/AnimatedBox'
 const Grid = styled.ul`
   ${space};
 
-  ${tw`w-full h-full`};
+  width: 100%;
+  height: 100%;
   grid-template-columns: 100%;
   grid-gap: 2em;
   list-style: none;

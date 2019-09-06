@@ -2,34 +2,27 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
-import styled, { withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
+import { withTheme } from 'styled-components'
+import css from '@styled-system/css'
+import { getLocalizedPathname } from '../../../utilitity/locale'
 import Box from '../Box'
 import Text from '../Text'
 
-const LocaleSpan = styled.span`
-  ${tw`relative text-sm font-sans uppercase cursor-pointer px-2`}
-
-  color: ${props => (props.active ? props.activeColor : props.color)};
-  font-weight: ${props => (props.active ? 600 : 500)};
-`
-
-const formatPathname = (pathname, locale) => {
-  const splitted = pathname.split('/')
-  splitted.shift()
-  const currentLocale = splitted[0] === 'en' ? 'en' : 'pl'
-
-  if (currentLocale === locale) return splitted.join('/')
-
-  if (locale === 'en') {
-    splitted.unshift('en')
-  }
-
-  if (locale === 'pl') {
-    splitted.shift()
-  }
-  return splitted.join('/')
-}
+const LocaleSpan = ({ children, active, color, activeColor }) => (
+  <Text
+    fontColor={active ? activeColor : color}
+    fontWeight={active ? 600 : 500}
+    fontSize="sm"
+    px={1}
+    css={css({
+      cursor: 'pointer',
+      textTransform: 'uppercase',
+      transition: '0.1s ease',
+    })}
+  >
+    {children}
+  </Text>
+)
 
 const LocaleSwitcher = ({ theme, variant }) => {
   const { color, activeColor } = theme.components.localeSwitcher[variant]
@@ -43,19 +36,20 @@ const LocaleSwitcher = ({ theme, variant }) => {
 
           return (
             <>
-              <Link to={formatPathname(location.pathname, 'pl')}>
+              <Link to={getLocalizedPathname(location.pathname, 'pl')}>
                 <LocaleSpan
                   color={color}
                   activeColor={activeColor}
                   active={active === 'pl'}
                 >
-                  Pl
+                  pl
                 </LocaleSpan>
               </Link>
               <Text
                 fontSize="sm"
                 as="span"
                 fontColor={isBlog ? '#dadada' : color}
+                mx={1}
               >
                 /
               </Text>
@@ -64,10 +58,10 @@ const LocaleSwitcher = ({ theme, variant }) => {
                 style={{
                   pointerEvents: isBlog ? 'none' : 'initial',
                 }}
-                to={formatPathname(location.pathname, 'en')}
+                to={getLocalizedPathname(location.pathname, 'en')}
               >
                 <LocaleSpan
-                  color={isBlog ? '#dadada' : color}
+                  color={color}
                   activeColor={activeColor}
                   active={active === 'en'}
                 >

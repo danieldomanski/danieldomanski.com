@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { usePageContent } from '../context/ContentContext'
 import HomeParticles from '../components/molecules/HomeParticles'
-import RichText from '../components/atoms/RichText'
+import RichText from '../components/organisms/Slices/RichText'
 
 const Container = styled.section`
   ${tw`fixed pin-t w-full`}
