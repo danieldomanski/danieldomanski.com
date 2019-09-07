@@ -9,17 +9,18 @@ const HomeInfoRow = ({ title, description }) => (
       display="flex"
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       justifyContent="space-between"
-      alignItems={['center', 'flex-start']}
-      mb={[8, 8, 16, 24, 24]}
+      alignItems={['flex-start']}
+      mb={[8, 12, 16, 24, 24]}
     >
       <Box minWidth={[0, 0, 250]} mr={[4, 8, 8, 16, 32]}>
         <Text
           fontFamily="sans"
           display={['block']}
-          fontSize={['3xl', '4xl', '4xl', '4xl', '4xl']}
+          fontSize={['2xl', '3xl', '3xl', '4xl', '4xl']}
           fontColor="cosmic.2"
           fontWeight="black"
           lineHeight="tight"
+          mb={2}
         >
           {title}.
         </Text>

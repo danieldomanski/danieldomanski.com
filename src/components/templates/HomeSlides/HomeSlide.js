@@ -37,8 +37,10 @@ const textAnim = keyframes`
 const TitleText = styled.div`
   will-change: transform;
   pointer-events: auto;
+
   @media screen and (min-width: 768px) {
     animation: ${containerAnim} 0.8s cubic-bezier(0.8, 0, 0.16, 1) 0.1s both;
+    border-bottom: 0;
   }
 `
 
@@ -64,13 +66,17 @@ const HomeSlide = ({ content }) => (
           mx={[8, 8, 12, 12, 12, 16]}
           pt={[4, 12, 0]}
           pb={[12, 12, 0]}
-          borderBottom="1px solid rgba(0,0,0,0.1)"
+          borderBottom={[
+            '1px solid rgba(0, 0, 0, 0.1)',
+            '1px solid rgba(0, 0, 0, 0.1)',
+            0,
+          ]}
         >
           <TitleText>
             <Text
               fontFamily="sans"
               fontWeight="bold"
-              fontSize={['3xl', '43xl', '5xl', '5xl', '6xl']}
+              fontSize={['3xl', '4xl', '5xl', '5xl', '6xl']}
               fontColor={['primary.10', 'primary.8', 'secondary.1']}
               lineHeight="tight"
               mb={[6, 6, 8]}
@@ -80,7 +86,7 @@ const HomeSlide = ({ content }) => (
           </TitleText>
           <SlideLeft>
             <Text
-              maxWidth={960}
+              maxWidth={800}
               fontWeight="medium"
               fontSize={['base', 'lg', 'lg', 'lg', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.3']}

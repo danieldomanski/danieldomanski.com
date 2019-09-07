@@ -29,7 +29,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       fontWeight="bold"
       minWidth={250}
       mr={[4, 8, 8, 16, 32]}
-      mb={12}
+      mb={16}
     >
       Proces.
     </Text>

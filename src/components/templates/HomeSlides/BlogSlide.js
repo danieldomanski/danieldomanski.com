@@ -20,22 +20,18 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => {
       py={[8, 8, 16, 32]}
       px={[8, 8, 12, 12, 16, 16]}
     >
-      <HomeInfoRow
-        title={title}
-        description={description}
-        button={button}
-        idx={3}
-      />
+      <HomeInfoRow title={title} description={description} button={button} />
       <Box
         display="flex"
         flexDirection={['column', 'column', 'column', 'column', 'row']}
         justifyContent="space-between"
         as="ul"
+        my={12}
       >
         <Text
           fontFamily="sans"
           fontSize={['lg', 'lg', 'xl']}
-          textAlign={['center', 'left']}
+          textAlign={['left']}
           fontColor="primary.4"
           fontWeight="bold"
           minWidth={250}

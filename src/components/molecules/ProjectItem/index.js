@@ -57,7 +57,7 @@ const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
   background: rgba(255, 255, 255, 1);
   z-index: 6;
-  transition: all 0.2s ease 0.2s;
+  transition: all 0.4s ease 0.2s;
   height: 0;
   & p {
     opacity: 0;
@@ -66,14 +66,14 @@ const BgCover = styled.div`
   }
 `
 
-const ProjectGridItem = ({ project, area }) => {
+const ProjectGridItem = ({ project, area, mt, mb }) => {
   const { uid } = project.node
   const { body, released } = project.node.data
   const slice = getSliceContent(body, 'image')
   const { localFile } = slice[0]
 
   return (
-    <Box position="relative" width={1}>
+    <Box position="relative" width={1} mt={mt} mb={mb}>
       {released !== '0' ? (
         <Container area={area} options={{ max: 20, scale: 1.02 }}>
           <LocalizedLink to={`/projects/${uid}`}>
@@ -96,8 +96,5 @@ const ProjectGridItem = ({ project, area }) => {
     </Box>
   )
 }
-/*           <BgCover>
-
-          </BgCover> */
 
 export default ProjectGridItem

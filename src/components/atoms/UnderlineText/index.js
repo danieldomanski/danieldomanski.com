@@ -56,7 +56,7 @@ UnderlineText.propTypes = {
 
 UnderlineText.defaultProps = {
   fontFamily: 'sans',
-  fontSize: ['3xl', '4xl', '5xl'],
+  fontSize: ['2xl', '3xl', '3xl', '4xl', '4xl'],
   lineHeight: 'normal',
   fontWeight: 'black',
   fontColor: 'primary.11',

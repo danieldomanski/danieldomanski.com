@@ -1,12 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ProjectsGrid from '../components/organisms/ProjectsGrid'
+import ProjectsGrid from '../components/molecules/ProjectsGrid'
 import Box from '../components/atoms/Box'
+import Text from '../components/atoms/Text'
 import BottomBox from '../components/organisms/Footer/BottomBox'
 import { formatProjectsPage } from '../utilitity/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
+import ProjectItem from '../components/molecules/ProjectItem'
 
 const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
@@ -23,11 +25,28 @@ const Projects = ({ data }) => {
           flex={1}
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
-          <ProjectsGrid
-            projects={data.projects.edges}
-            mt={[0, 0, 16]}
-            mb={[16, 8, 32]}
-          />
+          <ProjectsGrid mt={[8, 8, 16]} mb={[24, 24, 32]}>
+            {data.projects.edges.map((project, idx) => {
+              const { title } = project.node.data
+
+              return (
+                <>
+                  <Text
+                    display={['inline-block', 'inline-block', 'none']}
+                    fontFamily="sans"
+                    fontColor="primary.8"
+                    fontSize={['xl', '3xl']}
+                    fontWeight="medium"
+                    mb={[0, 0, 8]}
+                    mt={idx === 0 ? 0 : 8}
+                  >
+                    {title.text}
+                  </Text>
+                  <ProjectItem project={project} />
+                </>
+              )
+            })}
+          </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>
           <BottomBox variant="secondary" />

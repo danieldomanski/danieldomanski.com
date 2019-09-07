@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #fafafa;
+    background-color: #f4f4f4;
     ${tw`font-serif`}
   }
 

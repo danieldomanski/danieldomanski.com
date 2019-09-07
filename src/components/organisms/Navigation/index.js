@@ -19,7 +19,7 @@ const getActiveStyle = (active, placement) =>
 const headerNavStyles = {
   order: [3, 3, 2, 2, 2, 2],
   ml: [0, 0, 'auto'],
-  mr: [0, 0, 8, 8, 16, 32],
+  mr: [0, 0, 12, 16, 16, 32],
   mt: [2, 2, 0],
   textTransform: 'uppercase',
 }

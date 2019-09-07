@@ -53,6 +53,40 @@ const Blog = ({ data }) => {
           flex={1}
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
+          <Box
+            mt={[8, 8, 12]}
+            mb={16}
+            bg="rgba(255,255,255,.75)"
+            px={12}
+            py={10}
+            boxShadow="md"
+          >
+            <Text
+              fontFamily="sans"
+              lineHeight="loose"
+              fontColor="primary.8"
+              fontSize={['sm', 'sm', 'sm']}
+              style={{ fontStyle: 'italic' }}
+            >
+              “You already know that you will never be done learning. But most
+              people "learn in private", and lurk. They consume content without
+              creating any themselves. Whatever your thing is, make the thing
+              you wish you had found when you were learning. The biggest
+              beneficiary of you trying to help past you is future you. If
+              others benefit, that's icing.”
+            </Text>
+            <Text
+              display="block"
+              textAlign="right"
+              fontFamily="sans"
+              fontSize={['sm', 'sm', 'sm']}
+              fontWeight="bold"
+              fontColor="primary.7"
+              mt={[2]}
+            >
+              learn in public, swyx.io
+            </Text>
+          </Box>
           <Box display="flex" flexDirection="column" my={[8, 8, 8]}>
             <Box
               as="ul"
@@ -67,7 +101,7 @@ const Blog = ({ data }) => {
               ))}
             </Box>
           </Box>
-          <Box minHeight={520} pb={[12]} pt={8}>
+          <Box minHeight={520} pb={[12]}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
@@ -81,8 +115,8 @@ const Blog = ({ data }) => {
               filteredPosts.map((post, idx) => (
                 <PostItem
                   data={post}
-                  pb={idx === posts.length - 1 ? 0 : [8, 8, 8]}
-                  pt={idx === 0 ? 4 : [4, 4, 8]}
+                  pb={idx === posts.length - 1 ? 0 : [8, 8, 10]}
+                  pt={idx === 0 ? 4 : [4, 4, 10]}
                   borderBottom={
                     idx === posts.length - 1
                       ? 'none'
