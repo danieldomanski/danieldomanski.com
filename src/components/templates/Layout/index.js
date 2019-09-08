@@ -13,7 +13,7 @@ const MainContent = styled.main`
   min-height: 100vh;
 `
 
-const primaryHeaderPages = ['about', 'projects', 'blog']
+const primaryHeaderPages = ['about', 'projects', 'blog', 'tags']
 
 const getVariantByLocation = (pathname, width) => {
   const path = pathname.replace(/^\/|\/$/g, '').split('/')

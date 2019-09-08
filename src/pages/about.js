@@ -33,7 +33,7 @@ const About = ({ data }) => {
             flexDirection={['column', 'column', 'row']}
             justifyContent="center"
             alignItems="center"
-            my={8}
+            my={[8, 8, 10, 10, 12]}
           >
             <Text
               fontFamily="sans"
@@ -53,15 +53,6 @@ const About = ({ data }) => {
             mt={[0, 0, 8]}
             mb={[0, 0, 16]}
           >
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontSize={['2xl']}
-              fontWeight="bold"
-              mt={8}
-            >
-              TL;DR
-            </Text>
             {aboutGroups.map(group => (
               <Box width={1} m="auto">
                 <Text

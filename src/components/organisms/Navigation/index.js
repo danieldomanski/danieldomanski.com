@@ -19,7 +19,7 @@ const getActiveStyle = (active, placement) =>
 const headerNavStyles = {
   order: [3, 3, 2, 2, 2, 2],
   ml: [0, 0, 'auto'],
-  mr: [0, 0, 'auto', 24, 24],
+  mr: [0, 0, 'auto', 16, 16],
   mt: [2, 2, 0],
   textTransform: 'uppercase',
 }
@@ -39,7 +39,7 @@ const footerListStyles = {
 
 const headerItemStyles = {
   mr: 8,
-  py: [1, 1, 1],
+
   borderBottom: `2px solid transparent`,
   fontSize: ['sm', 'sm'],
 }

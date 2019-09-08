@@ -20,7 +20,7 @@ const UnderlineText = ({
 }) => (
   <Text
     display={display}
-    fontSize={['3xl', '4xl', '5xl']}
+    fontSize={fontSize}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
     color={fontColor}
@@ -31,6 +31,7 @@ const UnderlineText = ({
     mb={mb}
     mr={mr}
     ml={ml}
+    textAlign="center"
     style={{ letterSpacing: '-0.04em' }}
     {...rest}
   >
@@ -55,7 +56,7 @@ UnderlineText.propTypes = {
 
 UnderlineText.defaultProps = {
   fontFamily: 'sans',
-  fontSize: ['2xl', '3xl', '3xl', '4xl', '4xl'],
+  fontSize: ['3xl', '4xl', '5xl'],
   lineHeight: 'normal',
   fontWeight: 'black',
   fontColor: 'primary.11',
@@ -64,7 +65,7 @@ UnderlineText.defaultProps = {
   mt: 8,
   mr: 0,
   ml: 0,
-  my: [8, 8, 16],
+  my: [8, 8, 8, 12, 12],
 }
 
 export default UnderlineText

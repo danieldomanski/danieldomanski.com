@@ -80,7 +80,7 @@ const HomeSlide = ({ content }) => (
               fontColor={['primary.10', 'primary.10', 'secondary.1']}
               lineHeight="tight"
               style={{ letterSpacing: '-0.04em' }}
-              mb={[4, 6, 6]}
+              mb={[4, 4, 4]}
             >
               {content.title}
             </Text>

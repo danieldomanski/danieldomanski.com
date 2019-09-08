@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../Layout'
 import Text from '../../atoms/Text'
+import UnderlineText from '../../atoms/UnderlineText'
 import Box from '../../atoms/Box'
 import BottomBox from '../../organisms/Footer/BottomBox'
 import PostItem from '../../organisms/PostItem'
@@ -20,25 +21,31 @@ const Tag = ({ data, pageContext }) => {
     const { tag } = pageContext
 
     return (
-      <Layout locale={pageContext.locale}>
+      <>
         <Box m="auto" px={[6, 6, 12, 16, 24]} pt={[8, 8, 16]} flex={1}>
-          <Text
-            fontWeight="black"
-            fontColor="primary.7"
-            fontSize={['3xl', '4xl']}
-          >
-            Posts about {tag}
-          </Text>
+          <UnderlineText>Posts about {tag}</UnderlineText>
           <BlogPosts>
-            {posts.map(post => (
-              <PostItem data={post}>abc</PostItem>
+            {posts.map((post, idx) => (
+              <PostItem
+                data={post}
+                pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
+                pt={idx === 0 ? 0 : [4, 4, 4]}
+                mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
+                borderBottom={
+                  idx === posts.length - 1
+                    ? 'none'
+                    : '1px solid rgba(0,0,0,0.05)'
+                }
+              >
+                abc
+              </PostItem>
             ))}
           </BlogPosts>
         </Box>
-        <Box width={1} maxWidth={1200} m="auto" px={8} mt={16}>
+        <Box as="footer" width={1} m="auto">
           <BottomBox variant="secondary" />
         </Box>
-      </Layout>
+      </>
     )
   }
 
@@ -48,7 +55,7 @@ const Tag = ({ data, pageContext }) => {
 export default Tag
 
 export const pageQuery = graphql`
-  query PostsByTag($uid: String!) {
+  query PostsByTag($uid: String!, $locale: String!) {
     posts: allPrismicPost(
       filter: { data: { tags: { elemMatch: { tag: { uid: { eq: $uid } } } } } }
     ) {
@@ -65,6 +72,29 @@ export const pageQuery = graphql`
               text
             }
             icon {
+              text
+            }
+          }
+        }
+      }
+    }
+    header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            brand {
+              text
+            }
+            nav_home {
+              text
+            }
+            nav_projects {
+              text
+            }
+            nav_about {
+              text
+            }
+            nav_articles {
               text
             }
           }

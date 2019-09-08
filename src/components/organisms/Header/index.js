@@ -41,7 +41,7 @@ const Header = ({ theme, variant }) => {
           alignItems={['center']}
           m="auto"
           px={[8, 8, 8, 12, 12, 16]}
-          mt={[8, 8, 12]}
+          mt={[8, 8, 8]}
         >
           <Brand>
             <LocalizedLink to="/">

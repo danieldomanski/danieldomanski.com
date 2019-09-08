@@ -5,7 +5,6 @@ import tw from 'tailwind.macro'
 import Img from 'gatsby-image/withIEPolyfill'
 
 const BgImage = styled(Img)`
-  ${tw``}
   transition: 0.75s ease-in-out;
 
   max-height: ${props => props.maxHeight}px;

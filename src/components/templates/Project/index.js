@@ -6,7 +6,7 @@ import Box from '../../atoms/Box'
 import Image from '../../atoms/Image'
 import BottomBox from '../../organisms/Footer/BottomBox'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
-
+import UnderlineText from '../../atoms/UnderlineText'
 import { getSliceContent } from '../../../utilitity/prismic'
 import { formatInvolvment } from '../../../utilitity/format'
 import { usePageContent } from '../../../context/ContentContext'
@@ -28,13 +28,34 @@ const MobileMockup = styled.div`
     display: block;
   }
 
-  width: 200px;
+  @media screen and (min-width: 1600px) {
+    display: block;
+    width: 200px;
+  }
+
+  width: 160px;
   animation: ${SlideLeft} 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.75s both;
   margin-right: -1em;
 `
 
+const DesktopMockup = styled.div`
+  width: 600px;
+
+  @media screen and (min-width: 1600px) {
+    display: block;
+    width: 700px;
+  }
+`
+
 const InfoBoxRow = ({ children, ...rest }) => (
-  <Box display="flex" flexDirection="column" {...rest}>
+  <Box
+    width={1}
+    display="flex"
+    flexDirection="column"
+    textAlign={['center', 'left', 'right']}
+    my={2}
+    {...rest}
+  >
     {children}
   </Box>
 )
@@ -42,7 +63,7 @@ const InfoBoxRow = ({ children, ...rest }) => (
 const InfoBoxRowTitle = ({ children }) => (
   <Text
     fontFamily="sans"
-    fontColor="primary.4"
+    fontColor="primary.5"
     fontWeight="medium"
     fontSize="sm"
   >
@@ -51,7 +72,12 @@ const InfoBoxRowTitle = ({ children }) => (
 )
 
 const InfoBoxRowDescription = ({ children }) => (
-  <Text fontFamily="sans" fontSize={['base']} fontWeight="medium">
+  <Text
+    fontFamily="sans"
+    fontSize={['sm', 'sm', 'sm', 'base']}
+    fontWeight="medium"
+    fontColor="primary.11"
+  >
     {children}
   </Text>
 )
@@ -74,41 +100,33 @@ const Project = ({ data, pageContext }) => {
         <Box
           width={1}
           pb={[4, 8, 16]}
-          maxWidth={1300}
+          maxWidth={1400}
           m={[0, 0, 0, 0, 'auto']}
-          px={[4, 8, 12, 12, 0, 0]}
+          px={[4, 8, 16, 24, 32]}
         >
-          <Box width={1} m="auto" textAlign="center" mt={8}>
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontWeight="black"
-              fontSize={['4xl', '4xl', '5xl']}
-              lineHeight="none"
-            >
-              {title.text}
-            </Text>
+          <Box width={1} m="auto" textAlign="center">
+            <UnderlineText>{title.text}</UnderlineText>
             <Box
               width={1}
               position="relative"
               display="flex"
               justifyContent="center"
               alignItems="center"
-              my={16}
+              my={[8, 8, 12]}
             >
               <MobileMockup>
                 <Image input={mockups.mobile} fit="contain" />
               </MobileMockup>
-              <Box width={750}>
+              <DesktopMockup>
                 <Image input={mockups.desktop} fit="contain" />
-              </Box>
+              </DesktopMockup>
             </Box>
           </Box>
           <Box
             display="flex"
             flexDirection={['column', 'column', 'row']}
+            alignItems="flex-start"
             width={1}
-            maxWidth={1400}
             m="auto"
           >
             <Box
@@ -116,10 +134,12 @@ const Project = ({ data, pageContext }) => {
               flex={1}
               display="flex"
               flexDirection="column"
-              justifyContent="center"
+              justifyContent={['flex-start']}
               bg="#fff"
               boxShadow="md"
-              p={10}
+              p={[6, 8]}
+              mr={[0, 0, 8, 12, 16]}
+              mb={[8, 8, 0]}
             >
               <InfoBoxRow mb={4}>
                 <InfoBoxRowTitle>{role}</InfoBoxRowTitle>
@@ -138,16 +158,11 @@ const Project = ({ data, pageContext }) => {
                 <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
               </InfoBoxRow>
             </Box>
-            <Box
-              display="flex"
-              alignItems="center"
-              px={[8, 8, 8, 8, 16]}
-              flex={[1, 2, 2, 2, 2]}
-            >
+            <Box display="flex" alignItems="center" flex={[1, 3, 3, 3, 3]}>
               <Text
-                fontFamily="serif"
+                fontWeight="medium"
                 fontColor="primary.9"
-                fontSize={['lg']}
+                fontSize={['base', 'lg']}
                 lineHeight="relaxed"
               >
                 {description.text}
@@ -159,24 +174,25 @@ const Project = ({ data, pageContext }) => {
             flexDirection="column"
             justifyContent="space-between"
             maxWidth={1480}
-            my={16}
-            mb={[8, 8, 0]}
+            my={[8, 8, 16]}
           >
             {fullWidthImages.map((img, idx) => (
               <Box>
-                <Image input={img.localFile} fit="cover" />
+                <Box boxShadow="default">
+                  <Image input={img.localFile} fit="cover" />
+                </Box>
+
                 {details[idx] ? (
                   <Box
                     maxWidth={800}
                     display="flex"
                     flexDirection="column"
-                    mt={12}
-                    mb={16}
+                    my={12}
                     ml="auto"
                     lineHeight="loose"
                   >
                     <Text
-                      fontWeight="bold"
+                      fontWeight="black"
                       fontSize={['lg', 'xl']}
                       fontColor="primary.8"
                       mb={1}
@@ -184,10 +200,9 @@ const Project = ({ data, pageContext }) => {
                       {details[idx].title}
                     </Text>
                     <Text
-                      fontFamily="serif"
-                      fontWeight="normal"
-                      fontSize={['3xl', 'lg']}
-                      fontColor="primary.6"
+                      fontWeight="medium"
+                      fontSize={['base', 'lg']}
+                      fontColor="primary.9"
                     >
                       {details[idx].description}
                     </Text>

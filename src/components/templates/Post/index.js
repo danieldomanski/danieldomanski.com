@@ -12,6 +12,22 @@ import Tag from '../../atoms/Tag'
 import { usePageContent } from '../../../context/ContentContext'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
+const BreadcrumbItem = ({ to, title, description, textAlign }) => (
+  <Link width={1} to={`/blog/${to}`} maxWidth={300}>
+    <Box display="flex" flexDirection="column" textAlign={textAlign} my={4}>
+      <Text
+        fontColor="primary.8"
+        fontWeight="black"
+        mb={2}
+        style={{ textTransform: 'uppercase' }}
+      >
+        {title}
+      </Text>
+      <Text fontWeight="medium">{description}</Text>
+    </Box>
+  </Link>
+)
+
 const Post = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
     usePageContent(data)
@@ -35,17 +51,18 @@ const Post = ({ data, pageContext }) => {
               width={1}
               display="flex"
               flexDirection={['column', 'column', 'row']}
-              alignItems={['center', 'center', 'center']}
+              alignItems={['center', 'flex-start', 'center']}
               px={2}
               mb={4}
             >
-              <Box display="flex" flexDirection="column" mb={10}>
+              <Box display="flex" flexDirection="column" mb={[6, 8, 12]}>
                 <Text
                   fontFamily="sans"
                   fontColor="primary.10"
                   fontWeight="black"
                   fontSize={['4xl', '4xl', '5xl']}
                   lineHeight="none"
+                  mt={[8, 12, 12, 12, 16]}
                 >
                   {title.text}
                 </Text>
@@ -76,47 +93,20 @@ const Post = ({ data, pageContext }) => {
               justifyContent={['flex-start', 'flex-start', 'space-between']}
               borderTop="1px solid rgba(0,0,0,0.1)"
               pt={[8, 12]}
-              mt={[12, 16]}
+              my={[8, 12]}
             >
-              <Link to={`/blog/${previous.node.uid}`} maxWidth={300}>
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  pb={[8, 4, 0]}
-                  mr={[0, 0, 4]}
-                >
-                  <Text
-                    fontColor="primary.11"
-                    fontWeight="black"
-                    mb={2}
-                    style={{ textTransform: 'uppercase' }}
-                  >
-                    Previous
-                  </Text>
-                  <Text fontWeight="medium" fontFamily="serif">
-                    {previous.node.data.title.text}
-                  </Text>
-                </Box>
-              </Link>
-              <Link width={1} to={`/blog/${next.node.uid}`} maxWidth={300}>
-                <Box
-                  display="flex"
-                  flexDirection="column"
-                  textAlign={['left', 'left', 'right']}
-                >
-                  <Text
-                    fontColor="primary.8"
-                    fontWeight="black"
-                    mb={2}
-                    style={{ textTransform: 'uppercase' }}
-                  >
-                    Next
-                  </Text>
-                  <Text fontWeight="medium" fontFamily="serif">
-                    {next.node.data.title.text}
-                  </Text>
-                </Box>
-              </Link>
+              <BreadcrumbItem
+                to={previous.node.uid}
+                title="Poprzedni"
+                description={previous.node.data.title.text}
+                textAlign={['left', 'left', 'left']}
+              />
+              <BreadcrumbItem
+                to={next.node.uid}
+                title="Następny"
+                description={next.node.data.title.text}
+                textAlign={['left', 'left', 'right']}
+              />
             </Box>
             <Bio mt={12} mb={24} />
           </Box>

@@ -25,7 +25,7 @@ const Projects = ({ data }) => {
           flex={1}
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
-          <ProjectsGrid mt={[8, 8, 16]} mb={[24, 24, 32]}>
+          <ProjectsGrid mb={[24, 24, 32]}>
             {data.projects.edges.map((project, idx) => {
               const { title } = project.node.data
 
