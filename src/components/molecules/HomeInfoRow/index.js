@@ -10,29 +10,27 @@ const HomeInfoRow = ({ title, description }) => (
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       justifyContent="space-between"
       alignItems={['flex-start']}
-      mb={[8, 12, 16, 24, 24]}
     >
-      <Box minWidth={[0, 0, 250]} mr={[4, 8, 8, 16, 32]}>
+      <Box minWidth={[0, 0, 250]} flex={1}>
         <Text
           fontFamily="sans"
           display={['block']}
-          fontSize={['2xl', '3xl', '3xl', '4xl', '4xl']}
-          fontColor="cosmic.2"
+          fontSize={['2xl', '3xl', '4xl']}
+          fontColor="primary.11"
           fontWeight="black"
           lineHeight="tight"
-          mb={2}
+          style={{ letterSpacing: '-0.04em' }}
         >
           {title}.
         </Text>
       </Box>
       <Text
-        fontFamily="serif"
-        display={['none', 'block']}
-        fontSize={['base', 'base', 'lg']}
+        flex={3}
+        fontSize={['base', 'lg', 'xl']}
         fontColor="primary.9"
         fontWeight="medium"
         lineHeight="relaxed"
-        maxWidth={860}
+        style={{ letterSpacing: '-0.02em' }}
         mt={[4, 8, 8, 8, 0]}
       >
         {description}

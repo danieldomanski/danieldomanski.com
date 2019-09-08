@@ -137,16 +137,17 @@ const colors = {
   'primary.7': '#8F8F8F',
   'primary.8': '#5A5A5A',
   'primary.9': '#363636',
-  //
-  'secondary.1': '#FFF',
-  'secondary.2': '#FEFEFE',
-  'secondary.3': '#FBFBFB',
-  'secondary.4': '#F3F3F3',
-  'secondary.5': '#EBEBEB',
-  'secondary.6': '#E3E3E3',
-  'secondary.7': '#DBDBDB',
-  'secondary.8': '#D4D4D4',
-  'secondary.9': '#C1C1C1',
+
+  'secondary.0': '#F4F5FF',
+  'secondary.1': '#E8EAF4',
+  'secondary.2': '#D5D6E0',
+  'secondary.3': '#CBCDD6',
+  'secondary.4': '#C1C3CC',
+  'secondary.5': '#B8B9C1',
+  'secondary.6': '#AEAFB7',
+  'secondary.7': '#A4A6AD',
+  'secondary.8': '#9B9CA3',
+  'secondary.9': '#929399',
 
   //
   'accent.1': '#E7EFFF',
@@ -341,7 +342,7 @@ module.exports = {
     tight: 1.25,
     snug: 1.375,
     normal: 1.5,
-    relaxed: 1.625,
+    relaxed: 1.75,
     loose: 2,
   },
 

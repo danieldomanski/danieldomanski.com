@@ -57,7 +57,7 @@ const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
   background: rgba(255, 255, 255, 1);
   z-index: 6;
-  transition: all 0.4s ease 0.2s;
+  transition: all 0.4s ease 0.1s;
   height: 0;
   & p {
     opacity: 0;

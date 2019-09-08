@@ -16,7 +16,6 @@ const Container = styled.header`
 
   z-index: 5;
   width: 100%;
-  transition: 0.25s;
 `
 
 const Brand = styled.div`
@@ -42,7 +41,7 @@ const Header = ({ theme, variant }) => {
           alignItems={['center']}
           m="auto"
           px={[8, 8, 8, 12, 12, 16]}
-          my={[8, 8, 12]}
+          mt={[8, 8, 12]}
         >
           <Brand>
             <LocalizedLink to="/">
@@ -51,8 +50,8 @@ const Header = ({ theme, variant }) => {
                 fontSize={['lg', 'lg', 'xl']}
                 fontWeight="black"
                 fontColor={brandColor}
-                hover={{ color: '#72A6FF' }}
-                style={{ letterSpacing: '-1px' }}
+                hover={{ color: '#BED6FF' }}
+                style={{ letterSpacing: '-0.04em' }}
               >
                 {header.brand}
               </Text>

@@ -11,7 +11,7 @@ const Line = styled.span`
 
   width: 80px;
   height: 4px;
-  background-color: #a0a6b2;
+  background-color: #c4c4c4;
   opacity: 1;
 `
 

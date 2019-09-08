@@ -17,29 +17,28 @@ const PostItem = ({ data, ...rest }) => {
             fontFamily="sans"
             fontColor="primary.10"
             fontSize={['xl', '2xl', '2xl']}
-            fontWeight="bold"
-            hover={{ color: '#0055FF' }}
+            fontWeight="black"
+            style={{ letterSpacing: '-0.04em' }}
           >
             {title.text}
           </Text>
         </LocalizedLink>
-        <Box mt={3}>
-          <Text fontSize="sm" fontFamily="serif" fontColor="primary.6">
+        <Box>
+          <Text fontSize="sm" fontColor="primary.6">
             {formatDate(last_publication_date)}
           </Text>
-          <Text fontSize="sm" fontFamily="serif" mx={2} fontColor="primary.6">
+          <Text fontSize="sm" mx={2} fontColor="primary.6">
             •
           </Text>
-          <Text fontSize="sm" fontFamily="serif" fontColor="primary.6">
+          <Text fontSize="sm" fontColor="primary.6">
             JavaScript, Front End
           </Text>
           <Text
-            fontFamily="serif"
             display={['block']}
-            fontColor="primary.7"
+            fontColor="primary.9"
             fontWeight="medium"
-            fontSize={['base', 'base']}
-            mt={2}
+            fontSize={['base', 'lg']}
+            mt={4}
           >
             {description.text}
           </Text>

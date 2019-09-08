@@ -18,12 +18,12 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={[12, 12, 12]}
+      py={[8, 12, 12]}
       display="flex"
       bg={backgroundColor}
       alignItems="flex-end"
       zIndex={12}
-      borderTop="1px solid rgba(0,0,0,0.05)"
+      borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.05)' : 0}
     >
       <Box
         m="auto"

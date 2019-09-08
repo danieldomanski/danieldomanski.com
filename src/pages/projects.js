@@ -34,15 +34,14 @@ const Projects = ({ data }) => {
                   <Text
                     display={['inline-block', 'inline-block', 'none']}
                     fontFamily="sans"
-                    fontColor="primary.8"
-                    fontSize={['xl', '3xl']}
-                    fontWeight="medium"
+                    fontColor="primary.7"
+                    fontSize={['lg', 'xl']}
+                    fontWeight="black"
                     mb={[0, 0, 8]}
-                    mt={idx === 0 ? 0 : 8}
                   >
                     {title.text}
                   </Text>
-                  <ProjectItem project={project} />
+                  <ProjectItem project={project} mb={8} />
                 </>
               )
             })}

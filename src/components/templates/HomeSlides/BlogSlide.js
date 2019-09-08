@@ -17,8 +17,8 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => {
       width={1}
       maxWidth={1400}
       m="auto"
-      py={[8, 8, 16, 32]}
-      px={[8, 8, 12, 12, 16, 16]}
+      px={[8, 8, 24]}
+      py={[16, 16, 20, 24]}
     >
       <HomeInfoRow title={title} description={description} button={button} />
       <Box
@@ -26,28 +26,37 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => {
         flexDirection={['column', 'column', 'column', 'column', 'row']}
         justifyContent="space-between"
         as="ul"
-        my={12}
+        mt={[8, 16, 24]}
+        mb={[8, 8, 20]}
       >
         <Text
-          fontFamily="sans"
-          fontSize={['lg', 'lg', 'xl']}
-          textAlign={['left']}
+          display="inline-block"
+          fontSize={['base', 'lg', 'lg', 'xl']}
+          fontWeight="black"
           fontColor="primary.4"
-          fontWeight="bold"
+          style={{ textTransform: 'uppercase' }}
+          mt={[8, 0]}
+          mb={[0, 0, 12, 12, 0]}
+          flex={1}
+          textAlign={['left']}
           minWidth={250}
-          mr={[4, 8, 8, 16, 32]}
-          mb={[8, 8, 8]}
         >
           Ostatnie posty.
         </Text>
-        <Box display="flex" flexDirection="column" maxWidth={860} flex={1}>
+        <Box
+          display="flex"
+          flexDirection="column"
+          flex={3}
+          mt={[12, 12, 0]}
+          mb={[8, 12, 20]}
+        >
           {posts.map((post, idx) => (
             <DirectionalFade delay={0.075}>
               <PostItem
                 data={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 8, 12]}
-                pt={idx === 0 ? 0 : [4, 4, 8]}
-                mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
+                pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
+                pt={idx === 0 ? 0 : [4, 4, 4]}
+                mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
                 borderBottom={
                   idx === posts.length - 1
                     ? 'none'
@@ -58,11 +67,9 @@ const BlogSlide = ({ posts, content: { title, description, button } }) => {
           ))}
         </Box>
       </Box>
-      <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
+      <Box textAlign={['left', 'left', 'right']}>
         <LocalizedLink to="/blog" display={['block']}>
-          <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
-            {button}
-          </ArrowButton>
+          <ArrowButton fontSize={['sm', 'base', 'base']}>{button}</ArrowButton>
         </LocalizedLink>
       </Box>
     </Box>

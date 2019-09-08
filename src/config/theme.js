@@ -129,7 +129,7 @@ const theme = {
     '3xl': '1.875rem', // 30px
     '4xl': '2.25rem', // 36px
     '5xl': '3rem', // 48px
-    '6xl': '4rem', // 54px
+    '6xl': '3.75rem', // 64px
     '8xl': '4.5rem', // 72px
   },
   fontWeights: {
@@ -148,7 +148,7 @@ const theme = {
     tight: 1.25,
     snug: 1.375,
     normal: 1.5,
-    relaxed: 1.75,
+    relaxed: 1.675,
     loose: 2,
   },
 }
@@ -161,7 +161,7 @@ theme.components = {
       secondaryColor: theme.colors.secondary[9],
     },
     secondary: {
-      backgroundColor: 'rgba(245, 245, 245, 1)',
+      backgroundColor: 'rgba(240, 240, 240, 1)',
       color: theme.colors.primary[9],
       secondaryColor: theme.colors.primary[6],
     },

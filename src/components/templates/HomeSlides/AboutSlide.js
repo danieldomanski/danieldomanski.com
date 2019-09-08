@@ -8,13 +8,7 @@ import HomeInfoRow from '../../molecules/HomeInfoRow'
 const rows = [1, 2, 3]
 
 const AboutSlide = ({ content: { title, description, button } }) => (
-  <Box
-    width={1}
-    maxWidth={1400}
-    m="auto"
-    py={[8, 8, 16, 32]}
-    px={[8, 8, 12, 12, 16, 16]}
-  >
+  <Box width={1} maxWidth={1400} m="auto" px={[8, 8, 24]} py={[12, 16, 20, 24]}>
     <HomeInfoRow
       title={title}
       description={description}
@@ -22,16 +16,15 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       idx={1}
     />
     <Text
-      fontFamily="sans"
-      fontSize={['lg', 'lg', 'xl']}
-      textAlign={['center', 'left']}
-      fontColor="primary.5"
-      fontWeight="bold"
-      minWidth={250}
-      mr={[4, 8, 8, 16, 32]}
-      mb={16}
+      display="inline-block"
+      fontSize={['base', 'lg', 'lg', 'xl']}
+      fontWeight="black"
+      fontColor="primary.4"
+      style={{ textTransform: 'uppercase' }}
+      mt={[12, 12, 16, 16]}
+      mb={[12, 12, 12, 16]}
     >
-      Proces.
+      Jak pracuję?
     </Text>
     <Box
       width={1}
@@ -39,7 +32,7 @@ const AboutSlide = ({ content: { title, description, button } }) => (
       justifyContent="center"
       flexDirection={['column', 'column', 'row']}
       as="section"
-      mb={[12, 16, 16]}
+      mb={[8, 8, 20]}
     >
       {rows.map((row, idx) => (
         <Box
@@ -51,35 +44,33 @@ const AboutSlide = ({ content: { title, description, button } }) => (
             `${idx === rows.length - 1 ? 0 : 8}`,
             0,
           ]}
+          mr={8}
           flex={1}
         >
           <Text
             display="inline-block"
             fontSize={['base', 'lg', 'lg', 'xl']}
-            fontWeight="bold"
+            fontWeight="black"
             fontColor="primary.10"
-            style={{ textTransform: 'uppercase' }}
             mr={[4, 4, 6]}
           >
             {`0${idx + 1}.`}
           </Text>
           <Box display="flex" flexDirection="column">
             <Text
-              fontWeight="bold"
+              fontWeight="black"
               fontSize={['base', 'lg', 'lg', 'xl']}
-              fontColor="cosmic.2"
-              style={{ textTransform: 'uppercase' }}
+              fontColor="primary.11"
+              style={{ textTransform: 'uppercase', letterSpacing: '-0.04em' }}
               mb={[2, 2, 4]}
             >
               Sketch
             </Text>
             <Text
-              fontFamily="serif"
               fontSize={['base', 'base', 'base', 'lg']}
               maxWidth={[350]}
-              fontColor="primary.7"
+              fontColor="primary.11"
               fontWeight="medium"
-              lineHeight="relaxed"
             >
               Sketch / idea is part in which we work together on desired
               outcome.
@@ -88,11 +79,9 @@ const AboutSlide = ({ content: { title, description, button } }) => (
         </Box>
       ))}
     </Box>
-    <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24]}>
+    <Box textAlign={['center', 'left', 'right']}>
       <LocalizedLink to="/about" display={['block']}>
-        <ArrowButton fontColor="cosmic.0" fontSize={['sm', 'base', 'base']}>
-          {button}
-        </ArrowButton>
+        <ArrowButton fontSize={['sm', 'base', 'base']}>{button}</ArrowButton>
       </LocalizedLink>
     </Box>
   </Box>

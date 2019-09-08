@@ -54,6 +54,7 @@ const Blog = ({ data }) => {
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
           <Box
+            display={['none', 'none', 'block']}
             mt={[8, 8, 12]}
             mb={16}
             bg="rgba(255,255,255,.75)"
@@ -115,8 +116,9 @@ const Blog = ({ data }) => {
               filteredPosts.map((post, idx) => (
                 <PostItem
                   data={post}
-                  pb={idx === posts.length - 1 ? 0 : [8, 8, 10]}
-                  pt={idx === 0 ? 4 : [4, 4, 10]}
+                  pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
+                  pt={idx === 0 ? 0 : [4, 4, 4]}
+                  mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
                   borderBottom={
                     idx === posts.length - 1
                       ? 'none'

@@ -11,20 +11,9 @@ const ProjectsSlide = ({
   projects,
   content: { title, description, button },
 }) => (
-  <Box
-    width={1}
-    maxWidth={1400}
-    m="auto"
-    px={[8, 12, 16, 20, 24, 0]}
-    py={[12, 16, 20, 32]}
-  >
-    <HomeInfoRow
-      title={title}
-      description={description}
-      button={button}
-      idx={2}
-    />
-    <ProjectsGrid>
+  <Box width={1} maxWidth={1400} m="auto" px={[8, 8, 24]} py={[12, 16, 20, 24]}>
+    <HomeInfoRow title={title} description={description} button={button} />
+    <ProjectsGrid mt={[12, 16, 24]} mb={[8, 12, 20]}>
       {projects.map((project, idx) => {
         const { title } = project.node.data
 
@@ -34,18 +23,18 @@ const ProjectsSlide = ({
               display={['inline-block', 'inline-block', 'none']}
               fontFamily="sans"
               fontColor="primary.7"
-              fontSize={['xl', '3xl']}
-              fontWeight="medium"
+              fontSize={['lg', 'xl']}
+              fontWeight="black"
               mb={[0, 0, 8]}
             >
               {title.text}
             </Text>
-            <ProjectItem project={project} mb={4} />
+            <ProjectItem project={project} mb={8} />
           </>
         )
       })}
     </ProjectsGrid>
-    <Box textAlign={['center', 'left', 'right']} mt={[12, 16, 24, 24]}>
+    <Box textAlign={['left', 'left', 'right']}>
       <LocalizedLink to="/projects" display={['block']}>
         <ArrowButton fontColor="cosmic.2" fontSize={['sm', 'base', 'base']}>
           {button}

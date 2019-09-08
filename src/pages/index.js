@@ -19,7 +19,7 @@ import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const OnTopLayer = styled.section`
-  ${tw`relative overflow-hidden py-24 xl:py-32 shadow-lg`}
+  ${tw`relative overflow-hidden py-16 xl:py-32 shadow-lg`}
   z-index: 6;
   margin-top: 100vh;
   margin-bottom: 800px;

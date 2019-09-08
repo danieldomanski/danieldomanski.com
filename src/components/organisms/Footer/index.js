@@ -5,7 +5,7 @@ import useWindowScrollPosition from '@rehooks/window-scroll-position'
 
 const FooterContainer = styled.footer`
   ${tw`md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
-
+  background-color: #f4f4f4;
   box-sizing: border-box;
   z-index: 5;
 

@@ -9,17 +9,17 @@ const getActiveStyle = (active, placement) =>
   placement === 'header'
     ? {
         color: active.color,
-        borderBottom: `2px solid ${active.border}`,
         fontWeight: 600,
       }
     : {
         color: active.color,
+        fontWeight: 600,
       }
 
 const headerNavStyles = {
   order: [3, 3, 2, 2, 2, 2],
   ml: [0, 0, 'auto'],
-  mr: [0, 0, 12, 16, 16, 32],
+  mr: [0, 0, 'auto', 24, 24],
   mt: [2, 2, 0],
   textTransform: 'uppercase',
 }
@@ -50,6 +50,20 @@ const footerItemStyles = {
   fontSize: ['sm', 'sm'],
 }
 
+const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
+  <LocalizedLink
+    to={to}
+    fontColor={color}
+    fontSize={['sm', 'sm']}
+    fontWeight="medium"
+    activeStyle={activeStyle}
+    {...itemStyle}
+    {...rest}
+  >
+    {children}
+  </LocalizedLink>
+)
+
 const Navigation = ({ theme, variant, placement, content }) => {
   const [locale] = useContext(LocaleContext)
   const { home, projects, about, articles } = content
@@ -78,54 +92,42 @@ const Navigation = ({ theme, variant, placement, content }) => {
         style={{ textTransform: 'uppercase' }}
         {...listStyles}
       >
-        <LocalizedLink
+        <NavItem
           to="/"
-          locale={locale}
-          fontColor={color}
-          fontSize={['sm', 'sm']}
+          color={color}
           activeStyle={activeStyle}
-          {...itemStyles}
+          itemStyle={itemStyles}
         >
           {home}
-        </LocalizedLink>
-        <LocalizedLink
-          to="/projects"
-          locale={locale}
-          fontWeight="medium"
-          fontColor={color}
+        </NavItem>
+        <NavItem
           partiallyActive
-          fontSize={['sm', 'sm']}
+          to="/projects"
+          color={color}
           activeStyle={activeStyle}
-          {...itemStyles}
+          itemStyle={itemStyles}
         >
           {projects}
-        </LocalizedLink>
-        <LocalizedLink
+        </NavItem>
+        <NavItem
           display={locale === 'en' ? 'none' : 'block'}
-          to="/blog"
-          locale={locale}
-          fontWeight="medium"
-          fontColor={color}
           partiallyActive
-          fontSize={['sm', 'sm']}
-          style={{ textTransform: 'uppercase' }}
+          to="/blog"
+          color={color}
           activeStyle={activeStyle}
-          {...itemStyles}
+          itemStyle={itemStyles}
         >
           {articles}
-        </LocalizedLink>
-        <LocalizedLink
+        </NavItem>
+        <NavItem
+          partiallyActive
           to="/about"
-          locale={locale}
-          fontWeight="medium"
-          fontColor={color}
-          fontSize={['sm', 'sm']}
+          color={color}
           activeStyle={activeStyle}
-          {...itemStyles}
-          mr={0}
+          itemStyle={itemStyles}
         >
           {about}
-        </LocalizedLink>
+        </NavItem>
       </Box>
     </Box>
   )
