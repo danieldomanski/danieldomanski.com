@@ -39,7 +39,7 @@ const Line = styled.span`
 
 const NotFoundPage = ({ data }) => {
   if (typeof window !== `undefined`) {
-    const [content] = usePageContent(data)
+    const content = usePageContent(data)
     const { title, subtitle, description } = content.notFoundPage
 
     return (

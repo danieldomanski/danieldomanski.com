@@ -46,14 +46,14 @@ const Blog = ({ data }) => {
       <FadeIn>
         <Box
           width={1}
-          pb={[8, 8, 16]}
           maxWidth={760}
           m={[0, 0, 'auto', 'auto', 'auto']}
           px={[8, 8, 12, 12, 0, 0]}
+          pb={[12, 16, 20, 24, 24, 32]}
           flex={1}
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
-          <Box display="flex" flexDirection="column" my={[8, 8, 10, 10, 12]}>
+          <Box display="flex" flexDirection="column" mb={[10, 10, 10, 16, 16]}>
             <Box
               as="ul"
               display="flex"
@@ -81,9 +81,9 @@ const Blog = ({ data }) => {
               filteredPosts.map((post, idx) => (
                 <PostItem
                   data={post}
-                  pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
-                  pt={idx === 0 ? 0 : [4, 4, 4]}
-                  mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
+                  pb={idx === posts.length - 1 ? 0 : [8, 4, 8]}
+                  pt={idx === 0 ? 0 : [4, 4, 8]}
+                  mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
                   borderBottom={
                     idx === posts.length - 1
                       ? 'none'

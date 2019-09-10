@@ -3,7 +3,7 @@ import { css } from 'styled-components'
 export default css`
   div > p,
   li {
-    ${tw`font-serif md:text-lg leading-loose`}
+    ${tw`font-serif  leading-relaxed`}
     margin-bottom: 2rem;
     color: #17191c;
   }
@@ -39,11 +39,11 @@ export default css`
   }
 
   h1 {
-    ${tw`font-sans text-xl md:text-3xl`}
+    ${tw`font-sans text-2xl`}
     line-height: 125%;
-    font-weight: 500;
-    margin-top: 2.5rem;
-    padding-bottom: 1.25rem;
+    font-weight: 800;
+    margin-top: 3.5rem;
+    margin-bottom: 1.75rem;
   }
 
   code[class*='language-'],

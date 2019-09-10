@@ -40,8 +40,8 @@ const Header = ({ theme, variant }) => {
           flexWrap="wrap"
           alignItems={['center']}
           m="auto"
-          px={[8, 8, 8, 12, 12, 16]}
-          mt={[8, 8, 8]}
+          px={[6, 8, 8, 12, 12, 16]}
+          mt={[6, 8, 8]}
         >
           <Brand>
             <LocalizedLink to="/">

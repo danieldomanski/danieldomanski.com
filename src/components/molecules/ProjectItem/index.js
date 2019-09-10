@@ -10,22 +10,28 @@ import Text from '../../atoms/Text'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const Container = styled(Tilt)`
-  ${tw`relative w-full h-full shadow-lg overflow-hidden`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+
   height: 280px;
+  transition: height 0.25s ease-in-out;
 
   @media screen and (min-width: 420px) {
+    height: 320px;
+  }
+
+  @media screen and (min-width: 768px) {
     height: 380px;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 460px;
+    height: 450px;
   }
-
-  transition: height 0.25s ease-in-out;
 `
 
 const HoverScale = styled.div`
-  ${tw`relative w-full h-full shadow-lg overflow-hidden`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+
+  height: 280px;
 
   & img {
     transition: 0.2s ease !important;
@@ -42,10 +48,12 @@ const HoverScale = styled.div`
     }
   }
 
-  height: 280px;
-
   @media screen and (min-width: 420px) {
-    height: 380px;
+    height: 300px;
+  }
+
+  @media screen and (min-width: 768px) {
+    height: 400px;
   }
 
   @media screen and (min-width: 1024px) {
@@ -55,10 +63,12 @@ const HoverScale = styled.div`
 
 const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
+
   background: rgba(255, 255, 255, 1);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
+
   & p {
     opacity: 0;
 
@@ -66,35 +76,55 @@ const BgCover = styled.div`
   }
 `
 
-const ProjectGridItem = ({ project, area, mt, mb }) => {
+const ProjectTitle = ({ children }) => (
+  <Text
+    display={['inline-block', 'inline-block', 'none']}
+    fontFamily="sans"
+    fontColor="primary.9"
+    fontSize="xl"
+    fontWeight="black"
+    mb={[0, 0, 8]}
+  >
+    {children}
+  </Text>
+)
+
+const ProjectItem = ({ project, last }) => {
   const { uid } = project.node
-  const { body, released } = project.node.data
-  const slice = getSliceContent(body, 'image')
-  const { localFile } = slice[0]
+  const { body, released, title } = project.node.data
+
+  const image = getSliceContent(body, 'image')
+  const { localFile } = image[0]
 
   return (
-    <Box position="relative" width={1} mt={mt} mb={mb}>
+    <Box position="relative" mb={last ? 0 : [10, 10, 12]} mx={[0, 0, 8]}>
       {released !== '0' ? (
-        <Container area={area} options={{ max: 20, scale: 1.02 }}>
-          <LocalizedLink to={`/projects/${uid}`}>
-            <Img fluid={localFile.childImageSharp.fluid} />
-          </LocalizedLink>
-        </Container>
+        <Box>
+          <ProjectTitle>{title.text}</ProjectTitle>
+          <Container options={{ max: 20, scale: 1.02 }}>
+            <LocalizedLink to={`/projects/${uid}`}>
+              <Img fluid={localFile.childImageSharp.fluid} />
+            </LocalizedLink>
+          </Container>
+        </Box>
       ) : (
-        <HoverScale>
-          <BgCover>
-            <Text fontWeight="bold" fontColor="primary.9" fontSize="3xl">
-              Case coming soon.
-            </Text>
-            <Text fontSize="3xl" mt={4}>
-              🤯
-            </Text>
-          </BgCover>
-          <Img fluid={localFile.childImageSharp.fluid} />
-        </HoverScale>
+        <Box>
+          <ProjectTitle>{title.text}</ProjectTitle>
+          <HoverScale>
+            <BgCover>
+              <Text fontWeight="bold" fontColor="primary.9" fontSize="3xl">
+                Case coming soon.
+              </Text>
+              <Text fontSize="3xl" mt={4}>
+                🤯
+              </Text>
+            </BgCover>
+            <Img fluid={localFile.childImageSharp.fluid} />
+          </HoverScale>
+        </Box>
       )}
     </Box>
   )
 }
 
-export default ProjectGridItem
+export default ProjectItem

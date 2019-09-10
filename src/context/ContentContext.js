@@ -46,6 +46,14 @@ const initialState = {
     client: '',
     technologies: '',
   },
+  projectsPage: {
+    title: '',
+  },
+  aboutPage: {
+    title: '',
+    aboutGroup: [],
+    aboutMe: '',
+  },
 }
 
 export const ContentContext = React.createContext(initialState)
@@ -60,6 +68,7 @@ const ContentProvider = ({ children }) => {
       {({ location }) => {
         const localeStr = location.pathname.split('/')[1] === 'en' ? 'en' : 'pl'
         setLocale(localeStr)
+
         return (
           <ContentContext.Provider value={[content, set]}>
             <LocaleContext.Provider value={[locale]}>
@@ -77,10 +86,11 @@ export const usePageContent = data => {
 
   useEffect(() => {
     const formattedData = formatRawDataToContext(data)
+    console.log({ formattedData })
     setContent({ ...content, ...formattedData })
   }, [data])
 
-  return [content]
+  return content
 }
 
 export default ContentProvider

@@ -18,7 +18,7 @@ const Container = styled.div`
 
   p {
     max-width: 900px;
-    ${tw`inline-block font-sans text-lg md:text-xl font-medium text-primary.10 md:text-secondary.2 leading-relaxed`}
+    ${tw`inline-block font-sans text-base md:text-lg xl:text-xl font-medium text-primary.10 md:text-secondary.2 leading-relaxed`}
     letter-spacing: -0.02em;
     a {
       color: #0c0c0c;

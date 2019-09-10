@@ -44,20 +44,18 @@ const Post = ({ data, pageContext }) => {
 
     return (
       <FadeIn>
-        <Box as="main" width={1} m="auto" px={[4, 8, 16, 24, 32]}>
-          <Box maxWidth={686} width={1} m="auto" py={[0, 0, 8]}>
+        <Box as="main" width={1} m="auto" px={[6, 8, 16, 24, 32]}>
+          <Box maxWidth={686} width={1} m="auto">
             <Box
               as="header"
               width={1}
               display="flex"
               flexDirection={['column', 'column', 'row']}
-              alignItems={['center', 'flex-start', 'center']}
               px={2}
-              mb={4}
+              py={8}
             >
               <Box display="flex" flexDirection="column" mb={[6, 8, 12]}>
                 <Text
-                  fontFamily="sans"
                   fontColor="primary.10"
                   fontWeight="black"
                   fontSize={['4xl', '4xl', '5xl']}

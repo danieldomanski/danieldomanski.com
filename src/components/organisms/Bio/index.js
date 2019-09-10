@@ -22,14 +22,14 @@ const Bio = ({ mt, mb }) => (
     <Box display="flex" flexDirection="column">
       <Text
         fontSize="xl"
-        fontWeight="bold"
+        fontWeight="black"
         fontColor="primary.8"
         mb={[4, 2]}
         mt={[4, 4, 0]}
       >
         Daniel Domański
       </Text>
-      <Text fontSize={['sm', 'base']} fontFamily="serif" lineHeight="relaxed">
+      <Text fontSize={['sm', 'base']} lineHeight="relaxed" fontWeight="medium">
         I’m well-rounded web developer with strong desire to create outstanding
         products. Always eager to learn and share my experience.
       </Text>

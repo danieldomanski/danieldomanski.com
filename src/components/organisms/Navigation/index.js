@@ -20,7 +20,7 @@ const headerNavStyles = {
   order: [3, 3, 2, 2, 2, 2],
   ml: [0, 0, 'auto'],
   mr: [0, 0, 'auto', 16, 16],
-  mt: [2, 2, 0],
+  mt: [3, 3, 0],
   textTransform: 'uppercase',
 }
 
@@ -39,7 +39,6 @@ const footerListStyles = {
 
 const headerItemStyles = {
   mr: 8,
-
   borderBottom: `2px solid transparent`,
   fontSize: ['sm', 'sm'],
 }

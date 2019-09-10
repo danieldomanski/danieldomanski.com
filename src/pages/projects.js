@@ -12,39 +12,27 @@ import ProjectItem from '../components/molecules/ProjectItem'
 
 const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
-    usePageContent(data)
-    const pageContent = formatProjectsPage(data.projectsPage.edges[0])
-
+    console.log('!')
+    const content = usePageContent(data)
+    console.log('3')
+    const { edges } = data.projects
+    const { title } = content.projectsPage
+    console.log('4')
     return (
       <FadeIn>
         <Box
           width={1}
-          maxWidth={1250}
+          maxWidth={1300}
           m={[0, 0, 0, 0, 'auto']}
-          px={[8, 8, 12, 12, 12, 0]}
+          px={[6, 8, 12, 12, 12, 0]}
+          pb={[12, 16, 20, 24, 24, 32]}
           flex={1}
         >
-          <UnderlineText>{pageContent.title}</UnderlineText>
-          <ProjectsGrid mb={[24, 24, 32]}>
-            {data.projects.edges.map((project, idx) => {
-              const { title } = project.node.data
-
-              return (
-                <>
-                  <Text
-                    display={['inline-block', 'inline-block', 'none']}
-                    fontFamily="sans"
-                    fontColor="primary.7"
-                    fontSize={['lg', 'xl']}
-                    fontWeight="black"
-                    mb={[0, 0, 8]}
-                  >
-                    {title.text}
-                  </Text>
-                  <ProjectItem project={project} mb={8} />
-                </>
-              )
-            })}
+          <UnderlineText>{title}</UnderlineText>
+          <ProjectsGrid>
+            {edges.map(project => (
+              <ProjectItem project={project} />
+            ))}
           </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>

@@ -148,7 +148,7 @@ const theme = {
     tight: 1.25,
     snug: 1.375,
     normal: 1.5,
-    relaxed: 1.675,
+    relaxed: 1.75,
     loose: 2,
   },
 }
@@ -194,10 +194,12 @@ theme.components = {
     primary: {
       color: theme.colors.secondary[5],
       activeColor: theme.colors.secondary[1],
+      inactiveColor: theme.colors.primary[2],
     },
     secondary: {
       color: theme.colors.primary[6],
       activeColor: theme.colors.primary[9],
+      inactiveColor: theme.colors.primary[2],
     },
   },
   highlights: {

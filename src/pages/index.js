@@ -3,20 +3,16 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import HomeSlide from '../components/templates/HomeSlides/HomeSlide'
-import ProjectsSlide from '../components/templates/HomeSlides/ProjectsSlide'
-import BlogSlide from '../components/templates/HomeSlides/BlogSlide'
-import AboutSlide from '../components/templates/HomeSlides/AboutSlide'
-
+import HomeSlide from '../components/organisms/HomeSlides/HomeSlide'
+import ProjectsSlide from '../components/organisms/HomeSlides/ProjectsSlide'
+import BlogSlide from '../components/organisms/HomeSlides/BlogSlide'
+import AboutSlide from '../components/organisms/HomeSlides/AboutSlide'
 import Footer from '../components/organisms/Footer'
 import UpperBox from '../components/organisms/Footer/UpperBox'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-
-import useWindowSize from '../hooks/useWindowSize'
-import { formatHome } from '../utilitity/format'
-
-import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
+import useWindowSize from '../hooks/useWindowSize'
+import { usePageContent } from '../context/ContentContext'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden py-16 xl:py-32 shadow-lg`}
@@ -42,20 +38,17 @@ const Index = ({ data }) => {
   if (typeof window !== `undefined`) {
     const windowSize = useWindowSize()
     const isMobile = windowSize.width < 768
-    const pageContent = formatHome(data.home.edges[0])
-    usePageContent(data)
+    const content = usePageContent(data)
+    const { hero, works, about, blog, footer } = content.home
 
     if (isMobile) {
       return (
         <FadeIn>
-          <HomeSlide content={pageContent.hero} />
-          <ProjectsSlide
-            projects={data.projects.edges}
-            content={pageContent.works}
-          />
-          <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
+          <HomeSlide content={hero} />
+          <ProjectsSlide projects={data.projects.edges} content={works} />
+          <BlogSlide posts={data.posts.edges} content={blog} />
           <Footer variant="index">
-            <UpperBox content={pageContent.footer} />
+            <UpperBox content={footer} />
             <BottomBox />
           </Footer>
         </FadeIn>
@@ -64,18 +57,15 @@ const Index = ({ data }) => {
     return (
       <>
         <TopLayer>
-          <HomeSlide content={pageContent.hero} />
+          <HomeSlide content={hero} />
         </TopLayer>
         <OnTopLayer>
-          <AboutSlide content={pageContent.about} />
-          <ProjectsSlide
-            projects={data.projects.edges}
-            content={pageContent.works}
-          />
-          <BlogSlide posts={data.posts.edges} content={pageContent.blog} />
+          <AboutSlide content={about} />
+          <ProjectsSlide projects={data.projects.edges} content={works} />
+          <BlogSlide posts={data.posts.edges} content={blog} />
         </OnTopLayer>
         <Footer variant="primary">
-          <UpperBox content={pageContent.footer} />
+          <UpperBox content={footer} />
           <BottomBox variant="primary" />
         </Footer>
       </>

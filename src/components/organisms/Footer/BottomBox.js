@@ -18,7 +18,7 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={[8, 12, 12]}
+      py={[6, 12, 12]}
       display="flex"
       bg={backgroundColor}
       alignItems="flex-end"

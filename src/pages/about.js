@@ -13,39 +13,20 @@ import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const About = ({ data }) => {
   if (typeof window !== `undefined`) {
-    usePageContent(data)
+    const content = usePageContent(data)
 
-    const { title, about_me, about_group } = data.about.data
-    const aboutGroups = formatAboutGroup(about_group)
-
+    const { title, aboutMe, aboutGroup } = content.aboutPage
+    console.log({ content, aboutGroup })
     return (
       <FadeIn>
         <Box
           width={1}
-          pb={[24]}
+          pb={[8]}
           maxWidth={686}
           m={[0, 0, 'auto']}
           px={[8, 8, 12, 12, 0, 0]}
         >
-          <UnderlineText>{title.text}</UnderlineText>
-          <Box
-            display="flex"
-            flexDirection={['column', 'column', 'row']}
-            justifyContent="center"
-            alignItems="center"
-            my={[8, 8, 10, 10, 12]}
-          >
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontWeight="medium"
-              fontSize={['base', 'lg']}
-              withLine
-              lineHeight="relaxed"
-            >
-              {about_me.text}
-            </Text>
-          </Box>
+          <UnderlineText>{title}</UnderlineText>
           <Box
             display="flex"
             flexDirection="column"
@@ -53,18 +34,16 @@ const About = ({ data }) => {
             mt={[0, 0, 8]}
             mb={[0, 0, 16]}
           >
-            {aboutGroups.map(group => (
-              <Box width={1} m="auto">
-                <Text
-                  fontFamily="sans"
-                  fontColor="primary.10"
-                  fontSize={['lg']}
-                  fontWeight="bold"
-                  mt={10}
-                  mb={6}
-                >
-                  {group.title}
-                </Text>
+            <Text
+              fontSize={['2xl']}
+              fontColor="primary.9"
+              fontWeight="black"
+              mb={[6, 8]}
+            >
+              TL; DR.
+            </Text>
+            {aboutGroup.map(group => (
+              <Box width={1} m="auto" my={2}>
                 {group.rows.map(row => (
                   <Box
                     display="flex"
@@ -87,7 +66,7 @@ const About = ({ data }) => {
                       width={[5 / 6, 5 / 6, 1 / 2]}
                       fontColor="primary.10"
                       fontWeight="medium"
-                      fontSize={['base', 'lg']}
+                      fontSize={['base', 'base']}
                       pl={2}
                     >
                       {row.value}
@@ -97,7 +76,68 @@ const About = ({ data }) => {
               </Box>
             ))}
           </Box>
+          <Box my={[12, 12, 20]}>
+            <Text
+              fontSize={['2xl']}
+              fontColor="primary.9"
+              fontWeight="black"
+              mb={[6, 8]}
+            >
+              The past.
+            </Text>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontWeight="medium"
+              fontSize={['base', 'lg']}
+              withLine
+              lineHeight="relaxed"
+            >
+              {aboutMe}
+            </Text>
+          </Box>
+          <Box my={[12, 12, 20]}>
+            <Text
+              fontSize="2xl"
+              fontColor="primary.9"
+              fontWeight="black"
+              mb={[6, 8]}
+            >
+              The now.
+            </Text>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontWeight="medium"
+              fontSize={['base', 'lg']}
+              withLine
+              lineHeight="relaxed"
+            >
+              {aboutMe}
+            </Text>
+          </Box>
+          <Box my={[12, 12, 20]}>
+            <Text
+              fontSize="2xl"
+              fontColor="primary.9"
+              fontWeight="black"
+              mb={[6, 8]}
+            >
+              The future.
+            </Text>
+            <Text
+              fontFamily="sans"
+              fontColor="primary.10"
+              fontWeight="medium"
+              fontSize={['base', 'lg']}
+              withLine
+              lineHeight="relaxed"
+            >
+              {aboutMe}
+            </Text>
+          </Box>
         </Box>
+
         <Box as="footer" width={1} m="auto">
           <BottomBox variant="secondary" />
         </Box>

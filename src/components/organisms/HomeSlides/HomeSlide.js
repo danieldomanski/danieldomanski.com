@@ -63,9 +63,8 @@ const HomeSlide = ({ content }) => (
           flexDirection="column"
           textAlign={['center']}
           m={[0, 0, 0, 0, 0, 'auto']}
-          mx={[8, 8, 12, 12, 12, 16]}
-          pt={[16, 16, 0]}
-          pb={[16, 16, 0]}
+          mx={[6, 8, 12, 12, 12, 16]}
+          py={[16, 16, 0]}
           borderBottom={[
             '1px solid rgba(0, 0, 0, 0.1)',
             '1px solid rgba(0, 0, 0, 0.1)',
@@ -76,7 +75,7 @@ const HomeSlide = ({ content }) => (
             <Text
               fontFamily="sans"
               fontWeight="black"
-              fontSize={['3xl', '4xl', '5xl', '6xl']}
+              fontSize={['4xl', '4xl', '5xl', '6xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.1']}
               lineHeight="tight"
               style={{ letterSpacing: '-0.04em' }}

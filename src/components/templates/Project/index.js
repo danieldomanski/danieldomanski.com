@@ -61,30 +61,20 @@ const InfoBoxRow = ({ children, ...rest }) => (
 )
 
 const InfoBoxRowTitle = ({ children }) => (
-  <Text
-    fontFamily="sans"
-    fontColor="primary.5"
-    fontWeight="medium"
-    fontSize="sm"
-  >
+  <Text fontColor="primary.5" fontWeight="medium" fontSize="base">
     {children}
   </Text>
 )
 
 const InfoBoxRowDescription = ({ children }) => (
-  <Text
-    fontFamily="sans"
-    fontSize={['sm', 'sm', 'sm', 'base']}
-    fontWeight="medium"
-    fontColor="primary.11"
-  >
+  <Text fontWeight="medium" fontColor="primary.11">
     {children}
   </Text>
 )
 
 const Project = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
-    const [content] = usePageContent(data)
+    const content = usePageContent(data)
     const { title, description } = pageContext.data.node.data
     const { body } = data.prismicProjects.data
     const { client, role, technologies } = content.projectPage
@@ -102,10 +92,18 @@ const Project = ({ data, pageContext }) => {
           pb={[4, 8, 16]}
           maxWidth={1400}
           m={[0, 0, 0, 0, 'auto']}
-          px={[4, 8, 16, 24, 32]}
+          px={[6, 8, 16, 24, 32]}
         >
           <Box width={1} m="auto" textAlign="center">
-            <UnderlineText>{title.text}</UnderlineText>
+            <Text
+              fontColor="primary.10"
+              fontWeight="black"
+              fontSize={['3xl', '4xl', '5xl']}
+              lineHeight="relaxed"
+              mt={[8, 12, 12, 12, 16]}
+            >
+              {title.text}
+            </Text>
             <Box
               width={1}
               position="relative"
@@ -162,7 +160,7 @@ const Project = ({ data, pageContext }) => {
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"
-                fontSize={['base', 'lg']}
+                fontSize={['lg', 'lg']}
                 lineHeight="relaxed"
               >
                 {description.text}

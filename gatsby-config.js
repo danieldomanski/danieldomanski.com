@@ -2,11 +2,17 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+const config = require('./src/config/website')
 const prismicHtmlSerializer = require('./src/gatsby/htmlSerializer')
 
 module.exports = {
   siteMetadata: {
-    title: 'ddomanski.dev',
+    siteTitle: config.siteTitle,
+    siteDescription: config.siteDescription,
+    siteTitleAlt: config.siteTitleAlt,
+    siteShortName: config.siteShortName,
+    siteUrl: config.siteUrl,
+    siteHeadline: config.siteHeadline,
   },
   plugins: [
     {
@@ -36,15 +42,38 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: config.googleAnalyticsID,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/en/offline-plugin-app-shell-fallback'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'ddev',
-        short_name: 'ddev',
+        name: config.siteTitle,
+        short_name: config.siteShortName,
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
-        display: 'minimal-ui',
-        icon: 'src/images/favicon.ico',
+        lang: 'pl-PL',
+        background_color: '#656565',
+        display: 'standalone',
+        icons: [
+          {
+            src: '/favicons/icons-192.png',
+            sizes: '192x192',
+            type: 'image/png',
+          },
+          {
+            src: '/favicons/icons-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+          },
+        ],
       },
     },
     {

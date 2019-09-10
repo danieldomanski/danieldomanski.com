@@ -25,7 +25,9 @@ const LocaleSpan = ({ children, active, color, activeColor }) => (
 )
 
 const LocaleSwitcher = ({ theme, variant }) => {
-  const { color, activeColor } = theme.components.localeSwitcher[variant]
+  const { color, activeColor, inactiveColor } = theme.components.localeSwitcher[
+    variant
+  ]
 
   return (
     <Box display="flex" alignItems="center" order="2">
@@ -48,7 +50,7 @@ const LocaleSwitcher = ({ theme, variant }) => {
               <Text
                 fontSize="sm"
                 as="span"
-                fontColor={isBlog ? '#dadada' : color}
+                fontColor={isBlog ? inactiveColor : color}
                 mx={1}
               >
                 /
@@ -61,7 +63,7 @@ const LocaleSwitcher = ({ theme, variant }) => {
                 to={getLocalizedPathname(location.pathname, 'en')}
               >
                 <LocaleSpan
-                  color={color}
+                  color={isBlog ? inactiveColor : color}
                   activeColor={activeColor}
                   active={active === 'en'}
                 >
