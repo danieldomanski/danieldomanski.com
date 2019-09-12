@@ -50,7 +50,7 @@ const Blog = ({ data }) => {
           m={[0, 0, 'auto', 'auto', 'auto']}
           px={[8, 8, 12, 12, 0, 0]}
           pb={[12, 16, 20, 24, 24, 32]}
-          flex={1}
+          flexGrow={1}
         >
           <UnderlineText>{pageContent.title}</UnderlineText>
           <Box display="flex" flexDirection="column" mb={[10, 10, 10, 16, 16]}>

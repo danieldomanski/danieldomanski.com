@@ -12,7 +12,7 @@ const PostItem = ({ data, ...rest }) => {
 
   return (
     <Box display="flex" alignItems="center" m={[0, 0, 0, 0, 'auto']} {...rest}>
-      <Box flex={1}>
+      <Box flexGrow={1}>
         <LocalizedLink to={`/blog/${data.node.uid}`}>
           <Text
             fontFamily="sans"

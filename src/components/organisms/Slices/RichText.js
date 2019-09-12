@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 const Container = styled.div`
+  width: 100%;
+
   h1 {
     ${tw`font-sans text-3xl sm:text-3xl md:text-5xl font-bold text-primary.10 md:text-secondary.0 mb-8 md:mb-6 `}
 

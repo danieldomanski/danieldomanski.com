@@ -19,7 +19,7 @@ const Bio = ({ mt, mb }) => (
     boxShadow="lg"
   >
     <Avatar src="profile-picture.jpg" x={120} y={120} mr={[0, 0, 8]} />
-    <Box display="flex" flexDirection="column">
+    <Box display="flex" flexDirection="column" width={1}>
       <Text
         fontSize="xl"
         fontWeight="black"

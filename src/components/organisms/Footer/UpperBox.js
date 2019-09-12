@@ -22,13 +22,14 @@ const UpperRect = () => {
   return (
     <>
       <Box
+        width={1}
         height="100%"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
         textAlign="center"
-        mx={[6, 8, 12]}
+        px={[6, 8, 12]}
         py={[16, 16, 0]}
         borderTop="1px solid rgba(0,0,0,0.1)"
       >

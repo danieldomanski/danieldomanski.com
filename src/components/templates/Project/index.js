@@ -129,7 +129,7 @@ const Project = ({ data, pageContext }) => {
           >
             <Box
               width={[1, 1, 0]}
-              flex={1}
+              flexGrow={1}
               display="flex"
               flexDirection="column"
               justifyContent={['flex-start']}
@@ -156,7 +156,12 @@ const Project = ({ data, pageContext }) => {
                 <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
               </InfoBoxRow>
             </Box>
-            <Box display="flex" alignItems="center" flex={[1, 3, 3, 3, 3]}>
+            <Box
+              width={1}
+              display="flex"
+              alignItems="center"
+              flexGrow={[1, 3, 3, 3, 3]}
+            >
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"

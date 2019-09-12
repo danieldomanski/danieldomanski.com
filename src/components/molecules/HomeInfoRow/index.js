@@ -24,7 +24,8 @@ const HomeInfoRow = ({ title, description }) => (
       </Text>
     </Box>
     <Text
-      flexGrow={[0, 0, 3]}
+      width={1}
+      flexGrow={[1, 1, 3]}
       fontSize={['base', 'lg', 'xl']}
       fontColor="primary.9"
       fontWeight="medium"

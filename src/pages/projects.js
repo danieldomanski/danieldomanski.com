@@ -24,7 +24,7 @@ const Projects = ({ data }) => {
           m={[0, 0, 0, 0, 'auto']}
           px={[6, 8, 12, 12, 12, 0]}
           pb={[12, 16, 20, 24, 24, 32]}
-          flex={1}
+          flexGrow={1}
         >
           <UnderlineText>{title}</UnderlineText>
           <ProjectsGrid>
