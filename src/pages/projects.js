@@ -12,12 +12,10 @@ import ProjectItem from '../components/molecules/ProjectItem'
 
 const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
-    console.log('!')
     const content = usePageContent(data)
-    console.log('3')
     const { edges } = data.projects
     const { title } = content.projectsPage
-    console.log('4')
+
     return (
       <FadeIn>
         <Box
@@ -30,9 +28,16 @@ const Projects = ({ data }) => {
         >
           <UnderlineText>{title}</UnderlineText>
           <ProjectsGrid>
-            {edges.map(project => (
-              <ProjectItem project={project} />
-            ))}
+            {edges.map((project, idx) => {
+              const last = idx === edges.length - 1
+              return (
+                <ProjectItem
+                  project={project}
+                  mb={last ? 0 : [10, 10, 12]}
+                  mx={[0, 0, 8]}
+                />
+              )
+            })}
           </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>

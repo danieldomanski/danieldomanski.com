@@ -30,8 +30,9 @@ const Bio = ({ mt, mb }) => (
         Daniel Domański
       </Text>
       <Text fontSize={['sm', 'base']} lineHeight="relaxed" fontWeight="medium">
-        I’m well-rounded web developer with strong desire to create outstanding
-        products. Always eager to learn and share my experience.
+        Jestem wszechstronnym programistą z dużą chęcią do tworzenia
+        nieszablonowych projektów. Zawsze nastawiony na naukę i dzielenie się
+        swoimi doświadczeniami.
       </Text>
     </Box>
   </Box>

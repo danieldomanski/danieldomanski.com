@@ -23,7 +23,7 @@ const AnimatedContainer = styled.div`
 `
 
 export default React.memo(
-  ({ children, delay = 0, direction = 'bottom', px = 60, offset = 450 }) => {
+  ({ children, delay = 0, direction = 'bottom', px = 60 }) => {
     const [visible, set] = React.useState(false)
     const { width } = useWindowSize()
     const isMobile = width < 768
@@ -35,7 +35,6 @@ export default React.memo(
         }}
         active={!visible}
         partialVisibility
-        offset={{ top: offset, left: offset }}
       >
         <AnimatedContainer
           visible={isMobile ? true : visible}

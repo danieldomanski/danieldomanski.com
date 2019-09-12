@@ -6,7 +6,7 @@ import { graphql } from 'gatsby'
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatAboutGroup } from '../utilitity/format'
+import { formatAboutGroup, formatAboutText } from '../utilitity/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -15,8 +15,8 @@ const About = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
 
-    const { title, aboutMe, aboutGroup } = content.aboutPage
-    console.log({ content, aboutGroup })
+    const { title, aboutMe, aboutGroup, aboutText } = content.aboutPage
+
     return (
       <FadeIn>
         <Box
@@ -38,13 +38,13 @@ const About = ({ data }) => {
               fontSize={['2xl']}
               fontColor="primary.9"
               fontWeight="black"
-              mb={[6, 8]}
+              mb={[6, 4]}
             >
               TL; DR.
             </Text>
             {aboutGroup.map(group => (
               <Box width={1} m="auto" my={2}>
-                {group.rows.map(row => (
+                {group.rows.map((row, idx) => (
                   <Box
                     display="flex"
                     py={4}
@@ -53,7 +53,7 @@ const About = ({ data }) => {
                     <Text
                       fontFamily="sans"
                       width={[1 / 2]}
-                      fontColor="primary.7"
+                      fontColor="primary.9"
                       fontWeight="medium"
                       fontSize={['base', 'base']}
                       pr={3}
@@ -64,7 +64,7 @@ const About = ({ data }) => {
                       fontFamily="sans"
                       maxWidth={500}
                       width={[5 / 6, 5 / 6, 1 / 2]}
-                      fontColor="primary.10"
+                      fontColor="primary.9"
                       fontWeight="medium"
                       fontSize={['base', 'base']}
                       pl={2}
@@ -76,66 +76,28 @@ const About = ({ data }) => {
               </Box>
             ))}
           </Box>
-          <Box my={[12, 12, 20]}>
-            <Text
-              fontSize={['2xl']}
-              fontColor="primary.9"
-              fontWeight="black"
-              mb={[6, 8]}
-            >
-              The past.
-            </Text>
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontWeight="medium"
-              fontSize={['base', 'lg']}
-              withLine
-              lineHeight="relaxed"
-            >
-              {aboutMe}
-            </Text>
-          </Box>
-          <Box my={[12, 12, 20]}>
-            <Text
-              fontSize="2xl"
-              fontColor="primary.9"
-              fontWeight="black"
-              mb={[6, 8]}
-            >
-              The now.
-            </Text>
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontWeight="medium"
-              fontSize={['base', 'lg']}
-              withLine
-              lineHeight="relaxed"
-            >
-              {aboutMe}
-            </Text>
-          </Box>
-          <Box my={[12, 12, 20]}>
-            <Text
-              fontSize="2xl"
-              fontColor="primary.9"
-              fontWeight="black"
-              mb={[6, 8]}
-            >
-              The future.
-            </Text>
-            <Text
-              fontFamily="sans"
-              fontColor="primary.10"
-              fontWeight="medium"
-              fontSize={['base', 'lg']}
-              withLine
-              lineHeight="relaxed"
-            >
-              {aboutMe}
-            </Text>
-          </Box>
+          {aboutText.map(group => (
+            <Box my={[8, 12, 16]}>
+              <Text
+                fontSize={['2xl']}
+                fontColor="primary.9"
+                fontWeight="black"
+                mb={[4, 4]}
+              >
+                {group.title}
+              </Text>
+              <Text
+                fontFamily="sans"
+                fontColor="primary.9"
+                fontWeight="medium"
+                fontSize={['base', 'lg']}
+                withLine
+                lineHeight="relaxed"
+              >
+                {group.description}
+              </Text>
+            </Box>
+          ))}
         </Box>
 
         <Box as="footer" width={1} m="auto">
@@ -160,6 +122,14 @@ export const pageQuery = graphql`
         }
         about_me {
           text
+        }
+        about_text {
+          text_title {
+            text
+          }
+          text_description {
+            text
+          }
         }
         about_group {
           group_title {

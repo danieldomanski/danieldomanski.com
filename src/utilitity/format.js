@@ -4,8 +4,7 @@
 export const formatInvolvment = roles =>
   roles.map(role => role.involvment.document[0].data.involvment.text)
 
-export const formatAboutGroup = aboutGroup => {
-  return aboutGroup.map(g => {
+export const formatAboutGroup = aboutGroup => aboutGroup.map(g => {
     const rows = g.rows1.document[0].data.group.map(r => ({
       name: r.row.document[0].data.name.text,
       value: r.row.document[0].data.value.text,
@@ -13,12 +12,14 @@ export const formatAboutGroup = aboutGroup => {
 
     return { title: g.group_title.text, rows }
   })
-}
+
+export const formatAboutText = aboutText => aboutText.map(g => ({ title: g.text_title.text, description: g.text_description.text }))
 
 export const formatAbout = about => ({
   title: about.title.text,
   aboutMe: about.about_me.text,
   aboutGroup: formatAboutGroup(about.about_group),
+  aboutText: formatAboutText(about.about_text),
 })
 
 export const formatHome = home => {
@@ -29,6 +30,7 @@ export const formatHome = home => {
     blog_title,
     blog_description,
     blog_button,
+    process_details,
     body,
     hero_title,
     hero_description,
@@ -48,6 +50,7 @@ export const formatHome = home => {
       title: about_title.text,
       description: about_description.text,
       button: about_button.text,
+      processDetails: process_details.text,
     },
     blog: {
       title: blog_title.text,
@@ -63,6 +66,7 @@ export const formatHome = home => {
       title: footer.upper_title.html,
       subtitle: footer.upper_subtitle.html,
       description: footer.upper_description.html,
+      codeAvailability: footer.code_availability.text,
     },
   }
 }
@@ -131,7 +135,6 @@ export const formatUrlToLocale = url =>
   url.split('/')[1] === 'en' ? 'en-pl' : 'pl'
 
 export const formatRawDataToContext = context => {
-  console.log({ context })
   const contextKeys = Object.keys(context)
   let data = {}
 
@@ -160,7 +163,6 @@ export const formatRawDataToContext = context => {
           aboutPage: formatAbout(context.about.data),
           ...data,
         }
-        console.log({ data })
         break
       case 'projectPage':
         data = {

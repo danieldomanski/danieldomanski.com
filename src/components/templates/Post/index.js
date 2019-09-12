@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { graphql } from 'gatsby'
 import { Link } from '../../atoms/Link'
 import Text from '../../atoms/Text'
@@ -9,7 +9,7 @@ import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utilitity/date'
 import { countWordsFromSlices, timeToRead } from '../../../utilitity/timeToRead'
 import Tag from '../../atoms/Tag'
-import { usePageContent } from '../../../context/ContentContext'
+import { usePageContent, LocaleContext } from '../../../context/ContentContext'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const BreadcrumbItem = ({ to, title, description, textAlign }) => (
@@ -50,28 +50,35 @@ const Post = ({ data, pageContext }) => {
               as="header"
               width={1}
               display="flex"
+              justifyContent="center"
+              textAlign={['left', 'left', 'center']}
               flexDirection={['column', 'column', 'row']}
-              px={2}
-              py={8}
+              mt={[2, 8]}
+              mb={[6, 8, 8, 8, 8]}
             >
-              <Box display="flex" flexDirection="column" mb={[6, 8, 12]}>
+              <Box display="flex" flexDirection="column" mb={[6, 8, 8]}>
                 <Text
                   fontColor="primary.10"
                   fontWeight="black"
-                  fontSize={['4xl', '4xl', '5xl']}
-                  lineHeight="none"
-                  mt={[8, 12, 12, 12, 16]}
+                  fontSize={['3xl', '4xl', '5xl']}
+                  lineHeight="tight"
+                  mt={[8, 8, 8, 8, 8]}
                 >
                   {title.text}
                 </Text>
-                <Box display="flex" flexDirection="column" mt={[6, 4]} mb={[4]}>
+                <Box
+                  display="flex"
+                  justifyContent={['flex-start', 'flex-start', 'center']}
+                  mt={[4, 4, 4]}
+                  mb={[4, 4, 4]}
+                >
                   <Box display="flex" alignItems="center">
                     <Text fontColor="primary.6">{formatDate(date)}</Text>
                     <Text as="span" fontColor="primary.6" mx={2}>
                       •
                     </Text>
                     <Text fontColor="primary.6">
-                      {`${estimatedReadTime} minutes to read`}
+                      {`${estimatedReadTime} minuty czytania`}
                     </Text>
                   </Box>
                 </Box>

@@ -6,6 +6,7 @@ import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 
 const PostItem = ({ data, ...rest }) => {
+  console.log({ data, rest })
   const { title, description } = data.node.data
   const { last_publication_date } = data.node
 

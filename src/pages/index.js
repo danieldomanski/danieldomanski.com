@@ -203,6 +203,9 @@ export const pageQuery = graphql`
             about_title {
               text
             }
+            process_details {
+              text
+            }
             about_description {
               text
             }
@@ -242,6 +245,9 @@ export const pageQuery = graphql`
                   }
                   upper_description {
                     html
+                    text
+                  }
+                  code_availability {
                     text
                   }
                 }

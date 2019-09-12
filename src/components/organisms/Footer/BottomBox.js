@@ -18,7 +18,7 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={[6, 12, 12]}
+      py={[6, 8, 8]}
       display="flex"
       bg={backgroundColor}
       alignItems="flex-end"
@@ -53,9 +53,9 @@ const BottomBox = ({ theme, variant }) => {
             hover={{ color: '#4583FF' }}
           />
         </Box>
-        <Box display="flex" mt={2}>
+        <Box display="flex">
           <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
-            Code available on
+            {content.home.footer.codeAvailability}
           </Text>
           <Text fontColor={color} fontWeight="bold" fontSize="base">
             Github

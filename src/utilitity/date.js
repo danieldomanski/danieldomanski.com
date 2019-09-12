@@ -1,9 +1,9 @@
 /* eslint-disable import/prefer-default-export */
-import { format } from 'date-fns'
+import { format, parseISO } from 'date-fns'
+import { pl } from 'date-fns/locale'
 
 const locales = {
-  en: import('date-fns/locale/en'),
-  pl: import('date-fns/locale/pl'),
+  pl,
 }
 
 /**
@@ -14,8 +14,5 @@ const locales = {
  * @returns {object}     - date in given format and locale
  */
 
-export const formatDate = (
-  date,
-  formatStr = 'DD MMM, YYYY',
-  localeStr = 'en'
-) => format(date, formatStr, { locale: locales[localeStr] })
+export const formatDate = (date, formatStr = 'dd MMMM, yyyy') =>
+  format(parseISO(date), formatStr, { locale: locales.pl })

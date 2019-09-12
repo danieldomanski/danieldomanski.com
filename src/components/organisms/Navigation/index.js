@@ -80,14 +80,14 @@ const Navigation = ({ theme, variant, placement, content }) => {
     <Box
       width={[1, 1, 'auto']}
       display="flex"
-      alignItems="center"
+      alignItems="flex-start"
       textAlign="center"
       {...navStyles}
     >
       <Box
         as="ul"
         display="flex"
-        alignContent="center"
+        alignContent="flex-start"
         style={{ textTransform: 'uppercase' }}
         {...listStyles}
       >
@@ -124,6 +124,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
           color={color}
           activeStyle={activeStyle}
           itemStyle={itemStyles}
+          mr={placement === 'header' ? 'inherit' : 0}
         >
           {about}
         </NavItem>

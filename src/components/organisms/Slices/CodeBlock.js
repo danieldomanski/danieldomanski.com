@@ -17,7 +17,7 @@ const CodeContainer = styled.code`
 `
 
 const CodeTitle = styled.div`
-  ${tw`text-base text-primary-200 font-bold py-3 px-4`}
+  ${tw`text-base text-primary.2 font-bold py-3 px-4`}
 
   font-family: "Roboto";
   background: #000;

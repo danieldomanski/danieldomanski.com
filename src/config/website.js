@@ -1,8 +1,9 @@
 const meta = {
-  siteTitle: 'Daniel Domański - Full-Stack Web Developer',
-  siteDescription:
-    'Hello! My name is Daniel and I am Web Developer specialising in JavaScript. My job is to help your business grow by providing modern digital products that people enjoy.',
+  siteTitle: 'Daniel Domański',
+  siteTitleShort: 'Daniel Domański',
   siteTitleAlt: 'Daniel Domański',
+  siteDescription:
+    'I am Web Developer specialising in JavaScript. My job is to help your business grow by providing modern digital products that people enjoy.',
   siteShortName: 'danieldomanski.com',
   siteUrl: 'https://www.danieldomanski.com',
   siteHeadline: 'Full-Stack Web Development',

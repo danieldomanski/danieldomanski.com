@@ -52,6 +52,7 @@ const initialState = {
   aboutPage: {
     title: '',
     aboutGroup: [],
+    aboutText: [],
     aboutMe: '',
   },
 }
@@ -86,7 +87,7 @@ export const usePageContent = data => {
 
   useEffect(() => {
     const formattedData = formatRawDataToContext(data)
-    console.log({ formattedData })
+
     setContent({ ...content, ...formattedData })
   }, [data])
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  padding: 0 0.5em;
+  padding: 0 0.15em;
 `
 
 const BodyText = ({ data }) => (

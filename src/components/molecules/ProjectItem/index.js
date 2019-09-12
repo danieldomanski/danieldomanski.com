@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image'
@@ -6,7 +6,7 @@ import Tilt from 'react-tilt'
 import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
-
+import { LocaleContext } from '../../../context/ContentContext'
 import { getSliceContent } from '../../../utilitity/prismic'
 
 const Container = styled(Tilt)`
@@ -64,7 +64,7 @@ const HoverScale = styled.div`
 const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
 
-  background: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, .95);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
@@ -89,7 +89,13 @@ const ProjectTitle = ({ children }) => (
   </Text>
 )
 
-const ProjectItem = ({ project, last }) => {
+const NotReleasedText = {
+  en: 'Case coming soon.',
+  pl: 'Prezentacja w przygotowaniu.',
+}
+
+const ProjectItem = ({ project, ...rest }) => {
+  const [locale] = useContext(LocaleContext)
   const { uid } = project.node
   const { body, released, title } = project.node.data
 
@@ -97,7 +103,7 @@ const ProjectItem = ({ project, last }) => {
   const { localFile } = image[0]
 
   return (
-    <Box position="relative" mb={last ? 0 : [10, 10, 12]} mx={[0, 0, 8]}>
+    <Box position="relative" {...rest}>
       {released !== '0' ? (
         <Box>
           <ProjectTitle>{title.text}</ProjectTitle>
@@ -112,8 +118,12 @@ const ProjectItem = ({ project, last }) => {
           <ProjectTitle>{title.text}</ProjectTitle>
           <HoverScale>
             <BgCover>
-              <Text fontWeight="bold" fontColor="primary.9" fontSize="3xl">
-                Case coming soon.
+              <Text
+                fontWeight="black"
+                fontColor="primary.11"
+                fontSize={['xl', '2xl']}
+              >
+                {NotReleasedText[locale]}
               </Text>
               <Text fontSize="3xl" mt={4}>
                 🤯
