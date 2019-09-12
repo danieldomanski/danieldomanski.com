@@ -5,16 +5,16 @@ import { space } from 'styled-system'
 const Grid = styled.ul`
   ${space};
 
+  display: grid;
   width: 100%;
   height: 100%;
   grid-template-columns: 100%;
   list-style: none;
+  grid-gap: 2em;
 
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  display: grid;
 `
 
 const ProjectsGrid = ({ children }) => <Grid>{children}</Grid>

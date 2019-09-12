@@ -42,6 +42,7 @@ const BottomBox = ({ theme, variant }) => {
           <Icon
             icon="github"
             width={22}
+            height={22}
             mr={4}
             fill={color}
             hover={{ color: '#4583FF' }}
@@ -49,6 +50,7 @@ const BottomBox = ({ theme, variant }) => {
           <Icon
             icon="linkedin"
             width={22}
+            height={22}
             fill={color}
             hover={{ color: '#4583FF' }}
           />

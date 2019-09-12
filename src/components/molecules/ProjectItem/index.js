@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import Img from 'gatsby-image'
+import Img from 'gatsby-image/withIEPolyfill'
 import Tilt from 'react-tilt'
 import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'

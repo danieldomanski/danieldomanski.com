@@ -17,7 +17,7 @@ const generateStars = n => {
 }
 
 const Container = styled.div`
-  ${tw`hidden md:block absolute pin-t`}
+  ${tw`hidden md:block absolute pin-t pin-l`}
   z-index: -1;
   width: 100%;
   height: 100%;
@@ -91,27 +91,27 @@ const Meteors = styled.div`
   height: 100%;
 
   & svg:first-child {
-    animation: ${meteorAnimation1} 12s linear 2s infinite backwards;
+    animation: ${meteorAnimation1} 12s linear 2s infinite both;
   }
 
   & svg:nth-child(2) {
-    animation: ${meteorAnimation2} 10s linear 4s infinite backwards;
+    animation: ${meteorAnimation2} 10s linear 4s infinite both;
   }
 
   & svg:nth-child(3) {
-    animation: ${meteorAnimation3} 12s linear 6s infinite backwards;
+    animation: ${meteorAnimation3} 12s linear 6s infinite both;
   }
 
   & svg:nth-child(4) {
-    animation: ${meteorAnimation4} 10s linear 7s infinite backwards;
+    animation: ${meteorAnimation4} 10s linear 7s infinite both;
   }
 
   & svg:nth-child(5) {
-    animation: ${meteorAnimation3} 12s linear 8s infinite backwards;
+    animation: ${meteorAnimation3} 12s linear 8s infinite both;
   }
 
   & svg:last-child {
-    animation: ${meteorAnimation4} 12s linear 3s infinite backwards;
+    animation: ${meteorAnimation4} 12s linear 3s infinite both;
   }
 `
 
@@ -125,12 +125,12 @@ const BgParticles = ({ variant }) => (
     <MediumStars />
     <BigStars />
     <Meteors visible={variant === 'hero'}>
-      <Icon icon="comet" width={32} />
-      <Icon icon="comet" width={48} />
-      <Icon icon="comet" width={64} />
-      <Icon icon="comet" width={80} />
-      <Icon icon="comet" width={64} />
-      <Icon icon="comet" width={80} />
+      <Icon icon="comet" width={32} height={23} />
+      <Icon icon="comet" width={48} height={35} />
+      <Icon icon="comet" width={64} height={46} />
+      <Icon icon="comet" width={80} height={56} />
+      <Icon icon="comet" width={64} height={46} />
+      <Icon icon="comet" width={80} height={56} />
     </Meteors>
   </Container>
 )
