@@ -9,11 +9,21 @@ import Text from '../../atoms/Text'
 import { LocaleContext } from '../../../context/ContentContext'
 import { getSliceContent } from '../../../utilitity/prismic'
 
-const Container = styled(Tilt)`
+const Container = styled.article`
   ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
 
   height: 280px;
   transition: height 0.25s ease-in-out;
+
+  & img {
+    transition: transform 0.3s ease !important;
+  }
+
+  &:hover {
+    & img {
+      transform: scale(1.1);
+    }
+  }
 
   @media screen and (min-width: 420px) {
     height: 320px;
@@ -107,7 +117,7 @@ const ProjectItem = ({ project, ...rest }) => {
       {released !== '0' ? (
         <Box>
           <ProjectTitle>{title.text}</ProjectTitle>
-          <Container options={{ max: 20, scale: 1.02 }}>
+          <Container>
             <LocalizedLink to={`/projects/${uid}`}>
               <Img fluid={localFile.childImageSharp.fluid} />
             </LocalizedLink>
