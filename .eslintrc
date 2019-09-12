@@ -1,16 +1,21 @@
 {
-	"extends": ["airbnb", "prettier", "prettier/react"],
-	"parser": "babel-eslint",
-	"env": {
-	  "browser": true,
-	  "node": true
-	},
-	"globals": {
-	  "tw": true
-	},
-	"rules": {
-	  "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-	  "react/prop-types": [0]
-	}
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "globals": {
+    "tw": true,
+    "jest": true
+  },
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": [0],
+    "global-require": 0,
+    "jsx-a11y/accessible-emoji": "off",
+    "import/no-extraneous-dependencies": 0,
+    "import/prefer-default-export": 0,
+    "import/no-dynamic-require": 0
   }
-  
+}
