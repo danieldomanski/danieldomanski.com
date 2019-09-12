@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+import Box from '../components/atoms/Box'
 import HomeSlide from '../components/organisms/HomeSlides/HomeSlide'
 import ProjectsSlide from '../components/organisms/HomeSlides/ProjectsSlide'
 import BlogSlide from '../components/organisms/HomeSlides/BlogSlide'
@@ -44,9 +44,12 @@ const Index = ({ data }) => {
     if (isMobile) {
       return (
         <FadeIn>
-          <HomeSlide content={hero} />
-          <ProjectsSlide projects={data.projects.edges} content={works} />
-          <BlogSlide posts={data.posts.edges} content={blog} />
+          <Box>
+            <HomeSlide content={hero} />
+            <ProjectsSlide projects={data.projects.edges} content={works} />
+            <BlogSlide posts={data.posts.edges} content={blog} />
+          </Box>
+
           <Footer variant="index">
             <UpperBox content={footer} />
             <BottomBox />

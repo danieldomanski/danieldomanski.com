@@ -80,7 +80,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
     <Box
       width={[1, 1, 'auto']}
       display="flex"
-      alignItems="flex-start"
+      alignItems="center"
       textAlign="center"
       {...navStyles}
     >

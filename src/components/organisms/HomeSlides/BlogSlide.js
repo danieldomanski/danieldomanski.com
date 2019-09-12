@@ -25,13 +25,13 @@ const BlogSlide = ({ posts, content }) => {
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
           mb={[8, 8, 12, 12, 12]}
-          flex={1}
+          flexGrow={1}
           textAlign={['left']}
           minWidth={250}
         >
           Ostatnie posty.
         </Text>
-        <Box display="flex" flexDirection="column" flex={3}>
+        <Box display="flex" flexDirection="column" flexGrow={3}>
           <DirectionalFade>
             {posts.map((post, idx) => (
               <PostItem

@@ -10,7 +10,7 @@ const HomeInfoRow = ({ title, description }) => (
     justifyContent="space-between"
     alignItems={['center', 'flex-start']}
   >
-    <Box minWidth={[0, 0, 250]} flex={1}>
+    <Box minWidth={[0, 0, 250]} flexGrow={1}>
       <Text
         fontFamily="sans"
         display={['block']}
@@ -24,7 +24,7 @@ const HomeInfoRow = ({ title, description }) => (
       </Text>
     </Box>
     <Text
-      flex={3}
+      flexGrow={[0, 0, 3]}
       fontSize={['base', 'lg', 'xl']}
       fontColor="primary.9"
       fontWeight="medium"

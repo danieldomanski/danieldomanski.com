@@ -17,14 +17,7 @@ const ProjectsSlide = ({ projects, content }) => (
       <ProjectsGrid>
         {projects.map((project, idx) => {
           const last = idx === projects.length - 1
-          return (
-            <ProjectItem
-              project={project}
-              mb={last ? 0 : [10, 10, 12]}
-              mr={idx === 0 ? [0, 0, 0, 4, 8] : 0}
-              ml={idx === 1 ? [0, 0, 0, 4, 8] : 0}
-            />
-          )
+          return <ProjectItem project={project} mb={last ? 0 : [6, 8, 8]} />
         })}
       </ProjectsGrid>
     </Box>
