@@ -14,3 +14,11 @@ export const getLocalizedPathname = (pathname, locale) => {
   }
   return splitted.join('/')
 }
+
+export const getPolishPathname = pathname => {
+  let splitted = pathname.split('/')
+
+  if (splitted[1] === 'en') splitted.splice(1, 1)
+
+  return splitted.join('/')
+}

@@ -4,7 +4,7 @@ import ProjectsGrid from '../components/molecules/ProjectsGrid'
 import Box from '../components/atoms/Box'
 import Text from '../components/atoms/Text'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatProjectsPage } from '../utilitity/format'
+import { formatProjectsPage } from '../utils/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -30,13 +30,7 @@ const Projects = ({ data }) => {
           <ProjectsGrid>
             {edges.map((project, idx) => {
               const last = idx === edges.length - 1
-              return (
-                <ProjectItem
-                  project={project}
-                  mb={last ? 0 : [10, 10, 12]}
-                  mx={[0, 0, 8]}
-                />
-              )
+              return <ProjectItem project={project} />
             })}
           </ProjectsGrid>
         </Box>

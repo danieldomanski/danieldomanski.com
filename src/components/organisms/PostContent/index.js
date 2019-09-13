@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { BodyText, CodeBlock, Image, Note } from '../Slices'
-import codeMarkup from '../../../utilitity/codeMarkup'
+import codeMarkup from '../../../utils/codeMarkup'
 
 const Wrapper = styled.article`
   ${codeMarkup}

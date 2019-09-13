@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useContext } from 'react'
 import { Location } from '@reach/router'
-import { formatRawDataToContext } from '../utilitity/format'
+import { formatRawDataToContext } from '../utils/format'
 
 const initialState = {
   home: {
@@ -62,7 +62,7 @@ export const LocaleContext = React.createContext()
 
 const ContentProvider = ({ children }) => {
   const [content, set] = useState(initialState)
-  const [locale, setLocale] = useState()
+  const [locale, setLocale] = useState('pl')
 
   return (
     <Location>

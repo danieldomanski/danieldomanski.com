@@ -7,8 +7,8 @@ import Image from '../../atoms/Image'
 import BottomBox from '../../organisms/Footer/BottomBox'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import UnderlineText from '../../atoms/UnderlineText'
-import { getSliceContent } from '../../../utilitity/prismic'
-import { formatInvolvment } from '../../../utilitity/format'
+import { getSliceContent } from '../../../utils/prismic'
+import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
 
 const SlideLeft = keyframes`

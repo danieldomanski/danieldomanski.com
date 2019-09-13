@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 import React from 'react'
-import { formatDate } from '../../../utilitity/date'
+import { formatDate } from '../../../utils/date'
 import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'

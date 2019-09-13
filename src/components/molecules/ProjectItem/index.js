@@ -2,12 +2,11 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import Img from 'gatsby-image/withIEPolyfill'
-import Tilt from 'react-tilt'
 import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import { LocaleContext } from '../../../context/ContentContext'
-import { getSliceContent } from '../../../utilitity/prismic'
+import { getSliceContent } from '../../../utils/prismic'
 
 const Container = styled.article`
   ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
@@ -74,7 +73,7 @@ const HoverScale = styled.div`
 const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
 
-  background: rgba(255, 255, 255, .95);
+  background: rgba(250, 250, 250, .98);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
@@ -130,7 +129,7 @@ const ProjectItem = ({ project, ...rest }) => {
             <BgCover>
               <Text
                 fontWeight="black"
-                fontColor="primary.11"
+                fontColor="primary.8"
                 fontSize={['xl', '2xl']}
               >
                 {NotReleasedText[locale]}
