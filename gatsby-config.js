@@ -9,7 +9,6 @@ module.exports = {
   siteMetadata: {
     siteTitle: config.siteTitle,
     siteDescription: config.siteDescription,
-    siteTitleAlt: config.siteTitleAlt,
     siteShortName: config.siteShortName,
     siteUrl: config.siteUrl,
     siteHeadline: config.siteHeadline,

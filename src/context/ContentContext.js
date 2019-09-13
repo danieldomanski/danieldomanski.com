@@ -49,6 +49,9 @@ const initialState = {
   projectsPage: {
     title: '',
   },
+  blogsPage: {
+    title: '',
+  },
   aboutPage: {
     title: '',
     aboutGroup: [],

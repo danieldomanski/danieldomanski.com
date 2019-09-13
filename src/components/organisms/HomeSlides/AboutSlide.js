@@ -6,7 +6,7 @@ import Slide from '../../templates/Slide'
 const rows = [1, 2, 3]
 
 const AboutSlide = ({ content }) => (
-  <Slide content={content} path="/about">
+  <Slide content={content} to="/about">
     <Box mt={[12, 12, 16, 24]} mb={[12, 12, 16, 24]}>
       <Text
         display="block"

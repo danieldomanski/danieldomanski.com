@@ -4,7 +4,8 @@
 export const formatInvolvment = roles =>
   roles.map(role => role.involvment.document[0].data.involvment.text)
 
-export const formatAboutGroup = aboutGroup => aboutGroup.map(g => {
+export const formatAboutGroup = aboutGroup =>
+  aboutGroup.map(g => {
     const rows = g.rows1.document[0].data.group.map(r => ({
       name: r.row.document[0].data.name.text,
       value: r.row.document[0].data.value.text,
@@ -13,7 +14,11 @@ export const formatAboutGroup = aboutGroup => aboutGroup.map(g => {
     return { title: g.group_title.text, rows }
   })
 
-export const formatAboutText = aboutText => aboutText.map(g => ({ title: g.text_title.text, description: g.text_description.text }))
+export const formatAboutText = aboutText =>
+  aboutText.map(g => ({
+    title: g.text_title.text,
+    description: g.text_description.text,
+  }))
 
 export const formatAbout = about => ({
   title: about.title.text,
@@ -109,6 +114,14 @@ export const formatProjectsPage = projects => {
   }
 }
 
+export const formatBlogsPage = blogs => {
+  const { page_title } = blogs.node.data
+
+  return {
+    title: page_title.text,
+  }
+}
+
 export const formatSingleProjectPage = singleProjectPage => {
   const {
     role,
@@ -149,6 +162,12 @@ export const formatRawDataToContext = context => {
       case 'notFoundPage':
         data = {
           notFoundPage: format404(context.notFoundPage.edges[0]),
+          ...data,
+        }
+        break
+      case 'blogPage':
+        data = {
+          blogsPage: formatBlogsPage(context.blogPage.edges[0]),
           ...data,
         }
         break

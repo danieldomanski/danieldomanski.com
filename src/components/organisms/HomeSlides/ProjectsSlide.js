@@ -6,7 +6,7 @@ import ProjectsGrid from '../../molecules/ProjectsGrid'
 import Slide from '../../templates/Slide'
 
 const ProjectsSlide = ({ projects, content }) => (
-  <Slide content={content}>
+  <Slide content={content} to="/projects">
     <Box
       display="flex"
       flexDirection={['column', 'column', 'column', 'column', 'row']}

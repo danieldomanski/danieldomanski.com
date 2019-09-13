@@ -9,7 +9,7 @@ import { LocaleContext } from '../../../context/ContentContext'
 import { getSliceContent } from '../../../utils/prismic'
 
 const Container = styled.article`
-  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden`};
 
   height: 280px;
   transition: height 0.25s ease-in-out;
@@ -38,7 +38,7 @@ const Container = styled.article`
 `
 
 const HoverScale = styled.div`
-  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden`};
 
   height: 280px;
 
@@ -58,15 +58,15 @@ const HoverScale = styled.div`
   }
 
   @media screen and (min-width: 420px) {
-    height: 300px;
+    height: 320px;
   }
 
   @media screen and (min-width: 768px) {
-    height: 400px;
+    height: 380px;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 460px;
+    height: 450px;
   }
 `
 

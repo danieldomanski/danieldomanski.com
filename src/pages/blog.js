@@ -12,7 +12,8 @@ import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const Blog = ({ data }) => {
   if (typeof window !== `undefined`) {
-    usePageContent(data)
+    const content = usePageContent(data)
+
     const [currentFilters, setFilters] = useState([])
     const [filteredPosts, filterPosts] = useState(data.posts.edges)
     const [tags] = useState(data.tags.edges)
@@ -36,8 +37,6 @@ const Blog = ({ data }) => {
       )
     }
 
-    const pageContent = formatBlogPage(data.blogPage.edges[0])
-
     useEffect(() => {
       updatePosts()
     }, [currentFilters])
@@ -52,7 +51,7 @@ const Blog = ({ data }) => {
           pb={[12, 16, 20, 24, 24, 32]}
           flexGrow={1}
         >
-          <UnderlineText>{pageContent.title}</UnderlineText>
+          <UnderlineText>{content.blogsPage.title}</UnderlineText>
           <Box display="flex" flexDirection="column" mb={[10, 10, 10, 16, 16]}>
             <Box
               as="ul"

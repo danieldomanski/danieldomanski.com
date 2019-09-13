@@ -36,14 +36,14 @@ const LocalizedButton = ({ path, button, isMobile }) => (
   </Box>
 )
 
-const Slide = ({ children, path, content: { title, description, button } }) => {
+const Slide = ({ children, to, content: { title, description, button } }) => {
   const [locale] = useContext(LocaleContext)
   const { width } = useWindowSize()
   const isMobile = width < 768
 
   return (
     <Box
-      display={locale === 'en' && path === 'blog' ? 'none' : 'block'}
+      display={locale === 'en' && to === 'blog' ? 'none' : 'block'}
       width={1}
       maxWidth={1400}
       m="auto"
@@ -56,7 +56,7 @@ const Slide = ({ children, path, content: { title, description, button } }) => {
       </DirectionalFade>
       <DirectionalFade>{children}</DirectionalFade>
       <DirectionalFade>
-        <LocalizedButton path={path} button={button} isMobile={isMobile} />
+        <LocalizedButton path={to} button={button} isMobile={isMobile} />
       </DirectionalFade>
     </Box>
   )

@@ -28,10 +28,9 @@ const Projects = ({ data }) => {
         >
           <UnderlineText>{title}</UnderlineText>
           <ProjectsGrid>
-            {edges.map((project, idx) => {
-              const last = idx === edges.length - 1
-              return <ProjectItem project={project} />
-            })}
+            {edges.map((project, idx) => (
+              <ProjectItem project={project} />
+            ))}
           </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>

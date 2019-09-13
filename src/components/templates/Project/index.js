@@ -128,7 +128,7 @@ const Project = ({ data, pageContext }) => {
             m="auto"
           >
             <Box
-              width={[1, 1, 0]}
+              width={[1, 1, 'auto']}
               flexGrow={1}
               display="flex"
               flexDirection="column"

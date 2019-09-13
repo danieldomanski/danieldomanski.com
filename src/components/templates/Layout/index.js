@@ -29,7 +29,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <SEO pathname={location.pathname} />
+      <SEO location={location} />
       <GlobalStyle />
 
       <ThemeProvider theme={theme}>
