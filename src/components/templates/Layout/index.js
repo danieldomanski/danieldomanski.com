@@ -6,7 +6,8 @@ import Helmet from 'react-helmet'
 import theme from '../../../config/theme'
 import Header from '../../organisms/Header'
 import useWindowSize from '../../../hooks/useWindowSize'
-import { GlobalStyle } from '../../../utilitity/styles'
+import SEO from '../../organisms/SEO'
+import { GlobalStyle } from '../../../utils/styles'
 
 const MainContent = styled.main`
   ${tw`flex flex-col relative`}
@@ -28,10 +29,7 @@ const Layout = ({ children, location }) => {
 
   return (
     <>
-      <Helmet>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <title>Daniel Domański - Full stack web developer</title>
-      </Helmet>
+      <SEO location={location} />
       <GlobalStyle />
 
       <ThemeProvider theme={theme}>

@@ -61,10 +61,10 @@ UnderlineText.defaultProps = {
   fontWeight: 'black',
   fontColor: 'primary.11',
   display: 'block',
-  mt: 8,
+  mt: [8, 8, 8, 12, 16],
   mr: 0,
   ml: 0,
-  mb: [8, 8, 8, 12, 12],
+  mb: [8, 8, 8, 12, 16],
 }
 
 export default UnderlineText

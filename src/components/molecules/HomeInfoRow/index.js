@@ -7,24 +7,25 @@ const HomeInfoRow = ({ title, description }) => (
     as="header"
     display="flex"
     flexDirection={['column', 'column', 'column', 'column', 'row']}
-    justifyContent="space-between"
-    alignItems={['center', 'flex-start']}
+    alignItems={['flex-start', 'flex-start']}
+    mb={16}
   >
-    <Box minWidth={[0, 0, 250]} flexGrow={1}>
-      <Text
-        fontFamily="sans"
-        display={['block']}
-        fontSize={['3xl', '3xl', '4xl']}
-        fontColor="primary.11"
-        fontWeight="black"
-        lineHeight="tight"
-        style={{ letterSpacing: '-0.04em' }}
-      >
-        {title}.
-      </Text>
-    </Box>
     <Text
-      flexGrow={[0, 0, 3]}
+      fontFamily="sans"
+      display={['block']}
+      fontSize={['3xl', '3xl', '4xl']}
+      fontColor="primary.11"
+      fontWeight="black"
+      lineHeight="tight"
+      style={{ letterSpacing: '-0.04em' }}
+      flex={1}
+    >
+      {title}.
+    </Text>
+
+    <Text
+      width={[1]}
+      flex={[1, 1, 3]}
       fontSize={['base', 'lg', 'xl']}
       fontColor="primary.9"
       fontWeight="medium"

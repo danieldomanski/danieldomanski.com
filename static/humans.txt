@@ -1,0 +1,11 @@
+/* TEAM */
+	Creator: Daniel Domański
+	Site: https://www.danieldomanski.com
+    Description: I am Web Developer specialising in JavaScript. My job is to help your business grow by providing modern digital products that people enjoy.
+	From: Szczecin, Poland
+
+/* SITE */
+	Doctype: html5
+	IDE: Visual Studio Code
+	Hosted on: Netlify
+    Components: React, Gatsby, Prismic.io

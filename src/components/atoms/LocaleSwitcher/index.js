@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Location } from '@reach/router'
 import { withTheme } from 'styled-components'
 import css from '@styled-system/css'
-import { getLocalizedPathname } from '../../../utilitity/locale'
+import { getLocalizedPathname } from '../../../utils/locale'
 import Box from '../Box'
 import Text from '../Text'
 

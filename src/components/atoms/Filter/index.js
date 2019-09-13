@@ -33,7 +33,7 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
       <Text
         fontColor={isActive ? active.color : primary.color}
         fontWeight="medium"
-        fontSize={['sm']}
+        fontSize={['xs', 'sm']}
       >
         {children}
       </Text>

@@ -5,14 +5,15 @@ import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatBlogPage } from '../utilitity/format'
+import { formatBlogPage } from '../utils/format'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const Blog = ({ data }) => {
   if (typeof window !== `undefined`) {
-    usePageContent(data)
+    const content = usePageContent(data)
+
     const [currentFilters, setFilters] = useState([])
     const [filteredPosts, filterPosts] = useState(data.posts.edges)
     const [tags] = useState(data.tags.edges)
@@ -36,8 +37,6 @@ const Blog = ({ data }) => {
       )
     }
 
-    const pageContent = formatBlogPage(data.blogPage.edges[0])
-
     useEffect(() => {
       updatePosts()
     }, [currentFilters])
@@ -50,9 +49,9 @@ const Blog = ({ data }) => {
           m={[0, 0, 'auto', 'auto', 'auto']}
           px={[8, 8, 12, 12, 0, 0]}
           pb={[12, 16, 20, 24, 24, 32]}
-          flex={1}
+          flexGrow={1}
         >
-          <UnderlineText>{pageContent.title}</UnderlineText>
+          <UnderlineText>{content.blogsPage.title}</UnderlineText>
           <Box display="flex" flexDirection="column" mb={[10, 10, 10, 16, 16]}>
             <Box
               as="ul"
@@ -147,6 +146,17 @@ export const pageQuery = graphql`
         node {
           data {
             page_title {
+              text
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
               text
             }
           }

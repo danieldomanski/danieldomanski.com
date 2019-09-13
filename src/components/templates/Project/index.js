@@ -7,8 +7,8 @@ import Image from '../../atoms/Image'
 import BottomBox from '../../organisms/Footer/BottomBox'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import UnderlineText from '../../atoms/UnderlineText'
-import { getSliceContent } from '../../../utilitity/prismic'
-import { formatInvolvment } from '../../../utilitity/format'
+import { getSliceContent } from '../../../utils/prismic'
+import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
 
 const SlideLeft = keyframes`
@@ -128,8 +128,8 @@ const Project = ({ data, pageContext }) => {
             m="auto"
           >
             <Box
-              width={[1, 1, 0]}
-              flex={1}
+              width={[1, 1, 'auto']}
+              flexGrow={1}
               display="flex"
               flexDirection="column"
               justifyContent={['flex-start']}
@@ -156,7 +156,12 @@ const Project = ({ data, pageContext }) => {
                 <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
               </InfoBoxRow>
             </Box>
-            <Box display="flex" alignItems="center" flex={[1, 3, 3, 3, 3]}>
+            <Box
+              width={1}
+              display="flex"
+              alignItems="center"
+              flexGrow={[1, 3, 3, 3, 3]}
+            >
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"
@@ -335,7 +340,6 @@ export const pageQuery = graphql`
             }
           }
         }
-
         title {
           text
         }

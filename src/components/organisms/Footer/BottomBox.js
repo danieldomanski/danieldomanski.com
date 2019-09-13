@@ -18,7 +18,7 @@ const BottomBox = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={[6, 8, 8]}
+      py={[8, 8, 12]}
       display="flex"
       bg={backgroundColor}
       alignItems="flex-end"
@@ -39,29 +39,35 @@ const BottomBox = ({ theme, variant }) => {
           placement="footer"
         />
         <Box my={4}>
-          <Icon
-            icon="github"
-            width={22}
-            height={22}
-            mr={4}
-            fill={color}
-            hover={{ color: '#4583FF' }}
-          />
-          <Icon
-            icon="linkedin"
-            width={22}
-            height={22}
-            fill={color}
-            hover={{ color: '#4583FF' }}
-          />
+          <a href="https://github.com/danieldomanski">
+            <Icon
+              icon="github"
+              width={22}
+              height={22}
+              mr={4}
+              fill={color}
+              hover={{ color: '#4583FF' }}
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-doma%C5%84ski-201884123/">
+            <Icon
+              icon="linkedin"
+              width={22}
+              height={22}
+              fill={color}
+              hover={{ color: '#4583FF' }}
+            />
+          </a>
         </Box>
         <Box display="flex">
           <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
-            {content.home.footer.codeAvailability}
+            {content.footer.codeAvailability}
           </Text>
-          <Text fontColor={color} fontWeight="bold" fontSize="base">
-            Github
-          </Text>
+          <a href="https://github.com/danieldomanski/danieldomanski.com">
+            <Text fontColor={color} fontWeight="bold" fontSize="base">
+              Github
+            </Text>
+          </a>
         </Box>
       </Box>
     </Box>

@@ -6,7 +6,7 @@ import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
 import { layout, typography, space, color } from 'styled-system'
 import locales from '../../../config/locales'
-import { formatUrlToLocale } from '../../../utilitity/format'
+import { formatUrlToLocale } from '../../../utils/format'
 
 const LinkContainer = styled(Link)`
   ${tw`font-sans no-underline cursor-pointer`};

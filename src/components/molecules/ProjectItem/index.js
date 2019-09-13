@@ -6,10 +6,10 @@ import { LocalizedLink } from '../../atoms/Link'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import { LocaleContext } from '../../../context/ContentContext'
-import { getSliceContent } from '../../../utilitity/prismic'
+import { getSliceContent } from '../../../utils/prismic'
 
 const Container = styled.article`
-  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden`};
 
   height: 280px;
   transition: height 0.25s ease-in-out;
@@ -38,7 +38,7 @@ const Container = styled.article`
 `
 
 const HoverScale = styled.div`
-  ${tw`relative w-full h-full shadow-md overflow-hidden mt-2`};
+  ${tw`relative w-full h-full shadow-md overflow-hidden`};
 
   height: 280px;
 
@@ -58,22 +58,22 @@ const HoverScale = styled.div`
   }
 
   @media screen and (min-width: 420px) {
-    height: 300px;
+    height: 320px;
   }
 
   @media screen and (min-width: 768px) {
-    height: 400px;
+    height: 380px;
   }
 
   @media screen and (min-width: 1024px) {
-    height: 460px;
+    height: 450px;
   }
 `
 
 const BgCover = styled.div`
   ${tw`absolute w-full  flex flex-col justify-center items-center`}
 
-  background: rgba(255, 255, 255, .95);
+  background: rgba(250, 250, 250, .98);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
@@ -92,7 +92,7 @@ const ProjectTitle = ({ children }) => (
     fontColor="primary.9"
     fontSize="xl"
     fontWeight="black"
-    mb={[0, 0, 8]}
+    mb={[2, 4, 8]}
   >
     {children}
   </Text>
@@ -129,7 +129,7 @@ const ProjectItem = ({ project, ...rest }) => {
             <BgCover>
               <Text
                 fontWeight="black"
-                fontColor="primary.11"
+                fontColor="primary.8"
                 fontSize={['xl', '2xl']}
               >
                 {NotReleasedText[locale]}

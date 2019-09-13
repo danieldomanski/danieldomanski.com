@@ -1,18 +1,17 @@
 /* eslint-disable camelcase */
 import React from 'react'
-import { formatDate } from '../../../utilitity/date'
+import { formatDate } from '../../../utils/date'
 import { LocalizedLink } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 
 const PostItem = ({ data, ...rest }) => {
-  console.log({ data, rest })
   const { title, description } = data.node.data
   const { last_publication_date } = data.node
 
   return (
     <Box display="flex" alignItems="center" m={[0, 0, 0, 0, 'auto']} {...rest}>
-      <Box flex={1}>
+      <Box flexGrow={1}>
         <LocalizedLink to={`/blog/${data.node.uid}`}>
           <Text
             fontFamily="sans"

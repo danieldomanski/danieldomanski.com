@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
 import tw from 'tailwind.macro'
 import { color, typography, space } from 'styled-system'
-import { hexToRGB } from '../../../utilitity/hexToRGB'
+import { hexToRGB } from '../../../utils/hexToRGB'
 
 const ButtonContainer = styled.button`
   ${tw`font-sans rounded-full font-bold uppercase`};

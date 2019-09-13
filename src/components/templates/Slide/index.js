@@ -9,17 +9,17 @@ import { LocaleContext } from '../../../context/ContentContext'
 import useWindowSize from '../../../hooks/useWindowSize'
 
 const LocalizedButton = ({ path, button, isMobile }) => (
-  <Box textAlign={['left', 'left', 'right']}>
+  <Box textAlign={['right', 'left', 'right']} mt={16}>
     <LocalizedLink to={path} display={['block']}>
       {isMobile ? (
         <Text
-          fontWeight="bold"
+          fontWeight="black"
           fontColor="accent.8"
           fontSize={['base', 'base', 'base']}
           style={{ textTransform: 'uppercase' }}
         >
           {button}
-          <Text ml={2} fontSize="xl" fontColor="accent.8" fontWeight="black">
+          <Text ml={1} fontSize="xl" fontColor="accent.8" fontWeight="black">
             ›
           </Text>
         </Text>
@@ -36,19 +36,19 @@ const LocalizedButton = ({ path, button, isMobile }) => (
   </Box>
 )
 
-const Slide = ({ children, path, content: { title, description, button } }) => {
+const Slide = ({ children, to, content: { title, description, button } }) => {
   const [locale] = useContext(LocaleContext)
   const { width } = useWindowSize()
   const isMobile = width < 768
 
   return (
     <Box
-      display={locale === 'en' && path === 'blog' ? 'none' : 'block'}
+      display={locale === 'en' && to === 'blog' ? 'none' : 'block'}
       width={1}
       maxWidth={1400}
       m="auto"
-      pt={[12, 16, 20, 24, 32]}
-      pb={[12, 16, 20, 24, 32]}
+      pt={[16, 16, 20, 24, 32]}
+      pb={[16, 16, 20, 24, 32]}
       px={[6, 8, 12, 12, 16, 16]}
     >
       <DirectionalFade>
@@ -56,7 +56,7 @@ const Slide = ({ children, path, content: { title, description, button } }) => {
       </DirectionalFade>
       <DirectionalFade>{children}</DirectionalFade>
       <DirectionalFade>
-        <LocalizedButton path={path} button={button} isMobile={isMobile} />
+        <LocalizedButton path={to} button={button} isMobile={isMobile} />
       </DirectionalFade>
     </Box>
   )

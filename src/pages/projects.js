@@ -4,7 +4,7 @@ import ProjectsGrid from '../components/molecules/ProjectsGrid'
 import Box from '../components/atoms/Box'
 import Text from '../components/atoms/Text'
 import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatProjectsPage } from '../utilitity/format'
+import { formatProjectsPage } from '../utils/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -14,7 +14,7 @@ const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
     const { edges } = data.projects
-    const { title } = content.projectsPage
+    const { title } = content.worksPage
 
     return (
       <FadeIn>
@@ -24,20 +24,13 @@ const Projects = ({ data }) => {
           m={[0, 0, 0, 0, 'auto']}
           px={[6, 8, 12, 12, 12, 0]}
           pb={[12, 16, 20, 24, 24, 32]}
-          flex={1}
+          flexGrow={1}
         >
           <UnderlineText>{title}</UnderlineText>
           <ProjectsGrid>
-            {edges.map((project, idx) => {
-              const last = idx === edges.length - 1
-              return (
-                <ProjectItem
-                  project={project}
-                  mb={last ? 0 : [10, 10, 12]}
-                  mx={[0, 0, 8]}
-                />
-              )
-            })}
+            {edges.map((project, idx) => (
+              <ProjectItem project={project} />
+            ))}
           </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>
@@ -121,11 +114,22 @@ export const pageQuery = graphql`
         }
       }
     }
-    projectsPage: allPrismicProjectspage(filter: { lang: { eq: $locale } }) {
+    worksPage: allPrismicProjectspage(filter: { lang: { eq: $locale } }) {
       edges {
         node {
           data {
             page_title {
+              text
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
               text
             }
           }

@@ -19,15 +19,12 @@ const BlogSlide = ({ posts, content }) => {
         mb={[12, 12, 24]}
       >
         <Text
-          display="inline-block"
           fontSize={['base', 'lg', 'lg', 'xl']}
           fontWeight="black"
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
           mb={[8, 8, 12, 12, 12]}
           flexGrow={1}
-          textAlign={['left']}
-          minWidth={250}
         >
           Ostatnie posty.
         </Text>
