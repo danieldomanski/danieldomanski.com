@@ -22,11 +22,14 @@ const initialState = {
       title: '',
       description: '',
     },
-    footer: {
+    workWithMe: {
       title: '',
       subtitle: '',
       description: '',
     },
+  },
+  footer: {
+    codeAvailability: '',
   },
   header: {
     nav: {
@@ -41,16 +44,22 @@ const initialState = {
     subtitle: '',
     description: '',
   },
+  worksPage: {
+    title: '',
+  },
   projectPage: {
+    title: '',
+    description: '',
     role: '',
     client: '',
     technologies: '',
   },
-  projectsPage: {
-    title: '',
-  },
   blogsPage: {
     title: '',
+  },
+  postPage: {
+    title: '',
+    description: '',
   },
   aboutPage: {
     title: '',

@@ -1,5 +1,5 @@
 const meta = {
-  siteTitle: 'Daniel Domański - Web Developer',
+  siteTitle: 'Daniel Domański – Web Developer',
   siteTitleShort: 'Daniel Domański',
   siteTitleAlt: 'Daniel Domański',
   siteDescription:

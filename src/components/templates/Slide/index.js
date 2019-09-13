@@ -9,17 +9,17 @@ import { LocaleContext } from '../../../context/ContentContext'
 import useWindowSize from '../../../hooks/useWindowSize'
 
 const LocalizedButton = ({ path, button, isMobile }) => (
-  <Box textAlign={['left', 'left', 'right']}>
+  <Box textAlign={['right', 'left', 'right']} mt={16}>
     <LocalizedLink to={path} display={['block']}>
       {isMobile ? (
         <Text
-          fontWeight="bold"
+          fontWeight="black"
           fontColor="accent.8"
           fontSize={['base', 'base', 'base']}
           style={{ textTransform: 'uppercase' }}
         >
           {button}
-          <Text ml={2} fontSize="xl" fontColor="accent.8" fontWeight="black">
+          <Text ml={1} fontSize="xl" fontColor="accent.8" fontWeight="black">
             ›
           </Text>
         </Text>
@@ -47,8 +47,8 @@ const Slide = ({ children, to, content: { title, description, button } }) => {
       width={1}
       maxWidth={1400}
       m="auto"
-      pt={[12, 16, 20, 24, 32]}
-      pb={[12, 16, 20, 24, 32]}
+      pt={[16, 16, 20, 24, 32]}
+      pb={[16, 16, 20, 24, 32]}
       px={[6, 8, 12, 12, 16, 16]}
     >
       <DirectionalFade>

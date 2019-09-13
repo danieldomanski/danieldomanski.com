@@ -14,7 +14,7 @@ const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
     const { edges } = data.projects
-    const { title } = content.projectsPage
+    const { title } = content.worksPage
 
     return (
       <FadeIn>
@@ -114,11 +114,22 @@ export const pageQuery = graphql`
         }
       }
     }
-    projectsPage: allPrismicProjectspage(filter: { lang: { eq: $locale } }) {
+    worksPage: allPrismicProjectspage(filter: { lang: { eq: $locale } }) {
       edges {
         node {
           data {
             page_title {
+              text
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
               text
             }
           }

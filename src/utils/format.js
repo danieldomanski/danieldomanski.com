@@ -36,15 +36,15 @@ export const formatHome = home => {
     blog_description,
     blog_button,
     process_details,
-    body,
     hero_title,
     hero_description,
     works_title,
     works_description,
     works_button,
+    work_with_me_title,
+    work_with_me_subtitle,
+    work_with_me_description,
   } = home.node.data
-
-  const footer = body.find(s => s.slice_type === 'footer').primary
 
   return {
     hero: {
@@ -67,11 +67,10 @@ export const formatHome = home => {
       description: works_description.text,
       button: works_button.text,
     },
-    footer: {
-      title: footer.upper_title.html,
-      subtitle: footer.upper_subtitle.html,
-      description: footer.upper_description.html,
-      codeAvailability: footer.code_availability.text,
+    workWithMe: {
+      title: work_with_me_title.html,
+      subtitle: work_with_me_subtitle.html,
+      description: work_with_me_description.html,
     },
   }
 }
@@ -106,16 +105,16 @@ export const formatHeader = header => {
   }
 }
 
-export const formatProjectsPage = projects => {
-  const { page_title } = projects.node.data
+export const formatFooter = footer => {
+  const { code_availability } = footer.node.data
 
   return {
-    title: page_title.text,
+    codeAvailability: code_availability.text,
   }
 }
 
-export const formatBlogsPage = blogs => {
-  const { page_title } = blogs.node.data
+export const formatWorksPage = projects => {
+  const { page_title } = projects.node.data
 
   return {
     title: page_title.text,
@@ -130,9 +129,29 @@ export const formatSingleProjectPage = singleProjectPage => {
   } = singleProjectPage.node.data.body[0].items[0]
 
   return {
+    title: '',
+    description: '',
     role: role.text,
     technologies: technologies.text,
     client: client.text,
+  }
+}
+
+export const formatBlogsPage = blogs => {
+  const { page_title } = blogs.node.data
+
+  return {
+    title: page_title.text,
+  }
+}
+
+export const formatPostPage = post => {
+  'Post: ', { post }
+  const { title, description } = post
+
+  return {
+    title: title.text,
+    description: description.text,
   }
 }
 
@@ -159,6 +178,9 @@ export const formatRawDataToContext = context => {
       case 'header':
         data = { header: formatHeader(context.header.edges[0]), ...data }
         break
+      case 'footer':
+        data = { footer: formatFooter(context.footer.edges[0]), ...data }
+        break
       case 'notFoundPage':
         data = {
           notFoundPage: format404(context.notFoundPage.edges[0]),
@@ -171,9 +193,15 @@ export const formatRawDataToContext = context => {
           ...data,
         }
         break
-      case 'projectsPage':
+      case 'worksPage':
         data = {
-          projectsPage: formatProjectsPage(context.projectsPage.edges[0]),
+          worksPage: formatWorksPage(context.worksPage.edges[0]),
+          ...data,
+        }
+        break
+      case 'prismicPost':
+        data = {
+          postPage: formatPostPage(context.prismicPost.data),
           ...data,
         }
         break
@@ -183,9 +211,15 @@ export const formatRawDataToContext = context => {
           ...data,
         }
         break
+
       case 'projectPage':
+        const rest = formatSingleProjectPage(context.projectPage.edges[0])
         data = {
-          projectPage: formatSingleProjectPage(context.projectPage.edges[0]),
+          projectPage: {
+            ...rest,
+            title: context.prismicProjects.data.title.text,
+            description: context.prismicProjects.data.description.text,
+          },
           ...data,
         }
         break
@@ -193,6 +227,5 @@ export const formatRawDataToContext = context => {
         break
     }
   })
-
   return data
 }

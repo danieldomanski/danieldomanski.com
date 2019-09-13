@@ -17,7 +17,7 @@ const Line = styled.span`
 
 const UpperRect = () => {
   const [content] = useContext(ContentContext)
-  const { title, subtitle, description } = content.home.footer
+  const { title, subtitle, description } = content.home.workWithMe
 
   return (
     <>

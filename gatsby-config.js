@@ -31,11 +31,9 @@ module.exports = {
     },
     'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: 'gatsby-plugin-typography',
       options: {
-        google: {
-          families: ['Merriweather:400', 'Montserrat:400,500,700,800'],
-        },
+        pathToConfigModule: `${__dirname}/src/config/typography.js`,
       },
     },
     'gatsby-transformer-sharp',
@@ -60,15 +58,16 @@ module.exports = {
         start_url: '/',
         lang: 'pl-PL',
         background_color: '#656565',
+        theme_color: '#222',
         display: 'standalone',
         icons: [
           {
-            src: '/static/favicons/icons-192.png',
+            src: `/favicons/icons-192.png`,
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: '/static/favicons/icons-512.png',
+            src: `/favicons/icons-512.png`,
             sizes: '512x512',
             type: 'image/png',
           },

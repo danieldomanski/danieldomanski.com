@@ -233,28 +233,25 @@ export const pageQuery = graphql`
             blog_button {
               text
             }
-            body {
-              __typename
-              ... on PrismicHomeBodyFooter {
-                slice_type
-                primary {
-                  upper_title {
-                    html
-                    text
-                  }
-                  upper_subtitle {
-                    html
-                    text
-                  }
-                  upper_description {
-                    html
-                    text
-                  }
-                  code_availability {
-                    text
-                  }
-                }
-              }
+            work_with_me_title {
+              html
+            }
+            work_with_me_subtitle {
+              html
+            }
+            work_with_me_description {
+              html
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter {
+      edges {
+        node {
+          data {
+            code_availability {
+              text
             }
           }
         }

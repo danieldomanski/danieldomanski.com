@@ -7,7 +7,8 @@ const HomeInfoRow = ({ title, description }) => (
     as="header"
     display="flex"
     flexDirection={['column', 'column', 'column', 'column', 'row']}
-    alignItems={['center', 'flex-start']}
+    alignItems={['flex-start', 'flex-start']}
+    mb={16}
   >
     <Text
       fontFamily="sans"

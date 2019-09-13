@@ -152,6 +152,17 @@ export const pageQuery = graphql`
         }
       }
     }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
+              text
+            }
+          }
+        }
+      }
+    }
     header: allPrismicHeader(filter: { lang: { eq: $locale } }) {
       edges {
         node {

@@ -92,7 +92,7 @@ const ProjectTitle = ({ children }) => (
     fontColor="primary.9"
     fontSize="xl"
     fontWeight="black"
-    mb={[0, 0, 8]}
+    mb={[2, 4, 8]}
   >
     {children}
   </Text>

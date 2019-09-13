@@ -31,14 +31,13 @@ const About = ({ data }) => {
             display="flex"
             flexDirection="column"
             maxWidth={1080}
-            mt={[0, 0, 8]}
             mb={[0, 0, 16]}
           >
             <Text
               fontSize={['2xl']}
               fontColor="primary.9"
               fontWeight="black"
-              mb={[6, 4]}
+              mb={[6, 6]}
             >
               TL; DR.
             </Text>
@@ -77,12 +76,12 @@ const About = ({ data }) => {
             ))}
           </Box>
           {aboutText.map(group => (
-            <Box my={[8, 12, 16]}>
+            <Box my={[8, 12, 24]}>
               <Text
                 fontSize={['2xl']}
                 fontColor="primary.9"
                 fontWeight="black"
-                mb={[4, 4]}
+                mb={[4, 6]}
               >
                 {group.title}
               </Text>
@@ -153,6 +152,17 @@ export const pageQuery = graphql`
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
+              text
             }
           }
         }
