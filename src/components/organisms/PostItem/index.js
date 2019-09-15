@@ -24,15 +24,11 @@ const PostItem = ({ data, ...rest }) => {
           </Text>
         </LocalizedLink>
         <Box>
-          <Text fontSize="sm" fontColor="primary.6">
-            {formatDate(last_publication_date)}
-          </Text>
-          <Text fontSize="sm" mx={2} fontColor="primary.6">
+          <Text fontColor="primary.6">{formatDate(last_publication_date)}</Text>
+          <Text mx={2} fontColor="primary.6">
             •
           </Text>
-          <Text fontSize="sm" fontColor="primary.6">
-            JavaScript, Front End
-          </Text>
+          <Text fontColor="primary.6">JavaScript, Front End</Text>
           <Text
             display={['block']}
             fontColor="primary.9"

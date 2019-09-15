@@ -50,7 +50,7 @@ const Header = ({ theme, variant }) => {
                 fontSize={['lg', 'lg', 'xl']}
                 fontWeight="black"
                 fontColor={brandColor}
-                hover={{ color: '#BED6FF' }}
+                hover={{ color: '#FFF' }}
                 style={{ letterSpacing: '-0.04em' }}
               >
                 {header.brand}

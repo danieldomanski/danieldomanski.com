@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { Link } from '../../atoms/Link'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import BottomBox from '../../organisms/Footer/BottomBox'
+import Footer from '../../organisms/Footer'
 import Bio from '../../organisms/Bio'
 import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utils/date'
@@ -117,7 +117,7 @@ const Post = ({ data, pageContext }) => {
           </Box>
         </Box>
         <Box as="footer" width={1} m="auto">
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </FadeIn>
     )

@@ -1,41 +1,94 @@
-import React from 'react'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
-import useWindowScrollPosition from '@rehooks/window-scroll-position'
+import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
+import { withTheme } from 'styled-components'
+import Icon from '../../atoms/Icon'
+import Text from '../../atoms/Text'
+import Box from '../../atoms/Box'
+import Navigation from '../Navigation'
+import { ContentContext } from '../../../context/ContentContext'
 
-const FooterContainer = styled.footer`
-  ${tw`md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
-  background-color: #f4f4f4;
-  box-sizing: border-box;
-  z-index: 5;
-
-  @media screen and (max-height: 768px) and (min-width: 768px) {
-    position: absolute;
-  }
-
-  @media screen and (min-width: 768px) {
-    display: ${props =>
-      !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
-    background: radial-gradient(
-      1300px at 50% -50%,
-      #53617a -8%,
-      #25273c 45%,
-      #161723 100%
-    );
-    height: 800px;
-    z-index: 5;
-  }
-`
-
-const Footer = ({ children, variant }) => {
-  const scroll = useWindowScrollPosition({ throttle: 50 })
-  const visible = scroll.y > 920
+const Footer = ({ theme, variant }) => {
+  const [content] = useContext(ContentContext)
+  const {
+    backgroundColor,
+    color,
+    secondaryColor,
+  } = theme.components.bottomFooter[variant]
 
   return (
-    <FooterContainer visible={visible} variant={variant}>
-      {children}
-    </FooterContainer>
+    <Box
+      width={1}
+      py={[8, 8, 12]}
+      display="flex"
+      bg={backgroundColor}
+      alignItems="flex-end"
+      zIndex={12}
+      borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.05)' : 0}
+    >
+      <Box
+        m="auto"
+        display="flex"
+        flexDirection={['column', 'column', 'column']}
+        alignItems="center"
+        justifyContent="center"
+        maxWidth={1400}
+      >
+        <Navigation
+          variant={variant}
+          content={content.header.nav}
+          placement="footer"
+        />
+        <Box my={4}>
+          <a
+            href="https://github.com/danieldomanski"
+            aria-label="Github profile"
+          >
+            <Icon
+              icon="github"
+              width={22}
+              height={22}
+              mr={4}
+              fill={color}
+              hover={{ color: '#4583FF' }}
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/daniel-doma%C5%84ski-201884123/"
+            aria-label="Linkedin profile"
+          >
+            <Icon
+              icon="linkedin"
+              width={22}
+              height={22}
+              fill={color}
+              hover={{ color: '#4583FF' }}
+            />
+          </a>
+        </Box>
+        <Box display="flex">
+          <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
+            {content.footer.codeAvailability}
+          </Text>
+          <a
+            href="https://github.com/danieldomanski/danieldomanski.com"
+            aria-label="Projects source code"
+          >
+            <Text fontColor={color} fontWeight="bold" fontSize="base">
+              Github
+            </Text>
+          </a>
+        </Box>
+      </Box>
+    </Box>
   )
 }
 
-export default Footer
+Footer.propTypes = {
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+}
+
+Footer.defaultProps = {
+  variant: 'secondary',
+}
+
+export default withTheme(Footer)

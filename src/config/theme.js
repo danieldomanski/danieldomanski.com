@@ -168,7 +168,7 @@ theme.components = {
   },
   brand: {
     primary: {
-      color: theme.colors.secondary[1],
+      color: theme.colors.secondary[2],
     },
     secondary: {
       color: theme.colors.primary[9],
@@ -176,14 +176,14 @@ theme.components = {
   },
   navigation: {
     primary: {
-      color: theme.colors.secondary[7],
+      color: theme.colors.secondary[5],
       active: {
-        color: theme.colors.secondary[1],
+        color: theme.colors.secondary[0],
         border: theme.colors.cosmic[3],
       },
     },
     secondary: {
-      color: theme.colors.primary[45],
+      color: theme.colors.primary[5],
       active: {
         color: theme.colors.primary[11],
         border: theme.colors.secondary[2],

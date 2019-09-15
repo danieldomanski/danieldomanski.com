@@ -1,12 +1,9 @@
 /* eslint-disable camelcase */
-
 import React from 'react'
 import { graphql } from 'gatsby'
-
 import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
-import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatAboutGroup, formatAboutText } from '../utils/format'
+import Footer from '../components/organisms/Footer'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -76,7 +73,7 @@ const About = ({ data }) => {
             ))}
           </Box>
           {aboutText.map(group => (
-            <Box my={[8, 12, 24]}>
+            <Box my={[8, 12, 20]}>
               <Text
                 fontSize={['2xl']}
                 fontColor="primary.9"
@@ -100,7 +97,7 @@ const About = ({ data }) => {
         </Box>
 
         <Box as="footer" width={1} m="auto">
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </FadeIn>
     )

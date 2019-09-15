@@ -84,7 +84,7 @@ const meteorAnimation4 = keyframes`
 
 const Meteors = styled.div`
   display: ${props => (props.visible ? 'block' : 'none')};
-  ${tw`hidden md:block`}
+  ${tw`hidden 2xl:block`}
   position: absolute;
   z-index: -1;
   width: 100%;

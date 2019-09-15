@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { withTheme } from 'styled-components'
 import PropTypes from 'prop-types'
+import { withTheme } from 'styled-components'
 import Box from '../../atoms/Box'
 import { LocalizedLink } from '../../atoms/Link'
 import { LocaleContext } from '../../../context/ContentContext'
@@ -38,8 +38,7 @@ const footerListStyles = {
 }
 
 const headerItemStyles = {
-  mr: 8,
-  borderBottom: `2px solid transparent`,
+  pr: 8,
   fontSize: ['sm', 'sm'],
 }
 
@@ -50,17 +49,20 @@ const footerItemStyles = {
 }
 
 const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
-  <LocalizedLink
-    to={to}
-    fontColor={color}
-    fontSize={['sm', 'sm']}
-    fontWeight="medium"
-    activeStyle={activeStyle}
-    {...itemStyle}
-    {...rest}
-  >
-    {children}
-  </LocalizedLink>
+  <li>
+    <LocalizedLink
+      to={to}
+      fontColor={color}
+      fontSize={['sm', 'sm']}
+      fontWeight="medium"
+      activeStyle={activeStyle}
+      hover={{ color: itemStyle.hoverColor }}
+      {...itemStyle}
+      {...rest}
+    >
+      {children}
+    </LocalizedLink>
+  </li>
 )
 
 const Navigation = ({ theme, variant, placement, content }) => {
@@ -78,6 +80,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
 
   return (
     <Box
+      as="nav"
       width={[1, 1, 'auto']}
       display="flex"
       alignItems="center"
@@ -88,7 +91,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
         as="ul"
         display="flex"
         alignContent="flex-start"
-        style={{ textTransform: 'uppercase' }}
+        style={{ textTransform: 'uppercase', listStyleType: 'none' }}
         {...listStyles}
       >
         <NavItem
@@ -109,7 +112,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
           {projects}
         </NavItem>
         <NavItem
-          display={locale === 'en' ? 'none' : 'block'}
+          display={locale === 'en' ? 'none' : 'inline-block'}
           partiallyActive
           to="/blog"
           color={color}

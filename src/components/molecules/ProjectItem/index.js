@@ -112,12 +112,12 @@ const ProjectItem = ({ project, ...rest }) => {
   const { localFile } = image[0]
 
   return (
-    <Box position="relative" {...rest}>
+    <Box as="li" position="relative" {...rest}>
       {released !== '0' ? (
         <Box>
           <ProjectTitle>{title.text}</ProjectTitle>
           <Container>
-            <LocalizedLink to={`/projects/${uid}`}>
+            <LocalizedLink to={`/projects/${uid}`} aria-label={title.text}>
               <Img fluid={localFile.childImageSharp.fluid} />
             </LocalizedLink>
           </Container>

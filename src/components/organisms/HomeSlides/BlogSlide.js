@@ -8,8 +8,9 @@ import { LocaleContext } from '../../../context/ContentContext'
 
 const BlogSlide = ({ posts, content }) => {
   const [locale] = useContext(LocaleContext)
+  const anyPostsReady = posts.some(post => post.node.data.released !== 0)
 
-  return locale === 'en' ? null : (
+  return locale === 'en' || !anyPostsReady ? null : (
     <Slide content={content} to="/blog">
       <Box
         display="flex"
@@ -24,22 +25,17 @@ const BlogSlide = ({ posts, content }) => {
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
           mb={[8, 8, 12, 12, 12]}
-          flexGrow={1}
+          flex={1}
         >
           Ostatnie posty.
         </Text>
-        <Box display="flex" flexDirection="column" flexGrow={3}>
+        <Box display="flex" flexDirection="column" flex={3}>
           <DirectionalFade>
             {posts.map((post, idx) => (
               <PostItem
                 data={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 8, 8]}
-                pt={idx === 0 ? 0 : [8, 8, 8]}
-                borderBottom={
-                  idx === posts.length - 1
-                    ? 'none'
-                    : '1px solid rgba(0,0,0,0.05)'
-                }
+                pb={idx === posts.length - 1 ? 0 : [6, 6, 6]}
+                pt={idx === 0 ? 0 : [6, 6, 6]}
               />
             ))}
           </DirectionalFade>

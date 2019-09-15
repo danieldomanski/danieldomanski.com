@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import ProjectsGrid from '../components/molecules/ProjectsGrid'
 import Box from '../components/atoms/Box'
 import Text from '../components/atoms/Text'
-import BottomBox from '../components/organisms/Footer/BottomBox'
+import Footer from '../components/organisms/Footer'
 import { formatProjectsPage } from '../utils/format'
 import UnderlineText from '../components/atoms/UnderlineText'
 import { usePageContent } from '../context/ContentContext'
@@ -34,7 +34,7 @@ const Projects = ({ data }) => {
           </ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </FadeIn>
     )

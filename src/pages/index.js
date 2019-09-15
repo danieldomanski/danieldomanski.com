@@ -8,11 +8,10 @@ import ProjectsSlide from '../components/organisms/HomeSlides/ProjectsSlide'
 import BlogSlide from '../components/organisms/HomeSlides/BlogSlide'
 import AboutSlide from '../components/organisms/HomeSlides/AboutSlide'
 import Footer from '../components/organisms/Footer'
-import UpperBox from '../components/organisms/Footer/UpperBox'
-import BottomBox from '../components/organisms/Footer/BottomBox'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import useWindowSize from '../hooks/useWindowSize'
 import { usePageContent } from '../context/ContentContext'
+import WorkWithMe from '../components/molecules/WorkWithMe'
 
 const OnTopLayer = styled.section`
   ${tw`relative overflow-hidden py-16 xl:py-32 shadow-lg`}
@@ -49,11 +48,9 @@ const Index = ({ data }) => {
             <ProjectsSlide projects={data.projects.edges} content={works} />
             <BlogSlide posts={data.posts.edges} content={blog} />
           </Box>
-
-          <Footer variant="index">
-            <UpperBox content={footer} />
-            <BottomBox />
-          </Footer>
+          <WorkWithMe variant="primary">
+            <Footer variant="primary" />
+          </WorkWithMe>
         </FadeIn>
       )
     }
@@ -67,10 +64,9 @@ const Index = ({ data }) => {
           <ProjectsSlide projects={data.projects.edges} content={works} />
           <BlogSlide posts={data.posts.edges} content={blog} />
         </OnTopLayer>
-        <Footer variant="primary">
-          <UpperBox content={footer} />
-          <BottomBox variant="primary" />
-        </Footer>
+        <WorkWithMe variant="primary">
+          <Footer variant="primary" />
+        </WorkWithMe>
       </>
     )
   }
@@ -183,6 +179,7 @@ export const pageQuery = graphql`
                 uid
               }
             }
+            released
             category {
               slug
             }
@@ -246,7 +243,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    footer: allPrismicFooter {
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
       edges {
         node {
           data {

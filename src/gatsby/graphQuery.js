@@ -69,6 +69,7 @@ const graphQuery = `
           description {
             text
           }
+          released
           tags {
             tag {
               slug

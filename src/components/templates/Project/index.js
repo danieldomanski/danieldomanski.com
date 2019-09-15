@@ -4,9 +4,8 @@ import { graphql } from 'gatsby'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Image from '../../atoms/Image'
-import BottomBox from '../../organisms/Footer/BottomBox'
+import Footer from '../../organisms/Footer'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
-import UnderlineText from '../../atoms/UnderlineText'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
@@ -217,7 +216,7 @@ const Project = ({ data, pageContext }) => {
           </Box>
         </Box>
         <Box as="footer" width={1} m="auto">
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </FadeIn>
     )

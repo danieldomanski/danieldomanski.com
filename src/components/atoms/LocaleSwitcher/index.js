@@ -24,6 +24,8 @@ const LocaleSpan = ({ children, active, color, activeColor }) => (
   </Text>
 )
 
+const englishLocaleDisabledPaths = ['blog', 'tags']
+
 const LocaleSwitcher = ({ theme, variant }) => {
   const { color, activeColor, inactiveColor } = theme.components.localeSwitcher[
     variant
@@ -34,7 +36,9 @@ const LocaleSwitcher = ({ theme, variant }) => {
       <Location>
         {({ location }) => {
           const active = location.pathname.split('/')[1] === 'en' ? 'en' : 'pl'
-          const isBlog = location.pathname.split('/').includes('blog')
+          const isLocaleVisible = location.pathname
+            .split('/')
+            .some(element => englishLocaleDisabledPaths.includes(element))
 
           return (
             <>
@@ -50,20 +54,20 @@ const LocaleSwitcher = ({ theme, variant }) => {
               <Text
                 fontSize="sm"
                 as="span"
-                fontColor={isBlog ? inactiveColor : color}
+                fontColor={isLocaleVisible ? inactiveColor : color}
                 mx={1}
               >
                 /
               </Text>
               <Link
-                disabled={isBlog}
+                disabled={isLocaleVisible}
                 style={{
-                  pointerEvents: isBlog ? 'none' : 'initial',
+                  pointerEvents: isLocaleVisible ? 'none' : 'initial',
                 }}
                 to={getLocalizedPathname(location.pathname, 'en')}
               >
                 <LocaleSpan
-                  color={isBlog ? inactiveColor : color}
+                  color={isLocaleVisible ? inactiveColor : color}
                   activeColor={activeColor}
                   active={active === 'en'}
                 >

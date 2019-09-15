@@ -7,14 +7,14 @@ const rows = [1, 2, 3]
 
 const AboutSlide = ({ content }) => (
   <Slide content={content} to="/about">
-    <Box mt={[12, 12, 16, 24]} mb={[12, 12, 16, 24]}>
+    <Box>
       <Text
         display="block"
         fontSize={['base', 'lg', 'lg', 'xl']}
         fontWeight="black"
         fontColor="primary.4"
         style={{ textTransform: 'uppercase' }}
-        mb={[12, 12, 16, 20]}
+        mb={[12, 12, 16, 24]}
       >
         {content.processDetails}
       </Text>

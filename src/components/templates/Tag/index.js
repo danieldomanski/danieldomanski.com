@@ -5,7 +5,7 @@ import Layout from '../Layout'
 import Text from '../../atoms/Text'
 import UnderlineText from '../../atoms/UnderlineText'
 import Box from '../../atoms/Box'
-import BottomBox from '../../organisms/Footer/BottomBox'
+import Footer from '../../organisms/Footer'
 import PostItem from '../../organisms/PostItem'
 import { usePageContent } from '../../../context/ContentContext'
 
@@ -22,7 +22,7 @@ const Tag = ({ data, pageContext }) => {
 
     return (
       <>
-        <Box m="auto" px={[6, 6, 12, 16, 24]} pt={[8, 8, 16]} flexGrow={1}>
+        <Box m="auto" px={[6, 6, 12, 16, 24]} flexGrow={1}>
           <UnderlineText>Posts about {tag}</UnderlineText>
           <BlogPosts>
             {posts.map((post, idx) => (
@@ -36,14 +36,12 @@ const Tag = ({ data, pageContext }) => {
                     ? 'none'
                     : '1px solid rgba(0,0,0,0.05)'
                 }
-              >
-                abc
-              </PostItem>
+              />
             ))}
           </BlogPosts>
         </Box>
         <Box as="footer" width={1} m="auto">
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </>
     )
@@ -72,6 +70,17 @@ export const pageQuery = graphql`
               text
             }
             icon {
+              text
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
               text
             }
           }

@@ -4,8 +4,7 @@ import Text from '../components/atoms/Text'
 import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
-import BottomBox from '../components/organisms/Footer/BottomBox'
-import { formatBlogPage } from '../utils/format'
+import Footer from '../components/organisms/Footer'
 import { usePageContent } from '../context/ContentContext'
 import UnderlineText from '../components/atoms/UnderlineText'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
@@ -31,8 +30,12 @@ const Blog = ({ data }) => {
       filterPosts(
         posts.filter(post => {
           const postTags = post.node.data.tags.map(item => item.tag.slug)
-
-          return currentFilters.every(filter => postTags.includes(filter))
+          const { released } = post.node.data
+          console.log({ released })
+          return (
+            currentFilters.every(filter => postTags.includes(filter)) &&
+            released !== 0
+          )
         })
       )
     }
@@ -52,7 +55,7 @@ const Blog = ({ data }) => {
           flexGrow={1}
         >
           <UnderlineText>{content.blogsPage.title}</UnderlineText>
-          <Box display="flex" flexDirection="column" mb={[10, 10, 10, 16, 16]}>
+          <Box display="flex" flexDirection="column" mb={[8, 8, 8, 12, 12]}>
             <Box
               as="ul"
               display="flex"
@@ -66,7 +69,7 @@ const Blog = ({ data }) => {
               ))}
             </Box>
           </Box>
-          <Box minHeight={520} pb={[12]}>
+          <Box minHeight={[360, 520]} pb={[8]}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"
@@ -94,7 +97,7 @@ const Blog = ({ data }) => {
           </Box>
         </Box>
         <Box as="footer" width={1} m="auto">
-          <BottomBox variant="secondary" />
+          <Footer variant="secondary" />
         </Box>
       </FadeIn>
     )
@@ -102,6 +105,7 @@ const Blog = ({ data }) => {
 
   return null
 }
+
 export default Blog
 
 export const pageQuery = graphql`
@@ -124,6 +128,7 @@ export const pageQuery = graphql`
             description {
               text
             }
+            released
             icon {
               text
             }
