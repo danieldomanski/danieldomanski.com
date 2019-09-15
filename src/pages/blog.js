@@ -31,7 +31,7 @@ const Blog = ({ data }) => {
         posts.filter(post => {
           const postTags = post.node.data.tags.map(item => item.tag.slug)
           const { released } = post.node.data
-          console.log({ released })
+
           return (
             currentFilters.every(filter => postTags.includes(filter)) &&
             released !== 0

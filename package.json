@@ -55,10 +55,12 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.8.0",
+    "babel-jest": "^24.9.0",
     "babel-plugin-macros": "^2.5.0",
-    "babel-preset-gatsby": "^0.1.11",
+    "babel-preset-gatsby": "^0.2.13",
     "cross-env": "^5.2.1",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -67,26 +69,15 @@
     "eslint-plugin-react": "^7.14.3",
     "gatsby-plugin-typography": "^2.3.7",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.8.0",
+    "jest": "^24.9.0",
     "jest-dom": "^3.5.0",
     "prettier": "^1.18.2",
     "prop-types": "^15.7.2",
-    "react-test-renderer": "^16.8.6",
+    "react-test-renderer": "^16.9.0",
     "react-typography": "^0.16.19",
     "tailwind.macro": "^0.5.10",
     "tailwindcss": "^0.7.4",
     "tailwindcss-plugins": "^0.1.4",
     "typography": "^0.16.19"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ]
   }
 }
