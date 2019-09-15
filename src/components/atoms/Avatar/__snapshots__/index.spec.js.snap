@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar> renders with different styled-system category props 1`] = `
+.c0 {
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  max-width: 100%;
+  border-radius: 50%;
+}
+
+<img
+  alt="avatar"
+  class="c0"
+  height="20"
+  src="test-file-stub"
+  width="20"
+/>
+`;

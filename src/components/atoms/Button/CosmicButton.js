@@ -52,6 +52,10 @@ const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.8)
 const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
 
 const ButtonContainer = styled.button`
+  ${typography};
+  ${color};
+  ${space};
+
   ${tw`relative cursor-pointer p-0 px-4 py-4`};
 
   width: 200px;
@@ -104,10 +108,6 @@ const ButtonContainer = styled.button`
     transition: width 0.33s cubic-bezier(0.8, 0, 0.16, 1);
     z-index: -1;
   }
-
-  ${typography};
-  ${color};
-  ${space};
 `
 
 const Container = styled.div`

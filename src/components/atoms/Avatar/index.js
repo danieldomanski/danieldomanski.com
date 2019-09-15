@@ -6,6 +6,7 @@ import { space } from 'styled-system'
 const CircledAvatar = styled.img`
   ${space};
   min-width: ${props => props.width}px;
+  width: ${props => props.width}px;
   height: ${props => props.height}px;
   max-width: 100%;
   border-radius: 50%;
@@ -20,6 +21,7 @@ const Avatar = ({ x, y, src, mt, mb, mr, ml }) => (
     mr={mr}
     ml={ml}
     src={require(`../../../images/${src}`)}
+    alt="avatar"
   />
 )
 
