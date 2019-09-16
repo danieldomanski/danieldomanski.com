@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import theme from '../../../config/theme'
 
 const Container = styled.blockquote`
-  ${tw`flex justify-center text-base shadow-default`}
-  color: rgba(0, 0, 0, 0.7);
-
+  display: flex;
+  justify-content: center;
+  box-shadow: ${theme.shadows.default};
   background: #fffae1;
   margin: 0;
   margin-bottom: 2rem;

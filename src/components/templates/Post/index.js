@@ -41,7 +41,7 @@ const Post = ({ data, pageContext }) => {
 
     const wordCount = countWordsFromSlices(data.prismicPost.data.body)
     const estimatedReadTime = timeToRead(wordCount)
-
+    console.log({ previous, next })
     return (
       <FadeIn>
         <Box as="main" width={1} m="auto" px={[6, 8, 16, 24, 32]}>
@@ -96,22 +96,25 @@ const Post = ({ data, pageContext }) => {
               flexDirection={['column', 'column', 'row']}
               flexWrap="wrap"
               justifyContent={['flex-start', 'flex-start', 'space-between']}
-              borderTop="1px solid rgba(0,0,0,0.1)"
               pt={[8, 12]}
               my={[8, 12]}
             >
-              <BreadcrumbItem
-                to={previous.node.uid}
-                title="Poprzedni"
-                description={previous.node.data.title.text}
-                textAlign={['left', 'left', 'left']}
-              />
-              <BreadcrumbItem
-                to={next.node.uid}
-                title="Następny"
-                description={next.node.data.title.text}
-                textAlign={['left', 'left', 'right']}
-              />
+              {previous ? (
+                <BreadcrumbItem
+                  to={previous.node.uid}
+                  title="Poprzedni"
+                  description={previous.node.data.title.text}
+                  textAlign={['left', 'left', 'left']}
+                />
+              ) : null}
+              {next ? (
+                <BreadcrumbItem
+                  to={next.node.uid}
+                  title="Następny"
+                  description={next.node.data.title.text}
+                  textAlign={['left', 'left', 'right']}
+                />
+              ) : null}
             </Box>
             <Bio mt={12} mb={24} />
           </Box>

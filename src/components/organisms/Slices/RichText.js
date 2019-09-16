@@ -1,14 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import theme from '../../../config/theme'
 
 const Container = styled.div`
   width: 100%;
 
   h1 {
-    ${tw`font-sans text-3xl sm:text-3xl md:text-5xl font-bold text-primary.10 md:text-secondary.0 mb-8 md:mb-6 `}
+    font-family: ${theme.fonts.sans.join(', ')};
+    font-weight: ${theme.fontWeights.bold};
+    margin-bottom: 2rem;
+
+    ${tw`text-3xl sm:text-3xl md:text-5xl text-primary.10 md:text-secondary.0 `}
 
     em {
-      ${tw`font-serif italic`}
+      font-family: ${theme.fonts.serif.join(', ')};
+      font-style: italic;
     }
   }
 

@@ -17,10 +17,17 @@ const generateStars = n => {
 }
 
 const Container = styled.div`
-  ${tw`hidden md:block absolute pin-t pin-l`}
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: -1;
   width: 100%;
   height: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 `
 
 const starsAnimation = keyframes`
@@ -83,8 +90,10 @@ const meteorAnimation4 = keyframes`
 `
 
 const Meteors = styled.div`
-  display: ${props => (props.visible ? 'block' : 'none')};
-  ${tw`hidden 2xl:block`}
+  @media screen and (min-width: 1440px) {
+    display: ${props => (props.visible ? 'block' : 'none')};
+  }
+
   position: absolute;
   z-index: -1;
   width: 100%;

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
 import { color, typography, space } from 'styled-system'
 import Text from '../Text'
+import theme from '../../../config/theme'
 
 const random = max => Math.floor(Math.random() * (max + 1))
 
@@ -65,6 +66,7 @@ const ButtonContainer = styled.button`
   border: 0;
   text-transform: uppercase;
   border: 2px solid rgba(16, 16, 32, 1);
+  transition: box-shadow 0.25s ease;
 
   @media screen and (min-width: 768px) {
     width: 260px;
@@ -76,7 +78,7 @@ const ButtonContainer = styled.button`
     }
 
     @media screen and (min-width: 768px) {
-      ${tw`shadow-lg`}
+      box-shadow: ${theme.shadows.lg};
       &::after {
         width: 100%;
       }
@@ -91,7 +93,7 @@ const ButtonContainer = styled.button`
       fill: white;
     }
     &:focus {
-      ${tw`shadow-lg`}
+      box-shadow: ${theme.shadows.lg};
     }
   }
 

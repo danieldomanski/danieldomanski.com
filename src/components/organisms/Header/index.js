@@ -18,7 +18,6 @@ const Container = styled.header`
 `
 
 const Brand = styled.div`
-  ${tw``};
   order: 1;
 `
 

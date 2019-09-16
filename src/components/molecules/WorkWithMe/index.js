@@ -8,33 +8,37 @@ import useWindowScrollPosition from '@rehooks/window-scroll-position'
 import useWindowSize from '../../../hooks/useWindowSize'
 
 const Container = styled.footer`
-  ${tw`md:fixed pin-b pin-l w-full text-primary-100 flex-col items-center overflow-hidden`};
+  width: 100%;
   background-color: #f4f4f4;
-  box-sizing: border-box;
   z-index: 5;
-
-  @media screen and (max-height: 768px) and (min-width: 768px) {
-    position: absolute;
-  }
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     display: ${props =>
       !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
+    height: 800px;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
     background: radial-gradient(
       1300px at 50% -50%,
       #53617a -8%,
       #25273c 45%,
       #161723 100%
     );
-    height: 800px;
-    z-index: 5;
+  }
+
+  @media screen and (min-width: 768px) and (max-height: 768px) {
+    position: absolute;
   }
 `
 
 const Line = styled.span`
-  ${tw`m-auto my-8 xl:my-10`}
   display: block;
-
+  margin: 2rem auto;
   width: 80px;
   height: 4px;
   background-color: #c4c4c4;

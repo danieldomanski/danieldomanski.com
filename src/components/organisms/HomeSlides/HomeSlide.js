@@ -5,18 +5,25 @@ import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
 
 const HeroText = styled.section`
-  ${tw`static md:fixed w-full `};
+  width: 100%;
   height: 100%;
-  display: block;
   z-index: 5;
-  transition: 0.25s;
-  top: 0;
+  transition: 0.25s ease;
+
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    top: 0;
+  }
 `
 
 const HeroContainer = styled.section`
-  ${tw`w-full flex flex-col md:absolute m-auto`}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 
   @media screen and (min-width: 768px) {
+    position: absolute;
     transform: translateY(-50%);
     top: 50%;
   }

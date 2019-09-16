@@ -6,15 +6,15 @@ import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import { LocaleContext } from '../../../context/ContentContext'
 import { getSliceContent } from '../../../utils/prismic'
+import theme from '../../../config/theme'
 
 const Container = styled.article`
-  ${tw`shadow-md`};
-
   position: relative;
   width: 100%;
   overflow: hidden;
   height: 280px;
   transition: height 0.25s ease-in-out;
+  box-shadow: ${theme.shadows.lg};
 
   & img {
     transition: transform 0.3s ease !important;
@@ -40,9 +40,12 @@ const Container = styled.article`
 `
 
 const HoverScale = styled.div`
-  ${tw`relative w-full h-full shadow-md overflow-hidden`};
+  box-shadow: ${theme.shadows.lg};
 
+  position: relative;
+  width: 100%;
   height: 280px;
+  overflow: hidden;
 
   & img {
     transition: 0.2s ease !important;
@@ -73,16 +76,19 @@ const HoverScale = styled.div`
 `
 
 const BgCover = styled.div`
-  ${tw`absolute w-full  flex flex-col justify-center items-center`}
-
-  background: rgba(250, 250, 250, .98);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(250, 250, 250, 0.98);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
 
   & p {
     opacity: 0;
-
     transition: opacity 0.1s ease 0.2s;
   }
 `

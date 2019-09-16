@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+import { Link as GatsbyLink } from 'gatsby'
 import {
   space,
   typography,
@@ -11,7 +11,7 @@ import {
   position,
 } from 'styled-system'
 
-const Link = styled(Link)(
+const Link = styled(GatsbyLink)(
   space,
   color,
   border,
