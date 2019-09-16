@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text> renders with different styled-system category props 1`] = `
+.c0 {
+  height: auto;
+  display: inline-block;
+  font-size: lg;
+  font-family: sans;
+  font-weight: bold;
+  line-height: normal;
+  color: red;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin-left: 0;
+  -webkit-transition: color 0.1s ease-in-out;
+  transition: color 0.1s ease-in-out;
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    font-size: xl;
+  }
+}
+
+@media screen and (min-width:40em) {
+  .c0 {
+    color: blue;
+  }
+}
+
+<p
+  class="c0"
+  color="red,blue"
+  display="inline-block"
+  font-family="sans"
+  font-size="lg,xl"
+  font-weight="bold"
+>
+  Test.
+</p>
+`;

@@ -13,6 +13,7 @@ test('<Avatar> renders with different styled-system category props', () => {
     y: 20,
     src: 'test.jpg',
   }
+
   const { container } = render(<Avatar {...props} />)
 
   expect(container.firstChild).toMatchSnapshot()

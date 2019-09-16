@@ -5,8 +5,8 @@ import { Location } from '@reach/router'
 import { withTheme } from 'styled-components'
 import css from '@styled-system/css'
 import { getLocalizedPathname } from '../../../utils/locale'
-import Box from '../Box'
-import Text from '../Text'
+import Box from '../../atoms/Box'
+import Text from '../../atoms/Text'
 
 const LocaleSpan = ({ children, active, color, activeColor }) => (
   <Text

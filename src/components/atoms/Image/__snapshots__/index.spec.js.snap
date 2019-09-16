@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image> renders 1`] = `
+.c0 {
+  -webkit-transition: 0.75s ease-in-out;
+  transition: 0.75s ease-in-out;
+  max-height: px;
+}
+
+<div
+  class="c0 gatsby-image-wrapper"
+  style="position: relative; overflow: hidden;"
+>
+  <div
+    style="width: 100%;"
+  />
+  
+  <picture>
+    
+    <source
+      sizes=""
+      srcset=""
+    />
+    <img
+      alt=""
+      loading="lazy"
+      sizes=""
+      src="mock.png"
+      srcset=""
+      style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; transition: opacity 500ms; font-family: \\"object-fit: cover; object-position: 50% 50%\\";"
+    />
+  </picture>
+  <noscript>
+    &lt;picture&gt;&lt;source srcset="" /&gt;&lt;img loading="lazy" src="mock.png" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/&gt;&lt;/picture&gt;
+  </noscript>
+</div>
+`;

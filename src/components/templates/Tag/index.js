@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import Layout from '../Layout'
 import Text from '../../atoms/Text'
-import UnderlineText from '../../atoms/UnderlineText'
+import Title from '../../atoms/Text/Title'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
 import PostItem from '../../organisms/PostItem'
@@ -23,7 +23,7 @@ const Tag = ({ data, pageContext }) => {
     return (
       <>
         <Box m="auto" px={[6, 6, 12, 16, 24]} flexGrow={1}>
-          <UnderlineText>Posts about {tag}</UnderlineText>
+          <Title>Posts about {tag}</Title>
           <BlogPosts>
             {posts.map((post, idx) => (
               <PostItem

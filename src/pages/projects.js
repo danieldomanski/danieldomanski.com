@@ -2,10 +2,8 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import ProjectsGrid from '../components/molecules/ProjectsGrid'
 import Box from '../components/atoms/Box'
-import Text from '../components/atoms/Text'
 import Footer from '../components/organisms/Footer'
-import { formatProjectsPage } from '../utils/format'
-import UnderlineText from '../components/atoms/UnderlineText'
+import Title from '../components/atoms/Text/Title'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import ProjectItem from '../components/molecules/ProjectItem'
@@ -26,7 +24,7 @@ const Projects = ({ data }) => {
           pb={[12, 16, 20, 24, 24, 32]}
           flexGrow={1}
         >
-          <UnderlineText>{title}</UnderlineText>
+          <Title>{title}</Title>
           <ProjectsGrid>
             {edges.map((project, idx) => (
               <ProjectItem project={project} />

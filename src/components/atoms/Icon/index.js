@@ -174,6 +174,7 @@ const Icon = ({ icon, ml, mr, hover, ...props }) => (
     hover={hover}
     ml={ml}
     mr={mr}
+    data-testid="svg-icon"
   >
     {icons[icon].shape}
   </Wrapper>
@@ -182,7 +183,8 @@ const Icon = ({ icon, ml, mr, hover, ...props }) => (
 Icon.propTypes = {
   stroke: PropTypes.string,
   fill: PropTypes.string,
-  width: PropTypes.string,
+  width: PropTypes.number,
+  height: PropTypes.number,
   icon: PropTypes.oneOf(Object.keys(icons)).isRequired,
   mx: PropTypes.number,
   my: PropTypes.number,
@@ -192,7 +194,8 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   stroke: 'transparent',
-  width: '18px',
+  width: 18,
+  height: 18,
   fill: 'none',
   mx: 0,
   my: 0,

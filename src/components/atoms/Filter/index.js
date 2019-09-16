@@ -10,6 +10,11 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
   const { primary } = theme.components.filters
   const { active } = theme.components.filters.primary
 
+  const onClickHandler = () => {
+    updateFilter(slug)
+    set(!isActive)
+  }
+
   return (
     <Box
       display="flex"
@@ -18,6 +23,9 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
       py={2}
       mr={3}
       mb={[2, 2, 0]}
+      fontColor={isActive ? active.color : primary.color}
+      fontWeight="medium"
+      fontSize={['xs', 'sm']}
       bg={isActive ? active.backgroundColor : primary.backgroundColor}
       css={css({
         cursor: 'pointer',
@@ -25,18 +33,9 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
           backgroundColor: isActive ? active.hoverColor : primary.hoverColor,
         },
       })}
-      onClick={() => {
-        updateFilter(slug)
-        set(!isActive)
-      }}
+      onClick={onClickHandler}
     >
-      <Text
-        fontColor={isActive ? active.color : primary.color}
-        fontWeight="medium"
-        fontSize={['xs', 'sm']}
-      >
-        {children}
-      </Text>
+      {children}
     </Box>
   )
 }

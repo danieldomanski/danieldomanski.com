@@ -122,7 +122,7 @@ const Button = ({ children, fontSize, fontColor, ...rest }) => (
     <Text
       as="span"
       fontFamily="sans"
-      fontWeight="semibold"
+      fontWeight="medium"
       fontSize={fontSize}
       color={fontColor}
     >
@@ -137,8 +137,8 @@ const Button = ({ children, fontSize, fontColor, ...rest }) => (
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  fontSize: PropTypes.string,
-  fontColor: PropTypes.string,
+  fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  fontColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 }
 
 Button.defaultProps = {
@@ -146,4 +146,4 @@ Button.defaultProps = {
   fontColor: '#000',
 }
 
-export default withTheme(Button)
+export default Button

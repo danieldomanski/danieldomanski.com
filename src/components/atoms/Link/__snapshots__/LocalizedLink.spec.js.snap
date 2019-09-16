@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Image> renders 1`] = `
+.c0 {
+  font-family: "Montserrat","system-ui","BlinkMacSystemFont","-apple-system","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","sans-serif";
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: base;
+  font-weight: base;
+  color: primary.6;
+}
+
+.c0:hover {
+  color: inherit;
+}
+
+<a
+  class="c0"
+  color="primary.6"
+  display="inline-block"
+  font-size="base"
+  font-weight="base"
+  href="test"
+>
+  test
+</a>
+`;

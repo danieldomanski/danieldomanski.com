@@ -50,6 +50,7 @@ module.exports = {
         exclude: ['/en/offline-plugin-app-shell-fallback'],
       },
     },
+    'gatsby-plugin-catch-links',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

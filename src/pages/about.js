@@ -5,7 +5,7 @@ import Text from '../components/atoms/Text'
 import Box from '../components/atoms/Box'
 import Footer from '../components/organisms/Footer'
 import { usePageContent } from '../context/ContentContext'
-import UnderlineText from '../components/atoms/UnderlineText'
+import Title from '../components/atoms/Text/Title'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const About = ({ data }) => {
@@ -23,7 +23,7 @@ const About = ({ data }) => {
           m={[0, 0, 'auto']}
           px={[8, 8, 12, 12, 0, 0]}
         >
-          <UnderlineText>{title}</UnderlineText>
+          <Title>{title}</Title>
           <Box
             display="flex"
             flexDirection="column"

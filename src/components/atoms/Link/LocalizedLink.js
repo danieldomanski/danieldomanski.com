@@ -14,6 +14,7 @@ const LinkContainer = styled(Link)`
   ${layout}
   ${typography};
   ${color}
+
   &:hover {
     color: ${props => (props.hover ? props.hover.color : 'inherit')};
   }
@@ -27,7 +28,6 @@ const LocalizedLink = ({
   fontWeight,
   fontColor,
   width,
-  maxWidth,
   my,
   partiallyActive,
   activeStyle,
@@ -51,7 +51,6 @@ const LocalizedLink = ({
           fontWeight={fontWeight}
           color={fontColor}
           width={width}
-          maxWidth={maxWidth}
           my={my}
           activeStyle={activeStyle}
           partiallyActive={partiallyActive}

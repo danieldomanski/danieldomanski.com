@@ -6,7 +6,7 @@ import Box from '../components/atoms/Box'
 import Filter from '../components/atoms/Filter'
 import Footer from '../components/organisms/Footer'
 import { usePageContent } from '../context/ContentContext'
-import UnderlineText from '../components/atoms/UnderlineText'
+import Title from '../components/atoms/Text/Title'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
 const Blog = ({ data }) => {
@@ -54,7 +54,7 @@ const Blog = ({ data }) => {
           pb={[12, 16, 20, 24, 24, 32]}
           flexGrow={1}
         >
-          <UnderlineText>{content.blogsPage.title}</UnderlineText>
+          <Title>{content.blogsPage.title}</Title>
           <Box display="flex" flexDirection="column" mb={[8, 8, 8, 12, 12]}>
             <Box
               as="ul"
