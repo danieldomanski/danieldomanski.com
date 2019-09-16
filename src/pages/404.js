@@ -6,8 +6,10 @@ import HomeParticles from '../components/molecules/HomeParticles'
 import RichText from '../components/organisms/Slices/RichText'
 
 const Container = styled.section`
-  ${tw`fixed pin-t w-full`}
+  width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
   z-index: 4;
 
   background: radial-gradient(
@@ -19,20 +21,24 @@ const Container = styled.section`
 `
 
 const HeroContainer = styled.section`
-  ${tw`w-full flex flex-col md:absolute m-auto`}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  margin: auto;
+
   @media screen and (min-width: 768px) {
+    position: absolute;
     transform: translateY(-50%);
     top: 50%;
   }
 `
 
 const Line = styled.span`
-  ${tw`m-auto my-10`}
   display: block;
-
   width: 80px;
   height: 4px;
+  margin: 2.5rem auto;
   background-color: #a0a6b2;
   opacity: 1;
 `

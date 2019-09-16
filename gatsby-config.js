@@ -22,7 +22,6 @@ module.exports = {
         ),
       },
     },
-    'gatsby-plugin-tailwindcss',
     {
       resolve: 'gatsby-plugin-styled-components',
       options: {

@@ -24,7 +24,6 @@
     "gatsby-plugin-sharp": "^2.2.19",
     "gatsby-plugin-sitemap": "^2.2.12",
     "gatsby-plugin-styled-components": "^3.1.4",
-    "gatsby-plugin-tailwindcss": "^1.0.3",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-prismic": "^2.2.0",
     "gatsby-transformer-sharp": "^2.2.13",
@@ -61,7 +60,6 @@
     "@testing-library/react": "^9.1.4",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
-    "babel-plugin-macros": "^2.5.0",
     "babel-preset-gatsby": "^0.2.13",
     "cross-env": "^5.2.1",
     "eslint": "^6.3.0",
@@ -79,9 +77,6 @@
     "prop-types": "^15.7.2",
     "react-test-renderer": "^16.9.0",
     "react-typography": "^0.16.19",
-    "tailwind.macro": "^0.5.10",
-    "tailwindcss": "^0.7.4",
-    "tailwindcss-plugins": "^0.1.4",
     "typography": "^0.16.19"
   }
 }

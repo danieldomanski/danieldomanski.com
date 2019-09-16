@@ -7,6 +7,7 @@ const Container = styled.blockquote`
   display: flex;
   justify-content: center;
   box-shadow: ${theme.shadows.default};
+  font-size: 18px;
   background: #fffae1;
   margin: 0;
   margin-bottom: 2rem;

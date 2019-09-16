@@ -9,7 +9,9 @@ import SEO from '../../organisms/SEO'
 import { GlobalStyle } from '../../../utils/styles'
 
 const MainContent = styled.main`
-  ${tw`flex flex-col relative`}
+  display: flex;
+  flex-direction: column;
+  position: relative;
   min-height: 100vh;
 `
 

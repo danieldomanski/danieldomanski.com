@@ -10,7 +10,7 @@ import PostItem from '../../organisms/PostItem'
 import { usePageContent } from '../../../context/ContentContext'
 
 const BlogPosts = styled.ul`
-  ${tw`my-8`}
+  margin: 2rem 0;
   list-style: none;
 `
 

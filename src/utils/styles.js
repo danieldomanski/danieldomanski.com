@@ -11,11 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     width: 100%;
     margin: 0;
     background-color: #f6f6f6;
-    ${tw`font-serif`}
   }
 
   #___gatsby, #___gatsby > div {
-    ${tw`h-full`}
+    height: 100%;
   }
 
   ul, li {

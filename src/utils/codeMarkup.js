@@ -1,22 +1,26 @@
 import { css } from 'styled-components'
-
+import theme from '../config/theme'
 export default css`
   div > p,
   li {
-    ${tw`font-serif  leading-relaxed`}
+    font-family: ${theme.fonts.serif.join(', ')};
+    line-height: ${theme.lineHeights.relaxed};
     margin-bottom: 2rem;
     color: #17191c;
   }
 
   .anchor a {
-    ${tw`relative inline-block font-sans no-underline`};
+    position: relative;
+    display: inline-block;
     text-decoration: none;
     font-weight: 600;
     color: #739fff;
 
     &:after {
       content: '';
-      ${tw`w-full absolute pin-l`};
+      width: 100%;
+      position: absolute;
+      left: 0;
       transition: 0.5s ease-in-out;
       z-index: -1;
       height: 2px;
@@ -39,9 +43,9 @@ export default css`
   }
 
   h1 {
-    ${tw`font-sans text-2xl`}
-    line-height: 125%;
-    font-weight: 800;
+    font-size: ${theme.fontSizes['3xl']};
+    line-height: 175%;
+    font-weight: 700;
     margin-top: 3.5rem;
     margin-bottom: 1.75rem;
   }
@@ -174,11 +178,5 @@ export default css`
     border-radius: 0.2rem;
     color: #333;
     padding: 0.15em 0.2em;
-  }
-
-  hr {
-    border: 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.125);
-    margin-bottom: 2rem;
   }
 `

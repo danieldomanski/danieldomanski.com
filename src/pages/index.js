@@ -12,18 +12,28 @@ import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import useWindowSize from '../hooks/useWindowSize'
 import { usePageContent } from '../context/ContentContext'
 import WorkWithMe from '../components/molecules/WorkWithMe'
+import theme from '../config/theme'
 
 const OnTopLayer = styled.section`
-  ${tw`relative overflow-hidden py-16 xl:py-32 shadow-lg`}
+  position: relative;
+  overflow: hidden;
+  padding: 4rem 0;
+  box-shadow: ${theme.shadows.lg};
   z-index: 6;
   margin-top: 100vh;
   margin-bottom: 800px;
   background-color: #f0f0f0;
+
+  @media screen and (min-width: 1200px) {
+    padding: 8rem 0;
+  }
 `
 
 const TopLayer = styled.section`
-  ${tw`fixed pin-t w-full`}
+  width: 100%;
   height: 100vh;
+  position: fixed;
+  top: 0;
   z-index: 4;
   background: radial-gradient(
     1300px at 50% 125%,
