@@ -122,7 +122,7 @@ const Button = ({ children, fontSize, fontColor, ...rest }) => (
     <Text
       as="span"
       fontFamily="sans"
-      fontWeight="medium"
+      fontWeight="bold"
       fontSize={fontSize}
       color={fontColor}
     >

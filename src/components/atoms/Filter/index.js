@@ -17,8 +17,7 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
 
   return (
     <Box
-      display="flex"
-      justifyContent="space-between"
+      fontFamily="sans"
       px={4}
       py={2}
       mr={3}

@@ -1,12 +1,12 @@
 import React from 'react'
-import { LocalizedLink } from '../../atoms/Link'
+import LocalizedLink from '../../atoms/LocalizedLink'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import CosmicButton from '../../atoms/Button/CosmicButton'
 
 const LocalizedButton = ({ path, button, isMobile }) => (
   <Box textAlign={['right', 'left', 'right']} mt={16}>
-    <LocalizedLink to={path} display={['block']}>
+    <LocalizedLink to={path}>
       {isMobile ? (
         <>
           <Text

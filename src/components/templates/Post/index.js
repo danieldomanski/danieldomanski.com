@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { graphql } from 'gatsby'
-import { Link } from '../../atoms/Link'
+import { Link } from 'gatsby'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'

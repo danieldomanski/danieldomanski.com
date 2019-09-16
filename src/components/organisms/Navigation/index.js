@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import { withTheme } from 'styled-components'
 import Box from '../../atoms/Box'
-import { LocalizedLink } from '../../atoms/Link'
+import LocalizedLink from '../../atoms/LocalizedLink'
 import { LocaleContext } from '../../../context/ContentContext'
 
 const getActiveStyle = (active, placement) =>

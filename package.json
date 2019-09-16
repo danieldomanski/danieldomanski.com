@@ -52,7 +52,7 @@
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "format": "prettier --write '**/*.js'",
-    "test": "jest",
+    "test": "jest --coverage",
     "snap:u": "jest -u"
   },
   "devDependencies": {
