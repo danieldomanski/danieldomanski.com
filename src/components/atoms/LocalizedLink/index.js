@@ -2,23 +2,23 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Location } from '@reach/router'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import PropTypes from 'prop-types'
 import { layout, typography, space, color } from 'styled-system'
 import locales from '../../../config/locales'
 import { formatUrlToLocale } from '../../../utils/format'
 
 const LinkContainer = styled(Link)`
-  ${tw`font-sans no-underline cursor-pointer`};
   ${space}
   ${layout}
   ${typography};
   ${color}
 
+  text-decoration: none;
+  cursor: pointer;
+  
   &:hover {
     color: ${props => (props.hover ? props.hover.color : 'inherit')};
   }
-  
 `
 
 const LocalizedLink = ({
@@ -73,6 +73,7 @@ LocalizedLink.propTypes = {
 }
 
 LocalizedLink.defaultProps = {
+  fontFamily: 'sans',
   fontSize: 'base',
   fontWeight: 'base',
   fontColor: 'primary.6',

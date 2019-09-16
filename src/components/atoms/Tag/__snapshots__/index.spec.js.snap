@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tag> renders with different styled-system category props 1`] = `
+.c0 {
+  display: inline-block;
+  font-family: "Montserrat","system-ui","BlinkMacSystemFont","-apple-system","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","sans-serif";
+  font-size: .75rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #22292f;
+  font-weight: 500;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #E9E9E9;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+.c0:hover {
+  background-color: #D4D4D4;
+}
+
+<a
+  class="c0"
+  href="/tags/js"
+>
+  test
+</a>
+`;

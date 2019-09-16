@@ -22,7 +22,7 @@ const Filter = ({ children, theme, updateFilter, slug }) => {
       py={2}
       mr={3}
       mb={[2, 2, 0]}
-      fontColor={isActive ? active.color : primary.color}
+      color={isActive ? active.color : primary.color}
       fontWeight="medium"
       fontSize={['xs', 'sm']}
       bg={isActive ? active.backgroundColor : primary.backgroundColor}

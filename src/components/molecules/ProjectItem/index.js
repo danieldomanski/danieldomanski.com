@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import Img from 'gatsby-image/withIEPolyfill'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import Box from '../../atoms/Box'
@@ -9,8 +8,11 @@ import { LocaleContext } from '../../../context/ContentContext'
 import { getSliceContent } from '../../../utils/prismic'
 
 const Container = styled.article`
-  ${tw`relative w-full h-full shadow-md overflow-hidden`};
+  ${tw`shadow-md`};
 
+  position: relative;
+  width: 100%;
+  overflow: hidden;
   height: 280px;
   transition: height 0.25s ease-in-out;
 

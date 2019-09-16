@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 
 const CodeContainer = styled.code`
   ${tw`block text-lg text-primary-200 shadow-lg`}

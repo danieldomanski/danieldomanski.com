@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
-import tw from 'tailwind.macro'
 import Helmet from 'react-helmet'
 import theme from '../../../config/theme'
 import Header from '../../organisms/Header'

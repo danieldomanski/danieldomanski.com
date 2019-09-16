@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes, withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
+import styled, { keyframes } from 'styled-components'
 import { color, typography, space } from 'styled-system'
 import Text from '../Text'
 
@@ -56,21 +55,20 @@ const ButtonContainer = styled.button`
   ${color};
   ${space};
 
-  ${tw`relative cursor-pointer p-0 px-4 py-4`};
-
+  position: relative;
   width: 200px;
+  padding: 1rem;
+  overflow: hidden;
+  background: 0;
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  text-transform: uppercase;
+  border: 2px solid rgba(16, 16, 32, 1);
 
   @media screen and (min-width: 768px) {
     width: 260px;
   }
-
-  overflow: hidden;
-  outline: 0;
-  border: 0;
-  background: 0;
-
-  text-transform: uppercase;
-  border: 2px solid rgba(16, 16, 32, 1);
 
   &:hover {
     & > div > div {
@@ -111,10 +109,16 @@ const ButtonContainer = styled.button`
 `
 
 const Container = styled.div`
-  ${tw`hidden md:block absolute pin-l pin-t`}
-
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 `
 
 const Button = ({ children, fontSize, fontColor, ...rest }) => (

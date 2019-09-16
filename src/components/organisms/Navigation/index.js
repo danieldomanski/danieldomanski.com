@@ -38,7 +38,7 @@ const footerListStyles = {
 }
 
 const headerItemStyles = {
-  pr: 8,
+  mr: 8,
   fontSize: ['sm', 'sm'],
 }
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 
 const Container = styled.blockquote`
   ${tw`flex justify-center text-base shadow-default`}

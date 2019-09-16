@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../molecules/LocaleSwitcher'

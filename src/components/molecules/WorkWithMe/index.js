@@ -1,11 +1,9 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 import Box from '../../atoms/Box'
 import HomeParticles from '../HomeParticles'
 import { ContentContext } from '../../../context/ContentContext'
 import RichText from '../../organisms/Slices/RichText'
-
 import useWindowScrollPosition from '@rehooks/window-scroll-position'
 import useWindowSize from '../../../hooks/useWindowSize'
 

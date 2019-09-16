@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 
-import LocalizedLink from './LocalizedLink.js'
+import LocalizedLink from './index'
 
 afterEach(cleanup)
 

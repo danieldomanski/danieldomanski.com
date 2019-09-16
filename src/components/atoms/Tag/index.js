@@ -1,9 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled, { withTheme } from 'styled-components'
-import tw from 'tailwind.macro'
+import styled from 'styled-components'
 
-const Tag = styled(Link)`
+const Container = styled(Link)`
   ${tw`inline-block font-sans text-xs px-3 py-2 text-black font-medium mr-2 cursor-pointer no-underline bg-primary.2 hover:bg-primary.3`}
   transition: 0.1s ease-in-out;
 
@@ -13,11 +12,11 @@ const Tag = styled(Link)`
   }
 `
 
-const Filter = ({ data }) => {
+const Tag = ({ data }) => {
   // ToDo kebabed case
   const { name, slug } = data
 
-  return <Tag to={`/tags/${slug}`}>{name}</Tag>
+  return <Container to={`/tags/${slug}`}>{name}</Container>
 }
 
-export default withTheme(Filter)
+export default Tag
