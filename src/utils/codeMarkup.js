@@ -44,7 +44,7 @@ export default css`
 
   h1 {
     font-size: ${theme.fontSizes['3xl']};
-    line-height: 175%;
+    line-height: 150%;
     font-weight: 700;
     margin-top: 3.5rem;
     margin-bottom: 1.75rem;

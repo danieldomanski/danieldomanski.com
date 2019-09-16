@@ -49,7 +49,7 @@ const About = ({ data }) => {
                     <Text
                       fontFamily="sans"
                       width={[1 / 2]}
-                      fontColor="primary.9"
+                      fontColor="primary.6"
                       fontWeight="medium"
                       fontSize={['base', 'base']}
                       pr={3}

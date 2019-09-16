@@ -30,7 +30,7 @@ const BreadcrumbItem = ({ to, title, description, textAlign }) => (
 
 const Post = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
-    usePageContent(data)
+    const content = usePageContent(data)
     const { title, tags, date } = data.prismicPost.data
     const { previous, next } = pageContext.data.siblings
 
@@ -41,7 +41,7 @@ const Post = ({ data, pageContext }) => {
 
     const wordCount = countWordsFromSlices(data.prismicPost.data.body)
     const estimatedReadTime = timeToRead(wordCount)
-    console.log({ previous, next })
+
     return (
       <FadeIn>
         <Box as="main" width={1} m="auto" px={[6, 8, 16, 24, 32]}>
@@ -53,7 +53,7 @@ const Post = ({ data, pageContext }) => {
               justifyContent="center"
               textAlign={['left', 'left', 'center']}
               flexDirection={['column', 'column', 'row']}
-              mt={[2, 8]}
+              mt={[2, 12]}
               mb={[6, 8, 8, 8, 8]}
             >
               <Box display="flex" flexDirection="column" mb={[6, 8, 8]}>

@@ -8,9 +8,10 @@ const Tag = ({ data: { name, slug } }) => (
     fontFamily="sans"
     fontSize="xs"
     color="primary.11"
-    bg="primary.2"
+    bg="primary.1"
     fontWeight="medium"
-    p={3}
+    py={2}
+    px={3}
     mr={2}
   >
     {name}

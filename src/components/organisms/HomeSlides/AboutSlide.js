@@ -14,7 +14,7 @@ const AboutSlide = ({ content }) => (
         fontWeight="black"
         fontColor="primary.4"
         style={{ textTransform: 'uppercase' }}
-        mb={[12, 12, 16, 24]}
+        mb={[12, 12, 12, 12, 20]}
       >
         {content.processDetails}
       </Text>

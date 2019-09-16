@@ -4,52 +4,7 @@ import styled, { keyframes } from 'styled-components'
 import { color, typography, space } from 'styled-system'
 import Text from '../Text'
 import theme from '../../../config/theme'
-
-const random = max => Math.floor(Math.random() * (max + 1))
-
-const generateStars = n => {
-  const values = []
-
-  for (let i = 0; i < n; i += 1) {
-    values.push(`${random(320)}px ${random(100)}px #FFF`)
-  }
-
-  return values.join(',')
-}
-
-const starsAnimation = keyframes`
-0% { transform: translate3d(0, 0px, 0) }
-100% {transform: translate3d(0, -100px, 0)}
-`
-
-const smStars = generateStars(15)
-const mdStars = generateStars(3)
-
-const StarsComponent = (stars, time, animation, width, opacity) => styled.div`
-  display: none;
-  width: ${width}px;
-  height: ${width}px;
-  background: transparent;
-  box-shadow: ${stars};
-  animation: ${animation} ${time}s linear infinite both;
-  border-radius: 50%;
-  opacity: ${opacity};
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 100px;
-    left: -0px;
-    width: ${width}px;
-    height: ${width}px;
-    background: transparent;
-    box-shadow: ${stars};
-    border-radius: 50%;
-  }
-`
-
-const SmallStars = StarsComponent(smStars, 5, starsAnimation, 1, 0.8)
-const MediumStars = StarsComponent(mdStars, 5, starsAnimation, 3, 0.7)
+import { Stars, generateStars } from '../Cosmos'
 
 const ButtonContainer = styled.button`
   ${typography};
@@ -122,6 +77,12 @@ const Container = styled.div`
     display: block;
   }
 `
+
+const smStars = generateStars(20, 320, 100)
+const mdStars = generateStars(5, 320, 100)
+
+const SmallStars = Stars(smStars, 5, 1, 1, 100)
+const MediumStars = Stars(mdStars, 5, 2, 1, 100)
 
 const Button = ({ children, fontSize, fontColor, ...rest }) => (
   <ButtonContainer {...rest}>
