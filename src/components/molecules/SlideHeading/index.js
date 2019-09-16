@@ -2,7 +2,7 @@ import React from 'react'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 
-const HomeInfoRow = ({ title, description }) => (
+const SlideHeading = ({ title, description }) => (
   <Box
     as="header"
     display="flex"
@@ -22,7 +22,6 @@ const HomeInfoRow = ({ title, description }) => (
     >
       {title}.
     </Text>
-
     <Text
       width={[1]}
       flex={[1, 1, 3]}
@@ -38,4 +37,4 @@ const HomeInfoRow = ({ title, description }) => (
   </Box>
 )
 
-export default HomeInfoRow
+export default SlideHeading

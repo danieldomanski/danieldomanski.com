@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Box from '../../atoms/Box'
-import HomeInfoRow from '../../molecules/HomeInfoRow'
+import SlideHeading from '../../molecules/SlideHeading'
 import LocalizedButton from '../../atoms/Button/LocalizedButton'
 import DirectionalFade from '../../molecules/AnimatedBox/DirectionalFade'
 import { LocaleContext } from '../../../context/ContentContext'
@@ -22,7 +22,7 @@ const Slide = ({ children, to, content: { title, description, button } }) => {
       px={[6, 8, 12, 12, 16, 16]}
     >
       <DirectionalFade>
-        <HomeInfoRow title={title} description={description} />
+        <SlideHeading title={title} description={description} />
       </DirectionalFade>
       <DirectionalFade>{children}</DirectionalFade>
       <DirectionalFade>
