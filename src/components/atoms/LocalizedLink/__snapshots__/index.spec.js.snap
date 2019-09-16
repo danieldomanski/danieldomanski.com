@@ -2,14 +2,14 @@
 
 exports[`<Image> renders 1`] = `
 .c0 {
-  font-family: "Montserrat","system-ui","BlinkMacSystemFont","-apple-system","Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","sans-serif";
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  cursor: pointer;
   display: inline-block;
   font-size: base;
   font-weight: base;
+  font-family: sans;
   color: primary.6;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .c0:hover {
@@ -20,6 +20,7 @@ exports[`<Image> renders 1`] = `
   class="c0"
   color="primary.6"
   display="inline-block"
+  font-family="sans"
   font-size="base"
   font-weight="base"
   href="test"

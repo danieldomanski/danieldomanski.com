@@ -2,7 +2,6 @@
 
 exports[`<Text> renders with different styled-system category props 1`] = `
 .c0 {
-  height: auto;
   display: inline-block;
   font-size: lg;
   font-family: sans;
@@ -13,6 +12,7 @@ exports[`<Text> renders with different styled-system category props 1`] = `
   margin-bottom: 0;
   margin-right: 0;
   margin-left: 0;
+  height: auto;
   -webkit-transition: color 0.1s ease-in-out;
   transition: color 0.1s ease-in-out;
 }
