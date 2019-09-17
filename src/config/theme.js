@@ -42,7 +42,7 @@ const colors = {
     '#8BB1FF',
     '#73A2FF',
     '#4583FF',
-    '#2E73FF',
+    '#05f',
     '#9FB0CE',
   ],
 }

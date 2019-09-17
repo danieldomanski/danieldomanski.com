@@ -58,7 +58,7 @@ module.exports = {
         start_url: '/',
         lang: 'pl-PL',
         background_color: '#656565',
-        theme_color: '#222',
+        theme_color: '#09f',
         display: 'standalone',
         icons: [
           {

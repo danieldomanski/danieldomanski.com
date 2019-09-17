@@ -9,7 +9,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 
 const Container = styled.footer`
   width: 100%;
-  background-color: #0e1c2a;
+  background-color: #fafafa;
   z-index: 5;
   overflow: hidden;
 
@@ -64,7 +64,7 @@ const WorkWithMe = ({ children, variant }) => {
         textAlign="center"
         px={[6, 8, 12]}
         py={[16, 16, 0]}
-        borderTop="1px solid rgba(255,255,255,0.1)"
+        boxShadow={['0 1px 0 rgba(0,0,0,.1)', '0 1px 0 rgba(0,0,0,.1)', 0]}
       >
         <HomeParticles variant="footer" />
         <RichText content={title} />

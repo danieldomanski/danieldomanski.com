@@ -18,11 +18,11 @@ const BlogSlide = ({ posts, content }) => {
         justifyContent="space-between"
       >
         <Text
-          fontSize={['base', 'lg', 'lg', 'xl']}
+          fontSize={['lg', 'lg', 'lg', 'xl']}
           fontWeight="black"
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
-          mb={[8, 8, 12, 12, 12]}
+          mb={[12, 8, 12, 12, 12]}
           flex={1}
         >
           Ostatnie posty.

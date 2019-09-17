@@ -16,21 +16,24 @@ const PostItem = ({ data, ...rest }) => {
           <Text
             fontFamily="sans"
             fontColor="primary.11"
-            fontSize={['xl', '2xl', '3xl']}
+            fontSize={['2xl', '2xl', '3xl']}
             fontWeight="black"
-            style={{ letterSpacing: '-0.04em' }}
+            letterSpacing="-0.05em"
           >
             {title.text}
           </Text>
         </LocalizedLink>
-        <Box>
-          <Text fontColor="primary.6">{formatDate(last_publication_date)}</Text>
-          <Text mx={2} fontColor="primary.6">
+        <Box letterSpacing="-0.025em">
+          <Text fontColor="primary.6" fontSize="sm">
+            {formatDate(last_publication_date)}
+          </Text>
+          <Text mx={2} fontColor="primary.6" fontSize="sm">
             •
           </Text>
-          <Text fontColor="primary.6">JavaScript, Front End</Text>
+          <Text fontColor="primary.6" fontSize="sm">
+            JavaScript, Front End
+          </Text>
           <Text
-            display={['block']}
             fontColor="primary.9"
             fontWeight="medium"
             fontSize={['base', 'lg']}

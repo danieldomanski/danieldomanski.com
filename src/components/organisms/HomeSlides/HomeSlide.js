@@ -71,13 +71,9 @@ const HomeSlide = ({ content }) => (
           flexDirection="column"
           textAlign={['center']}
           m={[0, 0, 0, 0, 0, 'auto']}
-          mx={[6, 8, 12, 12, 12, 16]}
+          px={[8, 8, 12, 12, 12, 16]}
           py={[16, 16, 0]}
-          borderBottom={[
-            '1px solid rgba(0, 0, 0, 0.1)',
-            '1px solid rgba(0, 0, 0, 0.1)',
-            0,
-          ]}
+          boxShadow={['0 1px 0 rgba(0,0,0,.05)', '0 1px 0 rgba(0,0,0,.05)', 0]}
         >
           <TitleText>
             <Text
@@ -85,9 +81,9 @@ const HomeSlide = ({ content }) => (
               fontWeight="black"
               fontSize={['4xl', '4xl', '5xl', '6xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.1']}
-              lineHeight="tight"
-              style={{ letterSpacing: '-0.04em' }}
-              mb={[4, 4, 4]}
+              lineHeight="none"
+              style={{ letterSpacing: '-0.05em' }}
+              mb={[6, 4, 4]}
             >
               {content.title}
             </Text>
@@ -95,11 +91,11 @@ const HomeSlide = ({ content }) => (
           <SlideLeft>
             <Text
               maxWidth={[400, 600, 800]}
-              fontWeight="medium"
+              fontWeight={['medium', 'medium', 'medium']}
               fontSize={['lg', 'lg', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.3']}
-              lineHeight="relaxed"
-              style={{ letterSpacing: '-0.02em' }}
+              lineHeight={['normal', 'relaxed']}
+              style={{ letterSpacing: '-0.025em' }}
             >
               {content.description}
             </Text>

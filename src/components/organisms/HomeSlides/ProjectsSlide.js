@@ -14,7 +14,7 @@ const ProjectsSlide = ({ projects, content }) => (
     >
       <ProjectsGrid>
         {projects.map((project, idx) => (
-          <ProjectItem project={project} />
+          <ProjectItem project={project} mb={4} />
         ))}
       </ProjectsGrid>
     </Box>

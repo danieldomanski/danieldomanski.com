@@ -9,7 +9,7 @@ const SlideHeading = ({ title, description }) => (
       display="flex"
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       alignItems={['flex-start', 'flex-start']}
-      mb={16}
+      mb={[8, 12, 16]}
     >
       <Text
         fontFamily="sans"
@@ -18,7 +18,7 @@ const SlideHeading = ({ title, description }) => (
         fontColor="primary.11"
         fontWeight="black"
         lineHeight="tight"
-        style={{ letterSpacing: '-0.04em' }}
+        style={{ letterSpacing: '-0.05em' }}
         flex={1}
       >
         {title}.
@@ -26,12 +26,12 @@ const SlideHeading = ({ title, description }) => (
       <Text
         width={[1]}
         flex={[1, 1, 3]}
-        fontSize={['base', 'lg', 'xl']}
+        fontSize={['lg', 'lg', 'xl']}
         fontColor="primary.9"
         fontWeight="medium"
         lineHeight="relaxed"
-        style={{ letterSpacing: '-0.02em' }}
-        mt={[6, 8, 8, 8, 0]}
+        style={{ letterSpacing: '-0.04em' }}
+        mt={[4, 8, 8, 8, 0]}
       >
         {description}
       </Text>

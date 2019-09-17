@@ -49,8 +49,8 @@ const Index = ({ data }) => {
     if (isMobile) {
       return (
         <FadeIn>
+          <HomeSlide content={hero} />
           <Box>
-            <HomeSlide content={hero} />
             <ProjectsSlide projects={data.projects.edges} content={works} />
             <BlogSlide posts={data.posts.edges} content={blog} />
           </Box>

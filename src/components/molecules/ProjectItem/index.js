@@ -14,7 +14,7 @@ const Container = styled.article`
   overflow: hidden;
   height: 280px;
   transition: height 0.25s ease-in-out;
-  box-shadow: ${theme.shadows.lg};
+  box-shadow: ${theme.shadows.md};
 
   & img {
     transition: transform 0.3s ease !important;
@@ -32,6 +32,7 @@ const Container = styled.article`
 
   @media screen and (min-width: 768px) {
     height: 380px;
+    box-shadow: ${theme.shadows.lg};
   }
 
   @media screen and (min-width: 1024px) {
@@ -96,11 +97,14 @@ const BgCover = styled.div`
 const ProjectTitle = ({ children }) => (
   <Text
     display={['inline-block', 'inline-block', 'none']}
-    fontFamily="sans"
-    fontColor="primary.9"
-    fontSize="xl"
+    fontSize={['lg']}
     fontWeight="black"
-    mb={[2, 4, 8]}
+    fontColor="primary.4"
+    style={{ textTransform: 'uppercase' }}
+    mb={[12, 8, 12, 12, 12]}
+    flex={1}
+    mb={[4, 4, 8]}
+    letterSpacing="-0.025em"
   >
     {children}
   </Text>
