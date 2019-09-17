@@ -6,7 +6,7 @@ import Slide from '../../templates/Slide'
 const rows = [1, 2, 3]
 
 const AboutSlide = ({ content }) => (
-  <Slide content={content} to="/about">
+  <Slide id="about" content={content} to="/about">
     <Box>
       <Text
         display="block"
@@ -14,7 +14,7 @@ const AboutSlide = ({ content }) => (
         fontWeight="black"
         fontColor="primary.4"
         style={{ textTransform: 'uppercase' }}
-        mb={[12, 12, 12, 12, 20]}
+        mb={[12, 12, 12, 12, 24]}
       >
         {content.processDetails}
       </Text>

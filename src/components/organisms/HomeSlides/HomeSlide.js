@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
+import Scroller from '../../atoms/Icon/ScrollIcon'
 
 const HeroText = styled.section`
   width: 100%;
@@ -106,6 +107,7 @@ const HomeSlide = ({ content }) => (
         </Box>
       </HeroContainer>
     </HeroText>
+    <Scroller />
   </>
 )
 

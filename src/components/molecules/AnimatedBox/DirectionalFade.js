@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import VisibilitySensor from 'react-visibility-sensor'
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -18,33 +19,45 @@ const AnimatedContainer = styled.div`
       : getTransform(props.direction, props.px)};
   opacity: ${props => (props.visible ? 1 : 0)};
   transition: opacity 0.6s cubic-bezier(0.215, 0.61, 0.355, 1),
-    transform 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-delay: ${props => props.delay}s;
 `
+const DirectionalFade = ({ children, delay, direction, px }) => {
+  const [visible, set] = React.useState(false)
+  const { width } = useWindowSize()
+  const isMobile = width < 768
 
-export default React.memo(
-  ({ children, delay = 0, direction = 'bottom', px = 60 }) => {
-    const [visible, set] = React.useState(false)
-    const { width } = useWindowSize()
-    const isMobile = width < 768
-
-    return (
-      <VisibilitySensor
-        onChange={vis => {
-          set(vis)
-        }}
-        active={!visible}
-        partialVisibility
+  return (
+    <VisibilitySensor
+      onChange={vis => {
+        set(vis)
+      }}
+      active={!visible}
+      partialVisibility
+    >
+      <AnimatedContainer
+        visible={isMobile ? true : visible}
+        delay={delay}
+        direction={direction}
+        px={px}
       >
-        <AnimatedContainer
-          visible={isMobile ? true : visible}
-          delay={delay}
-          direction={direction}
-          px={px}
-        >
-          {children}
-        </AnimatedContainer>
-      </VisibilitySensor>
-    )
-  }
-)
+        {children}
+      </AnimatedContainer>
+    </VisibilitySensor>
+  )
+}
+
+DirectionalFade.propTypes = {
+  variant: PropTypes.oneOf(['primary', 'secondary']),
+  delay: PropTypes.number,
+  direction: PropTypes.oneOf(['bottom', 'top', 'left', 'right']),
+}
+
+DirectionalFade.defaultProps = {
+  variant: 'secondary',
+  delay: 0,
+  direction: 'bottom',
+  px: 40,
+}
+
+export default DirectionalFade

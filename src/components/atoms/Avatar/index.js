@@ -5,6 +5,7 @@ import { space } from 'styled-system'
 
 const CircledAvatar = styled.img`
   ${space};
+
   min-width: ${props => props.width}px;
   width: ${props => props.width}px;
   height: ${props => props.height}px;

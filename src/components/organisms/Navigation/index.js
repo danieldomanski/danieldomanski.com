@@ -44,17 +44,16 @@ const headerItemStyles = {
 
 const footerItemStyles = {
   mr: [0, 8],
-  pb: [6, 0, 0],
+  mb: [4, 0, 0],
   fontSize: ['sm', 'sm'],
 }
 
 const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
-  <li>
+  <Box as="li" pb={itemStyle.mb ? itemStyle.mb : 0}>
     <LocalizedLink
       to={to}
       fontColor={color}
       fontSize={['sm', 'sm']}
-      fontWeight="medium"
       activeStyle={activeStyle}
       hover={{ color: itemStyle.hoverColor }}
       {...itemStyle}
@@ -62,7 +61,7 @@ const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
     >
       {children}
     </LocalizedLink>
-  </li>
+  </Box>
 )
 
 const Navigation = ({ theme, variant, placement, content }) => {

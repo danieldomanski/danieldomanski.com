@@ -176,14 +176,14 @@ theme.components = {
   },
   navigation: {
     primary: {
-      color: theme.colors.secondary[5],
+      color: theme.colors.primary[6],
       active: {
         color: theme.colors.secondary[0],
         border: theme.colors.cosmic[3],
       },
     },
     secondary: {
-      color: theme.colors.primary[5],
+      color: theme.colors.primary[7],
       active: {
         color: theme.colors.primary[11],
         border: theme.colors.secondary[2],

@@ -16,8 +16,6 @@ const BlogSlide = ({ posts, content }) => {
         display="flex"
         flexDirection={['column', 'column', 'column', 'column', 'row']}
         justifyContent="space-between"
-        mt={[12, 12, 12, 12, 20]}
-        mt={[12, 12, 12, 12, 20]}
       >
         <Text
           fontSize={['base', 'lg', 'lg', 'xl']}

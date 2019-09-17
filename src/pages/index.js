@@ -21,12 +21,8 @@ const OnTopLayer = styled.section`
   box-shadow: ${theme.shadows.lg};
   z-index: 6;
   margin-top: 100vh;
-  margin-bottom: 800px;
+  margin-bottom: 810px;
   background-color: #f0f0f0;
-
-  @media screen and (min-width: 1200px) {
-    padding: 8rem 0;
-  }
 `
 
 const TopLayer = styled.section`
@@ -36,10 +32,10 @@ const TopLayer = styled.section`
   top: 0;
   z-index: 4;
   background: radial-gradient(
-    1300px at 50% 125%,
-    #53617a -8%,
-    #25273c 45%,
-    #161723 100%
+    1300px at 50% 100%,
+    #414559 0%,
+    #1f2033 50%,
+    #13141e 100%
   );
 `
 
@@ -59,7 +55,7 @@ const Index = ({ data }) => {
             <BlogSlide posts={data.posts.edges} content={blog} />
           </Box>
           <WorkWithMe variant="primary">
-            <Footer variant="primary" />
+            <Footer variant="secondary" />
           </WorkWithMe>
         </FadeIn>
       )
@@ -69,7 +65,7 @@ const Index = ({ data }) => {
         <TopLayer>
           <HomeSlide content={hero} />
         </TopLayer>
-        <OnTopLayer>
+        <OnTopLayer id="topLayer">
           <AboutSlide content={about} />
           <ProjectsSlide projects={data.projects.edges} content={works} />
           <BlogSlide posts={data.posts.edges} content={blog} />

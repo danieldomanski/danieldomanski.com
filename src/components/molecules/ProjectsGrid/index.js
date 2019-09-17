@@ -14,7 +14,7 @@ const Grid = styled.ul`
 
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 4em;
+    grid-gap: 5em;
   }
 `
 

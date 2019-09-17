@@ -18,12 +18,11 @@ const Footer = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={[8, 8, 10]}
-      display="flex"
+      py={[8, 8, 12]}
       bg={backgroundColor}
+      display="flex"
       alignItems="flex-end"
       zIndex={12}
-      borderTop={variant === 'secondary' ? '1px solid rgba(0,0,0,0.05)' : 0}
     >
       <Box
         m="auto"

@@ -9,14 +9,14 @@ import useWindowSize from '../../../hooks/useWindowSize'
 
 const Container = styled.footer`
   width: 100%;
-  background-color: #f4f4f4;
+  background-color: #0e1c2a;
   z-index: 5;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
     display: ${props =>
       !props.visible && props.variant === 'primary' ? 'none' : 'flex'};
-    height: 800px;
+    height: 810px;
     flex-direction: column;
     align-items: center;
     position: fixed;
@@ -64,7 +64,7 @@ const WorkWithMe = ({ children, variant }) => {
         textAlign="center"
         px={[6, 8, 12]}
         py={[16, 16, 0]}
-        borderTop="1px solid rgba(0,0,0,0.1)"
+        borderTop="1px solid rgba(255,255,255,0.1)"
       >
         <HomeParticles variant="footer" />
         <RichText content={title} />

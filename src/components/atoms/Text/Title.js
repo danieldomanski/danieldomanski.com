@@ -11,7 +11,7 @@ const Title = ({ children }) => (
     display={'block'}
     textAlign="center"
     mt={[8, 8, 8, 12, 16]}
-    mb={[8, 8, 8, 12, 16]}
+    mb={[8, 8, 8, 12, 24]}
     style={{ letterSpacing: '-0.04em' }}
   >
     {children}

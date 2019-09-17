@@ -11,6 +11,11 @@ const typography = new Typography({
       styles: ['400'],
     },
   ],
+  overrideStyles: () => ({
+    'li:last-child': {
+      marginBottom: 'auto',
+    },
+  }),
 })
 
 export default typography

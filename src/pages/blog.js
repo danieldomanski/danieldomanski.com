@@ -55,7 +55,7 @@ const Blog = ({ data }) => {
           flexGrow={1}
         >
           <Title>{content.blogsPage.title}</Title>
-          <Box display="flex" flexDirection="column" mb={[8, 8, 8, 8, 16]}>
+          <Box display="flex" flexDirection="column" mb={[8, 8, 8, 8, 12]}>
             <Box
               as="ul"
               display="flex"
@@ -69,7 +69,7 @@ const Blog = ({ data }) => {
               ))}
             </Box>
           </Box>
-          <Box minHeight={[360, 520]} pb={[8]}>
+          <Box pb={[8]} minHeight={[360, 500]}>
             {filteredPosts.length === 0 ? (
               <Text
                 display="block"

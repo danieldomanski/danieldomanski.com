@@ -15,8 +15,8 @@ const PostItem = ({ data, ...rest }) => {
         <LocalizedLink to={`/blog/${data.node.uid}`}>
           <Text
             fontFamily="sans"
-            fontColor="primary.10"
-            fontSize={['xl', '2xl', '2xl']}
+            fontColor="primary.11"
+            fontSize={['xl', '2xl', '3xl']}
             fontWeight="black"
             style={{ letterSpacing: '-0.04em' }}
           >
@@ -34,7 +34,7 @@ const PostItem = ({ data, ...rest }) => {
             fontColor="primary.9"
             fontWeight="medium"
             fontSize={['base', 'lg']}
-            mt={4}
+            mt={3}
           >
             {description.text}
           </Text>

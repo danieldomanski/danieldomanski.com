@@ -10,7 +10,7 @@ const Container = styled.div`
     font-weight: ${theme.fontWeights.bold};
     margin-bottom: 2rem;
     font-size: ${theme.fontSizes['3xl']};
-    color: ${theme.colors.primary[10]};
+    color: ${theme.colors.primary[0]};
 
     @media screen and (min-width: 768px) {
       color: ${theme.colors.secondary[0]};
@@ -26,7 +26,7 @@ const Container = styled.div`
   h4 {
     font-family: ${theme.fonts.sans.join(', ')};
     font-weight: ${theme.fontWeights.medium};
-    color: ${theme.colors.primary[10]};
+    color: ${theme.colors.primary[3]};
     text-transform: uppercase;
     @media screen and (min-width: 768px) {
       color: ${theme.colors.cosmic[4]};
@@ -40,7 +40,7 @@ const Container = styled.div`
     display: inline-block;
     font-family: ${theme.fonts.sans.join(', ')};
     font-weight: ${theme.fontWeights.medium};
-    color: ${theme.colors.primary[10]};
+    color: ${theme.colors.primary[3]};
     line-height: ${theme.lineHeights.relaxed};
 
     @media screen and (min-width: 768px) {
@@ -49,7 +49,7 @@ const Container = styled.div`
     }
 
     a {
-      color: #0c0c0c;
+      color: #fff;
       padding-bottom: 6px;
       border-bottom: 2px solid transparent;
       transition: 0.2s ease;

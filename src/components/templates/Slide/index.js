@@ -6,7 +6,12 @@ import DirectionalFade from '../../molecules/AnimatedBox/DirectionalFade'
 import { LocaleContext } from '../../../context/ContentContext'
 import useWindowSize from '../../../hooks/useWindowSize'
 
-const Slide = ({ children, to, content: { title, description, button } }) => {
+const Slide = ({
+  children,
+  to,
+  content: { title, description, button },
+  ...rest
+}) => {
   const [locale] = useContext(LocaleContext)
   const { width } = useWindowSize()
   const isMobile = width < 768
@@ -17,14 +22,17 @@ const Slide = ({ children, to, content: { title, description, button } }) => {
       width={1}
       maxWidth={1400}
       m="auto"
-      pt={[16, 16, 20, 24, 32]}
-      pb={[16, 16, 20, 24, 32]}
+      pt={[16, 16, 20, 24, 48]}
+      pb={[16, 16, 20, 24, 48]}
       px={[6, 8, 12, 12, 16, 16]}
+      {...rest}
     >
       <DirectionalFade>
         <SlideHeading title={title} description={description} />
       </DirectionalFade>
-      <DirectionalFade>{children}</DirectionalFade>
+      <DirectionalFade>
+        <Box my={[12, 12, 16, 24]}>{children}</Box>
+      </DirectionalFade>
       <DirectionalFade>
         <LocalizedButton path={to} button={button} isMobile={isMobile} />
       </DirectionalFade>
