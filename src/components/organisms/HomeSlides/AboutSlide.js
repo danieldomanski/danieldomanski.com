@@ -8,7 +8,7 @@ const AboutSlide = ({ content }) => {
   const { processDetails, processRows } = content
 
   return (
-    <Slide id="about" content={content} to="/about">
+    <Slide id="about" content={content} id="about" to="/about">
       <Box>
         <Text
           display="block"

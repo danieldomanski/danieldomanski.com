@@ -10,7 +10,7 @@ const BlogSlide = ({ posts, content }) => {
   const anyPostReady = posts.some(post => post.node.data.released !== 0)
 
   return locale === 'en' || !anyPostReady ? null : (
-    <Slide content={content} to="/blog">
+    <Slide content={content} id="blog" to="/blog">
       <Box
         display="flex"
         flexDirection={['column', 'column', 'column', 'column', 'row']}

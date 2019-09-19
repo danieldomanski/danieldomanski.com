@@ -130,7 +130,11 @@ const ProjectItem = ({ project }) => {
         <Box>
           <ProjectTitle>{title}</ProjectTitle>
           <Container>
-            <LocalizedLink to={`/projects/${uid}`} aria-label={title}>
+            <LocalizedLink
+              to={`/projects/${uid}`}
+              aria-label={title}
+              data-testid="project-item"
+            >
               <Img fluid={cover} />
             </LocalizedLink>
           </Container>
