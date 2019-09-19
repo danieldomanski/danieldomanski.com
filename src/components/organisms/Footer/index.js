@@ -83,7 +83,7 @@ const Footer = ({ theme, variant }) => {
 }
 
 Footer.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOfType(['primary', 'secondary']),
 }
 
 Footer.defaultProps = {

@@ -99,7 +99,6 @@ const HomeSlide = ({ content }) => (
               fontSize={['lg', 'lg', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.3']}
               lineHeight={['normal', 'relaxed']}
-              letterSpacing="-0.025em"
             >
               {content.description}
             </Text>

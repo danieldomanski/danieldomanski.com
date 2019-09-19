@@ -49,7 +49,7 @@ const Header = ({ theme, variant }) => {
                 fontWeight="black"
                 fontColor={brandColor}
                 hover={{ color: '#FFF' }}
-                style={{ letterSpacing: '-0.05em' }}
+                letterSpacing="-0.05em"
               >
                 {header.brand}
               </Text>
@@ -66,7 +66,7 @@ const Header = ({ theme, variant }) => {
 }
 
 Header.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOfType(['primary', 'secondary']),
 }
 
 Header.defaultProps = {

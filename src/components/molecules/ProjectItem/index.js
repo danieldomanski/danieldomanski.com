@@ -111,7 +111,6 @@ const ProjectTitle = ({ children }) => (
     mb={[12, 8, 12, 12, 12]}
     flex={1}
     mb={[4, 4, 8]}
-    letterSpacing="-0.025em"
   >
     {children}
   </Text>

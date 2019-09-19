@@ -30,7 +30,7 @@ const PostItem = ({ post, ...rest }) => {
             {title}
           </Text>
         </LocalizedLink>
-        <Box letterSpacing="-0.025em">
+        <Box>
           <Text fontColor="primary.6" fontSize="sm">
             {date}
           </Text>

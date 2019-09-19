@@ -56,12 +56,7 @@ const Post = ({ data, pageContext }) => {
               mt={[8, 8, 12]}
               mb={[6, 8, 8, 8, 8]}
             >
-              <Box
-                display="flex"
-                flexDirection="column"
-                mb={[6, 8, 8]}
-                letterSpacing="-0.025em"
-              >
+              <Box display="flex" flexDirection="column" mb={[6, 8, 8]}>
                 <Text
                   fontColor="primary.10"
                   fontWeight="black"

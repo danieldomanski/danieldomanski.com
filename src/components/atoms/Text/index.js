@@ -60,7 +60,7 @@ Text.propTypes = {
   fontWeight: PropTypes.oneOf(['normal', 'medium', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
   lineHeight: PropTypes.oneOf(['tight', 'normal', 'relaxed', 'loose']),
-  letterSpacing: PropTypes.oneOf([PropTypes.string, PropTypes.array]),
+  letterSpacing: PropTypes.string,
   fontColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node.isRequired,
   display: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),

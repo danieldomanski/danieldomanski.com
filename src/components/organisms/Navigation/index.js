@@ -137,8 +137,8 @@ const Navigation = ({ theme, variant, placement, content }) => {
 }
 
 Navigation.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
-  placement: PropTypes.oneOf(['header', 'footer']),
+  variant: PropTypes.oneOfType(['primary', 'secondary']),
+  placement: PropTypes.oneOfType(['header', 'footer']),
 }
 
 Navigation.defaultProps = {

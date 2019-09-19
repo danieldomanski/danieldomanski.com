@@ -57,11 +57,11 @@ const AboutSlide = ({ content }) => {
                     fontWeight="black"
                     fontSize={['base', 'lg', 'xl', 'xl']}
                     fontColor="primary.11"
+                    letterSpacing="-0.05em"
+                    mb={[2, 2, 3, 3, 6]}
                     style={{
                       textTransform: 'uppercase',
-                      letterSpacing: '-0.04em',
                     }}
-                    mb={[2, 2, 3, 3, 6]}
                   >
                     {row.title}
                   </Text>

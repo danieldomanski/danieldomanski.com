@@ -18,7 +18,7 @@ const SlideHeading = ({ title, description }) => (
         fontColor="primary.11"
         fontWeight="black"
         lineHeight="tight"
-        style={{ letterSpacing: '-0.05em' }}
+        letterSpacing="-0.05em"
         flex={1}
       >
         {title}.
@@ -30,7 +30,7 @@ const SlideHeading = ({ title, description }) => (
         fontColor="primary.9"
         fontWeight="medium"
         lineHeight="relaxed"
-        style={{ letterSpacing: '-0.05em' }}
+        letterSpacing="-0.05em"
         mt={[4, 8, 8, 8, 0]}
       >
         {description}

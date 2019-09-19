@@ -48,9 +48,9 @@ const DirectionalFade = ({ children, delay, direction, px }) => {
 }
 
 DirectionalFade.propTypes = {
-  variant: PropTypes.oneOf(['primary', 'secondary']),
+  variant: PropTypes.oneOfType(['primary', 'secondary']),
   delay: PropTypes.number,
-  direction: PropTypes.oneOf(['bottom', 'top', 'left', 'right']),
+  direction: PropTypes.oneOfType(['bottom', 'top', 'left', 'right']),
 }
 
 DirectionalFade.defaultProps = {
