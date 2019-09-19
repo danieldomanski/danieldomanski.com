@@ -1,18 +1,25 @@
 /* eslint-disable camelcase */
 import React from 'react'
-import { formatDate } from '../../../utils/date'
-import LocalizedLink from '../../atoms/LocalizedLink'
-import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
+import Text from '../../atoms/Text'
+import LocalizedLink from '../../atoms/LocalizedLink'
+import { formatDate } from '../../../utils/date'
 
-const PostItem = ({ data, ...rest }) => {
-  const { title, description } = data.node.data
-  const { last_publication_date } = data.node
+const formatPost = post => ({
+  date: formatDate(post.node.last_publication_date),
+  uid: post.node.uid,
+  title: post.node.data.title.text,
+  description: post.node.data.description.text,
+  tags: post.node.data.tags.map(el => el.tag.document[0].data.tag),
+})
+
+const PostItem = ({ post, ...rest }) => {
+  const { uid, title, description, date, tags } = formatPost(post)
 
   return (
     <Box display="flex" alignItems="center" m={[0, 0, 0, 0, 'auto']} {...rest}>
       <Box flexGrow={1}>
-        <LocalizedLink to={`/blog/${data.node.uid}`}>
+        <LocalizedLink to={`/blog/${uid}`}>
           <Text
             fontFamily="sans"
             fontColor="primary.11"
@@ -20,28 +27,28 @@ const PostItem = ({ data, ...rest }) => {
             fontWeight="black"
             letterSpacing="-0.05em"
           >
-            {title.text}
+            {title}
           </Text>
         </LocalizedLink>
         <Box letterSpacing="-0.025em">
           <Text fontColor="primary.6" fontSize="sm">
-            {formatDate(last_publication_date)}
+            {date}
           </Text>
           <Text mx={2} fontColor="primary.6" fontSize="sm">
             •
           </Text>
           <Text fontColor="primary.6" fontSize="sm">
-            JavaScript, Front End
-          </Text>
-          <Text
-            fontColor="primary.9"
-            fontWeight="medium"
-            fontSize={['base', 'lg']}
-            mt={3}
-          >
-            {description.text}
+            {tags.join(', ')}
           </Text>
         </Box>
+        <Text
+          fontColor="primary.9"
+          fontWeight="medium"
+          fontSize={['base', 'lg']}
+          mt={3}
+        >
+          {description}
+        </Text>
       </Box>
     </Box>
   )

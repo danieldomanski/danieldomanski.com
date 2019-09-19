@@ -26,6 +26,7 @@ const Text = ({
   fontWeight,
   fontColor,
   lineHeight,
+  letterSpacing,
   maxWidth,
   hover,
   mt,
@@ -41,6 +42,7 @@ const Text = ({
     fontWeight={fontWeight}
     color={fontColor}
     lineHeight={lineHeight}
+    letterSpacing={letterSpacing}
     maxWidth={maxWidth}
     hover={hover}
     mt={mt}
@@ -58,9 +60,10 @@ Text.propTypes = {
   fontWeight: PropTypes.oneOf(['normal', 'medium', 'bold', 'black']),
   fontFamily: PropTypes.oneOf(['sans', 'serif', 'mono']),
   lineHeight: PropTypes.oneOf(['tight', 'normal', 'relaxed', 'loose']),
+  letterSpacing: PropTypes.oneOf([PropTypes.string, PropTypes.array]),
   fontColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node.isRequired,
-  display: PropTypes.string,
+  display: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   mb: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   mt: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   mr: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
@@ -74,6 +77,7 @@ Text.defaultProps = {
   fontWeight: 'normal',
   fontColor: 'primary.7',
   display: 'inline-block',
+  letterSpacing: '-0.025em',
   mb: 0,
   mt: 0,
   mr: 0,

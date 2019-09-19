@@ -42,7 +42,10 @@ const LocaleSwitcher = ({ theme, variant }) => {
 
           return (
             <>
-              <Link to={getLocalizedPathname(location.pathname, 'pl')}>
+              <Link
+                to={getLocalizedPathname(location.pathname, 'pl')}
+                data-testid="locale-switcher-pl"
+              >
                 <LocaleSpan
                   color={color}
                   activeColor={activeColor}
@@ -65,6 +68,7 @@ const LocaleSwitcher = ({ theme, variant }) => {
                   pointerEvents: isLocaleVisible ? 'none' : 'initial',
                 }}
                 to={getLocalizedPathname(location.pathname, 'en')}
+                data-testid="locale-switcher-en"
               >
                 <LocaleSpan
                   color={isLocaleVisible ? inactiveColor : color}

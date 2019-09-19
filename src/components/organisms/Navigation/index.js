@@ -38,7 +38,7 @@ const footerListStyles = {
 }
 
 const headerItemStyles = {
-  mr: 8,
+  mr: 6,
   fontSize: ['sm', 'sm'],
 }
 
@@ -54,6 +54,7 @@ const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
       to={to}
       fontColor={color}
       fontSize={['sm', 'sm']}
+      fontWeight="medium"
       activeStyle={activeStyle}
       hover={{ color: itemStyle.hoverColor }}
       {...itemStyle}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components'
+import DirectionalFade from '../../molecules/AnimatedBox/DirectionalFade'
 
 const containerAnimation = keyframes`
 0% { transform: translateY(0) }
@@ -10,9 +11,9 @@ const containerAnimation = keyframes`
 `
 
 const scrollAnimation = keyframes`
-0% { transform: translateY(0); opacity: .5; }
-50% { transform: translateY(4px); opacity: .15; }
-100% { transform: translateY(0); opacity: .5; }
+0% { transform: translateY(0); opacity: .75; }
+50% { transform: translateY(2px); opacity: .5; }
+100% { transform: translateY(0); opacity: .75; }
 `
 
 const Wrapper = styled.svg`
@@ -43,31 +44,33 @@ const LinkContainer = styled(Link)`
 const Scroller = ({ width, height }) => {
   return (
     <LinkContainer to="/#about">
-      <Wrapper
-        width={width}
-        height={height}
-        viewBox="0 0 40 60"
-        preserveAspectRatio="none"
-        fill="none"
-      >
-        <rect
-          x="5"
-          y="6"
-          width="30"
-          height="48"
-          rx="15"
-          stroke="rgba(240,240,240,0.5)"
-          stroke-width="2"
-        />
-        <AnimatedScroller
-          x="18"
-          y="14"
-          width="3"
-          height="14"
-          rx="6"
-          fill="white"
-        />
-      </Wrapper>
+      <DirectionalFade delay={2}>
+        <Wrapper
+          width={width}
+          height={height}
+          viewBox="0 0 40 60"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <rect
+            x="5"
+            y="6"
+            width="30"
+            height="48"
+            rx="15"
+            stroke="rgba(240,240,240,0.75)"
+            stroke-width="2"
+          />
+          <AnimatedScroller
+            x="18"
+            y="14"
+            width="3"
+            height="14"
+            rx="6"
+            fill="white"
+          />
+        </Wrapper>
+      </DirectionalFade>
     </LinkContainer>
   )
 }

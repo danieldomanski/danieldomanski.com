@@ -12,11 +12,7 @@ const ProjectsSlide = ({ projects, content }) => (
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       justifyContent="space-between"
     >
-      <ProjectsGrid>
-        {projects.map((project, idx) => (
-          <ProjectItem project={project} mb={4} />
-        ))}
-      </ProjectsGrid>
+      <ProjectsGrid projects={projects} />
     </Box>
   </Slide>
 )

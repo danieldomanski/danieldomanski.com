@@ -11,7 +11,6 @@ import ProjectItem from '../components/molecules/ProjectItem'
 const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
-    const { edges } = data.projects
     const { title } = content.worksPage
 
     return (
@@ -25,11 +24,7 @@ const Projects = ({ data }) => {
           flexGrow={1}
         >
           <Title>{title}</Title>
-          <ProjectsGrid>
-            {edges.map((project, idx) => (
-              <ProjectItem project={project} />
-            ))}
-          </ProjectsGrid>
+          <ProjectsGrid projects={data.projects.edges}></ProjectsGrid>
         </Box>
         <Box as="footer" m="auto" width={1}>
           <Footer variant="secondary" />
@@ -50,64 +45,22 @@ export const pageQuery = graphql`
           lang
           uid
           data {
-            role {
-              involvment {
-                document {
-                  data {
-                    involvment {
-                      text
-                    }
-                  }
-                }
-              }
-            }
-            released
-            body {
-              ... on PrismicProjectsBodyDetail {
-                slice_type
-                id
-                primary {
-                  detailtitle {
-                    text
-                  }
-                  detaildescription1 {
-                    text
-                  }
-                  image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 1200, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              ... on PrismicProjectsBodyImage {
-                slice_type
-                id
-                primary {
-                  image {
-                    alt
-                    url
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 1200, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
             title {
               text
             }
             description {
               text
             }
+            cover {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1200, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+            released
           }
         }
       }

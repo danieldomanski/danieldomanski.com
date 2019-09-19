@@ -35,6 +35,7 @@ export const formatHome = home => {
     blog_title,
     blog_description,
     blog_button,
+    process_rows,
     process_details,
     hero_title,
     hero_description,
@@ -55,6 +56,10 @@ export const formatHome = home => {
       title: about_title.text,
       description: about_description.text,
       button: about_button.text,
+      processRows: process_rows.map(row => ({
+        title: row.title.text,
+        description: row.description.text,
+      })),
       processDetails: process_details.text,
     },
     blog: {

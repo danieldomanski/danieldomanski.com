@@ -1,11 +1,9 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Img from 'gatsby-image/withIEPolyfill'
-import LocalizedLink from '../../atoms/LocalizedLink'
 import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
-import { LocaleContext } from '../../../context/ContentContext'
-import { getSliceContent } from '../../../utils/prismic'
+import LocalizedLink from '../../atoms/LocalizedLink'
 import theme from '../../../config/theme'
 
 const Container = styled.article`
@@ -83,7 +81,7 @@ const BgCover = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(250, 250, 250, 0.98);
+  background: rgba(255, 255, 255, 0.95);
   z-index: 6;
   transition: all 0.4s ease 0.1s;
   height: 0;
@@ -93,6 +91,15 @@ const BgCover = styled.div`
     transition: opacity 0.1s ease 0.2s;
   }
 `
+
+const formatProject = project => ({
+  locale: project.node.lang,
+  uid: project.node.uid,
+  title: project.node.data.title.text,
+  description: project.node.data.description.text,
+  released: project.node.data.released != '0',
+  cover: project.node.data.cover.localFile.childImageSharp.fluid,
+})
 
 const ProjectTitle = ({ children }) => (
   <Text
@@ -115,28 +122,23 @@ const NotReleasedText = {
   pl: 'Prezentacja w przygotowaniu.',
 }
 
-const ProjectItem = ({ project, ...rest }) => {
-  const [locale] = useContext(LocaleContext)
-  const { uid } = project.node
-  const { body, released, title } = project.node.data
-
-  const image = getSliceContent(body, 'image')
-  const { localFile } = image[0]
+const ProjectItem = ({ project }) => {
+  const { locale, uid, title, released, cover } = formatProject(project)
 
   return (
-    <Box as="li" position="relative" {...rest}>
-      {released !== '0' ? (
+    <Box as="li" position="relative" display="inline-block">
+      {released ? (
         <Box>
-          <ProjectTitle>{title.text}</ProjectTitle>
+          <ProjectTitle>{title}</ProjectTitle>
           <Container>
-            <LocalizedLink to={`/projects/${uid}`} aria-label={title.text}>
-              <Img fluid={localFile.childImageSharp.fluid} />
+            <LocalizedLink to={`/projects/${uid}`} aria-label={title}>
+              <Img fluid={cover} />
             </LocalizedLink>
           </Container>
         </Box>
       ) : (
         <Box>
-          <ProjectTitle>{title.text}</ProjectTitle>
+          <ProjectTitle>{title}</ProjectTitle>
           <HoverScale>
             <BgCover>
               <Text
@@ -150,7 +152,7 @@ const ProjectItem = ({ project, ...rest }) => {
                 🤯
               </Text>
             </BgCover>
-            <Img fluid={localFile.childImageSharp.fluid} />
+            <Img fluid={cover} />
           </HoverScale>
         </Box>
       )}

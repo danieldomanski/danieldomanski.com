@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space } from 'styled-system'
+import ProjectItem from '../ProjectItem'
 
 const Grid = styled.ul`
   ${space};
@@ -14,10 +16,27 @@ const Grid = styled.ul`
 
   @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5em;
+    grid-gap: 4em;
   }
 `
 
-const ProjectsGrid = ({ children }) => <Grid>{children}</Grid>
+const ProjectsGrid = ({ projects }) => {
+  console.log({ projects })
+  return (
+    <Grid>
+      {projects.map(project => (
+        <ProjectItem project={project}></ProjectItem>
+      ))}
+    </Grid>
+  )
+}
+
+ProjectsGrid.propTypes = {
+  projects: PropTypes.oneOfType([PropTypes.array]).isRequired,
+}
+
+ProjectsGrid.defaultProps = {
+  projects: [],
+}
 
 export default ProjectsGrid

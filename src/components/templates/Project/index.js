@@ -6,6 +6,7 @@ import Box from '../../atoms/Box'
 import Image from '../../atoms/Image'
 import Footer from '../../organisms/Footer'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
+import Title from '../../atoms/Text/Title'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
@@ -94,22 +95,14 @@ const Project = ({ data, pageContext }) => {
           px={[6, 8, 16, 24, 32]}
         >
           <Box width={1} m="auto" textAlign="center">
-            <Text
-              fontColor="primary.10"
-              fontWeight="black"
-              fontSize={['3xl', '4xl', '5xl']}
-              lineHeight="relaxed"
-              mt={[8, 12, 12, 12, 16]}
-            >
-              {title.text}
-            </Text>
+            <Title>{title.text}</Title>
             <Box
               width={1}
               position="relative"
               display="flex"
               justifyContent="center"
               alignItems="center"
-              my={[8, 8, 12]}
+              mb={[8, 12, 16]}
             >
               <MobileMockup>
                 <Image input={mockups.mobile} fit="contain" />
@@ -180,16 +173,16 @@ const Project = ({ data, pageContext }) => {
           >
             {fullWidthImages.map((img, idx) => (
               <Box>
-                <Box boxShadow="default">
+                <Box>
                   <Image input={img.localFile} fit="cover" />
                 </Box>
 
                 {details[idx] ? (
                   <Box
-                    maxWidth={800}
+                    maxWidth={700}
                     display="flex"
                     flexDirection="column"
-                    my={12}
+                    my={16}
                     ml="auto"
                     lineHeight="loose"
                   >

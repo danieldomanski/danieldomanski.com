@@ -10,7 +10,7 @@ import PostItem from '../../organisms/PostItem'
 import { usePageContent } from '../../../context/ContentContext'
 
 const BlogPosts = styled.ul`
-  margin: 2rem 0;
+  margin: 4rem 0;
   list-style: none;
 `
 
@@ -22,12 +22,12 @@ const Tag = ({ data, pageContext }) => {
 
     return (
       <>
-        <Box m="auto" px={[6, 6, 12, 16, 24]} flexGrow={1}>
+        <Box m="auto" px={[6, 6, 12, 16, 24]} pb={8} flexGrow={1}>
           <Title>Posts about {tag}</Title>
           <BlogPosts>
             {posts.map((post, idx) => (
               <PostItem
-                data={post}
+                post={post}
                 pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
                 pt={idx === 0 ? 0 : [4, 4, 4]}
                 mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
@@ -65,6 +65,18 @@ export const pageQuery = graphql`
           data {
             title {
               text
+            }
+            tags {
+              tag {
+                document {
+                  href
+                  slugs
+                  data {
+                    tag
+                  }
+                }
+                slug
+              }
             }
             description {
               text

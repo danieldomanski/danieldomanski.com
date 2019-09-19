@@ -10,9 +10,9 @@ const Title = ({ children }) => (
     fontColor={'primary.11'}
     display={'block'}
     textAlign="center"
-    mt={[8, 8, 8, 12, 16]}
-    mb={[8, 8, 8, 12, 24]}
-    style={{ letterSpacing: '-0.04em' }}
+    mt={[8, 8, 8, 8, 8]}
+    mb={[8, 8, 8, 12, 16]}
+    style={{ letterSpacing: '-0.05em' }}
   >
     {children}
   </Text>

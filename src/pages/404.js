@@ -8,16 +8,18 @@ import RichText from '../components/organisms/Slices/RichText'
 const Container = styled.section`
   width: 100%;
   height: 100vh;
-  position: fixed;
-  top: 0;
+  padding: 3rem 2rem;
   z-index: 4;
-
-  background: radial-gradient(
-    1300px at 50% 125%,
-    #53617a -8%,
-    #25273c 45%,
-    #161723 100%
-  );
+  @media screen and (min-width: 768px) {
+    position: fixed;
+    top: 0;
+    background: radial-gradient(
+      1300px at 50% 125%,
+      #53617a -8%,
+      #25273c 45%,
+      #161723 100%
+    );
+  }
 `
 
 const HeroContainer = styled.section`

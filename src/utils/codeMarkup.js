@@ -5,6 +5,7 @@ export default css`
   li {
     font-family: ${theme.fonts.serif.join(', ')};
     line-height: ${theme.lineHeights.relaxed};
+
     margin-bottom: 2rem;
     color: #17191c;
   }
@@ -48,6 +49,7 @@ export default css`
     font-weight: 700;
     margin-top: 3.5rem;
     margin-bottom: 1.75rem;
+    letter-spacing: -0.05em;
   }
 
   code[class*='language-'],

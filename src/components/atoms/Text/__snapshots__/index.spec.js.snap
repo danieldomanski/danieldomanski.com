@@ -7,6 +7,10 @@ exports[`<Text> renders with different styled-system category props 1`] = `
   font-family: sans;
   font-weight: bold;
   line-height: normal;
+  -webkit-letter-spacing: -0.025em;
+  -moz-letter-spacing: -0.025em;
+  -ms-letter-spacing: -0.025em;
+  letter-spacing: -0.025em;
   color: red;
   margin-top: 0;
   margin-bottom: 0;
@@ -36,6 +40,7 @@ exports[`<Text> renders with different styled-system category props 1`] = `
   font-family="sans"
   font-size="lg,xl"
   font-weight="bold"
+  letter-spacing="-0.025em"
 >
   Test.
 </p>

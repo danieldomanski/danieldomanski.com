@@ -73,7 +73,11 @@ const HomeSlide = ({ content }) => (
           m={[0, 0, 0, 0, 0, 'auto']}
           px={[8, 8, 12, 12, 12, 16]}
           py={[16, 16, 0]}
-          boxShadow={['0 1px 0 rgba(0,0,0,.05)', '0 1px 0 rgba(0,0,0,.05)', 0]}
+          boxShadow={[
+            '0 1px 0 rgba(0,0,0,.05)',
+            '0 1px 0 rgba(0,0,0,.05)',
+            'none',
+          ]}
         >
           <TitleText>
             <Text
@@ -82,8 +86,8 @@ const HomeSlide = ({ content }) => (
               fontSize={['4xl', '4xl', '5xl', '6xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.1']}
               lineHeight="none"
-              style={{ letterSpacing: '-0.05em' }}
-              mb={[6, 4, 4]}
+              letterSpacing="-0.05em"
+              mb={[6, 6, 6]}
             >
               {content.title}
             </Text>
@@ -95,7 +99,7 @@ const HomeSlide = ({ content }) => (
               fontSize={['lg', 'lg', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.3']}
               lineHeight={['normal', 'relaxed']}
-              style={{ letterSpacing: '-0.025em' }}
+              letterSpacing="-0.025em"
             >
               {content.description}
             </Text>

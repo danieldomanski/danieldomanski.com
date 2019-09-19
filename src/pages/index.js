@@ -17,12 +17,12 @@ import theme from '../config/theme'
 const OnTopLayer = styled.section`
   position: relative;
   overflow: hidden;
-  padding: 4rem 0;
+  padding: 6rem 0;
   box-shadow: ${theme.shadows.lg};
   z-index: 6;
   margin-top: 100vh;
   margin-bottom: 810px;
-  background-color: #f0f0f0;
+  background-color: #f6f6f6;
 `
 
 const TopLayer = styled.section`
@@ -103,54 +103,12 @@ export const pageQuery = graphql`
           lang
           uid
           data {
-            role {
-              involvment {
-                document {
-                  data {
-                    involvment {
-                      text
-                    }
-                  }
-                }
-              }
-            }
             released
-            body {
-              ... on PrismicProjectsBodyDetail {
-                slice_type
-                id
-                primary {
-                  detailtitle {
-                    text
-                  }
-                  detaildescription1 {
-                    text
-                  }
-                  image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 1200, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-              ... on PrismicProjectsBodyImage {
-                slice_type
-                id
-                primary {
-                  image {
-                    alt
-                    url
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 1200, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
+            cover {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1200, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
@@ -181,8 +139,14 @@ export const pageQuery = graphql`
             }
             tags {
               tag {
+                document {
+                  href
+                  slugs
+                  data {
+                    tag
+                  }
+                }
                 slug
-                uid
               }
             }
             released
@@ -208,6 +172,14 @@ export const pageQuery = graphql`
             }
             about_title {
               text
+            }
+            process_rows {
+              title {
+                text
+              }
+              description {
+                text
+              }
             }
             process_details {
               text

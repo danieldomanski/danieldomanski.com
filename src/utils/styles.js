@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     margin: 0;
-    background-color: #fff;
+    background-color: #f6f6f6;
   }
 
   #___gatsby, #___gatsby > div {

@@ -13,6 +13,8 @@ const initialState = {
     about: {
       title: '',
       description: '',
+      processDetails: '',
+      processRows: [],
     },
     works: {
       title: '',

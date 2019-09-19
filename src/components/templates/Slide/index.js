@@ -22,7 +22,7 @@ const Slide = ({
       width={1}
       maxWidth={1400}
       m="auto"
-      py={[16, 16, 20, 24, 48]}
+      py={[16, 16, 20, 24, 40]}
       px={[6, 8, 12, 12, 16, 16]}
       {...rest}
     >
@@ -30,7 +30,7 @@ const Slide = ({
         <SlideHeading title={title} description={description} />
       </DirectionalFade>
       <DirectionalFade>
-        <Box my={[12, 12, 16, 24]}>{children}</Box>
+        <Box my={[12, 12, 16, 16, 16]}>{children}</Box>
       </DirectionalFade>
       <DirectionalFade>
         <LocalizedButton path={to} button={button} isMobile={isMobile} />

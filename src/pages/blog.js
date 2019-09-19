@@ -82,7 +82,7 @@ const Blog = ({ data }) => {
             ) : (
               filteredPosts.map((post, idx) => (
                 <PostItem
-                  data={post}
+                  post={post}
                   pb={idx === posts.length - 1 ? 0 : [8, 4, 8]}
                   pt={idx === 0 ? 0 : [4, 4, 8]}
                   mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
@@ -122,6 +122,13 @@ export const pageQuery = graphql`
             }
             tags {
               tag {
+                document {
+                  href
+                  slugs
+                  data {
+                    tag
+                  }
+                }
                 slug
               }
             }

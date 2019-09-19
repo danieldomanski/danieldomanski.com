@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
-import Bio from '../../organisms/Bio'
+import Bio from '../../molecules/Bio'
 import PostContent from '../../organisms/PostContent'
 import { formatDate } from '../../../utils/date'
 import { countWordsFromSlices, timeToRead } from '../../../utils/timeToRead'
@@ -53,16 +53,21 @@ const Post = ({ data, pageContext }) => {
               justifyContent="center"
               textAlign={['left', 'left', 'center']}
               flexDirection={['column', 'column', 'row']}
-              mt={[2, 12]}
+              mt={[8, 8, 12]}
               mb={[6, 8, 8, 8, 8]}
             >
-              <Box display="flex" flexDirection="column" mb={[6, 8, 8]}>
+              <Box
+                display="flex"
+                flexDirection="column"
+                mb={[6, 8, 8]}
+                letterSpacing="-0.025em"
+              >
                 <Text
                   fontColor="primary.10"
                   fontWeight="black"
                   fontSize={['3xl', '4xl', '5xl']}
                   lineHeight="tight"
-                  mt={[8, 8, 8, 8, 8]}
+                  letterSpacing="-0.05em"
                 >
                   {title.text}
                 </Text>
