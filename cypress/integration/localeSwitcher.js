@@ -4,13 +4,6 @@ describe('(PL) Changing between locale version updates url accordingly', () => {
     cy.get('[data-testid="locale-switcher-pl"]').as('switcher')
   })
 
-  it('Home page', () => {
-    cy.get('@switcher')
-      .click({ force: true })
-      .location('pathname')
-      .should('eq', '/')
-  })
-
   it('Projects', () => {
     cy.visit('/en/projects')
       .get('@switcher')
@@ -31,11 +24,10 @@ describe('(PL) Changing between locale version updates url accordingly', () => {
 describe('(EN) English locale switcher changes locale version', () => {
   beforeEach(() => {
     cy.visit('/')
+    cy.get('[data-testid="locale-switcher-en"]').as('switcher')
   })
 
   it('Home page', () => {
-    cy.get('[data-testid="locale-switcher-en"]').as('switcher')
-
     cy.get('@switcher')
       .click()
       .location('pathname')
@@ -43,8 +35,6 @@ describe('(EN) English locale switcher changes locale version', () => {
   })
 
   it('Projects', () => {
-    cy.get('[data-testid="locale-switcher-en"]').as('switcher')
-
     cy.visit('/projects')
       .get('@switcher')
       .click()
@@ -53,8 +43,6 @@ describe('(EN) English locale switcher changes locale version', () => {
   })
 
   it('Blog', () => {
-    cy.get('[data-testid="locale-switcher-en"]').as('switcher')
-
     cy.visit('/about')
       .get('@switcher')
       .click()
