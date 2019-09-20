@@ -12,7 +12,7 @@ executors:
 aliases:
   e2e_test: &e2e_test
     docker:
-      - image: cypress/base:10
+      - image: cypress/browsers:chrome77
         environment:
           TERM: xterm
 
