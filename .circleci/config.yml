@@ -32,7 +32,15 @@ aliases:
       name: Save NPM package cache
       key: v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
       paths:
-        - ./node_modules
+        - /home/circleci/.cache
+
+  store_results: &store_results
+    store_test_results:
+      path: results
+
+  store_results_artifacts: &store_results_artifacts
+    store_artifacts:
+      path: results
 
 version: 2.1
 
@@ -46,7 +54,7 @@ jobs:
       - <<: *save_cache
       - run:
           name: Test
-          command: npm test
+          command: yarn test
 
   e2e_cypress:
     <<: *e2e_test
@@ -58,6 +66,12 @@ jobs:
       - run:
           name: Run E2E tests
           command: yarn test:e2e
+      - <<: *store_results
+      - <<: *store_results_artifacts
+      - store_artifacts:
+          path: cypress/videos
+      - store_artifacts:
+          path: cypress/screenshots
 
   build:
     executor: node
