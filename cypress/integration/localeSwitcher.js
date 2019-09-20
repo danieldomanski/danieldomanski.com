@@ -1,12 +1,12 @@
 describe('(PL) Changing between locale version updates url accordingly', () => {
   beforeEach(() => {
     cy.visit('/')
-    cy.get('[data-testid="locale-switcher-pl"]').as('switcher')
   })
 
   it('Projects', () => {
     cy.visit('/en/projects')
-      .get('@switcher')
+      .wait(500)
+      .get('[data-testid="locale-switcher-pl"]')
       .click({ force: true })
       .location('pathname')
       .should('eq', '/projects')
@@ -14,7 +14,7 @@ describe('(PL) Changing between locale version updates url accordingly', () => {
 
   it('About', () => {
     cy.visit('/en/about')
-      .get('@switcher')
+      .get('[data-testid="locale-switcher-pl"]')
       .click({ force: true })
       .location('pathname')
       .should('eq', '/about')
