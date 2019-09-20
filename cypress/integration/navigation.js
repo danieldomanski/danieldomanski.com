@@ -1,15 +1,17 @@
 describe('Navigation routing works as designed', () => {
   beforeEach(() => {
-    cy.visit('/').wait(500)
+    cy.visit('/')
   })
 
   it('Projects link', () => {
-    cy.get('[data-testid="nav"]').within(() => {
-      cy.findByText('Projekty')
-        .click({ force: true })
-        .location('pathname')
-        .should('eq', '/projects')
-    })
+    cy.visit('/')
+      .get('[data-testid="nav"]')
+      .within(() => {
+        cy.findByText('Projekty')
+          .click({ force: true })
+          .location('pathname')
+          .should('eq', '/projects')
+      })
   })
 
   it('Start link', () => {

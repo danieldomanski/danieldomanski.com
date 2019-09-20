@@ -5,7 +5,6 @@ describe('(PL) Changing between locale version updates url accordingly', () => {
 
   it('Projects', () => {
     cy.visit('/en/projects')
-      .wait(500)
       .get('[data-testid="locale-switcher-pl"]')
       .click({ force: true })
       .location('pathname')
