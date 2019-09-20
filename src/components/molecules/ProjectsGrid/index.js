@@ -20,16 +20,13 @@ const Grid = styled.ul`
   }
 `
 
-const ProjectsGrid = ({ projects }) => {
-  console.log({ projects })
-  return (
-    <Grid>
-      {projects.map(project => (
-        <ProjectItem project={project}></ProjectItem>
-      ))}
-    </Grid>
-  )
-}
+const ProjectsGrid = ({ projects }) => (
+  <Grid>
+    {projects.map(project => (
+      <ProjectItem project={project}></ProjectItem>
+    ))}
+  </Grid>
+)
 
 ProjectsGrid.propTypes = {
   projects: PropTypes.oneOfType([PropTypes.array]).isRequired,

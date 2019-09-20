@@ -4,6 +4,10 @@ executors:
       - image: circleci/node:8
 
 aliases:
+  e2e_test: &e2e_test
+    docker:
+      - image: cypress/browsers:chrome76
+
   restore_cache: &restore_cache
     restore_cache:
       name: Restore Npm Package Cache
@@ -35,6 +39,17 @@ jobs:
       - run:
           name: Test
           command: npm test
+
+  e2e_cypress:
+    <<: *e2e_test
+    steps:
+      - checkout
+      - <<: *restore_cache
+      - <<: *install_node_modules
+      - <<: *save_cache
+      - run:
+          name: Run E2E tests
+          command: yarn test:e2e
 
   build:
     executor: node

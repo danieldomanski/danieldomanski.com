@@ -3,7 +3,7 @@ describe('Buttons under each slide works and routes to appropiate page', () => {
     cy.visit('/')
   })
 
-  it('About me section link works', () => {
+  it('About me section link renders and navigates accordingly', () => {
     cy.get('#about').within(() => {
       cy.findByText('Więcej o mnie').as('button')
     })
@@ -15,7 +15,7 @@ describe('Buttons under each slide works and routes to appropiate page', () => {
       .should('include', 'about')
   })
 
-  it('Projects section link works', () => {
+  it('More Projects section link renderr and navigates accordingly', () => {
     cy.get('#projects').within(() => {
       cy.findByText('Wszystkie projekty').as('button')
     })
@@ -27,7 +27,7 @@ describe('Buttons under each slide works and routes to appropiate page', () => {
       .should('include', 'projects')
   })
 
-  it('Blog section link works', () => {
+  it('Blog section link renders and navigates accordingly', () => {
     cy.get('#blog').within(() => {
       cy.findByText('Wszystkie artykuły').as('button')
     })
@@ -40,22 +40,36 @@ describe('Buttons under each slide works and routes to appropiate page', () => {
   })
 })
 
-describe('Projects elements navigates to appropiate project', () => {
+describe('Project cover navigates to individual project', () => {
   beforeEach(() => {
     cy.visit('/')
   })
 
-  it('Projects is clickable and navigates to projects dir', () => {
-    cy.get('#projects').within(() => {
-      cy.get('a')
-        .first()
-        .as('project')
-    })
+  it('Project Case is clickable and navigates to appropiate project', () => {
+    cy.get('[data-testid="project-item"]')
+      .first()
+      .as('project')
 
     cy.get('@project')
-      .should('be.visible')
-      .click()
+      .click({ force: true })
       .location('pathname')
       .should('include', 'projects/')
+  })
+})
+
+describe('Post elements navigates to appropiate post', () => {
+  beforeEach(() => {
+    cy.visit('/')
+  })
+
+  it('Post is clickable and navigates to appropiate project', () => {
+    cy.get('[data-testid="post-item"]')
+      .first()
+      .as('post')
+
+    cy.get('@post')
+      .click({ force: true })
+      .location('pathname')
+      .should('include', 'blog/')
   })
 })

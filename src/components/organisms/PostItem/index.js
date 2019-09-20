@@ -13,13 +13,19 @@ const formatPost = post => ({
   tags: post.node.data.tags.map(el => el.tag.document[0].data.tag),
 })
 
+const PostCaptionText = ({ children, ...rest }) => (
+  <Text fontColor="primary.6" fontSize="sm" {...rest}>
+    {children}
+  </Text>
+)
+
 const PostItem = ({ post, ...rest }) => {
   const { uid, title, description, date, tags } = formatPost(post)
 
   return (
     <Box display="flex" alignItems="center" m={[0, 0, 0, 0, 'auto']} {...rest}>
       <Box flexGrow={1}>
-        <LocalizedLink to={`/blog/${uid}`}>
+        <LocalizedLink to={`/blog/${uid}`} data-testid="post-item">
           <Text
             fontFamily="sans"
             fontColor="primary.11"
@@ -31,15 +37,9 @@ const PostItem = ({ post, ...rest }) => {
           </Text>
         </LocalizedLink>
         <Box>
-          <Text fontColor="primary.6" fontSize="sm">
-            {date}
-          </Text>
-          <Text mx={2} fontColor="primary.6" fontSize="sm">
-            •
-          </Text>
-          <Text fontColor="primary.6" fontSize="sm">
-            {tags.join(', ')}
-          </Text>
+          <PostCaptionText>{date}</PostCaptionText>
+          <PostCaptionText mx={2}>•</PostCaptionText>
+          <PostCaptionText>{tags.join(', ')}</PostCaptionText>
         </Box>
         <Text
           fontColor="primary.9"

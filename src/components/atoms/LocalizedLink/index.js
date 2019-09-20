@@ -42,7 +42,10 @@ const LocalizedLink = ({
 
       const path = locales[locale].default
         ? to
-        : `${locales[locale].path}${isIndex && to !== '/' ? '' : to}`
+        : `${locales[locale].path}${isIndex && to !== '/' ? '' : to}`.replace(
+            /\/+$/,
+            ''
+          )
 
       return (
         <LinkContainer

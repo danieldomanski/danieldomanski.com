@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeProvider } from 'styled-components'
-import Helmet from 'react-helmet'
 import theme from '../../../config/theme'
 import Header from '../../organisms/Header'
 import useWindowSize from '../../../hooks/useWindowSize'
@@ -36,7 +35,6 @@ const Layout = ({ children, location }) => {
     <>
       <SEO location={location} />
       <GlobalStyle />
-
       <ThemeProvider theme={theme}>
         <MainContent>
           <Header variant={getVariantByLocation(location.pathname, width)} />

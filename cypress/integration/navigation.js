@@ -12,7 +12,7 @@ describe('Navigation routing works as designed', () => {
       .should('be.visible')
       .click({ force: true })
       .location('pathname')
-      .should('include', 'projects')
+      .should('eq', '/projects')
   })
 
   it('Start link', () => {
@@ -24,7 +24,7 @@ describe('Navigation routing works as designed', () => {
       .should('be.visible')
       .click({ force: true })
       .location('pathname')
-      .should('include', '')
+      .should('eq', '/')
   })
 
   it('Blog link', () => {
@@ -36,7 +36,7 @@ describe('Navigation routing works as designed', () => {
       .should('be.visible')
       .click({ force: true })
       .location('pathname')
-      .should('include', 'blog')
+      .should('eq', '/blog')
   })
 
   it('About link', () => {
@@ -48,6 +48,54 @@ describe('Navigation routing works as designed', () => {
       .should('be.visible')
       .click({ force: true })
       .location('pathname')
-      .should('include', 'about')
+      .should('eq', '/about')
+  })
+})
+
+describe('English navigation routing works as designed', () => {
+  beforeEach(() => {
+    cy.visit('/en')
+  })
+
+  it('Projects link', () => {
+    cy.get('header > div > nav').within(() => {
+      cy.findByText('Projects').as('projekty')
+    })
+
+    cy.get('@projekty')
+      .should('be.visible')
+      .click()
+      .location('pathname')
+      .should('eq', '/en/projects')
+  })
+
+  it('Start link', () => {
+    cy.get('header > div > nav').within(() => {
+      cy.findByText('Home').as('start')
+    })
+
+    cy.get('@start')
+      .should('be.visible')
+      .click({ force: true })
+      .location('pathname')
+      .should('eq', '/en')
+  })
+
+  it('Blog link', () => {
+    cy.get('header > div > nav').within(() => {
+      cy.findByText('Blog').should('not.be.visible')
+    })
+  })
+
+  it('About link', () => {
+    cy.get('header > div > nav').within(() => {
+      cy.findByText('Me').as('ja')
+    })
+
+    cy.get('@ja')
+      .should('be.visible')
+      .click({ force: true })
+      .location('pathname')
+      .should('include', '/en/about')
   })
 })

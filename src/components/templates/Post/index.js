@@ -69,8 +69,8 @@ const Post = ({ data, pageContext }) => {
                 <Box
                   display="flex"
                   justifyContent={['flex-start', 'flex-start', 'center']}
-                  mt={[4, 4, 4]}
-                  mb={[4, 4, 4]}
+                  mt={4}
+                  mb={4}
                 >
                   <Box display="flex" alignItems="center">
                     <Text fontColor="primary.6">{formatDate(date)}</Text>

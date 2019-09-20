@@ -13,7 +13,6 @@ const LocalizedButton = ({ path, button, isMobile }) => (
             fontWeight="black"
             fontColor="accent.8"
             fontSize={['base', 'base', 'base']}
-            letterSpacing="-.025em"
             style={{ textTransform: 'uppercase' }}
           >
             {button}
