@@ -1,12 +1,18 @@
 executors:
   node:
+    parameters:
+      image:
+        type: string
+        default: 'lts'
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:<< parameters.image >>
+        environment:
+          TERM: xterm
 
 aliases:
   e2e_test: &e2e_test
     docker:
-      - image: cypress/base:8
+      - image: cypress/browsers:chrome69
         environment:
           TERM: xterm
 
@@ -14,17 +20,17 @@ aliases:
     restore_cache:
       name: Restore Npm Package Cache
       keys:
-        - yarn-cache-netlify-{{ checksum "yarn.lock" }}
+        - v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
 
   install_node_modules: &install_node_modules
     run:
       name: Install dependencies
-      command: yarn install
+      command: yarn install --frozen-lockfile --ignore-engines
 
   save_cache: &save_cache
     save_cache:
       name: Save NPM package cache
-      key: yarn-cache-netlify-{{ checksum "yarn.lock" }}
+      key: v{{ .Environment.versionCache }}-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}-{{ checksum ".circleci/config.yml" }}
       paths:
         - ./node_modules
 
@@ -86,11 +92,7 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+      - test
       - e2e_cypress
       - build:
           requires:
