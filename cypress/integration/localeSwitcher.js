@@ -43,11 +43,5 @@ describe('English locale switcher changes locale version', () => {
       .click()
       .location('pathname')
       .should('eq', '/en/projects')
-
-    cy.visit('/blog')
-      .get('@switcher')
-      .click({ force: true })
-      .location('pathname')
-      .should('eq', '/blog')
   })
 })
