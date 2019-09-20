@@ -59,7 +59,7 @@
     "snap:u": "jest -u",
     "serve": "gatsby serve",
     "cy:open": "cypress open",
-    "cy:run": "CYPRESS_baseUrl=http://localhost:9000 cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
+    "cy:run": "CYPRESS_baseUrl=http://localhost:9000 cypress run --browser chrome",
     "serve-and-run": "start-server-and-test serve http://localhost:9000 cy:run",
     "test:e2e": "yarn build:cypress && yarn serve-and-run",
     "test:e2e:dev": "start-server-and-test dev http://localhost:8000 cy:open"
