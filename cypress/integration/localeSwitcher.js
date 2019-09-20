@@ -11,13 +11,13 @@ describe('Polish locale switcher changes locale version', () => {
       .location('pathname')
       .should('eq', '/')
 
-    cy.visit('en/projects')
+    cy.visit('/en/projects')
       .get('@switcher')
       .click()
       .location('pathname')
       .should('eq', '/projects')
 
-    cy.visit('en/blog')
+    cy.visit('/en/blog')
       .get('@switcher')
       .click()
       .location('pathname')
