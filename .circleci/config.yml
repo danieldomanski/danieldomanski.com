@@ -6,7 +6,9 @@ executors:
 aliases:
   e2e_test: &e2e_test
     docker:
-      - image: cypress/browsers:chrome76
+      - image: cypress/base:8
+        environment:
+          TERM: xterm
 
   restore_cache: &restore_cache
     restore_cache:
