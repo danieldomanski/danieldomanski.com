@@ -49,7 +49,7 @@ const footerItemStyles = {
 }
 
 const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
-  <Box as="li" pb={itemStyle.mb ? itemStyle.mb : 0}>
+  <Box as="li" pb={itemStyle.mb ? itemStyle.mb : 0} key={to}>
     <LocalizedLink
       to={to}
       fontColor={color}
@@ -85,6 +85,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
       display="flex"
       alignItems="center"
       textAlign="center"
+      data-testid="nav"
       {...navStyles}
     >
       <Box
