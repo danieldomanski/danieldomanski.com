@@ -89,6 +89,7 @@ workflows:
             branches:
               ignore:
                 - gh-pages
+      - e2e_cypress
       - build:
           requires:
             - test
