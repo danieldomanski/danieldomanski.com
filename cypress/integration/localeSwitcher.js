@@ -12,12 +12,12 @@ describe('(PL) Changing between locale version updates url accordingly', () => {
       .should('eq', '/projects')
   })
 
-  it('Blog', () => {
-    cy.visit('/en/blog')
+  it('About', () => {
+    cy.visit('/en/about')
       .get('@switcher')
       .click({ force: true })
       .location('pathname')
-      .should('eq', '/blog')
+      .should('eq', '/about')
   })
 })
 
