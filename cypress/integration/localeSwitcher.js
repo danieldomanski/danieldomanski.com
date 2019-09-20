@@ -7,19 +7,19 @@ describe('Polish locale switcher changes locale version', () => {
     cy.get('[data-testid="locale-switcher-pl"]').as('switcher')
 
     cy.get('@switcher')
-      .click()
+      .click({ force: true })
       .location('pathname')
       .should('eq', '/')
 
     cy.visit('/en/projects')
       .get('@switcher')
-      .click()
+      .click({ force: true })
       .location('pathname')
       .should('eq', '/projects')
 
     cy.visit('/en/blog')
       .get('@switcher')
-      .click()
+      .click({ force: true })
       .location('pathname')
       .should('eq', '/blog')
   })
