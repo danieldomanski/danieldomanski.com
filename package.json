@@ -49,6 +49,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build:cypress": "cross-env CYPRESS_SUPPORT=y gatsby build",
     "dev": "gatsby develop",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
@@ -57,7 +58,10 @@
     "test:coverage": "jest --coverage",
     "snap:u": "jest -u",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test dev http://localhost:8000 cy:open"
+    "cy:run": "CYPRESS_baseUrl=http://localhost:9000 cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
+    "serve-and-run": "start-server-and-test serve http://localhost:9000 cy:run",
+    "test:e2e": "yarn build:cypress && yarn serve-and-run",
+    "test:e2e:dev": "start-server-and-test dev http://localhost:8000 cy:open"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.1.0",
