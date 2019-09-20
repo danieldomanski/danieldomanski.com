@@ -57,6 +57,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "snap:u": "jest -u",
+    "serve": "gatsby serve",
     "cy:open": "cypress open",
     "cy:run": "CYPRESS_baseUrl=http://localhost:9000 cypress run --browser chrome --reporter junit --reporter-options 'mochaFile=results/cypress/result.xml'",
     "serve-and-run": "start-server-and-test serve http://localhost:9000 cy:run",
