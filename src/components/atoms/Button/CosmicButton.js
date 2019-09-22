@@ -5,6 +5,7 @@ import { color, typography, space } from 'styled-system'
 import Text from '../Text'
 import theme from '../../../config/theme'
 import { Stars, generateStars } from '../Cosmos'
+import Icon from '../Icon'
 
 const ButtonContainer = styled.button`
   ${typography};
@@ -12,28 +13,22 @@ const ButtonContainer = styled.button`
   ${space};
 
   position: relative;
-  width: 200px;
-  padding: 1rem;
+  padding: 0.875rem 1.75rem;
   overflow: hidden;
   background: 0;
   cursor: pointer;
   outline: 0;
   border: 0;
   text-transform: uppercase;
-  border: 2px solid rgba(16, 16, 32, 1);
   transition: box-shadow 0.25s ease;
 
-  @media screen and (min-width: 768px) {
-    width: 260px;
-  }
-
   &:hover {
+    box-shadow: ${theme.shadows.lg};
     & > div {
       display: block;
     }
 
     @media screen and (min-width: 768px) {
-      box-shadow: ${theme.shadows.lg};
       &::after {
         width: 100%;
       }
@@ -44,7 +39,6 @@ const ButtonContainer = styled.button`
     }
 
     & svg {
-      margin-left: 8px;
       fill: white;
     }
     &:focus {
@@ -53,7 +47,7 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #101020;
+    background-color: #080812;
     content: '';
     width: 0;
     height: 100%;
@@ -86,11 +80,14 @@ const Button = ({ children, fontSize, fontColor, ...rest }) => (
       as="span"
       fontFamily="sans"
       fontWeight="bold"
+      letterSpacing="0em"
       fontSize={fontSize}
       color={fontColor}
+      mr={1}
     >
       {children}
     </Text>
+    <Icon icon="arrow" width={19} height={17} fill="#080812" />
     <Container>
       <MediumStars />
       <SmallStars />

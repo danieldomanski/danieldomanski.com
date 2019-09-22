@@ -168,7 +168,7 @@ theme.components = {
   },
   brand: {
     primary: {
-      color: theme.colors.secondary[2],
+      color: theme.colors.secondary[0],
     },
     secondary: {
       color: theme.colors.primary[9],

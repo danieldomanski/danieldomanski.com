@@ -38,6 +38,28 @@ const Container = styled.div`
     letter-spacing: 0.25em;
   }
 
+  h5 {
+    font-family: ${theme.fonts.sans.join(', ')};
+    font-weight: ${theme.fontWeights.medium};
+    font-size: ${theme.fontSizes['lg']};
+    color: ${theme.colors.primary[10]};
+    line-height: ${theme.lineHeights.relaxed};
+    letter-spacing: -0.025em;
+
+    @media screen and (min-width: 768px) {
+      color: ${theme.colors.cosmic[4]};
+      font-size: ${theme.fontSizes['xl']};
+    }
+
+    a {
+      font-size: ${theme.fontSizes['lg']};
+
+      @media screen and (min-width: 768px) {
+        font-size: ${theme.fontSizes['xl']};
+      }
+    }
+  }
+
   p {
     max-width: 900px;
     display: inline-block;
@@ -51,22 +73,22 @@ const Container = styled.div`
       color: ${theme.colors.secondary[2]};
       font-size: ${theme.fontSizes['lg']};
     }
+  }
 
-    a {
-      color: #0c0c0c;
-      padding-bottom: 6px;
-      border-bottom: 2px solid transparent;
-      transition: 0.2s ease;
-      font-weight: 600;
+  a {
+    color: #0c0c0c;
+    padding-bottom: 6px;
+    border-bottom: 2px solid transparent;
+    transition: 0.2s ease;
+    font-weight: 500;
 
-      &:hover {
-        padding-bottom: 2px;
-        border-bottom: 2px solid #626b87;
-      }
+    &:hover {
+      padding-bottom: 2px;
+      border-bottom: 2px solid #626b87;
+    }
 
-      @media screen and (min-width: 768px) {
-        color: #bed6ff;
-      }
+    @media screen and (min-width: 768px) {
+      color: #bed6ff;
     }
   }
 `

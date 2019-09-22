@@ -48,8 +48,16 @@ const footerItemStyles = {
   fontSize: ['sm', 'sm'],
 }
 
-const NavItem = ({ children, to, color, itemStyle, activeStyle, ...rest }) => (
-  <Box as="li" pb={itemStyle.mb ? itemStyle.mb : 0} key={to}>
+const NavItem = ({
+  children,
+  to,
+  color,
+  itemStyle,
+  activeStyle,
+  display,
+  ...rest
+}) => (
+  <Box display={display} as="li" pb={itemStyle.mb ? itemStyle.mb : 0} key={to}>
     <LocalizedLink
       to={to}
       fontColor={color}

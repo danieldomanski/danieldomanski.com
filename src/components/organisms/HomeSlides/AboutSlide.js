@@ -16,6 +16,7 @@ const AboutSlide = ({ content }) => {
           fontWeight="black"
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
+          letterSpacing="-.05em"
           mb={[12, 12, 12, 12, 16]}
         >
           {processDetails}
@@ -40,7 +41,7 @@ const AboutSlide = ({ content }) => {
                   `${isLastElement ? 0 : 12}`,
                   0,
                 ]}
-                mr={idx === processRows.length - 1 ? 0 : 6}
+                mr={idx === processRows.length - 1 ? 0 : 8}
                 flexGrow={1}
               >
                 <Text
@@ -58,7 +59,7 @@ const AboutSlide = ({ content }) => {
                     fontSize={['base', 'lg', 'xl', 'xl']}
                     fontColor="primary.11"
                     letterSpacing="-0.05em"
-                    mb={[2, 2, 3, 3, 6]}
+                    mb={[2, 2, 3, 3, 4]}
                     style={{
                       textTransform: 'uppercase',
                     }}
@@ -66,8 +67,8 @@ const AboutSlide = ({ content }) => {
                     {row.title}
                   </Text>
                   <Text
-                    fontSize={['base', 'base', 'lg', 'lg']}
-                    fontColor="primary.11"
+                    fontSize={['base', 'base', 'base', 'base']}
+                    fontColor="primary.9"
                     fontWeight="medium"
                     lineHeight="relaxed"
                     maxWidth={800}

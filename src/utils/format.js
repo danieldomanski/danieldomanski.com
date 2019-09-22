@@ -50,7 +50,7 @@ export const formatHome = home => {
   return {
     hero: {
       title: hero_title.text,
-      description: hero_description.text,
+      description: hero_description.html,
     },
     about: {
       title: about_title.text,

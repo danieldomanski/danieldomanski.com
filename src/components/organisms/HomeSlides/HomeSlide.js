@@ -4,6 +4,7 @@ import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
 import Scroller from '../../atoms/Icon/ScrollIcon'
+import RichText from '../../organisms/Slices/RichText'
 
 const HeroText = styled.section`
   width: 100%;
@@ -94,13 +95,13 @@ const HomeSlide = ({ content }) => (
           </TitleText>
           <SlideLeft>
             <Text
-              maxWidth={[400, 600, 800]}
+              maxWidth={[400, 600, 1000]}
               fontWeight="medium"
               fontSize={['lg', 'lg', 'xl']}
               fontColor={['primary.10', 'primary.10', 'secondary.3']}
               lineHeight={['normal', 'relaxed']}
             >
-              {content.description}
+              <RichText content={content.description} />
             </Text>
           </SlideLeft>
         </Box>

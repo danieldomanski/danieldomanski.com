@@ -45,7 +45,7 @@ const PostItem = ({ post, ...rest }) => {
           fontColor="primary.9"
           fontWeight="medium"
           fontSize={['base', 'lg']}
-          mt={3}
+          mt={4}
         >
           {description}
         </Text>

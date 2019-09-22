@@ -9,19 +9,18 @@ const SlideHeading = ({ title, description }) => (
       display="flex"
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       alignItems={['flex-start', 'flex-start']}
-      mb={[8, 12, 16]}
     >
       <Text
         fontFamily="sans"
         display={['block']}
-        fontSize={['3xl', '3xl', '4xl']}
+        fontSize={['3xl', '3xl', '4xl', '4xl', '4xl']}
         fontColor="primary.11"
         fontWeight="black"
-        lineHeight="tight"
+        lineHeight="none"
         letterSpacing="-0.05em"
         flex={1}
       >
-        {title}.
+        {title}
       </Text>
       <Text
         width={[1]}

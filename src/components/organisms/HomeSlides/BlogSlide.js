@@ -21,9 +21,10 @@ const BlogSlide = ({ posts, content }) => {
           fontWeight="black"
           fontColor="primary.4"
           style={{ textTransform: 'uppercase' }}
-          mb={[8, 8, 12, 12, 12]}
+          mb={[4, 4, 8, 12, 12]}
           flex={1}
           lineHeight="loose"
+          letterSpacing="-.05em"
         >
           Ostatnie posty.
         </Text>

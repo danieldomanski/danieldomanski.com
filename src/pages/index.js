@@ -168,6 +168,7 @@ export const pageQuery = graphql`
               text
             }
             hero_description {
+              html
               text
             }
             about_title {
