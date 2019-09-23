@@ -4,7 +4,7 @@ describe('Footer tests', () => {
   })
 
   it('Footer has two links', () => {
-    cy.get('footer > div')
+    cy.get('[data-testid="footer"]')
       .first()
       .children()
       .within(() => {
@@ -13,8 +13,7 @@ describe('Footer tests', () => {
   })
 
   it('Footer contains link with email adress', () => {
-    cy.get('footer > div')
-      .first()
+    cy.get('[data-testid="footer"]')
       .children()
       .within(() => {
         cy.get('a')

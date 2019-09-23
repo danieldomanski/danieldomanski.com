@@ -24,7 +24,7 @@ const ButtonContainer = styled.button`
 
   &:hover {
     box-shadow: ${theme.shadows.lg};
-    padding: 0.75rem 1.125rem;
+    padding: 0.75rem 1.25rem;
     & > div {
       display: block;
     }

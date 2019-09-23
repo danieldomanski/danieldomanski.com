@@ -65,6 +65,7 @@ const WorkWithMe = ({ children, variant }) => {
         px={[6, 8, 12]}
         py={[16, 16, 0]}
         boxShadow={['0 1px 0 rgba(0,0,0,.1)', '0 1px 0 rgba(0,0,0,.1)', 'none']}
+        data-testid="footer"
       >
         <HomeParticles variant="footer" />
         <RichText content={title} />

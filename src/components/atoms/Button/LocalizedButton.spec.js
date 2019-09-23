@@ -13,10 +13,8 @@ test('<LocalizedButton> renders different versions on mobile and desktop', () =>
   )
 
   expect(getByText('test')).toBeDefined()
-  expect(queryByText('›')).toBeNull()
 
   rerender(<LocalizedButton isMobile={true} button="test2" />)
 
   expect(getByText('test2')).toBeDefined()
-  expect(queryByText('›')).not.toBeNull()
 })
