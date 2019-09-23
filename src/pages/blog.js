@@ -9,7 +9,6 @@ import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import { usePageContent } from '../context/ContentContext'
 
 const Blog = ({ data, ...rest }) => {
-  console.log({ rest })
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
 

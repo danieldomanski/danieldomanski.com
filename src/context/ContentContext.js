@@ -81,7 +81,6 @@ const ContentProvider = ({ children }) => {
   return (
     <Location>
       {({ location }) => {
-        console.log('content ', location)
         const localeStr = location.pathname.split('/')[1] === 'en' ? 'en' : 'pl'
         setLocale(localeStr)
 

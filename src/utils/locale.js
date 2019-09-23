@@ -12,6 +12,6 @@ export const getLocalizedPathname = (pathname, locale) => {
   if (locale === 'pl') {
     splitted.shift()
   }
-  console.log({ path: splitted.join('/') })
+
   return splitted.join('/').replace(/\/+$/, '')
 }

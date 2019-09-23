@@ -7,7 +7,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 import SEO from '../../organisms/SEO'
 import { GlobalStyle } from '../../../utils/styles'
 
-const MainContent = styled.main`
+const MainContent = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;

@@ -18,6 +18,7 @@ const Slide = ({
 
   return (
     <Box
+      as="section"
       display={locale === 'en' && to === 'blog' ? 'none' : 'block'}
       width={1}
       maxWidth={1400}
@@ -26,15 +27,15 @@ const Slide = ({
       px={[6, 8, 12, 12, 16, 16]}
       {...rest}
     >
-      <DirectionalFade>
+      <DirectionalFade as="header">
         <SlideHeading title={title} description={description} />
       </DirectionalFade>
-      <DirectionalFade>
+      <DirectionalFade as="main">
         <Box mt={[12, 12, 16, 16, 20]} mb={[12, 12, 16, 16, 20]}>
           {children}
         </Box>
       </DirectionalFade>
-      <DirectionalFade>
+      <DirectionalFade as="footer">
         <LocalizedButton path={to} button={button} isMobile={isMobile} />
       </DirectionalFade>
     </Box>

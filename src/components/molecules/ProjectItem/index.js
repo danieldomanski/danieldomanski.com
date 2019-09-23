@@ -127,7 +127,7 @@ const ProjectItem = ({ project }) => {
   return (
     <Box as="li" position="relative" display="inline-block">
       {released ? (
-        <Box>
+        <>
           <ProjectTitle>{title}</ProjectTitle>
           <Container>
             <LocalizedLink
@@ -138,9 +138,9 @@ const ProjectItem = ({ project }) => {
               <Img fluid={cover} />
             </LocalizedLink>
           </Container>
-        </Box>
+        </>
       ) : (
-        <Box>
+        <>
           <ProjectTitle>{title}</ProjectTitle>
           <HoverScale>
             <BgCover>
@@ -157,7 +157,7 @@ const ProjectItem = ({ project }) => {
             </BgCover>
             <Img fluid={cover} />
           </HoverScale>
-        </Box>
+        </>
       )}
     </Box>
   )

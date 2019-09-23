@@ -18,7 +18,7 @@ const HeroText = styled.section`
   }
 `
 
-const HeroContainer = styled.section`
+const HeroContainer = styled.header`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,6 +82,7 @@ const HomeSlide = ({ content }) => (
         >
           <TitleText>
             <Text
+              as="h1"
               fontFamily="sans"
               fontWeight="black"
               fontSize={['4xl', '4xl', '5xl', '5xl', '6xl']}

@@ -22,7 +22,8 @@ const AnimatedContainer = styled.div`
     transform 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition-delay: ${props => props.delay}s;
 `
-const DirectionalFade = ({ children, delay, direction, px }) => {
+
+const DirectionalFade = ({ children, delay, direction, px, ...rest }) => {
   const [visible, set] = React.useState(false)
   const { width } = useWindowSize()
   const isMobile = width < 768
@@ -40,6 +41,7 @@ const DirectionalFade = ({ children, delay, direction, px }) => {
         delay={delay}
         direction={direction}
         px={px}
+        {...rest}
       >
         {children}
       </AnimatedContainer>

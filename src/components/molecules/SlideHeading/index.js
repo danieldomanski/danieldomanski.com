@@ -5,12 +5,12 @@ import Text from '../../atoms/Text'
 const SlideHeading = ({ title, description }) => (
   <>
     <Box
-      as="header"
       display="flex"
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       alignItems={['flex-start', 'flex-start']}
     >
       <Text
+        as="h2"
         fontFamily="sans"
         display={['block']}
         fontSize={['3xl', '3xl', '4xl', '4xl', '4xl']}

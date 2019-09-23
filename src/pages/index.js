@@ -14,7 +14,7 @@ import { usePageContent } from '../context/ContentContext'
 import WorkWithMe from '../components/molecules/WorkWithMe'
 import theme from '../config/theme'
 
-const OnTopLayer = styled.section`
+const OnTopLayer = styled.main`
   position: relative;
   overflow: hidden;
   padding: 6rem 0;
@@ -25,7 +25,7 @@ const OnTopLayer = styled.section`
   background-color: #f6f6f6;
 `
 
-const TopLayer = styled.section`
+const TopLayer = styled.div`
   width: 100%;
   height: 100vh;
   position: fixed;

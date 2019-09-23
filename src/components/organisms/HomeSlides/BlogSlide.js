@@ -4,9 +4,9 @@ import Box from '../../atoms/Box'
 import Slide from '../../templates/Slide'
 import { LocaleContext } from '../../../context/ContentContext'
 import PostsContainer from '../PostsContainer'
+import Subtitle from '../../atoms/Text/Subtitle'
 
 const BlogSlide = ({ posts, content, ...rest }) => {
-  console.log({ rest })
   const [locale] = useContext(LocaleContext)
   const anyPostReady = posts.some(post => post.node.data.released !== 0)
 
@@ -17,17 +17,7 @@ const BlogSlide = ({ posts, content, ...rest }) => {
         flexDirection={['column', 'column', 'column', 'column', 'row']}
         justifyContent="space-between"
       >
-        <Text
-          fontSize={['lg', 'lg', 'xl', 'xl']}
-          fontWeight="black"
-          fontColor="primary.5"
-          mb={[4, 4, 8, 12, 12]}
-          flex={1}
-          lineHeight="loose"
-          style={{ textTransform: 'uppercase' }}
-        >
-          Ostatnie posty.
-        </Text>
+        <Subtitle>Ostatnie posty.</Subtitle>
         <Box display="inline-block" flexDirection="column" flex={3}>
           <PostsContainer posts={posts}></PostsContainer>
         </Box>

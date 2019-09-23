@@ -14,7 +14,7 @@ const formatPost = post => ({
 })
 
 const PostCaptionText = ({ children, ...rest }) => (
-  <Text fontColor="primary.6" fontSize="sm" {...rest}>
+  <Text as="span" fontColor="primary.6" fontSize="sm" {...rest}>
     {children}
   </Text>
 )
@@ -27,6 +27,7 @@ const PostItem = ({ post, ...rest }) => {
       <Box flexGrow={1}>
         <LocalizedLink to={`/blog/${uid}`} data-testid="post-item">
           <Text
+            as="h3"
             fontFamily="sans"
             fontColor="primary.11"
             fontSize={['2xl', '2xl', '3xl']}
