@@ -7,7 +7,7 @@ import Title from '../components/atoms/Text/Title'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Projects = ({ data }) => {
+const Projects = ({ data, pageContext: { locale } }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
     const { title } = content.worksPage
@@ -19,13 +19,13 @@ const Projects = ({ data }) => {
           maxWidth={1300}
           m={[0, 0, 0, 0, 'auto']}
           px={[6, 8, 12, 12, 12, 0]}
-          pb={[12, 16, 20, 24, 24, 32]}
+          pb={[16, 20, 24, 24, 32]}
           flexGrow={1}
         >
           <Title>{title}</Title>
           <ProjectsContainer projects={data.projects.edges} />
         </Box>
-        <Box as="footer" m="auto" width={1}>
+        <Box as="footer" mt="auto" width={1}>
           <Footer variant="secondary" />
         </Box>
       </FadeIn>

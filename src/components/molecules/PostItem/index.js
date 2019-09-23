@@ -42,10 +42,10 @@ const PostItem = ({ post, ...rest }) => {
           <PostCaptionText>{tags.join(', ')}</PostCaptionText>
         </Box>
         <Text
-          fontColor="primary.9"
+          fontColor="primary.11"
           fontWeight="medium"
           fontSize={['base', 'lg']}
-          mt={4}
+          mt={3}
         >
           {description}
         </Text>

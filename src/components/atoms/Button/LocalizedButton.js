@@ -12,13 +12,13 @@ const LocalizedButton = ({ path, button, isMobile }) => (
         <>
           <Text
             fontWeight="bold"
-            fontColor="accent.8"
+            fontColor="primary.11"
             fontSize={['sm', 'base', 'base']}
             style={{ textTransform: 'uppercase' }}
           >
             {button}
           </Text>
-          <Icon icon="arrow" width={18} height={17} fill="#05f" ml={1} />
+          <Icon icon="arrow" width={18} height={17} fill="#000" ml={1} />
         </>
       ) : (
         <CosmicButton

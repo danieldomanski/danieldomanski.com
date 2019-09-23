@@ -1,12 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import Layout from '../Layout'
-import Text from '../../atoms/Text'
 import Title from '../../atoms/Text/Title'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
-import PostItem from '../../organisms/PostItem'
 import { usePageContent } from '../../../context/ContentContext'
 
 const BlogPosts = styled.ul`

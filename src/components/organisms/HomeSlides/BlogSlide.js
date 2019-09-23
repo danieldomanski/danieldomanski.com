@@ -1,12 +1,12 @@
 import React, { useContext } from 'react'
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import PostItem from '../PostItem'
 import Slide from '../../templates/Slide'
 import { LocaleContext } from '../../../context/ContentContext'
 import PostsContainer from '../PostsContainer'
 
-const BlogSlide = ({ posts, content }) => {
+const BlogSlide = ({ posts, content, ...rest }) => {
+  console.log({ rest })
   const [locale] = useContext(LocaleContext)
   const anyPostReady = posts.some(post => post.node.data.released !== 0)
 
@@ -18,12 +18,13 @@ const BlogSlide = ({ posts, content }) => {
         justifyContent="space-between"
       >
         <Text
-          fontSize={['lg', 'lg', 'xl', '2xl']}
-          fontWeight="bold"
-          fontColor="primary.4"
+          fontSize={['lg', 'lg', 'xl', 'xl']}
+          fontWeight="black"
+          fontColor="primary.5"
           mb={[4, 4, 8, 12, 12]}
           flex={1}
           lineHeight="loose"
+          style={{ textTransform: 'uppercase' }}
         >
           Ostatnie posty.
         </Text>

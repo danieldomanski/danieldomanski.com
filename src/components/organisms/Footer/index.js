@@ -18,7 +18,7 @@ const Footer = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={12}
+      py={8}
       bg={backgroundColor}
       display="flex"
       alignItems="flex-end"
@@ -37,7 +37,7 @@ const Footer = ({ theme, variant }) => {
           content={content.header.nav}
           placement="footer"
         />
-        <Box my={4}>
+        <Box mb={4}>
           <a
             href="https://github.com/danieldomanski"
             aria-label="Github profile"

@@ -30,14 +30,6 @@ const About = ({ data }) => {
             maxWidth={1080}
             mb={[0, 0, 16]}
           >
-            <Text
-              fontSize={['2xl']}
-              fontColor="primary.9"
-              fontWeight="black"
-              mb={[6, 6]}
-            >
-              TL; DR.
-            </Text>
             {aboutGroup.map(group => (
               <Box width={1} m="auto" my={2}>
                 {group.rows.map((row, idx) => (
@@ -96,7 +88,7 @@ const About = ({ data }) => {
           ))}
         </Box>
 
-        <Box as="footer" width={1} m="auto">
+        <Box as="footer" width={1} mt="auto">
           <Footer variant="secondary" />
         </Box>
       </FadeIn>

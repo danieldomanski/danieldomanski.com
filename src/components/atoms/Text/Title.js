@@ -9,8 +9,8 @@ const Title = ({ children }) => (
     fontWeight={'black'}
     fontColor={'primary.11'}
     display={'block'}
-    textAlign="center"
-    mt={[8, 8, 8, 8, 8]}
+    textAlign={['left', 'left', 'center']}
+    mt={[10, 8, 8, 8, 8]}
     mb={[8, 8, 8, 12, 16]}
     letterSpacing="-0.05em"
   >

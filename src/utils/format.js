@@ -151,7 +151,6 @@ export const formatBlogsPage = blogs => {
 }
 
 export const formatPostPage = post => {
-  'Post: ', { post }
   const { title, description } = post
 
   return {

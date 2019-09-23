@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Box from '../components/atoms/Box'
-import Text from '../components/atoms/Text'
 import Title from '../components/atoms/Text/Title'
 import Footer from '../components/organisms/Footer'
-import PostItem from '../components/organisms/PostItem'
 import Filter from '../components/atoms/Filter'
 import PostsContainer from '../components/organisms/PostsContainer'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import { usePageContent } from '../context/ContentContext'
 
-const Blog = ({ data }) => {
+const Blog = ({ data, ...rest }) => {
+  console.log({ rest })
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
 
@@ -46,36 +45,38 @@ const Blog = ({ data }) => {
     }, [currentFilters])
 
     return (
-      <FadeIn>
-        <Box
-          width={1}
-          maxWidth={760}
-          m={[0, 0, 'auto', 'auto', 'auto']}
-          px={[8, 8, 12, 12, 0, 0]}
-          pb={[12, 16, 20, 24, 24, 32]}
-          flexGrow={1}
-        >
-          <Title>{content.blogsPage.title}</Title>
-          <Box display="flex" flexDirection="column" mb={[8, 8, 8, 8, 12]}>
-            <Box
-              as="ul"
-              display="flex"
-              flexWrap="wrap"
-              justifyContent={['flex-start', 'flex-start', 'center']}
-            >
-              {tags.map(tag => (
-                <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
-                  {tag.node.data.tag}
-                </Filter>
-              ))}
+      <>
+        <FadeIn>
+          <Box
+            width={1}
+            maxWidth={760}
+            m={[0, 0, 'auto', 'auto', 'auto']}
+            px={[8, 8, 12, 12, 0, 0]}
+            pb={[16, 20, 24, 24, 32]}
+            flexGrow={1}
+          >
+            <Title>{content.blogsPage.title}</Title>
+            <Box display="flex" flexDirection="column" mb={[8, 8, 8, 8, 12]}>
+              <Box
+                as="ul"
+                display="flex"
+                flexWrap="wrap"
+                justifyContent={['flex-start', 'flex-start', 'center']}
+              >
+                {tags.map(tag => (
+                  <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
+                    {tag.node.data.tag}
+                  </Filter>
+                ))}
+              </Box>
             </Box>
+            <PostsContainer posts={filteredPosts}></PostsContainer>
           </Box>
-          <PostsContainer posts={filteredPosts}></PostsContainer>
-        </Box>
-        <Box as="footer" width={1} m="auto">
+        </FadeIn>
+        <Box as="footer" width={1} mt="auto">
           <Footer variant="secondary" />
         </Box>
-      </FadeIn>
+      </>
     )
   }
 

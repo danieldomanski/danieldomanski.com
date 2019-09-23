@@ -6,6 +6,11 @@ import Text from '../../atoms/Text'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import theme from '../../../config/theme'
 
+const STRING_CONSTANTS = {
+  'en-pl': 'Case coming soon.',
+  pl: 'Prezentacja w przygotowaniu.',
+}
+
 const Container = styled.article`
   position: relative;
   width: 100%;
@@ -116,11 +121,6 @@ const ProjectTitle = ({ children }) => (
   </Text>
 )
 
-const NotReleasedText = {
-  en: 'Case coming soon.',
-  pl: 'Prezentacja w przygotowaniu.',
-}
-
 const ProjectItem = ({ project }) => {
   const { locale, uid, title, released, cover } = formatProject(project)
 
@@ -149,7 +149,7 @@ const ProjectItem = ({ project }) => {
                 fontColor="primary.8"
                 fontSize={['xl', '2xl']}
               >
-                {NotReleasedText[locale]}
+                {STRING_CONSTANTS[locale]}
               </Text>
               <Text fontSize="3xl" mt={4}>
                 🤯

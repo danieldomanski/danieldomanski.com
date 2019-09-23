@@ -13,7 +13,7 @@ const PostsContainer = ({ posts }) => (
         fontColor="primary.3"
         textAlign="center"
       >
-        No articles yet :(
+        Nie pojawił się jeszcze żaden artykuł :(
       </Text>
     ) : (
       posts.map((post, idx) => (
