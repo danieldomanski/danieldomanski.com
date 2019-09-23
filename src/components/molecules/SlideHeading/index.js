@@ -26,7 +26,7 @@ const SlideHeading = ({ title, description }) => (
         width={[1]}
         flex={[1, 1, 3]}
         fontSize={['lg', 'lg', 'xl']}
-        fontColor="primary.9"
+        fontColor="primary.11"
         fontWeight="medium"
         lineHeight="relaxed"
         letterSpacing="-0.05em"

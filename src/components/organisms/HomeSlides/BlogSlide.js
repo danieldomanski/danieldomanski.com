@@ -4,6 +4,7 @@ import Box from '../../atoms/Box'
 import PostItem from '../PostItem'
 import Slide from '../../templates/Slide'
 import { LocaleContext } from '../../../context/ContentContext'
+import PostsContainer from '../PostsContainer'
 
 const BlogSlide = ({ posts, content }) => {
   const [locale] = useContext(LocaleContext)
@@ -17,25 +18,17 @@ const BlogSlide = ({ posts, content }) => {
         justifyContent="space-between"
       >
         <Text
-          fontSize={['lg', 'lg', 'lg', 'xl']}
-          fontWeight="black"
+          fontSize={['lg', 'lg', 'xl', '2xl']}
+          fontWeight="bold"
           fontColor="primary.4"
-          style={{ textTransform: 'uppercase' }}
           mb={[4, 4, 8, 12, 12]}
           flex={1}
           lineHeight="loose"
-          letterSpacing="-.05em"
         >
           Ostatnie posty.
         </Text>
         <Box display="inline-block" flexDirection="column" flex={3}>
-          {posts.map((post, idx) => (
-            <PostItem
-              post={post}
-              pb={idx === posts.length - 1 ? 0 : 6}
-              pt={idx === 0 ? 0 : 6}
-            />
-          ))}
+          <PostsContainer posts={posts}></PostsContainer>
         </Box>
       </Box>
     </Slide>

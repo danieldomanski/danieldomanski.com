@@ -30,7 +30,7 @@ const Slide = ({
         <SlideHeading title={title} description={description} />
       </DirectionalFade>
       <DirectionalFade>
-        <Box mt={[12, 12, 16, 16, 16]} mb={[12, 12, 16, 16, 16]}>
+        <Box mt={[12, 12, 16, 16, 20]} mb={[12, 12, 16, 16, 20]}>
           {children}
         </Box>
       </DirectionalFade>

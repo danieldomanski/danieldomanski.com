@@ -15,9 +15,9 @@ const AboutSlide = ({ content }) => {
           fontSize={['base', 'lg', 'xl', 'xl']}
           fontWeight="black"
           fontColor="primary.4"
-          style={{ textTransform: 'uppercase' }}
-          letterSpacing="-.05em"
           mb={[12, 12, 12, 12, 16]}
+          flex={1}
+          style={{ textTransform: 'uppercase' }}
         >
           {processDetails}
         </Text>
@@ -27,6 +27,7 @@ const AboutSlide = ({ content }) => {
           justifyContent="center"
           flexDirection={['column', 'column', 'column', 'column', 'row']}
           as="section"
+          flex={3}
         >
           {processRows.map((row, idx) => {
             const isLastElement = idx === processRows.length - 1
@@ -41,24 +42,23 @@ const AboutSlide = ({ content }) => {
                   `${isLastElement ? 0 : 12}`,
                   0,
                 ]}
-                mr={idx === processRows.length - 1 ? 0 : 8}
-                flexGrow={1}
+                mr={8}
+                flex={1}
               >
                 <Text
                   display="inline-block"
                   fontSize={['base', 'lg', 'xl', 'xl']}
-                  fontWeight="black"
-                  fontColor="primary.10"
+                  fontWeight="bold"
+                  fontColor="primary.11"
                   mr={[4, 4, 6]}
                 >
                   {`0${idx + 1}.`}
                 </Text>
                 <Box display="flex" flexDirection="column">
                   <Text
-                    fontWeight="black"
+                    fontWeight="bold"
                     fontSize={['base', 'lg', 'xl', 'xl']}
                     fontColor="primary.11"
-                    letterSpacing="-0.05em"
                     mb={[2, 2, 3, 3, 4]}
                     style={{
                       textTransform: 'uppercase',
@@ -67,8 +67,8 @@ const AboutSlide = ({ content }) => {
                     {row.title}
                   </Text>
                   <Text
-                    fontSize={['base', 'base', 'base', 'base']}
-                    fontColor="primary.9"
+                    fontSize={['base', 'base', 'base', 'lg']}
+                    fontColor="primary.11"
                     fontWeight="medium"
                     lineHeight="relaxed"
                     maxWidth={800}

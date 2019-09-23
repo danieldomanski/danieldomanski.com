@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { graphql } from 'gatsby'
-import Text from '../components/atoms/Text'
-import PostItem from '../components/organisms/PostItem'
 import Box from '../components/atoms/Box'
-import Filter from '../components/atoms/Filter'
-import Footer from '../components/organisms/Footer'
-import { usePageContent } from '../context/ContentContext'
+import Text from '../components/atoms/Text'
 import Title from '../components/atoms/Text/Title'
+import Footer from '../components/organisms/Footer'
+import PostItem from '../components/organisms/PostItem'
+import Filter from '../components/atoms/Filter'
+import PostsContainer from '../components/organisms/PostsContainer'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
+import { usePageContent } from '../context/ContentContext'
 
 const Blog = ({ data }) => {
   if (typeof window !== `undefined`) {
@@ -69,32 +70,7 @@ const Blog = ({ data }) => {
               ))}
             </Box>
           </Box>
-          <Box pb={[8]} minHeight={[360, 500]}>
-            {filteredPosts.length === 0 ? (
-              <Text
-                display="block"
-                fontSize={['base', 'lg']}
-                fontColor="primary.3"
-                textAlign="center"
-              >
-                No articles yet :(
-              </Text>
-            ) : (
-              filteredPosts.map((post, idx) => (
-                <PostItem
-                  post={post}
-                  pb={idx === posts.length - 1 ? 0 : [8, 4, 8]}
-                  pt={idx === 0 ? 0 : [4, 4, 8]}
-                  mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
-                  borderBottom={
-                    idx === posts.length - 1
-                      ? 'none'
-                      : '1px solid rgba(0,0,0,0.05)'
-                  }
-                />
-              ))
-            )}
-          </Box>
+          <PostsContainer posts={filteredPosts}></PostsContainer>
         </Box>
         <Box as="footer" width={1} m="auto">
           <Footer variant="secondary" />

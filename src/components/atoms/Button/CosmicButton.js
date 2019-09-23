@@ -13,17 +13,18 @@ const ButtonContainer = styled.button`
   ${space};
 
   position: relative;
-  padding: 0.875rem 1.75rem;
+  padding: 0.75rem;
   overflow: hidden;
   background: 0;
   cursor: pointer;
   outline: 0;
   border: 0;
   text-transform: uppercase;
-  transition: box-shadow 0.25s ease;
+  transition: 0.2s ease;
 
   &:hover {
     box-shadow: ${theme.shadows.lg};
+    padding: 0.75rem 1.125rem;
     & > div {
       display: block;
     }

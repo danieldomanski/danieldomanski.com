@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { space } from 'styled-system'
-import ProjectItem from '../ProjectItem'
+import ProjectItem from '../../molecules/ProjectItem'
 
 const Grid = styled.ul`
   ${space};
@@ -20,7 +20,7 @@ const Grid = styled.ul`
   }
 `
 
-const ProjectsGrid = ({ projects }) => (
+const ProjectsContainer = ({ projects }) => (
   <Grid>
     {projects.map(project => (
       <ProjectItem project={project}></ProjectItem>
@@ -28,12 +28,12 @@ const ProjectsGrid = ({ projects }) => (
   </Grid>
 )
 
-ProjectsGrid.propTypes = {
+ProjectsContainer.propTypes = {
   projects: PropTypes.oneOfType([PropTypes.array]).isRequired,
 }
 
-ProjectsGrid.defaultProps = {
+ProjectsContainer.defaultProps = {
   projects: [],
 }
 
-export default ProjectsGrid
+export default ProjectsContainer

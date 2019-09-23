@@ -25,19 +25,7 @@ const Tag = ({ data, pageContext }) => {
         <Box m="auto" px={[6, 6, 12, 16, 24]} pb={8} flexGrow={1}>
           <Title>Posts about {tag}</Title>
           <BlogPosts>
-            {posts.map((post, idx) => (
-              <PostItem
-                post={post}
-                pb={idx === posts.length - 1 ? 0 : [8, 4, 10]}
-                pt={idx === 0 ? 0 : [4, 4, 4]}
-                mb={idx === posts.length - 1 ? 0 : [4, 4, 10]}
-                borderBottom={
-                  idx === posts.length - 1
-                    ? 'none'
-                    : '1px solid rgba(0,0,0,0.05)'
-                }
-              />
-            ))}
+            <PostsContainer posts={posts} />
           </BlogPosts>
         </Box>
         <Box as="footer" width={1} m="auto">

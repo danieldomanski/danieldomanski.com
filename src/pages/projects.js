@@ -1,12 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import ProjectsGrid from '../components/molecules/ProjectsGrid'
+import ProjectsContainer from '../components/organisms/ProjectsContainer'
 import Box from '../components/atoms/Box'
 import Footer from '../components/organisms/Footer'
 import Title from '../components/atoms/Text/Title'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
-import ProjectItem from '../components/molecules/ProjectItem'
 
 const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
@@ -24,7 +23,7 @@ const Projects = ({ data }) => {
           flexGrow={1}
         >
           <Title>{title}</Title>
-          <ProjectsGrid projects={data.projects.edges}></ProjectsGrid>
+          <ProjectsContainer projects={data.projects.edges} />
         </Box>
         <Box as="footer" m="auto" width={1}>
           <Footer variant="secondary" />

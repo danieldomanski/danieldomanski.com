@@ -1,8 +1,6 @@
 import React from 'react'
-import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
-import ProjectItem from '../../molecules/ProjectItem'
-import ProjectsGrid from '../../molecules/ProjectsGrid'
+import ProjectsContainer from '../../organisms/ProjectsContainer'
 import Slide from '../../templates/Slide'
 
 const ProjectsSlide = ({ projects, content }) => (
@@ -12,7 +10,7 @@ const ProjectsSlide = ({ projects, content }) => (
       flexDirection={['column', 'column', 'column', 'column', 'row']}
       justifyContent="space-between"
     >
-      <ProjectsGrid projects={projects} />
+      <ProjectsContainer projects={projects} />
     </Box>
   </Slide>
 )
