@@ -45,5 +45,5 @@
 - **Progressive Web App**
 - Bilingual (Polish and English)
 - Custom **SEO**
-- **PrismicJS** code syntax highlighting
+- **Prism.js** code syntax highlighting
 - Test ➡️ Build ➡️ Deploy jobs with **CircleCI** 
