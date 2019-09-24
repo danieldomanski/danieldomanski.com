@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Title from '../../atoms/Text/Title'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
+import PostsContainer from '../../organisms/PostsContainer'
 import { usePageContent } from '../../../context/ContentContext'
 
 const BlogPosts = styled.ul`

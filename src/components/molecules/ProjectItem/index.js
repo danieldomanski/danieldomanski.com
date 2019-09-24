@@ -121,11 +121,11 @@ const ProjectTitle = ({ children }) => (
   </Text>
 )
 
-const ProjectItem = ({ project }) => {
+const ProjectItem = ({ project, ...rest }) => {
   const { locale, uid, title, released, cover } = formatProject(project)
 
   return (
-    <Box as="li" position="relative" display="inline-block">
+    <Box as="li" position="relative" display="inline-block" {...rest}>
       {released ? (
         <>
           <ProjectTitle>{title}</ProjectTitle>

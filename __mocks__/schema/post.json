@@ -1,0 +1,53 @@
+{
+  "node": {
+    "first_publication_date": "2019-07-19T17:30:47+0000",
+    "lang": "pl",
+    "uid": "Test-post",
+    "last_publication_date": "2019-09-16T16:56:52+0000",
+    "data": {
+      "title": {
+        "text": "Test title"
+      },
+      "description": {
+        "text": "Test description"
+      },
+      "tags": [
+        {
+          "tag": {
+            "document": [
+              {
+                "href": "https://gatsby-blog-test.cdn.prismic.io/api/v2/documents/search?ref=XYmNvhAAACcAvXBP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XTEHNBEAACMAKy_F%22%29+%5D%5D",
+                "slugs": ["javascript"],
+                "data": {
+                  "tag": "JavaScript"
+                }
+              }
+            ],
+            "slug": "javascript"
+          }
+        },
+        {
+          "tag": {
+            "document": [
+              {
+                "href": "https://gatsby-blog-test.cdn.prismic.io/api/v2/documents/search?ref=XYmNvhAAACcAvXBP&q=%5B%5B%3Ad+%3D+at%28document.id%2C+%22XTJfhhEAACAAMR8O%22%29+%5D%5D",
+                "slugs": ["front-end"],
+                "data": {
+                  "tag": "Front end"
+                }
+              }
+            ],
+            "slug": "front-end"
+          }
+        }
+      ],
+      "released": 1,
+      "category": {
+        "slug": "front-end"
+      },
+      "icon": {
+        "text": "frontEnd"
+      }
+    }
+  }
+}

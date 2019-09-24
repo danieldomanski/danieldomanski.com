@@ -1,0 +1,66 @@
+{
+  "home": {
+    "hero": {
+      "title": "",
+      "description": ""
+    },
+    "about": {
+      "title": "",
+      "description": "",
+      "processDetails": "",
+      "processRows": []
+    },
+    "works": {
+      "title": "",
+      "description": ""
+    },
+    "blog": {
+      "title": "",
+      "description": ""
+    },
+    "workWithMe": {
+      "title": "",
+      "subtitle": "",
+      "description": ""
+    }
+  },
+  "footer": {
+    "codeAvailability": ""
+  },
+  "header": {
+    "nav": {
+      "home": "",
+      "projects": "",
+      "articles": "",
+      "about": ""
+    }
+  },
+  "notFoundPage": {
+    "title": "Test",
+    "subtitle": "",
+    "description": ""
+  },
+  "worksPage": {
+    "title": "Test"
+  },
+  "projectPage": {
+    "title": "Test",
+    "description": "Test description",
+    "role": "",
+    "client": "",
+    "technologies": ""
+  },
+  "blogsPage": {
+    "title": "Test"
+  },
+  "postPage": {
+    "title": "Test",
+    "description": ""
+  },
+  "aboutPage": {
+    "title": "Test",
+    "aboutGroup": [],
+    "aboutText": [],
+    "aboutMe": ""
+  }
+}

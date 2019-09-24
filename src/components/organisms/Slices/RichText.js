@@ -76,11 +76,11 @@ const Container = styled.div`
   }
 
   a {
-    color: #0c0c0c;
+    color: #222;
     padding-bottom: 6px;
     border-bottom: 2px solid transparent;
     transition: 0.2s ease;
-    font-weight: 500;
+    font-weight: 600;
 
     &:hover {
       padding-bottom: 2px;
@@ -89,6 +89,7 @@ const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       color: #bed6ff;
+      font-weight: 500;
     }
   }
 `

@@ -1,0 +1,30 @@
+{
+  "node": {
+    "lang": "pl",
+    "uid": "Test",
+    "data": {
+      "title": {
+        "text": "Test"
+      },
+      "description": {
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu sem id eros commodo rhoncus non a metus. Sed ultrices diam sed sodales semper. Suspendisse potenti. Nullam turpis turpis, consequat sit amet nunc vitae, blandit tempus massa. Cras quis ultricies est. Etiam posuere tellus sit amet feugiat malesuada. In hac habitasse platea dictumst. Phasellus bibendum, augue sed porttitor dignissim, eros urna dignissim libero, et tincidunt ante lectus vitae arcu. Curabitur non leo eu est consectetur dictum id sed nisl. Cras rutrum dolor id nunc cursus, sit amet tincidunt augue auctor."
+      },
+      "cover": {
+        "localFile": {
+          "childImageSharp": {
+            "fluid": {
+              "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB7k3GaF//xAAZEAABBQAAAAAAAAAAAAAAAAABAAIREiD/2gAIAQEAAQUCJhXac//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABgQAAIDAAAAAAAAAAAAAAAAAAAhASAx/9oACAEBAAY/Angpr//EABkQAQACAwAAAAAAAAAAAAAAAAEAESAhUf/aAAgBAQABPyEd0HUEUK4//9oADAMBAAIAAwAAABCfL//EABYRAQEBAAAAAAAAAAAAAAAAAAEAEf/aAAgBAwEBPxBW2//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQABBAMAAAAAAAAAAAAAAAExABARQSFRYf/aAAgBAQABPxDMABymHVAGWAZochbE+76t/9k=",
+              "aspectRatio": 1.3333333333333333,
+              "src": "/static/96616514dd16981c08b3c6e6c020554a/67481/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.jpg",
+              "srcSet": "/static/96616514dd16981c08b3c6e6c020554a/00384/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.jpg 300w,\n/static/96616514dd16981c08b3c6e6c020554a/9429d/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.jpg 600w,\n/static/96616514dd16981c08b3c6e6c020554a/67481/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.jpg 800w",
+              "srcWebp": "/static/96616514dd16981c08b3c6e6c020554a/64c2a/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.webp",
+              "srcSetWebp": "/static/96616514dd16981c08b3c6e6c020554a/ebb2f/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.webp 300w,\n/static/96616514dd16981c08b3c6e6c020554a/fabdf/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.webp 600w,\n/static/96616514dd16981c08b3c6e6c020554a/64c2a/c08471acee37230a5f5e24905aee5d0c732b8421_frame-2-1.webp 800w",
+              "sizes": "(max-width: 800px) 100vw, 800px"
+            }
+          }
+        }
+      },
+      "released": "1"
+    }
+  }
+}
