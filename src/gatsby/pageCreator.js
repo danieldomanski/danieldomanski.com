@@ -28,6 +28,7 @@ const createProjects = (projects, createPage, template) =>
       path: `${localPrefix}/projects/${edge.node.uid}`,
       component: template,
       context: {
+        name: 'projects',
         uid: edge.node.uid,
         locale: lang,
         data: edge,
@@ -46,6 +47,7 @@ const createPosts = (posts, createPage, template) =>
       path: `${localPrefix}/blog/${edge.node.uid}`,
       component: template,
       context: {
+        name: 'blog',
         uid: edge.node.uid,
         locale: lang,
         data: { siblings: siblings[idx] },
@@ -65,6 +67,7 @@ const createTags = (tags, createPage, template) =>
       path: `${localPrefix}/tags/${slug}`,
       component: template,
       context: {
+        name: 'tag',
         uid: edge.node.uid,
         tag,
         locale: lang,

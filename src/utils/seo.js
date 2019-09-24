@@ -47,14 +47,19 @@ export const formatPathnameToContentKey = pathname => {
   }
 }
 
-export const getTitleAndDescription = (pathname, content) => {
+export const getTitleAndDescription = (pathname, name, content) => {
+  let title
   let trimmedPath = pathname.replace(/^\/|\/$/g, '')
   const contentKey = formatPathnameToContentKey(trimmedPath)
 
-  const title =
-    contentKey === 'home'
-      ? config.siteTitle
-      : `${content[contentKey].title} – ${config.siteTitleShort}`
+  if (name.includes('404')) {
+    title = '404 - Daniel Domański'
+  } else {
+    title =
+      contentKey === 'home'
+        ? config.siteTitle
+        : `${content[contentKey].title} – ${config.siteTitleShort}`
+  }
 
   const description =
     contentKey === 'projectPage' || contentKey === 'postPage'

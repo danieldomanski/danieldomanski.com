@@ -9,13 +9,17 @@ import {
   getTitleAndDescription,
 } from '../../../utils/seo'
 
-const SEO = ({ location: { pathname } }) => {
+const SEO = ({ location: { pathname }, name }) => {
   if (typeof window !== `undefined`) {
     const [locale] = useContext(LocaleContext)
     const [content] = useContext(ContentContext)
     const polishUrl = getPolishPathname(pathname)
     const englishUrl = getEnglishPathname(pathname)
-    const { title, description } = getTitleAndDescription(pathname, content)
+    const { title, description } = getTitleAndDescription(
+      pathname,
+      name,
+      content
+    )
 
     return (
       <Helmet>

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/av3ng3roo/danieldomanski.com"
+    "url": "https://github.com/danieldomanski/danieldomanski.com"
   },
   "author": "Daniel Domański <hello@danieldomanski.com>",
   "dependencies": {
