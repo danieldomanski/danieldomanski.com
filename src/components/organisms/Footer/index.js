@@ -18,7 +18,7 @@ const Footer = ({ theme, variant }) => {
   return (
     <Box
       width={1}
-      py={8}
+      py={12}
       bg={backgroundColor}
       display="flex"
       alignItems="flex-end"

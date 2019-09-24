@@ -12,8 +12,7 @@ const SlideHeading = ({ title, description }) => (
       <Text
         as="h2"
         fontFamily="sans"
-        display={['block']}
-        fontSize={['3xl', '3xl', '4xl', '4xl', '4xl']}
+        fontSize="4xl"
         fontColor="primary.11"
         fontWeight="black"
         lineHeight="none"
@@ -30,7 +29,7 @@ const SlideHeading = ({ title, description }) => (
         fontWeight="medium"
         lineHeight="relaxed"
         letterSpacing="-0.05em"
-        mt={[4, 8, 8, 8, 0]}
+        mt={[8, 8, 8, 8, 0]}
       >
         {description}
       </Text>

@@ -6,12 +6,12 @@ const Title = ({ children }) => (
     as="h1"
     display="block"
     fontFamily="sans"
-    fontSize={['3xl', '4xl', '4xl', '5xl']}
+    fontSize={['4xl', '4xl', '4xl', '5xl']}
     lineHeight="normal"
     fontWeight="black"
     fontColor="primary.11"
-    textAlign={['left', 'left', 'center']}
-    mt={[10, 8, 8, 8, 8]}
+    textAlign="center"
+    mt={[8, 8, 8, 8, 8]}
     mb={[8, 8, 8, 12, 16]}
     letterSpacing="-0.05em"
   >

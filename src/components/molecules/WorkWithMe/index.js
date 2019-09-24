@@ -9,7 +9,7 @@ import useWindowSize from '../../../hooks/useWindowSize'
 
 const Container = styled.footer`
   width: 100%;
-  background-color: #fafafa;
+
   z-index: 5;
   overflow: hidden;
 
@@ -55,16 +55,19 @@ const WorkWithMe = ({ children, variant }) => {
   return (
     <Container visible={visible} variant={variant}>
       <Box
-        width={1}
         height="100%"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
         textAlign="center"
-        px={[6, 8, 12]}
+        bg={['#fcfcfc', '#fcfcfc', 'unset']}
+        mx={[4, 6, 0]}
+        mt={[4, 8, 0]}
+        mb={[16, 16, 0]}
+        px={[8, 8, 12]}
         py={[16, 16, 0]}
-        boxShadow={['0 1px 0 rgba(0,0,0,.1)', '0 1px 0 rgba(0,0,0,.1)', 'none']}
+        boxShadow={['lg', 'lg', 'none']}
         data-testid="footer"
       >
         <HomeParticles variant="footer" />

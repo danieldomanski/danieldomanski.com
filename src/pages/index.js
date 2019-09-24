@@ -17,7 +17,7 @@ import theme from '../config/theme'
 const OnTopLayer = styled.main`
   position: relative;
   overflow: hidden;
-  padding: 6rem 0;
+  padding: 8rem 0;
   box-shadow: ${theme.shadows.lg};
   z-index: 6;
   margin-top: 100vh;

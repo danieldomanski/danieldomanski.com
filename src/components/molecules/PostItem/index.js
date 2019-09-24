@@ -30,8 +30,8 @@ const PostItem = ({ post, ...rest }) => {
             as="h3"
             fontFamily="sans"
             fontColor="primary.11"
-            fontSize={['2xl', '2xl', '3xl']}
-            fontWeight="black"
+            fontSize={['2xl', '3xl']}
+            fontWeight="bold"
             letterSpacing="-0.05em"
           >
             {title}

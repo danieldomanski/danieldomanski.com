@@ -5,10 +5,10 @@ const Subtitle = ({ children }) => (
   <Text
     as="h3"
     display="block"
-    fontSize={['base', 'lg', 'xl', 'xl']}
+    fontSize={['lg', 'lg', 'xl', 'xl']}
     fontWeight="black"
     fontColor="primary.5"
-    mb={[12, 12, 12, 12, 16]}
+    mb={[6, 8, 12, 12, 16]}
     flex={1}
     style={{ textTransform: 'uppercase' }}
   >

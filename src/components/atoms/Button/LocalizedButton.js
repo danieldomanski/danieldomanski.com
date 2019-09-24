@@ -6,14 +6,14 @@ import Icon from '../../atoms/Icon'
 import CosmicButton from '../../atoms/Button/CosmicButton'
 
 const LocalizedButton = ({ path, button, isMobile }) => (
-  <Box textAlign={['left', 'left', 'right']} mt={16}>
+  <Box textAlign="right" mt={16}>
     <LocalizedLink to={path}>
       {isMobile ? (
         <>
           <Text
             fontWeight="bold"
             fontColor="primary.11"
-            fontSize={['sm', 'base', 'base']}
+            fontSize={['base', 'base', 'base']}
             style={{ textTransform: 'uppercase' }}
           >
             {button}
