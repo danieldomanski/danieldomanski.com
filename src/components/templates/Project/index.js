@@ -79,13 +79,12 @@ const Project = ({ data, pageContext }) => {
     const { title, description } = pageContext.data.node.data
     const { body } = data.prismicProjects.data
     const { client, role, technologies } = content.projectPage
-    const details = getSliceContent(body, 'detail')
     const mockups = getSliceContent(body, 'mockup')[0]
     const info = getSliceContent(body, 'info')[0]
-    const fullWidthImages = getSliceContent(body, 'fullwidthimage')
     const roles = formatInvolvment(data.prismicProjects.data.role)
     const video = getSliceContent(body, 'video')[0]
 
+    console.log({ data })
     return (
       <FadeIn>
         <Box
@@ -173,42 +172,6 @@ const Project = ({ data, pageContext }) => {
             my={[8, 8, 16]}
           >
             <Box mb={8}>{video ? <Video src={video.src}></Video> : null}</Box>
-
-            {fullWidthImages.map((img, idx) => (
-              <Box>
-                <Box boxShadow="lg" mb={16} maxWidth={800} mx="auto">
-                  <Image input={img.localFile} fit="cover" />
-                </Box>
-                {details[idx] ? (
-                  <Box
-                    maxWidth={700}
-                    display="flex"
-                    flexDirection="column"
-                    textAlign="center"
-                    my={20}
-                    mx="auto"
-                    lineHeight="loose"
-                  >
-                    <Text
-                      fontWeight="black"
-                      fontSize={['lg', '3xl']}
-                      fontColor="primary.8"
-                      mb={4}
-                    >
-                      {details[idx].title}
-                    </Text>
-                    <Text
-                      fontWeight="medium"
-                      fontSize={['base', 'lg']}
-                      fontColor="primary.9"
-                    >
-                      {details[idx].description}
-                    </Text>
-                    <Box />
-                  </Box>
-                ) : null}
-              </Box>
-            ))}
           </Box>
         </Box>
         <Box as="footer" width={1} m="auto">
@@ -239,44 +202,11 @@ export const pageQuery = graphql`
           }
         }
         body {
-          ... on PrismicProjectsBodyDetail {
-            slice_type
-            id
-            primary {
-              detailtitle {
-                text
-              }
-              detaildescription1 {
-                text
-              }
-              image {
-                url
-                localFile {
-                  childImageSharp {
-                    fluid {
-                      src
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on PrismicProjectsBodyVideo {
-            id
-            slice_type
-            primary {
-              src {
-                url
-              }
-            }
-          }
-          ... on PrismicProjectsBodyImage {
+          ... on PrismicProjectsBodyImagewithcaption {
             slice_type
             id
             primary {
               image {
-                alt
-                url
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 1200, quality: 90) {
@@ -284,6 +214,42 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+              }
+              description1 {
+                text
+              }
+              title1 {
+                text
+              }
+            }
+          }
+          ... on PrismicProjectsBodyMultiimage {
+            slice_type
+            id
+            items {
+              image {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1200, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
+                  }
+                }
+              }
+            }
+          }
+          ... on PrismicProjectsBodyVideo {
+            slice_type
+            id
+            primary {
+              description1 {
+                text
+              }
+              src {
+                url
+              }
+              title1 {
+                text
               }
             }
           }
@@ -302,23 +268,7 @@ export const pageQuery = graphql`
               }
             }
           }
-          ... on PrismicProjectsBodyFullwidthimage {
-            slice_type
-            id
-            primary {
-              image {
-                alt
-                url
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1200, quality: 90) {
-                      ...GatsbyImageSharpFluid_withWebp
-                    }
-                  }
-                }
-              }
-            }
-          }
+
           ... on PrismicProjectsBodyMockup {
             slice_type
             id

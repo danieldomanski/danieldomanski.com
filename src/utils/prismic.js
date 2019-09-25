@@ -6,24 +6,20 @@
 
 export const formatSlice = slice => {
   switch (slice.slice_type) {
-    case 'image':
-      return { localFile: slice.primary.image.localFile }
-    case 'detail':
-      return {
-        url: slice.primary.image.url,
-        localFile: slice.primary.image.localFile,
-        title: slice.primary.detailtitle.text,
-        description: slice.primary.detaildescription1.text,
-      }
     case 'mockup':
       return {
         desktop: slice.primary.desktop1.localFile,
         mobile: slice.primary.mobile.localFile,
       }
-
-    case 'fullwidthimage':
+    case 'multiimage':
+      return slice.items.map(item => ({
+        localFile: item.image.localFile,
+      }))
+    case 'imagewithcaption':
       return {
         localFile: slice.primary.image.localFile,
+        title: slice.primary.title1.text,
+        description: slice.primary.description1.text,
       }
     case 'info':
       return {
@@ -34,6 +30,8 @@ export const formatSlice = slice => {
     case 'video':
       return {
         src: slice.primary.src.url,
+        title: slice.primary.title1.text,
+        description: slice.primary.description1.text,
       }
     default:
       return {}
@@ -49,10 +47,15 @@ export const formatSlice = slice => {
 
 export const getSliceContent = (slices, type) => {
   const results = []
+  const result = {}
+  const keys = slices.map(slice => slice.slice_type)
 
+  slices.map(slice => {
+    console.log({ slice1: formatSlice(slice) })
+  })
   slices.map(slice =>
     slice.slice_type === type ? results.push(formatSlice(slice)) : null
   )
-
+  console.log({ result, keys })
   return results
 }
