@@ -31,6 +31,10 @@ export const formatSlice = slice => {
         technologies: slice.primary.technologies.text,
         client: slice.primary.client.text,
       }
+    case 'video':
+      return {
+        src: slice.primary.src.url,
+      }
     default:
       return {}
   }

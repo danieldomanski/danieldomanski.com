@@ -20,7 +20,7 @@ const ButtonContainer = styled.button`
   outline: 0;
   border: 0;
   text-transform: uppercase;
-  transition: 0.2s ease;
+  transition: 0.4s ease;
 
   &:hover {
     box-shadow: ${theme.shadows.lg};
@@ -55,7 +55,7 @@ const ButtonContainer = styled.button`
     left: 0;
     top: 0;
     position: absolute;
-    transition: width 0.33s cubic-bezier(0.8, 0, 0.16, 1);
+    transition: width 0.4s cubic-bezier(0.8, 0, 0.16, 1);
     z-index: -1;
   }
 `
