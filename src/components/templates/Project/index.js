@@ -53,7 +53,7 @@ const InfoBoxRow = ({ children, ...rest }) => (
     width={1}
     display="flex"
     flexDirection="column"
-    textAlign={['center', 'left', 'right']}
+    textAlign={['center', 'center', 'right']}
     my={2}
     {...rest}
   >
@@ -73,18 +73,40 @@ const InfoBoxRowDescription = ({ children }) => (
   </Text>
 )
 
+const ImageCaptionTitle = ({ children }) => (
+  <Text
+    fontWeight="black"
+    fontSize={['2xl', '3xl']}
+    fontColor="primary.11"
+    mb={4}
+  >
+    {children}
+  </Text>
+)
+
+const ImageCaptionDescription = ({ children }) => (
+  <Text fontColor="primary.11">{children}</Text>
+)
+
 const Project = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
     const { title, description } = pageContext.data.node.data
     const { body } = data.prismicProjects.data
     const { client, role, technologies } = content.projectPage
-    const mockups = getSliceContent(body, 'mockup')[0]
-    const info = getSliceContent(body, 'info')[0]
     const roles = formatInvolvment(data.prismicProjects.data.role)
-    const video = getSliceContent(body, 'video')[0]
+    const projectData = getSliceContent(body)
+    console.log({ projectData })
+    const {
+      mockup: mockups,
+      info,
+      video,
+      imagewithcaption: imageWithCaption,
+      multiimage: multiImage,
+    } = projectData
 
-    console.log({ data })
+    console.log({ multiImage, imageWithCaption })
+
     return (
       <FadeIn>
         <Box
@@ -157,7 +179,7 @@ const Project = ({ data, pageContext }) => {
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"
-                fontSize={['lg', 'lg']}
+                fontSize={['base', 'base', 'base', 'lg']}
                 lineHeight="relaxed"
               >
                 {description.text}
@@ -169,9 +191,101 @@ const Project = ({ data, pageContext }) => {
             flexDirection="column"
             justifyContent="space-between"
             maxWidth={1480}
-            my={[8, 8, 16]}
+            my={[8, 12, 16]}
           >
-            <Box mb={8}>{video ? <Video src={video.src}></Video> : null}</Box>
+            <Box>{video ? <Video src={video.src}></Video> : null}</Box>
+            <Box>
+              {!multiImage
+                ? null
+                : multiImage.map((multiItem, idx) => {
+                    return (
+                      <Box
+                        display="flex"
+                        flexDirection="column"
+                        textAlign="center"
+                        my={[8, 12, 16]}
+                      >
+                        <Box
+                          display="flex"
+                          flexDirection="column"
+                          maxWidth={800}
+                          mx="auto"
+                          my={8}
+                        >
+                          <ImageCaptionTitle>
+                            {multiItem.title}
+                          </ImageCaptionTitle>
+                          <ImageCaptionDescription>
+                            {multiItem.description}
+                          </ImageCaptionDescription>
+                        </Box>
+                        <Box
+                          display="flex"
+                          flexWrap={['wrap', 'wrap', 'nowrap']}
+                        >
+                          {multiItem.items.map((img, idx) => {
+                            return (
+                              <Box
+                                width={[1, 1, 1 / multiItem.items.length]}
+                                mr={
+                                  idx !== multiItem.items.length - 1
+                                    ? [0, 0, 12]
+                                    : 0
+                                }
+                                mb={
+                                  idx !== multiItem.items.length - 1
+                                    ? [8, 8, 0]
+                                    : 0
+                                }
+                                maxHeight={[400, 400, 550]}
+                              >
+                                <Image
+                                  input={img.localFile}
+                                  fit="contain"
+                                  boxShadow="lg"
+                                ></Image>
+                              </Box>
+                            )
+                          })}
+                        </Box>
+                      </Box>
+                    )
+                  })}
+            </Box>
+            <Box>
+              {!imageWithCaption
+                ? null
+                : imageWithCaption.map(img => (
+                    <Box
+                      display="flex"
+                      flexWrap={['wrap', 'wrap', 'nowrap']}
+                      my={[8, 12, 16]}
+                    >
+                      <Box
+                        display="flex"
+                        justifyContent="center"
+                        flexDirection="column"
+                        width={[1, 1, 1 / 3]}
+                        textAlign="center"
+                        mb={[8, 12, 0]}
+                        maxWidth={800}
+                        mx="auto"
+                      >
+                        <ImageCaptionTitle>{img.title}</ImageCaptionTitle>
+                        <ImageCaptionDescription>
+                          {img.description}
+                        </ImageCaptionDescription>
+                      </Box>
+                      <Box width={[1, 1, 2 / 3]} maxHeight={600}>
+                        <Image
+                          input={img.localFile}
+                          fit="contain"
+                          width="100%"
+                        ></Image>
+                      </Box>
+                    </Box>
+                  ))}
+            </Box>
           </Box>
         </Box>
         <Box as="footer" width={1} m="auto">
@@ -226,6 +340,14 @@ export const pageQuery = graphql`
           ... on PrismicProjectsBodyMultiimage {
             slice_type
             id
+            primary {
+              description1 {
+                text
+              }
+              title1 {
+                text
+              }
+            }
             items {
               image {
                 localFile {
@@ -322,6 +444,17 @@ export const pageQuery = graphql`
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
+              text
             }
           }
         }

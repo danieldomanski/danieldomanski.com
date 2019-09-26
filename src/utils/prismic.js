@@ -12,9 +12,13 @@ export const formatSlice = slice => {
         mobile: slice.primary.mobile.localFile,
       }
     case 'multiimage':
-      return slice.items.map(item => ({
-        localFile: item.image.localFile,
-      }))
+      return {
+        title: slice.primary.title1.text,
+        description: slice.primary.description1.text,
+        items: slice.items.map(item => ({
+          localFile: item.image.localFile,
+        })),
+      }
     case 'imagewithcaption':
       return {
         localFile: slice.primary.image.localFile,
@@ -45,17 +49,21 @@ export const formatSlice = slice => {
  * @returns {string} - Object of raw slice data
  */
 
-export const getSliceContent = (slices, type) => {
-  const results = []
-  const result = {}
-  const keys = slices.map(slice => slice.slice_type)
+export const getSliceContent = slices => {
+  let result = {}
 
   slices.map(slice => {
-    console.log({ slice1: formatSlice(slice) })
+    const type = slice.slice_type
+    if (type === 'multiimage' || type === 'imagewithcaption') {
+      if (!result[type]) {
+        result[type] = []
+      }
+
+      return result[type].push(formatSlice(slice))
+    }
+
+    result[type] = formatSlice(slice)
   })
-  slices.map(slice =>
-    slice.slice_type === type ? results.push(formatSlice(slice)) : null
-  )
-  console.log({ result, keys })
-  return results
+
+  return result
 }

@@ -5,17 +5,17 @@ import Img from 'gatsby-image/withIEPolyfill'
 
 const BgImage = styled(Img)`
   transition: 0.75s ease-in-out;
-  max-height: ${props => props.maxHeight}px;
+  width: ${props => (props.width ? props.width : 'initial')};
 `
 
-const Image = ({ input, type, fit, maxHeight }) => {
+const Image = ({ input, type, fit, ...rest }) => {
   const img =
     type === 'fluid' ? input.childImageSharp.fluid : input.childImageSharp.fixed
 
   return type === 'fluid' ? (
-    <BgImage objectFit={fit} fluid={img} maxHeight={maxHeight} />
+    <BgImage objectFit={fit} fluid={img} {...rest} />
   ) : (
-    <BgImage objectFit={fit} fixed={img} maxHeight={maxHeight} />
+    <BgImage objectFit={fit} fixed={img} {...rest} />
   )
 }
 

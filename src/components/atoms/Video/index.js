@@ -2,9 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  margin: 4rem 0;
-  width: 100%;
-  height: 400px;
+  display: none;
+  position: relative;
+  padding-bottom: 34.35%; /* 16:9 */
+  height: 0;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+
+  iframe {
+    display: block;
+    position: absolute;
+    padding: 0;
+    border: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+  }
 `
 
 export default ({ src, videoTitle }) => (
