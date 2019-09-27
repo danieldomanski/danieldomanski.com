@@ -34,7 +34,7 @@ const Layout = ({ children, location, pageContext }) => {
     require('smooth-scroll')('a[href*="#"]')
   }
   const { width } = useWindowSize()
-  console.log({ children, location, pageContext })
+
   return (
     <>
       <SEO location={location} name={pageContext.name} />

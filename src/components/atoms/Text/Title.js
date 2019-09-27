@@ -6,7 +6,7 @@ const Title = ({ children }) => (
     as="h1"
     display="block"
     fontFamily="sans"
-    fontSize={['4xl', '4xl', '4xl', '5xl']}
+    fontSize={['5xl', '5xl', '5xl', '6xl']}
     lineHeight="normal"
     fontWeight="black"
     fontColor="primary.11"

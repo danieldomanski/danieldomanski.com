@@ -174,6 +174,7 @@ theme.components = {
       color: theme.colors.primary[9],
     },
   },
+
   navigation: {
     primary: {
       color: theme.colors.primary[6],
@@ -187,6 +188,36 @@ theme.components = {
       active: {
         color: theme.colors.primary[11],
         border: theme.colors.secondary[2],
+      },
+    },
+    header: {
+      containerStyles: {
+        order: [3, 3, 2, 2, 2, 2],
+        ml: [0, 0, 'auto'],
+        mr: [0, 0, 'auto', 16, 20],
+        mt: [3, 3, 0],
+        textTransform: 'uppercase',
+      },
+      listStyles: {
+        mt: [1, 1, 0],
+      },
+      itemStyles: {
+        mr: 6,
+        fontSize: ['sm', 'sm'],
+      },
+    },
+    footer: {
+      containerStyles: {
+        flexDirection: 'column',
+        py: 2,
+      },
+      listStyles: {
+        flexDirection: ['column', 'row'],
+      },
+      itemStyles: {
+        mr: [0, 8],
+        mb: [4, 0, 0],
+        fontSize: ['sm', 'sm'],
       },
     },
   },

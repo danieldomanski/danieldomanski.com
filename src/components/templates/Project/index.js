@@ -7,10 +7,11 @@ import Image from '../../atoms/Image'
 import Footer from '../../organisms/Footer'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import Title from '../../atoms/Text/Title'
-import Video from '../../atoms/Video'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
+import MultiImage from '../../organisms/Slices/MultiImage'
+import ImageWithCaption from '../../organisms/Slices/ImageWithCaption'
 
 const SlideLeft = keyframes`
 0% {
@@ -62,7 +63,7 @@ const InfoBoxRow = ({ children, ...rest }) => (
 )
 
 const InfoBoxRowTitle = ({ children }) => (
-  <Text fontColor="primary.5" fontWeight="medium" fontSize="base">
+  <Text fontColor="primary.11" fontWeight="bold" fontSize="base" mb={1}>
     {children}
   </Text>
 )
@@ -76,7 +77,7 @@ const InfoBoxRowDescription = ({ children }) => (
 const ImageCaptionTitle = ({ children }) => (
   <Text
     fontWeight="black"
-    fontSize={['2xl', '3xl']}
+    fontSize={['2xl', '4xl']}
     fontColor="primary.11"
     mb={4}
   >
@@ -85,7 +86,9 @@ const ImageCaptionTitle = ({ children }) => (
 )
 
 const ImageCaptionDescription = ({ children }) => (
-  <Text fontColor="primary.11">{children}</Text>
+  <Text fontColor="primary.8" fontSize={['lg', 'lg', 'xl']} fontWeight="medium">
+    {children}
+  </Text>
 )
 
 const Project = ({ data, pageContext }) => {
@@ -96,7 +99,7 @@ const Project = ({ data, pageContext }) => {
     const { client, role, technologies } = content.projectPage
     const roles = formatInvolvment(data.prismicProjects.data.role)
     const projectData = getSliceContent(body)
-    console.log({ projectData })
+
     const {
       mockup: mockups,
       info,
@@ -105,14 +108,12 @@ const Project = ({ data, pageContext }) => {
       multiimage: multiImage,
     } = projectData
 
-    console.log({ multiImage, imageWithCaption })
-
     return (
       <FadeIn>
         <Box
           width={1}
           pb={[4, 8, 16]}
-          maxWidth={1400}
+          maxWidth={1480}
           m={[0, 0, 0, 0, 'auto']}
           px={[6, 8, 16, 24, 32]}
         >
@@ -179,7 +180,7 @@ const Project = ({ data, pageContext }) => {
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"
-                fontSize={['base', 'base', 'base', 'lg']}
+                fontSize={['base', 'lg', 'lg', 'xl']}
                 lineHeight="relaxed"
               >
                 {description.text}
@@ -190,100 +191,25 @@ const Project = ({ data, pageContext }) => {
             display="flex"
             flexDirection="column"
             justifyContent="space-between"
-            maxWidth={1480}
-            my={[8, 12, 16]}
           >
-            <Box>{video ? <Video src={video.src}></Video> : null}</Box>
             <Box>
               {!multiImage
                 ? null
-                : multiImage.map((multiItem, idx) => {
-                    return (
-                      <Box
-                        display="flex"
-                        flexDirection="column"
-                        textAlign="center"
-                        my={[8, 12, 16]}
-                      >
-                        <Box
-                          display="flex"
-                          flexDirection="column"
-                          maxWidth={800}
-                          mx="auto"
-                          my={8}
-                        >
-                          <ImageCaptionTitle>
-                            {multiItem.title}
-                          </ImageCaptionTitle>
-                          <ImageCaptionDescription>
-                            {multiItem.description}
-                          </ImageCaptionDescription>
-                        </Box>
-                        <Box
-                          display="flex"
-                          flexWrap={['wrap', 'wrap', 'nowrap']}
-                        >
-                          {multiItem.items.map((img, idx) => {
-                            return (
-                              <Box
-                                width={[1, 1, 1 / multiItem.items.length]}
-                                mr={
-                                  idx !== multiItem.items.length - 1
-                                    ? [0, 0, 12]
-                                    : 0
-                                }
-                                mb={
-                                  idx !== multiItem.items.length - 1
-                                    ? [8, 8, 0]
-                                    : 0
-                                }
-                                maxHeight={[400, 400, 550]}
-                              >
-                                <Image
-                                  input={img.localFile}
-                                  fit="contain"
-                                  boxShadow="lg"
-                                ></Image>
-                              </Box>
-                            )
-                          })}
-                        </Box>
-                      </Box>
-                    )
-                  })}
+                : multiImage.map((multiItem, idx) => (
+                    <MultiImage
+                      data={multiItem}
+                      align={idx % 2 === 0 ? 'left' : 'right'}
+                    />
+                  ))}
             </Box>
             <Box>
               {!imageWithCaption
                 ? null
-                : imageWithCaption.map(img => (
-                    <Box
-                      display="flex"
-                      flexWrap={['wrap', 'wrap', 'nowrap']}
-                      my={[8, 12, 16]}
-                    >
-                      <Box
-                        display="flex"
-                        justifyContent="center"
-                        flexDirection="column"
-                        width={[1, 1, 1 / 3]}
-                        textAlign="center"
-                        mb={[8, 12, 0]}
-                        maxWidth={800}
-                        mx="auto"
-                      >
-                        <ImageCaptionTitle>{img.title}</ImageCaptionTitle>
-                        <ImageCaptionDescription>
-                          {img.description}
-                        </ImageCaptionDescription>
-                      </Box>
-                      <Box width={[1, 1, 2 / 3]} maxHeight={600}>
-                        <Image
-                          input={img.localFile}
-                          fit="contain"
-                          width="100%"
-                        ></Image>
-                      </Box>
-                    </Box>
+                : imageWithCaption.map((img, idx) => (
+                    <ImageWithCaption
+                      data={img}
+                      align={idx % 2 === 0 ? 'left' : 'right'}
+                    />
                   ))}
             </Box>
           </Box>

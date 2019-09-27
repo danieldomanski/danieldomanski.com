@@ -37,7 +37,7 @@ const Footer = ({ theme, variant }) => {
           content={content.header.nav}
           placement="footer"
         />
-        <Box mb={4}>
+        <Box my={4}>
           <a
             href="https://github.com/danieldomanski"
             aria-label="Github profile"

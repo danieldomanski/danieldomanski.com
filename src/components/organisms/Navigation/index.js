@@ -5,49 +5,6 @@ import Box from '../../atoms/Box'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import { LocaleContext } from '../../../context/ContentContext'
 
-const getActiveStyle = (active, placement) =>
-  placement === 'header'
-    ? {
-        color: active.color,
-        fontWeight: 600,
-      }
-    : {
-        color: active.color,
-        fontWeight: 600,
-      }
-
-const headerNavStyles = {
-  order: [3, 3, 2, 2, 2, 2],
-  ml: [0, 0, 'auto'],
-  mr: [0, 0, 'auto', 16, 20],
-  mt: [3, 3, 0],
-  textTransform: 'uppercase',
-}
-
-const footerNavStyles = {
-  flexDirection: 'column',
-  py: 2,
-}
-
-const headerListStyles = {
-  mt: [1, 1, 0],
-}
-
-const footerListStyles = {
-  flexDirection: ['column', 'row'],
-}
-
-const headerItemStyles = {
-  mr: 6,
-  fontSize: ['sm', 'sm'],
-}
-
-const footerItemStyles = {
-  mr: [0, 8],
-  mb: [4, 0, 0],
-  fontSize: ['sm', 'sm'],
-}
-
 const NavItem = ({
   children,
   to,
@@ -57,7 +14,7 @@ const NavItem = ({
   display,
   ...rest
 }) => (
-  <Box display={display} as="li" pb={itemStyle.mb ? itemStyle.mb : 0} key={to}>
+  <Box display={display} as="li" pb={itemStyle.mb} key={to}>
     <LocalizedLink
       to={to}
       fontColor={color}
@@ -76,15 +33,13 @@ const NavItem = ({
 const Navigation = ({ theme, variant, placement, content }) => {
   const [locale] = useContext(LocaleContext)
   const { home, projects, about, articles } = content
-
   const { color, active } = theme.components.navigation[variant]
-  const activeStyle = getActiveStyle(active, placement)
-
-  const navStyles = placement === 'header' ? headerNavStyles : footerNavStyles
-  const listStyles =
-    placement === 'header' ? headerListStyles : footerListStyles
-  const itemStyles =
-    placement === 'header' ? headerItemStyles : footerItemStyles
+  const {
+    containerStyles,
+    listStyles,
+    itemStyles,
+  } = theme.components.navigation[placement]
+  const activeStyle = { color: active.color, fontWeight: 600 }
 
   return (
     <Box
@@ -94,7 +49,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
       alignItems="center"
       textAlign="center"
       data-testid="nav"
-      {...navStyles}
+      {...containerStyles}
     >
       <Box
         as="ul"
