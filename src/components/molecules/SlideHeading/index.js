@@ -12,7 +12,7 @@ const SlideHeading = ({ title, description }) => (
       <Text
         as="h2"
         fontFamily="sans"
-        fontSize="4xl"
+        fontSize={['3xl', '4xl']}
         fontColor="primary.11"
         fontWeight="black"
         lineHeight="none"

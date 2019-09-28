@@ -66,7 +66,7 @@ const About = ({ data }) => {
               ))}
             </Box>
             {aboutText.map(group => (
-              <Box my={[8, 12, 20]}>
+              <Box my={[8, 12, 16]}>
                 <Text
                   fontSize={['2xl']}
                   fontColor="primary.9"

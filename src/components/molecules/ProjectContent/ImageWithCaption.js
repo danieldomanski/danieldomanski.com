@@ -1,46 +1,30 @@
 import React from 'react'
 import Box from '../../atoms/Box'
-import Text from '../../atoms/Text'
 import Image from '../../atoms/Image'
-
-const ImageCaptionTitle = ({ children }) => (
-  <Text
-    fontWeight="black"
-    fontSize={['2xl', '4xl']}
-    fontColor="primary.11"
-    mb={4}
-  >
-    {children}
-  </Text>
-)
-
-const ImageCaptionDescription = ({ children }) => (
-  <Text fontColor="primary.8" fontSize={['lg', 'lg', 'xl']} fontWeight="medium">
-    {children}
-  </Text>
-)
+import { ImageCaptionTitle, ImageCaptionDescription } from './Text'
 
 const ImageWithCaption = ({ data, align }) => (
   <Box
     display="flex"
+    justifyContent="center"
     flexDirection={align === 'left' ? 'row' : 'row-reverse'}
     flexWrap={['wrap', 'wrap', 'nowrap']}
-    my={[8, 24]}
+    my={[8, 16]}
   >
     <Box
       display="flex"
       justifyContent="center"
       flexDirection="column"
-      width={[1, 1, 1 / 3]}
       mb={[8, 12, 0]}
-      maxWidth={800}
-      mr={align === 'left' ? 16 : 0}
-      ml={align === 'left' ? 0 : 16}
+      width={[1, 1, 1 / 2]}
+      mr={align === 'left' ? [0, 0, 8] : 0}
+      ml={align === 'left' ? 0 : [0, 0, 16]}
+      textAlign={['center', 'center', 'left']}
     >
       <ImageCaptionTitle>{data.title}</ImageCaptionTitle>
       <ImageCaptionDescription>{data.description}</ImageCaptionDescription>
     </Box>
-    <Box width={[1, 1, 2 / 3]} maxHeight={500}>
+    <Box width={[1, 1, 2 / 3]} maxHeight={540}>
       <Image
         input={data.localFile}
         fit="contain"

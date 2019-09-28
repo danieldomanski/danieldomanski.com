@@ -128,8 +128,8 @@ const theme = {
     '2xl': '1.5rem', // 24px
     '3xl': '1.75rem', // 30px
     '4xl': '2.25rem', // 36px
-    '5xl': '3.25rem', // 48px
-    '6xl': '4rem', // 64px
+    '5xl': '3rem', // 48px
+    '6xl': '3.75rem', // 64px
     '8xl': '4.5rem', // 72px
   },
   fontWeights: {

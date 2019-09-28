@@ -1,34 +1,17 @@
 import React from 'react'
 import Box from '../../atoms/Box'
-import Text from '../../atoms/Text'
+import { ImageCaptionTitle, ImageCaptionDescription } from './Text'
 import Image from '../../atoms/Image'
 
-const ImageCaptionTitle = ({ children }) => (
-  <Text
-    fontWeight="black"
-    fontSize={['2xl', '4xl']}
-    fontColor="primary.11"
-    mb={4}
-  >
-    {children}
-  </Text>
-)
-
-const ImageCaptionDescription = ({ children }) => (
-  <Text fontColor="primary.8" fontSize={['lg', 'lg', 'xl']} fontWeight="medium">
-    {children}
-  </Text>
-)
-
 const MultiImage = ({ data, align }) => (
-  <Box display="flex" flexDirection="column" my={[8, 24]}>
+  <Box display="flex" flexDirection="column" my={[8, 16]}>
     <Box
       display="flex"
       flexDirection="column"
       maxWidth={686}
       mx="auto"
       textAlign="center"
-      my={[8, 12]}
+      my={[8, 16]}
     >
       <ImageCaptionTitle>{data.title}</ImageCaptionTitle>
       <ImageCaptionDescription>{data.description}</ImageCaptionDescription>

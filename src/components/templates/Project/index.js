@@ -10,8 +10,11 @@ import Title from '../../atoms/Text/Title'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
-import MultiImage from '../../organisms/Slices/MultiImage'
-import ImageWithCaption from '../../organisms/Slices/ImageWithCaption'
+import {
+  MultiImage,
+  ImageWithCaption,
+  InfoCard,
+} from '../../molecules/ProjectContent'
 
 const SlideLeft = keyframes`
 0% {
@@ -49,57 +52,12 @@ const DesktopMockup = styled.div`
   }
 `
 
-const InfoBoxRow = ({ children, ...rest }) => (
-  <Box
-    width={1}
-    display="flex"
-    flexDirection="column"
-    textAlign={['center', 'center', 'right']}
-    my={2}
-    {...rest}
-  >
-    {children}
-  </Box>
-)
-
-const InfoBoxRowTitle = ({ children }) => (
-  <Text fontColor="primary.11" fontWeight="bold" fontSize="base" mb={1}>
-    {children}
-  </Text>
-)
-
-const InfoBoxRowDescription = ({ children }) => (
-  <Text fontWeight="medium" fontColor="primary.11">
-    {children}
-  </Text>
-)
-
-const ImageCaptionTitle = ({ children }) => (
-  <Text
-    fontWeight="black"
-    fontSize={['2xl', '4xl']}
-    fontColor="primary.11"
-    mb={4}
-  >
-    {children}
-  </Text>
-)
-
-const ImageCaptionDescription = ({ children }) => (
-  <Text fontColor="primary.8" fontSize={['lg', 'lg', 'xl']} fontWeight="medium">
-    {children}
-  </Text>
-)
-
 const Project = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
+    console.log('trig')
     const content = usePageContent(data)
-    const { title, description } = pageContext.data.node.data
     const { body } = data.prismicProjects.data
-    const { client, role, technologies } = content.projectPage
-    const roles = formatInvolvment(data.prismicProjects.data.role)
     const projectData = getSliceContent(body)
-
     const {
       mockup: mockups,
       info,
@@ -107,6 +65,15 @@ const Project = ({ data, pageContext }) => {
       imagewithcaption: imageWithCaption,
       multiimage: multiImage,
     } = projectData
+
+    const { title, description } = pageContext.data.node.data
+    const { client, role, technologies } = content.projectPage
+
+    const infoCardData = {
+      content: { client, role, technologies },
+      roles: formatInvolvment(data.prismicProjects.data.role),
+      info,
+    }
 
     return (
       <FadeIn>
@@ -137,40 +104,14 @@ const Project = ({ data, pageContext }) => {
           </Box>
           <Box
             display="flex"
-            flexDirection={['column', 'column', 'row']}
+            flexDirection={['column', 'column', 'column', 'row']}
             alignItems="flex-start"
+            alignItems="center"
+            textAlign={['center', 'center', 'left']}
             width={1}
             m="auto"
           >
-            <Box
-              width={[1, 1, 'auto']}
-              flexGrow={1}
-              display="flex"
-              flexDirection="column"
-              justifyContent={['flex-start']}
-              bg="#fff"
-              boxShadow="md"
-              p={[6, 8]}
-              mr={[0, 0, 8, 12, 16]}
-              mb={[8, 8, 0]}
-            >
-              <InfoBoxRow mb={4}>
-                <InfoBoxRowTitle>{role}</InfoBoxRowTitle>
-                <InfoBoxRowDescription>
-                  {roles.join(', ')}
-                </InfoBoxRowDescription>
-              </InfoBoxRow>
-              <InfoBoxRow mb={4}>
-                <InfoBoxRowTitle>{technologies}</InfoBoxRowTitle>
-                <InfoBoxRowDescription>
-                  {info.technologies}
-                </InfoBoxRowDescription>
-              </InfoBoxRow>
-              <InfoBoxRow>
-                <InfoBoxRowTitle>{client}</InfoBoxRowTitle>
-                <InfoBoxRowDescription>{info.client}</InfoBoxRowDescription>
-              </InfoBoxRow>
-            </Box>
+            <InfoCard data={infoCardData} />
             <Box
               width={1}
               display="flex"
@@ -180,7 +121,7 @@ const Project = ({ data, pageContext }) => {
               <Text
                 fontWeight="medium"
                 fontColor="primary.9"
-                fontSize={['base', 'lg', 'lg', 'xl']}
+                fontSize={['base', 'lg']}
                 lineHeight="relaxed"
               >
                 {description.text}
@@ -195,12 +136,15 @@ const Project = ({ data, pageContext }) => {
             <Box>
               {!multiImage
                 ? null
-                : multiImage.map((multiItem, idx) => (
-                    <MultiImage
-                      data={multiItem}
-                      align={idx % 2 === 0 ? 'left' : 'right'}
-                    />
-                  ))}
+                : multiImage.map((multiItem, idx) => {
+                    console.log({ multiItem })
+                    return (
+                      <MultiImage
+                        data={multiItem}
+                        align={idx % 2 === 0 ? 'left' : 'right'}
+                      />
+                    )
+                  })}
             </Box>
             <Box>
               {!imageWithCaption

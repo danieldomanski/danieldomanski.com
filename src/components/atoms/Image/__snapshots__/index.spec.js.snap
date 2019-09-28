@@ -4,7 +4,7 @@ exports[`<Image> renders 1`] = `
 .c0 {
   -webkit-transition: 0.75s ease-in-out;
   transition: 0.75s ease-in-out;
-  max-height: px;
+  width: initial;
 }
 
 <div

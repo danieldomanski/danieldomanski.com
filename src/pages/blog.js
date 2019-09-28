@@ -55,7 +55,7 @@ const Blog = ({ data, ...rest }) => {
             flexGrow={1}
           >
             <Title>{content.blogsPage.title}</Title>
-            <Box display="flex" flexDirection="column" mb={[8, 8, 8, 8, 12]}>
+            <Box display="flex" flexDirection="column" mb={[8, 12, 16, 16, 24]}>
               <Box
                 as="ul"
                 display="flex"
