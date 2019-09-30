@@ -21,18 +21,16 @@ const MultiImage = ({ data, align }) => (
       justifyContent="space-around"
       flexWrap={['wrap', 'wrap', 'nowrap']}
     >
-      {data.items.map((img, idx) => {
-        return (
-          <Box
-            width={[1, 1]}
-            mr={idx !== data.items.length - 1 ? [0, 0, 12] : 0}
-            mb={idx !== data.items.length - 1 ? [8, 8, 0] : 0}
-            maxHeight={[360, 400, 500]}
-          >
-            <Image input={img.localFile} fit="contain"></Image>
-          </Box>
-        )
-      })}
+      {data.items.map((img, idx) => (
+        <Box
+          width={[1, 1]}
+          mr={idx !== data.items.length - 1 ? [0, 0, 12] : 0}
+          mb={idx !== data.items.length - 1 ? [8, 8, 0] : 0}
+          maxHeight={[360, 400, 500]}
+        >
+          <Image input={img.localFile} fit="contain" />
+        </Box>
+        ))}
     </Box>
   </Box>
 )

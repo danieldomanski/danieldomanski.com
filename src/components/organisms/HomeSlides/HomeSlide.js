@@ -4,7 +4,7 @@ import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
 import Scroller from '../../atoms/Icon/ScrollIcon'
-import RichText from '../../organisms/Slices/RichText'
+import RichText from "../Slices/RichText"
 
 const HeroText = styled.section`
   width: 100%;

@@ -8,10 +8,10 @@ const Wrapper = styled.div`
 `
 
 const Image = ({ data }) => (
-    <Wrapper>
-      <Img fluid={data.primary.image.localFile.childImageSharp.fluid} />
-    </Wrapper>
-  )
+  <Wrapper>
+    <Img fluid={data.primary.image.localFile.childImageSharp.fluid} />
+  </Wrapper>
+)
 
 export default Image
 

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import useWindowScrollPosition from '@rehooks/window-scroll-position'
 import Box from '../../atoms/Box'
 import HomeParticles from '../HomeParticles'
 import { ContentContext } from '../../../context/ContentContext'
 import RichText from '../../organisms/Slices/RichText'
-import useWindowScrollPosition from '@rehooks/window-scroll-position'
 import useWindowSize from '../../../hooks/useWindowSize'
 
 const Container = styled.footer`

@@ -8,7 +8,7 @@ import Image from './index'
 afterEach(cleanup)
 
 test('<Image> renders', () => {
-  let mockData = {
+  const mockData = {
     input: {
       childImageSharp: {
         fluid: {

@@ -4,18 +4,17 @@ import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import PostItem from '../../molecules/PostItem'
 
-const PostsContainer = ({ posts }) => {
-  return (
-    <>
-      {posts.length === 0 ? (
-        <Text
-          display="block"
-          fontSize={['base', 'lg']}
-          fontColor="primary.3"
-          textAlign="center"
-        >
+const PostsContainer = ({ posts }) => (
+  <>
+    {posts.length === 0 ? (
+      <Text
+        display="block"
+        fontSize={['base', 'lg']}
+        fontColor="primary.3"
+        textAlign="center"
+      >
           Nie pojawił się jeszcze żaden artykuł :(
-        </Text>
+      </Text>
       ) : (
         posts.map((post, idx) => (
           <PostItem
@@ -30,9 +29,8 @@ const PostsContainer = ({ posts }) => {
           />
         ))
       )}
-    </>
+  </>
   )
-}
 PostsContainer.propTypes = {
   posts: PropTypes.array.isRequired,
 }

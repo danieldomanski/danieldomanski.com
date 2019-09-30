@@ -69,7 +69,7 @@ const Blog = ({ data, ...rest }) => {
                 ))}
               </Box>
             </Box>
-            <PostsContainer posts={filteredPosts}></PostsContainer>
+            <PostsContainer posts={filteredPosts} />
           </Box>
         </FadeIn>
         <Box as="footer" width={1} mt="auto">

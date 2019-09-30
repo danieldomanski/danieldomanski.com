@@ -26,16 +26,14 @@ const SmallStars = Stars(smStars, 150, 1, 0.5, 2000)
 const MediumStars = Stars(mdStars, 80, 2, 0.6, 2000)
 const BigStars = Stars(lgStars, 50, 3, 1, 2000)
 
-const BgParticles = ({ variant }) => {
-  return (
-    <Container>
-      <SmallStars />
-      <MediumStars />
-      <BigStars />
-      <Meteors visible={variant === 'hero'} />
-    </Container>
+const BgParticles = ({ variant }) => (
+  <Container>
+    <SmallStars />
+    <MediumStars />
+    <BigStars />
+    <Meteors visible={variant === 'hero'} />
+  </Container>
   )
-}
 
 BgParticles.propTypes = {
   variant: PropTypes.string,

@@ -1,6 +1,6 @@
 import React from 'react'
-import Icon from '../Icon'
 import styled, { keyframes } from 'styled-components'
+import Icon from '../Icon'
 
 // Meteors
 const meteorAnimation1 = keyframes`

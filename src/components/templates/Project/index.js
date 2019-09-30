@@ -54,7 +54,6 @@ const DesktopMockup = styled.div`
 
 const Project = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
-    console.log('trig')
     const content = usePageContent(data)
     const { body } = data.prismicProjects.data
     const projectData = getSliceContent(body)
@@ -150,10 +149,10 @@ const Project = ({ data, pageContext }) => {
               {!imageWithCaption
                 ? null
                 : imageWithCaption.map((img, idx) => (
-                    <ImageWithCaption
-                      data={img}
-                      align={idx % 2 === 0 ? 'left' : 'right'}
-                    />
+                  <ImageWithCaption
+                    data={img}
+                    align={idx % 2 === 0 ? 'left' : 'right'}
+                  />
                   ))}
             </Box>
           </Box>

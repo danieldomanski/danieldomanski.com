@@ -32,7 +32,7 @@ const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       color: ${theme.colors.cosmic[4]};
-      font-size: ${theme.fontSizes['xl']};
+      font-size: ${theme.fontSizes.xl};
     }
 
     letter-spacing: 0.25em;
@@ -41,21 +41,21 @@ const Container = styled.div`
   h5 {
     font-family: ${theme.fonts.sans.join(', ')};
     font-weight: ${theme.fontWeights.medium};
-    font-size: ${theme.fontSizes['lg']};
+    font-size: ${theme.fontSizes.lg};
     color: ${theme.colors.primary[10]};
     line-height: ${theme.lineHeights.relaxed};
     letter-spacing: -0.025em;
 
     @media screen and (min-width: 768px) {
       color: ${theme.colors.secondary[2]};
-      font-size: ${theme.fontSizes['xl']};
+      font-size: ${theme.fontSizes.xl};
     }
 
     a {
-      font-size: ${theme.fontSizes['lg']};
+      font-size: ${theme.fontSizes.lg};
 
       @media screen and (min-width: 768px) {
-        font-size: ${theme.fontSizes['xl']};
+        font-size: ${theme.fontSizes.xl};
       }
     }
   }
@@ -71,7 +71,7 @@ const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       color: ${theme.colors.secondary[2]};
-      font-size: ${theme.fontSizes['lg']};
+      font-size: ${theme.fontSizes.lg};
     }
   }
 

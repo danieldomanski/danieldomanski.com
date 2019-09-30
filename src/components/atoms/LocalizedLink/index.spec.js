@@ -8,7 +8,7 @@ import LocalizedLink from './index'
 afterEach(cleanup)
 
 test('<Image> renders', () => {
-  let mockData = {
+  const mockData = {
     to: 'test',
     partiallyActive: true,
     display: 'inline-block',

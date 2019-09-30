@@ -20,18 +20,16 @@ const Grid = styled.ul`
   }
 `
 
-const ProjectsContainer = ({ projects, idx }) => {
-  return (
-    <Grid>
-      {projects.map((project, idx) => (
-        <ProjectItem
-          project={project}
-          key={`${project.node.uid}-${idx}`}
-        ></ProjectItem>
+const ProjectsContainer = ({ projects, idx }) => (
+  <Grid>
+    {projects.map((project, idx) => (
+      <ProjectItem
+        project={project}
+        key={`${project.node.uid}-${idx}`}
+      />
       ))}
-    </Grid>
+  </Grid>
   )
-}
 
 ProjectsContainer.propTypes = {
   projects: PropTypes.oneOfType([PropTypes.array]).isRequired,

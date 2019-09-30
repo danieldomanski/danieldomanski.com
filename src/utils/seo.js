@@ -1,7 +1,7 @@
 import config from '../config/website'
 
 export const getPolishPathname = pathname => {
-  let splitted = pathname.split('/')
+  const splitted = pathname.split('/')
 
   if (splitted[1] === 'en') splitted.splice(1, 1)
 
@@ -9,7 +9,7 @@ export const getPolishPathname = pathname => {
 }
 
 export const getEnglishPathname = pathname => {
-  let splitted = pathname.split('/')
+  const splitted = pathname.split('/')
 
   if (splitted[1] !== 'en') splitted.splice(1, 0, 'en')
 
@@ -26,7 +26,7 @@ const contentKeys = {
 }
 
 export const formatPathnameToContentKey = pathname => {
-  let splitted = pathname.split('/')
+  const splitted = pathname.split('/')
   const key = splitted[0] === 'en' ? splitted[1] : splitted[0]
 
   switch (key) {
@@ -34,11 +34,11 @@ export const formatPathnameToContentKey = pathname => {
       return contentKeys[key]
     case 'projects':
       return splitted.length > 1 && pathname !== 'en/projects'
-        ? contentKeys['singleProject']
+        ? contentKeys.singleProject
         : contentKeys[key]
     case 'blog':
       return splitted.length > 1 && pathname !== 'en/blog'
-        ? contentKeys['singlePost']
+        ? contentKeys.singlePost
         : contentKeys[key]
     case 'tag':
       return contentKeys[key]
@@ -49,7 +49,7 @@ export const formatPathnameToContentKey = pathname => {
 
 export const getTitleAndDescription = (pathname, name, content) => {
   let title
-  let trimmedPath = pathname.replace(/^\/|\/$/g, '')
+  const trimmedPath = pathname.replace(/^\/|\/$/g, '')
   const contentKey = formatPathnameToContentKey(trimmedPath)
 
   if (name.includes('404')) {

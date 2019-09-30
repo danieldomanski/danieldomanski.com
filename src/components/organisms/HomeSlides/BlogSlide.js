@@ -19,7 +19,7 @@ const BlogSlide = ({ posts, content, ...rest }) => {
       >
         <Subtitle>Ostatnie posty.</Subtitle>
         <Box display="inline-block" flexDirection="column" flex={3}>
-          <PostsContainer posts={posts}></PostsContainer>
+          <PostsContainer posts={posts} />
         </Box>
       </Box>
     </Slide>

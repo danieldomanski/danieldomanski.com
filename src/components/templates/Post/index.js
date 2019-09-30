@@ -1,16 +1,17 @@
 import React, { useContext } from 'react'
-import { graphql } from 'gatsby'
-import { Link } from 'gatsby'
+import { graphql , Link } from 'gatsby'
+
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
 import Bio from '../../molecules/Bio'
 import PostContent from '../../molecules/PostContent'
+import Tag from '../../atoms/Tag'
+import FadeIn from '../../molecules/AnimatedBox/FadeIn'
+
 import { formatDate } from '../../../utils/date'
 import { countWordsFromSlices, timeToRead } from '../../../utils/timeToRead'
-import Tag from '../../atoms/Tag'
 import { usePageContent, LocaleContext } from '../../../context/ContentContext'
-import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 
 const BreadcrumbItem = ({ to, title, description, textAlign }) => (
   <Link width={1} to={`/blog/${to}`} maxWidth={300}>

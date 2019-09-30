@@ -30,7 +30,7 @@ const ImageWithCaption = ({ data, align }) => (
         fit="contain"
         width="100%"
         boxShadow
-      ></Image>
+      />
     </Box>
   </Box>
 )

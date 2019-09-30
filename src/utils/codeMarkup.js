@@ -1,5 +1,6 @@
 import { css } from 'styled-components'
 import theme from '../config/theme'
+
 export default css`
   div > p,
   li {

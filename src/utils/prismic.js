@@ -50,7 +50,7 @@ export const formatSlice = slice => {
  */
 
 export const getSliceContent = slices => {
-  let result = {}
+  const result = {}
 
   slices.map(slice => {
     const type = slice.slice_type

@@ -1,6 +1,6 @@
 import React from 'react'
 import Box from '../../atoms/Box'
-import ProjectsContainer from '../../organisms/ProjectsContainer'
+import ProjectsContainer from "../ProjectsContainer"
 import Slide from '../../templates/Slide'
 
 const ProjectsSlide = ({ projects, content }) => (

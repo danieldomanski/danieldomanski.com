@@ -8,7 +8,7 @@ import Icon from './index'
 afterEach(cleanup)
 
 test('<Icon> renders with given props', () => {
-  let props = {
+  const props = {
     width: 24,
     height: 24,
     icon: 'react',

@@ -1,4 +1,3 @@
-
 <div align="center">
 <h1>danieldomanski.com</h1>
 <p>Personal website built with Gatsby, React, Prismic.io and Node.js.</p>
@@ -29,9 +28,8 @@
   <br />
 </div>
 
+### 🛠 Tech stack
 
-
-### 🛠 Tech stack  
 - **Gatsby**, **React**, **Node.js** as a foundation 🧠
 - Styling with **styled-components** & **styled-system** ❤️
 - Content Managment with **Prismic.io**
@@ -41,9 +39,10 @@
 - Linting with **ESLint**, formatting thanks to **Prettier**
 
 ### 💡 Features
+
 - Pre-rendered HTML and automatic chunk loading of JS files
 - **Progressive Web App**
 - Bilingual (Polish and English)
 - Custom **SEO**
 - **Prism.js** code syntax highlighting
-- Test ➡️ Build ➡️ Deploy jobs with **CircleCI** 
+- Test ➡️ Build ➡️ Deploy jobs with **CircleCI**

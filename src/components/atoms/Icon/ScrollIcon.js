@@ -41,39 +41,37 @@ const LinkContainer = styled(Link)`
   }
 `
 
-const Scroller = ({ width, height }) => {
-  return (
-    <LinkContainer to="/#about">
-      <DirectionalFade delay={2}>
-        <Wrapper
-          width={width}
-          height={height}
-          viewBox="0 0 40 60"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <rect
-            x="5"
-            y="6"
-            width="30"
-            height="48"
-            rx="15"
-            stroke="rgba(240,240,240,0.75)"
-            stroke-width="2"
-          />
-          <AnimatedScroller
-            x="18"
-            y="14"
-            width="3"
-            height="14"
-            rx="6"
-            fill="white"
-          />
-        </Wrapper>
-      </DirectionalFade>
-    </LinkContainer>
+const Scroller = ({ width, height }) => (
+  <LinkContainer to="/#about">
+    <DirectionalFade delay={2}>
+      <Wrapper
+        width={width}
+        height={height}
+        viewBox="0 0 40 60"
+        preserveAspectRatio="none"
+        fill="none"
+      >
+        <rect
+          x="5"
+          y="6"
+          width="30"
+          height="48"
+          rx="15"
+          stroke="rgba(240,240,240,0.75)"
+          strokeWidth="2"
+        />
+        <AnimatedScroller
+          x="18"
+          y="14"
+          width="3"
+          height="14"
+          rx="6"
+          fill="white"
+        />
+      </Wrapper>
+    </DirectionalFade>
+  </LinkContainer>
   )
-}
 
 Scroller.propTypes = {
   width: PropTypes.number,

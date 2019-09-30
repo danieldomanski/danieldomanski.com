@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from '../../atoms/Link'
+import Link from "../Link"
 
 const Tag = ({ data: { name, slug } }) => (
   <Link

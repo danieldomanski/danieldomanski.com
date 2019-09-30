@@ -1,9 +1,9 @@
 import React from 'react'
-import LocalizedLink from '../../atoms/LocalizedLink'
-import Box from '../../atoms/Box'
-import Text from '../../atoms/Text'
-import Icon from '../../atoms/Icon'
-import CosmicButton from '../../atoms/Button/CosmicButton'
+import LocalizedLink from "../LocalizedLink"
+import Box from "../Box"
+import Text from "../Text"
+import Icon from "../Icon"
+import CosmicButton from "./CosmicButton"
 
 const LocalizedButton = ({ path, button, isMobile }) => (
   <Box textAlign="right" mt={16}>

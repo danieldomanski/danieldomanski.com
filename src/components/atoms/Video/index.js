@@ -29,7 +29,7 @@ export default ({ src, videoTitle }) => (
       title="vid"
       webkitallowfullscreen
       mozallowfullscreen
-      allowfullscreen
+      allowFullScreen
       frameBorder="0"
       webkitallowfullscreen="true"
       mozallowfullscreen="true"
