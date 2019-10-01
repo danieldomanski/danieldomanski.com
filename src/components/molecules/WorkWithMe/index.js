@@ -6,10 +6,10 @@ import HomeParticles from '../HomeParticles'
 import { ContentContext } from '../../../context/ContentContext'
 import RichText from '../../organisms/Slices/RichText'
 import useWindowSize from '../../../hooks/useWindowSize'
+import theme from '../../../config/theme'
 
 const Container = styled.footer`
   width: 100%;
-
   z-index: 5;
   overflow: hidden;
 
@@ -38,11 +38,15 @@ const Container = styled.footer`
 
 const Line = styled.span`
   display: block;
-  margin: 2rem auto;
-  width: 80px;
-  height: 4px;
-  background-color: #c4c4c4;
+  margin: 2.5rem auto;
+  width: 60px;
+  height: 3px;
+  background-color: ${theme.colors.primary[3]};
   opacity: 1;
+
+  @media screen and (min-width: 768px) {
+    background-color: ${theme.colors.cosmic[4]};
+  }
 `
 
 const WorkWithMe = ({ children, variant }) => {
@@ -62,10 +66,9 @@ const WorkWithMe = ({ children, variant }) => {
         alignItems="center"
         textAlign="center"
         bg={['#fcfcfc', '#fcfcfc', 'unset']}
-        mx={[4, 6, 0]}
-        mt={[4, 8, 0]}
-        mb={[16, 16, 0]}
-        px={[8, 8, 12]}
+        mx={[6, 8, 0]}
+        my={[24, 24, 0]}
+        px={[8, 16, 12]}
         py={[16, 16, 0]}
         boxShadow={['lg', 'lg', 'none']}
         data-testid="footer"

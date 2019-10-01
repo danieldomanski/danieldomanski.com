@@ -13,14 +13,41 @@ const Container = styled.div`
     color: ${theme.colors.primary[10]};
     letter-spacing: -0.05em;
 
+    em {
+      font-family: ${theme.fonts.serif.join(', ')};
+      font-style: italic;
+    }
+
+    @media screen and (min-width: 576px) {
+      font-size: ${theme.fontSizes['4xl']};
+    }
+
     @media screen and (min-width: 768px) {
       color: ${theme.colors.secondary[0]};
-      font-size: ${theme.fontSizes['5xl']};
+      font-size: ${theme.fontSizes['6xl']};
     }
+  }
+
+  h2 {
+    font-family: ${theme.fonts.sans.join(', ')};
+    font-weight: ${theme.fontWeights.bold};
+    margin-bottom: 2rem;
+    font-size: ${theme.fontSizes['3xl']};
+    color: ${theme.colors.primary[10]};
+    letter-spacing: -0.05em;
 
     em {
       font-family: ${theme.fonts.serif.join(', ')};
       font-style: italic;
+    }
+
+    @media screen and (min-width: 576px) {
+      font-size: ${theme.fontSizes['4xl']};
+    }
+
+    @media screen and (min-width: 768px) {
+      color: ${theme.colors.secondary[0]};
+      font-size: ${theme.fontSizes['6xl']};
     }
   }
 
@@ -29,16 +56,16 @@ const Container = styled.div`
     font-weight: ${theme.fontWeights.medium};
     color: ${theme.colors.primary[10]};
     text-transform: uppercase;
+    letter-spacing: 0.25em;
 
     @media screen and (min-width: 768px) {
-      color: ${theme.colors.cosmic[4]};
+      color: ${theme.colors.secondary[3]};
       font-size: ${theme.fontSizes.xl};
     }
-
-    letter-spacing: 0.25em;
   }
 
   h5 {
+    max-width: 960px;
     font-family: ${theme.fonts.sans.join(', ')};
     font-weight: ${theme.fontWeights.medium};
     font-size: ${theme.fontSizes.lg};
@@ -47,7 +74,7 @@ const Container = styled.div`
     letter-spacing: -0.025em;
 
     @media screen and (min-width: 768px) {
-      color: ${theme.colors.secondary[2]};
+      color: ${theme.colors.secondary[1]};
       font-size: ${theme.fontSizes.xl};
     }
 
@@ -61,7 +88,7 @@ const Container = styled.div`
   }
 
   p {
-    max-width: 900px;
+    max-width: 1000px;
     display: inline-block;
     font-family: ${theme.fonts.sans.join(', ')};
     font-weight: ${theme.fontWeights.medium};
@@ -77,19 +104,19 @@ const Container = styled.div`
 
   a {
     color: #222;
-    padding-bottom: 6px;
-    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+    border-bottom: 1px solid ${theme.colors.secondary[9]};
     transition: 0.2s ease;
-    font-weight: 600;
+    font-weight: 500;
 
     &:hover {
-      padding-bottom: 2px;
-      border-bottom: 2px solid #626b87;
+      padding-bottom: 6px;
+      border-bottom-color: transparent;
     }
 
     @media screen and (min-width: 768px) {
-      color: #bed6ff;
-      font-weight: 500;
+      color: ${theme.colors.secondary[1]};
+      border-bottom: 1.25px solid rgba(206, 214, 255, 0.6);
     }
   }
 `

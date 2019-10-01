@@ -69,6 +69,7 @@ const LocalizedLink = ({
 )
 
 LocalizedLink.propTypes = {
+  fontFamily: PropTypes.string,
   fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
   children: PropTypes.node.isRequired,
   fontWeight: PropTypes.oneOf(['base', 'bold', 'black']),
@@ -76,6 +77,7 @@ LocalizedLink.propTypes = {
 }
 
 LocalizedLink.defaultProps = {
+  fontFamily: 'sans',
   fontSize: 'base',
   fontWeight: 'base',
   fontColor: 'primary.6',

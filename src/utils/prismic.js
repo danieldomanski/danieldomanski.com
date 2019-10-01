@@ -12,7 +12,9 @@ export const formatSlice = slice => {
         mobile: slice.primary.mobile.localFile,
       }
     case 'multiimage':
+      console.log({ slice })
       return {
+        id: slice.id,
         title: slice.primary.title1.text,
         description: slice.primary.description1.text,
         items: slice.items.map(item => ({
@@ -20,7 +22,9 @@ export const formatSlice = slice => {
         })),
       }
     case 'imagewithcaption':
+      console.log({ slice })
       return {
+        id: slice.id,
         localFile: slice.primary.image.localFile,
         title: slice.primary.title1.text,
         description: slice.primary.description1.text,

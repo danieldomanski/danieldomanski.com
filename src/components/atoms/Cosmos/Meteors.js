@@ -66,7 +66,7 @@ const MeteorsContainer = styled.div`
   }
 `
 
-export default ({ visible }) => (
+const Meteors = ({ visible }) => (
   <MeteorsContainer visible={visible}>
     <Icon icon="comet" width={32} height={23} />
     <Icon icon="comet" width={48} height={35} />
@@ -76,3 +76,5 @@ export default ({ visible }) => (
     <Icon icon="comet" width={80} height={56} />
   </MeteorsContainer>
 )
+
+export default Meteors

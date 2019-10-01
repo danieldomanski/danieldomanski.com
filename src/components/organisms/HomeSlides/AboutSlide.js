@@ -25,6 +25,7 @@ const AboutSlide = ({ content }) => {
             <Box
               as="article"
               display="flex"
+              key={row.title}
               mb={[
                 `${isLastElement ? 0 : 8}`,
                 `${isLastElement ? 0 : 8}`,
@@ -58,7 +59,7 @@ const AboutSlide = ({ content }) => {
                   {row.title}
                 </Text>
                 <Text
-                  fontSize={['base', 'base', 'base', 'lg']}
+                  fontSize={['base', 'base', 'lg', 'lg']}
                   fontColor="primary.11"
                   fontWeight="medium"
                   lineHeight="relaxed"

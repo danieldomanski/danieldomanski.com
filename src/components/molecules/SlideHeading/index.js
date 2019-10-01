@@ -18,6 +18,7 @@ const SlideHeading = ({ title, description }) => (
         lineHeight="none"
         letterSpacing="-0.05em"
         flex={1}
+        mr={8}
       >
         {title}
       </Text>

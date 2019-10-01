@@ -18,11 +18,13 @@ const OnTopLayer = styled.main`
   position: relative;
   overflow: hidden;
   padding: 8rem 0;
-  box-shadow: ${theme.shadows.lg};
+  box-shadow: ${theme.shadows.xl};
   z-index: 6;
   margin-top: 100vh;
   margin-bottom: 810px;
   background-color: #f6f6f6;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
 `
 
 const TopLayer = styled.div`
@@ -34,8 +36,8 @@ const TopLayer = styled.div`
   background: radial-gradient(
     1300px at 50% 100%,
     #414559 0%,
-    #1f2033 50%,
-    #13141e 100%
+    #1f2233 50%,
+    #13151e 100%
   );
 `
 
@@ -50,10 +52,8 @@ const Index = ({ data }) => {
       return (
         <FadeIn>
           <HomeSlide content={hero} />
-          <Box>
-            <ProjectsSlide projects={data.projects.edges} content={works} />
-            <BlogSlide posts={data.posts.edges} content={blog} />
-          </Box>
+          <ProjectsSlide projects={data.projects.edges} content={works} />
+          <BlogSlide posts={data.posts.edges} content={blog} />
           <WorkWithMe variant="primary">
             <Footer variant="secondary" />
           </WorkWithMe>

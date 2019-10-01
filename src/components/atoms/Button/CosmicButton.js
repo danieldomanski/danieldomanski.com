@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import { color, typography, space } from 'styled-system'
+import styled from 'styled-components'
 import Text from '../Text'
-import theme from '../../../config/theme'
-import { Stars, generateStars } from '../Cosmos'
 import Icon from '../Icon'
+import { Stars, generateStars } from '../Cosmos'
+import theme from '../../../config/theme'
 
 const ButtonContainer = styled.button`
   ${typography};
@@ -48,7 +48,7 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #080812;
+    background-color: #111;
     content: '';
     width: 0;
     height: 100%;

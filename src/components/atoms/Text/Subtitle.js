@@ -1,7 +1,7 @@
 import React from 'react'
-import Text from "."
+import Text from '.'
 
-const Subtitle = ({ children }) => (
+const Subtitle = ({ children, ...rest }) => (
   <Text
     as="h3"
     display="block"
@@ -11,6 +11,7 @@ const Subtitle = ({ children }) => (
     mb={[6, 8, 12, 12, 16]}
     flex={1}
     style={{ textTransform: 'uppercase' }}
+    {...rest}
   >
     {children}
   </Text>

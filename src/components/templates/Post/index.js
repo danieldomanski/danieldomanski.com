@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { graphql, Link } from 'gatsby'
-
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Footer from '../../organisms/Footer'
@@ -8,10 +7,9 @@ import Bio from '../../molecules/Bio'
 import PostContent from '../../molecules/PostContent'
 import Tag from '../../atoms/Tag'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
-
 import { formatDate } from '../../../utils/date'
 import { countWordsFromSlices, timeToRead } from '../../../utils/timeToRead'
-import { usePageContent, LocaleContext } from '../../../context/ContentContext'
+import { usePageContent } from '../../../context/ContentContext'
 
 const BreadcrumbItem = ({ to, title, description, textAlign }) => (
   <Link width={1} to={`/blog/${to}`} maxWidth={300}>
@@ -84,9 +82,7 @@ const Post = ({ data, pageContext }) => {
                   </Box>
                 </Box>
                 <Box>
-                  {tagsData.map(tag => (
-                    <Tag data={tag} />
-                  ))}
+                  {tagsData.map(tag => <Tag data={tag} key={tag.slug} />)}
                 </Box>
               </Box>
             </Box>

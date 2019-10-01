@@ -22,7 +22,7 @@ const Container = styled.div`
   }
 `
 
-export default ({ src }) => (
+const Video = ({ src }) => (
   <Container>
     <iframe
       src={src}
@@ -36,3 +36,4 @@ export default ({ src }) => (
     />
   </Container>
 )
+export default Video

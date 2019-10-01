@@ -10,7 +10,7 @@ const colors = {
     '#CECECE',
     '#C4C4C4',
     '#A1A1A1',
-    '#8F8F8F',
+    '#797C8E',
     '#5A5A5A',
     '#363636',
     '#252627',
@@ -21,11 +21,11 @@ const colors = {
   cosmic: ['#25273D', '#212235', '#101020', '#BED6FF', '#CAD4E6'],
   // white/gray
   secondary: [
-    '#F4F5FF',
-    '#E8EAF4',
-    '#D5D6E0',
-    '#CBCDD6',
-    '#C1C3CC',
+    '#E0E5FF',
+    '#D8DFFF',
+    '#C8CFF4',
+    '#CAD2F7',
+    '#BCC3E5',
     '#B8B9C1',
     '#AEAFB7',
     '#A4A6AD',
@@ -55,6 +55,7 @@ const theme = {
     default: '0 2px 4px 0 rgba(0,0,0,0.10)',
     md: '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
     lg: '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
+    xl: '0 40px 40px 0 rgba(0,0,0,.2), 0 -40px 40px 0 rgba(0,0,0,.2);',
     inner: 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
     outline: '0 0 0 3px rgba(52,144,220,0.5)',
     none: 'none',
@@ -126,10 +127,10 @@ const theme = {
     lg: '1.125rem', // 18px
     xl: '1.25rem', // 20px
     '2xl': '1.5rem', // 24px
-    '3xl': '1.75rem', // 30px
-    '4xl': '2.25rem', // 36px
+    '3xl': '2rem', // 30px
+    '4xl': '2.5rem', // 36px
     '5xl': '3rem', // 48px
-    '6xl': '3.75rem', // 64px
+    '6xl': '3.5rem', // 64px
     '8xl': '4.5rem', // 72px
   },
   fontWeights: {

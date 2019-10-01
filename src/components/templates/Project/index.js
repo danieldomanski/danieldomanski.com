@@ -134,21 +134,20 @@ const Project = ({ data, pageContext }) => {
             <Box>
               {!multiImage
                 ? null
-                : multiImage.map((multiItem, idx) => {
-                    console.log({ multiItem })
-                    return (
-                      <MultiImage
-                        data={multiItem}
-                        align={idx % 2 === 0 ? 'left' : 'right'}
-                      />
-                    )
-                  })}
+                : multiImage.map((multiItem, idx) => (
+                    <MultiImage
+                      key={multiItem.id}
+                      data={multiItem}
+                      align={idx % 2 === 0 ? 'left' : 'right'}
+                    />
+                  ))}
             </Box>
             <Box>
               {!imageWithCaption
                 ? null
                 : imageWithCaption.map((img, idx) => (
-                  <ImageWithCaption
+                    <ImageWithCaption
+                      key={img.id}
                       data={img}
                       align={idx % 2 === 0 ? 'left' : 'right'}
                     />

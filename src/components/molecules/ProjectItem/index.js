@@ -5,6 +5,7 @@ import Box from '../../atoms/Box'
 import Text from '../../atoms/Text'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import theme from '../../../config/theme'
+import Subtitle from '../../atoms/Text/Subtitle'
 
 const STRING_CONSTANTS = {
   'en-pl': 'Case coming soon.',
@@ -106,20 +107,6 @@ const formatProject = project => ({
   cover: project.node.data.cover.localFile.childImageSharp.fluid,
 })
 
-const ProjectTitle = ({ children }) => (
-  <Text
-    display={['inline-block', 'inline-block', 'none']}
-    fontSize={['lg']}
-    fontWeight="black"
-    fontColor="primary.4"
-    style={{ textTransform: 'uppercase' }}
-    flex={1}
-    mb={[4, 4, 8]}
-  >
-    {children}
-  </Text>
-)
-
 const ProjectItem = ({ project, ...rest }) => {
   const { locale, uid, title, released, cover } = formatProject(project)
 
@@ -127,7 +114,9 @@ const ProjectItem = ({ project, ...rest }) => {
     <Box as="li" position="relative" display="inline-block" {...rest}>
       {released ? (
         <>
-          <ProjectTitle>{title}</ProjectTitle>
+          <Subtitle display={['inline-block', 'inline-block', 'none']}>
+            {title}
+          </Subtitle>
           <Container>
             <LocalizedLink
               to={`/projects/${uid}`}
@@ -140,7 +129,7 @@ const ProjectItem = ({ project, ...rest }) => {
         </>
       ) : (
         <>
-          <ProjectTitle>{title}</ProjectTitle>
+          <Subtitle>{title}</Subtitle>
           <HoverScale>
             <BgCover>
               <Text

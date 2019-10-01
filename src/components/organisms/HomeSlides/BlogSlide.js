@@ -16,7 +16,7 @@ const BlogSlide = ({ posts, content }) => {
         flexDirection={['column', 'column', 'column', 'column', 'row']}
         justifyContent="space-between"
       >
-        <Subtitle>Ostatnie posty.</Subtitle>
+        <Subtitle mr={8}>Ostatnie posty.</Subtitle>
         <Box display="inline-block" flexDirection="column" flex={3}>
           <PostsContainer posts={posts} />
         </Box>

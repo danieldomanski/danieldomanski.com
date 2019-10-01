@@ -23,6 +23,7 @@ const MultiImage = ({ data }) => (
     >
       {data.items.map((img, idx) => (
         <Box
+          key={img.title}
           width={[1, 1]}
           mr={idx !== data.items.length - 1 ? [0, 0, 12] : 0}
           mb={idx !== data.items.length - 1 ? [8, 8, 0] : 0}

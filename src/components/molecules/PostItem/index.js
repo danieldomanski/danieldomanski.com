@@ -31,7 +31,7 @@ const PostItem = ({ post, ...rest }) => {
             fontFamily="sans"
             fontColor="primary.11"
             fontSize={['2xl', '3xl']}
-            fontWeight="bold"
+            fontWeight="black"
             letterSpacing="-0.05em"
           >
             {title}

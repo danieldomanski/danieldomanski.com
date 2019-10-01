@@ -71,7 +71,7 @@ const HomeSlide = ({ content }) => (
           textAlign={['center']}
           m={[0, 0, 0, 0, 'auto']}
           px={[8, 8, 12, 12, 12, 16]}
-          py={[16, 16, 0]}
+          py={[16, 24, 0]}
           boxShadow={[
             '0 1px 0 rgba(0,0,0,.05)',
             '0 1px 0 rgba(0,0,0,.05)',
@@ -83,25 +83,17 @@ const HomeSlide = ({ content }) => (
               as="h1"
               fontFamily="sans"
               fontWeight="black"
-              fontSize={['4xl', '4xl', '5xl', '5xl', '6xl']}
-              fontColor={['primary.10', 'primary.10', 'secondary.1']}
+              fontSize={['4xl', '4xl', '5xl', '6xl', '6xl']}
+              fontColor={['primary.10', 'primary.10', 'secondary.0']}
               lineHeight="none"
               letterSpacing="-0.05em"
-              mb={6}
+              mb={[8, 8, 6]}
             >
               {content.title}
             </Text>
           </TitleText>
           <SlideLeft>
-            <Text
-              maxWidth={[400, 600, 1000]}
-              fontWeight="medium"
-              fontSize={['lg', 'lg', 'xl']}
-              fontColor={['primary.10', 'primary.10', 'secondary.3']}
-              lineHeight={['normal', 'relaxed']}
-            >
-              <RichText content={content.description} />
-            </Text>
+            <RichText content={content.description} />
           </SlideLeft>
         </Box>
       </HeroContainer>
