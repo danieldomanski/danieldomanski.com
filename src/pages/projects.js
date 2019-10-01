@@ -7,7 +7,7 @@ import Title from '../components/atoms/Text/Title'
 import { usePageContent } from '../context/ContentContext'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 
-const Projects = ({ data, pageContext: { locale } }) => {
+const Projects = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
     const { title } = content.worksPage

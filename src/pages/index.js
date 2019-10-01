@@ -44,7 +44,7 @@ const Index = ({ data }) => {
     const windowSize = useWindowSize()
     const isMobile = windowSize.width < 768
     const content = usePageContent(data)
-    const { hero, works, about, blog, footer } = content.home
+    const { hero, works, about, blog } = content.home
 
     if (isMobile) {
       return (

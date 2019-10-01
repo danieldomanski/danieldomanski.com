@@ -3,7 +3,7 @@ import Box from '../../atoms/Box'
 import { ImageCaptionTitle, ImageCaptionDescription } from './Text'
 import Image from '../../atoms/Image'
 
-const MultiImage = ({ data, align }) => (
+const MultiImage = ({ data }) => (
   <Box display="flex" flexDirection="column" my={[8, 16]}>
     <Box
       display="flex"
@@ -30,7 +30,7 @@ const MultiImage = ({ data, align }) => (
         >
           <Image input={img.localFile} fit="contain" />
         </Box>
-        ))}
+      ))}
     </Box>
   </Box>
 )

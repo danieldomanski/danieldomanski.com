@@ -1,5 +1,5 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "plugins": ["react", "jsx-a11y", "import"],
   "parser": "babel-eslint",
   "env": {
@@ -13,11 +13,26 @@
   },
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/prop-types": [0],
+    "react/prop-types": 0,
+    "consistent-return": 0,
+    "no-unused-vars": 1,
+    "array-callback-return": 0,
     "global-require": 0,
     "jsx-a11y/accessible-emoji": "off",
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
     "import/no-dynamic-require": 0
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "version": "detect",
+      "flowVersion": "0.53"
+    },
+    "propWrapperFunctions": [
+      "forbidExtraProps",
+      { "property": "freeze", "object": "Object" },
+      { "property": "myFavoriteWrapper" }
+    ]
   }
 }

@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
 import { LocaleContext, ContentContext } from '../../../context/ContentContext'
-
 import {
   getPolishPathname,
   getEnglishPathname,
@@ -50,11 +49,3 @@ const SEO = ({ location: { pathname }, name }) => {
 }
 
 export default SEO
-
-SEO.propTypes = {
-  pathname: PropTypes.oneOfType([PropTypes.object]).isRequired,
-}
-
-SEO.defaultProps = {
-  pathname: false,
-}

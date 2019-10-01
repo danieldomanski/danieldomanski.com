@@ -12,7 +12,7 @@ const About = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
 
-    const { title, aboutMe, aboutGroup, aboutText } = content.aboutPage
+    const { title, aboutGroup, aboutText } = content.aboutPage
 
     return (
       <>
@@ -33,7 +33,7 @@ const About = ({ data }) => {
             >
               {aboutGroup.map(group => (
                 <Box width={1} m="auto" my={2}>
-                  {group.rows.map((row, idx) => (
+                  {group.rows.map(row => (
                     <Box
                       display="flex"
                       py={4}

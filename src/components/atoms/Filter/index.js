@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { withTheme } from 'styled-components'
 import css from '@styled-system/css'
 import Box from '../Box'
-import Text from '../Text'
 
 const Filter = ({ children, theme, updateFilter, slug }) => {
   const [isActive, set] = useState(false)

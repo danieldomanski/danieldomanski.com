@@ -104,7 +104,6 @@ const Project = ({ data, pageContext }) => {
           <Box
             display="flex"
             flexDirection={['column', 'column', 'column', 'row']}
-            alignItems="flex-start"
             alignItems="center"
             textAlign={['center', 'center', 'left']}
             width={1}
@@ -150,9 +149,9 @@ const Project = ({ data, pageContext }) => {
                 ? null
                 : imageWithCaption.map((img, idx) => (
                   <ImageWithCaption
-                    data={img}
-                    align={idx % 2 === 0 ? 'left' : 'right'}
-                  />
+                      data={img}
+                      align={idx % 2 === 0 ? 'left' : 'right'}
+                    />
                   ))}
             </Box>
           </Box>

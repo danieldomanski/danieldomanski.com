@@ -4,7 +4,7 @@ import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import HomeParticles from '../../molecules/HomeParticles'
 import Scroller from '../../atoms/Icon/ScrollIcon'
-import RichText from "../Slices/RichText"
+import RichText from '../Slices/RichText'
 
 const HeroText = styled.section`
   width: 100%;
@@ -30,8 +30,6 @@ const HeroContainer = styled.header`
     top: 50%;
   }
 `
-
-/* GIL */
 
 const containerAnim = keyframes`
 0% { opacity: 0; transform: translateX(0px) translateY(-15vh) translateZ(0px) scaleX(1) scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg) skewY(0deg)  },

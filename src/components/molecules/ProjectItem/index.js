@@ -102,7 +102,7 @@ const formatProject = project => ({
   uid: project.node.uid,
   title: project.node.data.title.text,
   description: project.node.data.description.text,
-  released: project.node.data.released != '0',
+  released: project.node.data.released !== '0', // ToDo change type in prismic...
   cover: project.node.data.cover.localFile.childImageSharp.fluid,
 })
 
@@ -113,7 +113,6 @@ const ProjectTitle = ({ children }) => (
     fontWeight="black"
     fontColor="primary.4"
     style={{ textTransform: 'uppercase' }}
-    mb={[12, 8, 12, 12, 12]}
     flex={1}
     mb={[4, 4, 8]}
   >

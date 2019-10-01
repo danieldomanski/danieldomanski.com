@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { color, typography, space } from 'styled-system'
 import Text from '../Text'
 import theme from '../../../config/theme'

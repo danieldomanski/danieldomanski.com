@@ -217,10 +217,9 @@ export const formatRawDataToContext = context => {
         break
 
       case 'projectPage':
-        const rest = formatSingleProjectPage(context.projectPage.edges[0])
         data = {
           projectPage: {
-            ...rest,
+            ...formatSingleProjectPage(context.projectPage.edges[0]),
             title: context.prismicProjects.data.title.text,
             description: context.prismicProjects.data.description.text,
           },

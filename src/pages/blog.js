@@ -8,7 +8,7 @@ import PostsContainer from '../components/organisms/PostsContainer'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
 import { usePageContent } from '../context/ContentContext'
 
-const Blog = ({ data, ...rest }) => {
+const Blog = ({ data }) => {
   if (typeof window !== `undefined`) {
     const content = usePageContent(data)
 

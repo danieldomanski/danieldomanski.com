@@ -9,7 +9,7 @@ const AboutSlide = ({ content }) => {
   const { processDetails, processRows } = content
 
   return (
-    <Slide id="about" content={content} id="about" to="/about">
+    <Slide id="about" content={content} to="/about">
       <Subtitle>{processDetails}</Subtitle>
       <Box
         width={1}
@@ -84,21 +84,6 @@ AboutSlide.propTypes = {
       edges: PropTypes.array.isRequired,
     }),
   }).isRequired,
-}
-
-AboutSlide.defaultProps = {
-  data: PropTypes.shape({
-    projects: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-    }),
-    posts: PropTypes.shape({
-      edges: PropTypes.array.isRequired,
-    }),
-  }).isRequired,
-  pageContext: PropTypes.shape({
-    locale: PropTypes.string.isRequired,
-  }).isRequired,
-  location: PropTypes.object.isRequired,
 }
 
 export default AboutSlide

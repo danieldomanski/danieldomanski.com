@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { graphql , Link } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
@@ -31,7 +31,7 @@ const BreadcrumbItem = ({ to, title, description, textAlign }) => (
 
 const Post = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
-    const content = usePageContent(data)
+    usePageContent(data)
     const { title, tags, date } = data.prismicPost.data
     const { previous, next } = pageContext.data.siblings
 

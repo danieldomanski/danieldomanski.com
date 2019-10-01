@@ -22,7 +22,7 @@ const Container = styled.div`
   }
 `
 
-export default ({ src, videoTitle }) => (
+export default ({ src }) => (
   <Container>
     <iframe
       src={src}
@@ -31,8 +31,6 @@ export default ({ src, videoTitle }) => (
       mozallowfullscreen
       allowFullScreen
       frameBorder="0"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
       height="100%"
       width="100%"
     />

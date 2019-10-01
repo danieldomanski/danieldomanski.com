@@ -1,7 +1,7 @@
 import 'jest-styled-components'
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
-import { render, cleanup, queryAllByTestId } from '@testing-library/react'
+import { render, cleanup } from '@testing-library/react'
 import mockSchema from '../../../../__mocks__/schema'
 import ProjectsContainer from './index'
 

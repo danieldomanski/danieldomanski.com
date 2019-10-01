@@ -3,12 +3,12 @@ import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import { render, cleanup } from '@testing-library/react'
 
-import LocalizedButton from './LocalizedButton.js'
+import LocalizedButton from './LocalizedButton'
 
 afterEach(cleanup)
 
 test('<LocalizedButton> renders different versions on mobile and desktop', () => {
-  const { getByText, queryByText, rerender } = render(
+  const { getByText, rerender } = render(
     <LocalizedButton isMobile={false} button="test" />
   )
 

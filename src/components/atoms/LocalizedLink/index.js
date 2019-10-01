@@ -76,7 +76,6 @@ LocalizedLink.propTypes = {
 }
 
 LocalizedLink.defaultProps = {
-  fontFamily: 'sans',
   fontSize: 'base',
   fontWeight: 'base',
   fontColor: 'primary.6',

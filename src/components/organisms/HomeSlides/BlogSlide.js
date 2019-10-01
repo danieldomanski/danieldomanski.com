@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
-import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
 import Slide from '../../templates/Slide'
 import { LocaleContext } from '../../../context/ContentContext'
 import PostsContainer from '../PostsContainer'
 import Subtitle from '../../atoms/Text/Subtitle'
 
-const BlogSlide = ({ posts, content, ...rest }) => {
+const BlogSlide = ({ posts, content }) => {
   const [locale] = useContext(LocaleContext)
   const anyPostReady = posts.some(post => post.node.data.released !== 0)
 

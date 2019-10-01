@@ -71,11 +71,11 @@ const Scroller = ({ width, height }) => (
       </Wrapper>
     </DirectionalFade>
   </LinkContainer>
-  )
+)
 
 Scroller.propTypes = {
   width: PropTypes.number,
-  height: PropTypes.height,
+  height: PropTypes.number,
 }
 
 Scroller.defaultProps = {
