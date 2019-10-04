@@ -15,6 +15,7 @@ import {
   ImageWithCaption,
   InfoCard,
 } from '../../molecules/ProjectContent'
+import Button from '../../atoms/Button'
 
 const SlideLeft = keyframes`
 0% {
@@ -91,7 +92,7 @@ const Project = ({ data, pageContext }) => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-              mb={[8, 12, 16]}
+              mb={[8, 8, 12, 12, 12]}
             >
               <MobileMockup>
                 <Image input={mockups.mobile} fit="contain" />
@@ -113,6 +114,7 @@ const Project = ({ data, pageContext }) => {
             <Box
               width={1}
               display="flex"
+              flexDirection="column"
               alignItems="center"
               flexGrow={[1, 3, 3, 3, 3]}
             >
@@ -124,6 +126,9 @@ const Project = ({ data, pageContext }) => {
               >
                 {description.text}
               </Text>
+              <Box display="flex" justifyContent="center">
+                <Button>Zobacz na żywo</Button>
+              </Box>
             </Box>
           </Box>
           <Box

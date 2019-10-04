@@ -17,7 +17,7 @@ import theme from '../config/theme'
 const OnTopLayer = styled.main`
   position: relative;
   overflow: hidden;
-  padding: 8rem 0;
+  padding: 4rem 0;
   box-shadow: ${theme.shadows.xl};
   z-index: 6;
   margin-top: 100vh;
@@ -25,6 +25,10 @@ const OnTopLayer = styled.main`
   background-color: #f6f6f6;
   border-bottom: 1px solid rgba(0, 0, 0, 0.25);
   border-top: 1px solid rgba(0, 0, 0, 0.25);
+
+  @media screen and (min-width: 992px) {
+    padding: 6rem 0;
+  }
 `
 
 const TopLayer = styled.div`

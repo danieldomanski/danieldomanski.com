@@ -48,6 +48,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
       display="flex"
       alignItems="center"
       textAlign="center"
+      flexWrap="wrap"
       data-testid="nav"
       {...containerStyles}
     >
@@ -55,6 +56,7 @@ const Navigation = ({ theme, variant, placement, content }) => {
         as="ul"
         display="flex"
         alignContent="flex-start"
+        flexWrap="wrap"
         style={{ textTransform: 'uppercase', listStyleType: 'none' }}
         {...listStyles}
       >

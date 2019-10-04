@@ -114,7 +114,10 @@ const ProjectItem = ({ project, ...rest }) => {
     <Box as="li" position="relative" display="inline-block" {...rest}>
       {released ? (
         <>
-          <Subtitle display={['inline-block', 'inline-block', 'none']}>
+          <Subtitle
+            display={['inline-block', 'inline-block', 'none']}
+            mb={[2, 2, 0]}
+          >
             {title}
           </Subtitle>
           <Container>
@@ -129,7 +132,12 @@ const ProjectItem = ({ project, ...rest }) => {
         </>
       ) : (
         <>
-          <Subtitle>{title}</Subtitle>
+          <Subtitle
+            mb={[4, 4, 0]}
+            display={['inline-block', 'inline-block', 'none']}
+          >
+            {title}
+          </Subtitle>
           <HoverScale>
             <BgCover>
               <Text

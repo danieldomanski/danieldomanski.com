@@ -76,7 +76,6 @@ Text.defaultProps = {
   lineHeight: 'normal',
   fontWeight: 'normal',
   fontColor: 'primary.7',
-  display: 'inline-block',
   letterSpacing: '-0.025em',
   mb: 0,
   mt: 0,

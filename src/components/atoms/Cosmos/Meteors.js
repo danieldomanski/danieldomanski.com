@@ -32,8 +32,10 @@ const meteorAnimation4 = keyframes`
 `
 
 const MeteorsContainer = styled.div`
+  display: ${props => (props.visible ? 'block' : 'none')};
+
   @media screen and (min-width: 1440px) {
-    display: ${props => (props.visible ? 'block' : 'none')};
+    display: none;
   }
 
   position: absolute;

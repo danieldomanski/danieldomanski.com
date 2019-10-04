@@ -129,8 +129,8 @@ const theme = {
     '2xl': '1.5rem', // 24px
     '3xl': '2rem', // 30px
     '4xl': '2.5rem', // 36px
-    '5xl': '3rem', // 48px
-    '6xl': '3.5rem', // 64px
+    '5xl': '3.25rem', // 48px
+    '6xl': '3.75rem', // 64px
     '8xl': '4.5rem', // 72px
   },
   fontWeights: {
@@ -159,7 +159,7 @@ theme.components = {
     primary: {
       backgroundColor: 'transparent',
       color: theme.colors.secondary[1],
-      secondaryColor: theme.colors.secondary[9],
+      secondaryColor: theme.colors.primary[6],
     },
     secondary: {
       backgroundColor: 'rgba(240, 240, 240, 1)',

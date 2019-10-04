@@ -23,7 +23,11 @@ const Grid = styled.ul`
 const ProjectsContainer = ({ projects }) => (
   <Grid>
     {projects.map(project => (
-      <ProjectItem project={project} key={`${project.node.uid}`} />
+      <ProjectItem
+        project={project}
+        key={`${project.node.uid}`}
+        mb={[6, 8, 0]}
+      />
     ))}
   </Grid>
 )

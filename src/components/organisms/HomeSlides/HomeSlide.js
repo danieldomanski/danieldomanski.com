@@ -8,12 +8,12 @@ import RichText from '../Slices/RichText'
 
 const HeroText = styled.section`
   width: 100%;
-  height: 100%;
   z-index: 5;
   transition: 0.25s ease;
 
   @media screen and (min-width: 768px) {
     position: fixed;
+    height: 100%;
     top: 0;
   }
 `
@@ -87,7 +87,7 @@ const HomeSlide = ({ content }) => (
               fontColor={['primary.10', 'primary.10', 'secondary.0']}
               lineHeight="none"
               letterSpacing="-0.05em"
-              mb={[8, 8, 6]}
+              mb={[8, 8, 8]}
             >
               {content.title}
             </Text>

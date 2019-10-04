@@ -42,6 +42,7 @@ const AboutSlide = ({ content }) => {
                 fontWeight="black"
                 fontColor="primary.11"
                 mr={[4, 4, 6]}
+                letterSpacing="0.05em"
               >
                 {`0${idx + 1}.`}
               </Text>
@@ -52,6 +53,7 @@ const AboutSlide = ({ content }) => {
                   fontSize={['base', 'lg', 'xl', 'xl']}
                   fontColor="primary.11"
                   mb={[2, 2, 3, 3, 4]}
+                  letterSpacing="0.05em"
                   style={{
                     textTransform: 'uppercase',
                   }}

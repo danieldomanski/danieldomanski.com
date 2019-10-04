@@ -41,13 +41,9 @@ const Container = styled.div`
       font-style: italic;
     }
 
-    @media screen and (min-width: 576px) {
-      font-size: ${theme.fontSizes['4xl']};
-    }
-
     @media screen and (min-width: 768px) {
+      font-size: ${theme.fontSizes['5xl']};
       color: ${theme.colors.secondary[0]};
-      font-size: ${theme.fontSizes['6xl']};
     }
   }
 
@@ -116,7 +112,7 @@ const Container = styled.div`
 
     @media screen and (min-width: 768px) {
       color: ${theme.colors.secondary[1]};
-      border-bottom: 1.25px solid rgba(206, 214, 255, 0.6);
+      border-bottom: 1.25px solid rgba(206, 214, 255, 0.5);
     }
   }
 `

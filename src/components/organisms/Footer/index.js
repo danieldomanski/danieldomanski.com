@@ -14,7 +14,7 @@ const Footer = ({ theme, variant }) => {
     color,
     secondaryColor,
   } = theme.components.bottomFooter[variant]
-
+  console.log({ variant })
   return (
     <Box
       width={1}
@@ -65,7 +65,7 @@ const Footer = ({ theme, variant }) => {
           </a>
         </Box>
         <Box display="flex">
-          <Text fontWeight="medium" mr={2} fontColor={secondaryColor}>
+          <Text mr={2} fontColor={secondaryColor}>
             {content.footer.codeAvailability}
           </Text>
           <a

@@ -29,6 +29,7 @@ const Container = styled.footer`
       #25273c 45%,
       #161723 100%
     );
+    padding-top: 3.75rem;
   }
 
   @media screen and (min-width: 768px) and (max-height: 768px) {
@@ -38,7 +39,7 @@ const Container = styled.footer`
 
 const Line = styled.span`
   display: block;
-  margin: 2.5rem auto;
+  margin: 1.5rem auto;
   width: 60px;
   height: 3px;
   background-color: ${theme.colors.primary[3]};
@@ -46,6 +47,7 @@ const Line = styled.span`
 
   @media screen and (min-width: 768px) {
     background-color: ${theme.colors.cosmic[4]};
+    margin: 2.5rem auto;
   }
 `
 
@@ -69,7 +71,7 @@ const WorkWithMe = ({ children, variant }) => {
         mx={[6, 8, 0]}
         my={[24, 24, 0]}
         px={[8, 16, 12]}
-        py={[16, 16, 0]}
+        py={[12, 16, 0]}
         boxShadow={['lg', 'lg', 'none']}
         data-testid="footer"
       >
