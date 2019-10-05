@@ -5,7 +5,7 @@ describe('Buttons under each slide works and routes to appropiate page', () => {
 
   it('About me section link renders and navigates accordingly', () => {
     cy.get('#about').within(() => {
-      cy.findByText('Więcej o mnie').as('button')
+      cy.findByText('Poznaj mnie lepiej').as('button')
     })
 
     cy.get('@button')

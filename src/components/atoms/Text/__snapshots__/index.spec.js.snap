@@ -2,7 +2,6 @@
 
 exports[`<Text> renders with different styled-system category props 1`] = `
 .c0 {
-  display: inline-block;
   font-size: lg;
   font-family: sans;
   font-weight: bold;
@@ -36,7 +35,6 @@ exports[`<Text> renders with different styled-system category props 1`] = `
 <p
   class="c0"
   color="red,blue"
-  display="inline-block"
   font-family="sans"
   font-size="lg,xl"
   font-weight="bold"
