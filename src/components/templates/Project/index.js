@@ -17,6 +17,11 @@ import {
   InfoCard,
 } from '../../molecules/ProjectContent'
 
+const BUTTON_CONSTANTS = {
+  'en-pl': 'See project live',
+  pl: 'Zobacz na żywo',
+}
+
 const SlideLeft = keyframes`
 0% {
   margin-right: -16em;
@@ -68,7 +73,7 @@ const Project = ({ data, pageContext }) => {
 
     const { title, description } = pageContext.data.node.data
     const { client, role, technologies, liveAdress } = content.projectPage
-
+    console.log({ pageContext })
     const infoCardData = {
       content: { client, role, technologies },
       roles: formatInvolvment(data.prismicProjects.data.role),
@@ -92,7 +97,7 @@ const Project = ({ data, pageContext }) => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-              my={[8, 8, 12, 16, 20]}
+              my={[8, 12]}
             >
               <MobileMockup>
                 <Image input={mockups.mobile} fit="contain" />
@@ -119,8 +124,8 @@ const Project = ({ data, pageContext }) => {
             >
               <Text
                 fontWeight="medium"
-                fontColor="primary.9"
-                fontSize={['base', 'lg']}
+                fontColor="primary.11"
+                fontSize={['base', 'lg', 'xl']}
                 lineHeight="relaxed"
               >
                 {description.text}
@@ -156,14 +161,9 @@ const Project = ({ data, pageContext }) => {
             </Box>
           </Box>
           {!liveAdress ? null : (
-            <Box
-              display="flex"
-              justifyContent="center"
-              mt={[4, 8]}
-              mb={[12, 12]}
-            >
+            <Box display="flex" justifyContent="center" my={[12, 12]}>
               <a href={liveAdress.url}>
-                <Button>Zobacz na żywo</Button>
+                <Button>{BUTTON_CONSTANTS[pageContext.locale]}</Button>
               </a>
             </Box>
           )}

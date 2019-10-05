@@ -115,6 +115,20 @@ const Container = styled.div`
       border-bottom: 1.25px solid rgba(206, 214, 255, 0.5);
     }
   }
+
+  ul {
+    font-family: ${theme.fonts.sans.join(', ')};
+    list-style-type: none;
+    margin: 1rem 0;
+    font-weight: ${theme.fontWeights.medium};
+    line-height: ${theme.lineHeights.relaxed};
+    letter-spacing: -0.025em;
+  }
+
+  .secondary-text {
+    color: ${theme.colors.primary[11]};
+    font-size: ${theme.fontSizes.lg};
+  }
 `
 
 const RichText = ({ content }) =>

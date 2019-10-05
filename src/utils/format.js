@@ -17,7 +17,7 @@ export const formatAboutGroup = aboutGroup =>
 export const formatAboutText = aboutText =>
   aboutText.map(g => ({
     title: g.text_title.text,
-    description: g.text_description.text,
+    description: g.text_description.html,
   }))
 
 export const formatAbout = about => ({
@@ -217,7 +217,6 @@ export const formatRawDataToContext = context => {
         break
 
       case 'projectPage':
-        console.log({ context })
         data = {
           projectPage: {
             ...formatSingleProjectPage(context.projectPage.edges[0]),

@@ -8,7 +8,7 @@ const InfoBoxRow = ({ children, ...rest }) => (
     display="flex"
     flexDirection="column"
     textAlign={['center', 'center', 'center', 'right']}
-    my={2}
+    my={3}
     {...rest}
   >
     {children}
@@ -16,13 +16,13 @@ const InfoBoxRow = ({ children, ...rest }) => (
 )
 
 const InfoBoxRowTitle = ({ children }) => (
-  <Text fontColor="primary.11" fontWeight="bold" mb={1}>
+  <Text fontColor="primary.11" fontWeight="bold" mb={2} fontSize="lg">
     {children}
   </Text>
 )
 
 const InfoBoxRowDescription = ({ children }) => (
-  <Text fontWeight="medium" fontColor="primary.11">
+  <Text fontWeight="medium" fontColor="primary.11" fontSize="lg">
     {children}
   </Text>
 )

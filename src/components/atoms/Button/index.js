@@ -12,7 +12,7 @@ const Button = ({ children, ...rest }) => (
     px={[6, 8]}
     bg="white"
     boxShadow="md"
-    border="1.25px solid rgba(12,12,12,1)"
+    border="0"
     css={{
       transition: 'all 0.3s ease',
       '&:hover': {

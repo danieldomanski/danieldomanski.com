@@ -6,7 +6,8 @@ export const ImageCaptionTitle = ({ children }) => (
     fontWeight="black"
     fontSize={['3xl', '3xl', '4xl']}
     fontColor="primary.11"
-    mb={4}
+    lineHeight="tight"
+    mb={8}
   >
     {children}
   </Text>

@@ -7,6 +7,7 @@ import Footer from '../components/organisms/Footer'
 import { usePageContent } from '../context/ContentContext'
 import Title from '../components/atoms/Text/Title'
 import FadeIn from '../components/molecules/AnimatedBox/FadeIn'
+import RichText from '../components/organisms/Slices/RichText'
 
 const About = ({ data }) => {
   if (typeof window !== `undefined`) {
@@ -75,16 +76,7 @@ const About = ({ data }) => {
                 >
                   {group.title}
                 </Text>
-                <Text
-                  fontFamily="sans"
-                  fontColor="primary.9"
-                  fontWeight="medium"
-                  fontSize={['base', 'lg']}
-                  withLine
-                  lineHeight="relaxed"
-                >
-                  {group.description}
-                </Text>
+                <RichText content={group.description} />
               </Box>
             ))}
           </Box>
@@ -117,7 +109,7 @@ export const pageQuery = graphql`
             text
           }
           text_description {
-            text
+            html
           }
         }
         about_group {
