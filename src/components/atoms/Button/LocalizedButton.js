@@ -24,7 +24,7 @@ const LocalizedButton = ({ path, button, isMobile }) => (
         <CosmicButton
           display={['none', 'none', 'block']}
           fontColor="primary.11"
-          fontSize={['xs', 'sm', 'sm']}
+          fontSize={['xs', 'sm', 'base']}
         >
           {button}
         </CosmicButton>

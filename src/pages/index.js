@@ -27,7 +27,7 @@ const OnTopLayer = styled.main`
   border-top: 1px solid rgba(0, 0, 0, 0.25);
 
   @media screen and (min-width: 992px) {
-    padding: 6rem 0;
+    padding: 8rem 0;
   }
 `
 

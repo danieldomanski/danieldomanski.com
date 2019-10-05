@@ -4,7 +4,7 @@ import { ImageCaptionTitle, ImageCaptionDescription } from './Text'
 import Image from '../../atoms/Image'
 
 const MultiImage = ({ data }) => (
-  <Box display="flex" flexDirection="column" my={[8, 16]}>
+  <Box display="flex" flexDirection="column" my={[8, 8]}>
     <Box
       display="flex"
       flexDirection="column"

@@ -1,12 +1,13 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import { graphql } from 'gatsby'
-import Text from '../../atoms/Text'
 import Box from '../../atoms/Box'
+import Text from '../../atoms/Text'
+import Title from '../../atoms/Text/Title'
+import Button from '../../atoms/Button'
 import Image from '../../atoms/Image'
 import Footer from '../../organisms/Footer'
 import FadeIn from '../../molecules/AnimatedBox/FadeIn'
-import Title from '../../atoms/Text/Title'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
@@ -15,7 +16,6 @@ import {
   ImageWithCaption,
   InfoCard,
 } from '../../molecules/ProjectContent'
-import Button from '../../atoms/Button'
 
 const SlideLeft = keyframes`
 0% {
@@ -67,7 +67,7 @@ const Project = ({ data, pageContext }) => {
     } = projectData
 
     const { title, description } = pageContext.data.node.data
-    const { client, role, technologies } = content.projectPage
+    const { client, role, technologies, liveAdress } = content.projectPage
 
     const infoCardData = {
       content: { client, role, technologies },
@@ -92,7 +92,7 @@ const Project = ({ data, pageContext }) => {
               display="flex"
               justifyContent="center"
               alignItems="center"
-              mb={[8, 8, 12, 12, 12]}
+              my={[8, 8, 12, 16, 20]}
             >
               <MobileMockup>
                 <Image input={mockups.mobile} fit="contain" />
@@ -114,7 +114,6 @@ const Project = ({ data, pageContext }) => {
             <Box
               width={1}
               display="flex"
-              flexDirection="column"
               alignItems="center"
               flexGrow={[1, 3, 3, 3, 3]}
             >
@@ -126,9 +125,6 @@ const Project = ({ data, pageContext }) => {
               >
                 {description.text}
               </Text>
-              <Box display="flex" justifyContent="center">
-                <Button>Zobacz na żywo</Button>
-              </Box>
             </Box>
           </Box>
           <Box
@@ -159,6 +155,18 @@ const Project = ({ data, pageContext }) => {
                   ))}
             </Box>
           </Box>
+          {!liveAdress ? null : (
+            <Box
+              display="flex"
+              justifyContent="center"
+              mt={[4, 8]}
+              mb={[12, 12]}
+            >
+              <a href={liveAdress.url}>
+                <Button>Zobacz na żywo</Button>
+              </a>
+            </Box>
+          )}
         </Box>
         <Box as="footer" width={1} m="auto">
           <Footer variant="secondary" />
@@ -293,6 +301,9 @@ export const pageQuery = graphql`
         }
         description {
           text
+        }
+        live_adress {
+          url
         }
       }
     }

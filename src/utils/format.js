@@ -217,11 +217,13 @@ export const formatRawDataToContext = context => {
         break
 
       case 'projectPage':
+        console.log({ context })
         data = {
           projectPage: {
             ...formatSingleProjectPage(context.projectPage.edges[0]),
             title: context.prismicProjects.data.title.text,
             description: context.prismicProjects.data.description.text,
+            liveAdress: context.prismicProjects.data.live_adress,
           },
           ...data,
         }

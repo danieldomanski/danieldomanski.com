@@ -47,7 +47,7 @@ const Line = styled.span`
 
   @media screen and (min-width: 768px) {
     background-color: ${theme.colors.cosmic[4]};
-    margin: 2.5rem auto;
+    margin: 2rem auto;
   }
 `
 

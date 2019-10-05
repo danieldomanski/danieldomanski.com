@@ -55,7 +55,7 @@ const Container = styled.div`
     letter-spacing: 0.25em;
 
     @media screen and (min-width: 768px) {
-      color: ${theme.colors.secondary[3]};
+      color: ${theme.colors.secondary[4]};
       font-size: ${theme.fontSizes.xl};
     }
   }

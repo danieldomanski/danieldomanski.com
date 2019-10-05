@@ -11,9 +11,10 @@ const ButtonContainer = styled.button`
   ${typography};
   ${color};
   ${space};
-
+  display: inline-flex;
+  align-items: center;
   position: relative;
-  padding: 0.75rem;
+  padding: 1rem;
   overflow: hidden;
   background: 0;
   cursor: pointer;
@@ -24,7 +25,7 @@ const ButtonContainer = styled.button`
 
   &:hover {
     box-shadow: ${theme.shadows.lg};
-    padding: 0.75rem 1.25rem;
+    padding: 1rem 1.5rem;
     & > div {
       display: block;
     }
@@ -88,7 +89,7 @@ const Button = ({ children, fontSize, fontColor, ...rest }) => (
     >
       {children}
     </Text>
-    <Icon icon="arrow" width={19} height={17} fill="#080812" />
+    <Icon icon="arrow" width={18} height={18} fill="#080812" />
     <Container>
       <MediumStars />
       <SmallStars />
