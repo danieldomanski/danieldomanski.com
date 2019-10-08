@@ -20,7 +20,6 @@ const TextContainer = styled.p`
 
 const Text = ({
   children,
-  display,
   fontFamily,
   fontSize,
   fontWeight,
@@ -36,7 +35,6 @@ const Text = ({
   ...rest
 }) => (
   <TextContainer
-    display={display}
     fontSize={fontSize}
     fontFamily={fontFamily}
     fontWeight={fontWeight}
@@ -63,7 +61,6 @@ Text.propTypes = {
   letterSpacing: PropTypes.string,
   fontColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   children: PropTypes.node.isRequired,
-  display: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   mb: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   mt: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
   mr: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),

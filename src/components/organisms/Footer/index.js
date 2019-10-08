@@ -14,7 +14,7 @@ const Footer = ({ theme, variant }) => {
     color,
     secondaryColor,
   } = theme.components.bottomFooter[variant]
-  console.log({ variant })
+
   return (
     <Box
       width={1}
@@ -23,6 +23,7 @@ const Footer = ({ theme, variant }) => {
       display="flex"
       alignItems="flex-end"
       zIndex={12}
+      borderTop="1px solid rgba(0,0,0,0.05)"
     >
       <Box
         m="auto"

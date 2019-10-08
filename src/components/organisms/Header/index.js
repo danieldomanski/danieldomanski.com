@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import styled, { withTheme } from 'styled-components'
+import styled, { withTheme, css } from 'styled-components'
 import LocalizedLink from '../../atoms/LocalizedLink'
 import Text from '../../atoms/Text'
 import LocaleSwitcher from '../../molecules/LocaleSwitcher'
@@ -48,7 +48,10 @@ const Header = ({ theme, variant }) => {
                 fontSize={['lg', 'lg', 'xl']}
                 fontWeight="black"
                 fontColor={brandColor}
-                hover={{ color: '#FFF' }}
+                css={{
+                  transition: '0.2s',
+                }}
+                hover={{ color: '#9199BF' }}
                 letterSpacing="-0.05em"
               >
                 {header.brand}

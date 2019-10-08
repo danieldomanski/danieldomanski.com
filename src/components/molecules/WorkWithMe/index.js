@@ -29,7 +29,7 @@ const Container = styled.footer`
       #25273c 45%,
       #161723 100%
     );
-    padding-top: 3.75rem;
+    padding-top: 3rem;
   }
 
   @media screen and (min-width: 768px) and (max-height: 768px) {

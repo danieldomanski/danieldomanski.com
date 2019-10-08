@@ -73,7 +73,7 @@ const Project = ({ data, pageContext }) => {
 
     const { title, description } = pageContext.data.node.data
     const { client, role, technologies, liveAdress } = content.projectPage
-    console.log({ pageContext })
+
     const infoCardData = {
       content: { client, role, technologies },
       roles: formatInvolvment(data.prismicProjects.data.role),

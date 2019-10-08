@@ -11,7 +11,7 @@ const Title = ({ children }) => (
     fontWeight="black"
     fontColor="primary.11"
     textAlign="center"
-    my={[8, 12, 12, 12, 12]}
+    my={[8, 12, 12, 12, 16]}
     letterSpacing="-0.05em"
   >
     {children}

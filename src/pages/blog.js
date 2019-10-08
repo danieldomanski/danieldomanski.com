@@ -55,7 +55,7 @@ const Blog = ({ data }) => {
             flexGrow={1}
           >
             <Title>{content.blogsPage.title}</Title>
-            <Box display="flex" flexDirection="column" mb={[8, 12, 16, 16, 16]}>
+            <Box display="flex" flexDirection="column" mb={[8, 12]}>
               <Box
                 as="ul"
                 display="flex"
@@ -63,7 +63,11 @@ const Blog = ({ data }) => {
                 justifyContent={['flex-start', 'flex-start', 'center']}
               >
                 {tags.map(tag => (
-                  <Filter slug={tag.node.slugs[0]} updateFilter={updateFilter}>
+                  <Filter
+                    key={tag.node.data.tag}
+                    slug={tag.node.slugs[0]}
+                    updateFilter={updateFilter}
+                  >
                     {tag.node.data.tag}
                   </Filter>
                 ))}

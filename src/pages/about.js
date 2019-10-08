@@ -33,9 +33,10 @@ const About = ({ data }) => {
               mb={[0, 0, 16]}
             >
               {aboutGroup.map(group => (
-                <Box width={1} m="auto" my={2}>
+                <Box key={group.title} width={1} m="auto" my={2}>
                   {group.rows.map(row => (
                     <Box
+                      key={row.name}
                       display="flex"
                       py={4}
                       borderTop="1px solid rgba(0,0,0,0.1)"
@@ -43,7 +44,7 @@ const About = ({ data }) => {
                       <Text
                         fontFamily="sans"
                         width={[1 / 2]}
-                        fontColor="primary.6"
+                        fontColor="primary.11"
                         fontWeight="medium"
                         fontSize={['base', 'base']}
                         pr={3}
@@ -54,7 +55,7 @@ const About = ({ data }) => {
                         fontFamily="sans"
                         maxWidth={500}
                         width={[5 / 6, 5 / 6, 1 / 2]}
-                        fontColor="primary.9"
+                        fontColor="primary.11"
                         fontWeight="medium"
                         fontSize={['base', 'base']}
                         pl={2}
@@ -67,7 +68,7 @@ const About = ({ data }) => {
               ))}
             </Box>
             {aboutText.map(group => (
-              <Box my={[8, 12, 16]}>
+              <Box key={group.title} my={[8, 12, 16]}>
                 <Text
                   fontSize={['2xl']}
                   fontColor="primary.9"
