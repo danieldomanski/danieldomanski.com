@@ -49,7 +49,7 @@ const ButtonContainer = styled.button`
   }
 
   &::after {
-    background-color: #111;
+    background-color: #13151e;
     content: '';
     width: 0;
     height: 100%;

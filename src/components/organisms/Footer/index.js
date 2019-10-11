@@ -49,7 +49,7 @@ const Footer = ({ theme, variant }) => {
               height={22}
               mr={4}
               fill={color}
-              hover={{ color: '#4583FF' }}
+              hover={{ color: '#9199BF' }}
             />
           </a>
           <a
@@ -61,7 +61,7 @@ const Footer = ({ theme, variant }) => {
               width={22}
               height={22}
               fill={color}
-              hover={{ color: '#4583FF' }}
+              hover={{ color: '#9199BF' }}
             />
           </a>
         </Box>

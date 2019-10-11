@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Img from 'gatsby-image/withIEPolyfill'
 
 const BgImage = styled(Img)`
+  margin: 0;
   transition: 0.75s ease-in-out;
   width: ${props => (props.width ? props.width : 'initial')};
 `

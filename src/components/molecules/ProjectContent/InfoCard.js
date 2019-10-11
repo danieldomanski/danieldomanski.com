@@ -16,13 +16,13 @@ const InfoBoxRow = ({ children, ...rest }) => (
 )
 
 const InfoBoxRowTitle = ({ children }) => (
-  <Text fontColor="primary.11" fontWeight="bold" mb={2} fontSize="lg">
+  <Text fontColor="primary.11" fontWeight="bold" mb={2}>
     {children}
   </Text>
 )
 
 const InfoBoxRowDescription = ({ children }) => (
-  <Text fontWeight="medium" fontColor="primary.11" fontSize="lg">
+  <Text fontWeight="medium" fontColor="primary.11">
     {children}
   </Text>
 )
