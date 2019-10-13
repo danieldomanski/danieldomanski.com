@@ -40,7 +40,7 @@ const InfoCard = ({ data }) => {
       bg="#fff"
       boxShadow="md"
       p={[6, 8]}
-      mr={[0, 0, 8, 12, 16]}
+      mr={[0, 0, 0, 12, 16]}
       mb={[8, 8, 8, 0]}
     >
       <InfoBoxRow mb={4}>

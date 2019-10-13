@@ -6,8 +6,8 @@ import Icon from '../Icon'
 import CosmicButton from './CosmicButton'
 
 const LocalizedButton = ({ path, button, isMobile }) => (
-  <Box textAlign="right" mt={12}>
-    <LocalizedLink to={path}>
+  <Box mt={12}>
+    <LocalizedLink display="flex" justifyContent="flex-end" to={path}>
       {isMobile ? (
         <>
           <Text

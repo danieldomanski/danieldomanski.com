@@ -3,11 +3,12 @@ import { Link } from 'gatsby'
 import { Location } from '@reach/router'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { layout, typography, space, color } from 'styled-system'
+import { flexbox, layout, typography, space, color } from 'styled-system'
 import locales from '../../../config/locales'
 import { formatUrlToLocale } from '../../../utils/format'
 
 const LinkContainer = styled(Link)`
+  ${flexbox}
   ${space}
   ${layout}
   ${typography};

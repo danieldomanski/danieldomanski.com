@@ -11,7 +11,7 @@ import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
-import {
+import ProjectContent, {
   MultiImage,
   ImageWithCaption,
   InfoCard,
@@ -111,7 +111,7 @@ const Project = ({ data, pageContext }) => {
             display="flex"
             flexDirection={['column', 'column', 'column', 'row']}
             alignItems="center"
-            textAlign={['center', 'center', 'left']}
+            textAlign={['center', 'center', 'center', 'left']}
             width={1}
             m="auto"
           >
@@ -120,6 +120,7 @@ const Project = ({ data, pageContext }) => {
               width={1}
               display="flex"
               alignItems="center"
+              textAlign={['center', 'center', 'center', 'left']}
               flexGrow={[1, 3, 3, 3, 3]}
             >
               <Text
