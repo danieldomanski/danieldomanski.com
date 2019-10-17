@@ -7,6 +7,7 @@ const Container = styled.div`
   padding-bottom: 34.35%; /* 16:9 */
   height: 0;
   margin: 4rem 0;
+
   @media screen and (min-width: 768px) {
     display: block;
   }

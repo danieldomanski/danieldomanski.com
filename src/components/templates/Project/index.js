@@ -11,8 +11,8 @@ import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
+import Video from '../../atoms/Video'
 import {
-  Video,
   MultiImage,
   ImageWithCaption,
   InfoCard,
@@ -134,6 +134,7 @@ const Project = ({ data, pageContext }) => {
               </Text>
             </Box>
           </Box>
+          <Video src={video.src} />
           <Box
             display="flex"
             flexDirection="column"
