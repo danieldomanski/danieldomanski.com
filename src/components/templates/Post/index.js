@@ -59,7 +59,7 @@ const Post = ({ data, pageContext }) => {
                 <Text
                   fontColor="primary.10"
                   fontWeight="black"
-                  fontSize={['3xl', '4xl', '5xl']}
+                  fontSize={['3xl', '4xl']}
                   lineHeight="tight"
                   letterSpacing="-0.05em"
                 >
@@ -82,7 +82,9 @@ const Post = ({ data, pageContext }) => {
                   </Box>
                 </Box>
                 <Box>
-                  {tagsData.map(tag => <Tag data={tag} key={tag.slug} />)}
+                  {tagsData.map(tag => (
+                    <Tag data={tag} key={tag.slug} />
+                  ))}
                 </Box>
               </Box>
             </Box>
@@ -198,6 +200,17 @@ export const pageQuery = graphql`
                 html
                 text
               }
+            }
+          }
+        }
+      }
+    }
+    footer: allPrismicFooter(filter: { lang: { eq: $locale } }) {
+      edges {
+        node {
+          data {
+            code_availability {
+              text
             }
           }
         }

@@ -10,11 +10,13 @@ const formatPost = post => ({
   uid: post.node.uid,
   title: post.node.data.title.text,
   description: post.node.data.description.text,
-  tags: post.node.data.tags.map(el => el.tag.document[0].data.tag),
+  tags: post.node.data.tags.map(el =>
+    el.tag ? el.tag.document[0].data.tag : null
+  ),
 })
 
 const PostCaptionText = ({ children, ...rest }) => (
-  <Text as="span" fontColor="primary.6" fontSize="sm" {...rest}>
+  <Text as="span" fontColor="primary.8" fontSize="sm" {...rest}>
     {children}
   </Text>
 )
@@ -37,15 +39,18 @@ const PostItem = ({ post, ...rest }) => {
             {title}
           </Text>
         </LocalizedLink>
-        <Box>
+        <Box mt={1}>
           <PostCaptionText>{date}</PostCaptionText>
-          <PostCaptionText mx={2}>•</PostCaptionText>
+          <PostCaptionText mx={2}>
+            {tags.length > 0 ? '•' : null}
+          </PostCaptionText>
           <PostCaptionText>{tags.join(', ')}</PostCaptionText>
         </Box>
         <Text
           fontColor="primary.11"
           fontWeight="medium"
-          fontSize={['base', 'lg']}
+          fontSize={['sm', 'base']}
+          maxWidth={760}
           mt={3}
         >
           {description}

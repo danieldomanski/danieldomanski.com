@@ -2,13 +2,14 @@ import { css } from 'styled-components'
 import theme from '../config/theme'
 
 export default css`
-  div > p,
-  li {
+  div {
     font-family: ${theme.fonts.serif.join(', ')};
     line-height: ${theme.lineHeights.relaxed};
-
-    margin-bottom: 2rem;
     color: #17191c;
+  }
+
+  div > p {
+    margin-bottom: 1.75rem;
   }
 
   .anchor a {
@@ -27,15 +28,15 @@ export default css`
       z-index: -1;
       height: 2px;
       bottom: 2px;
-      background-color: #739fff;
+      background-color: #e2eafd;
     }
 
     &:hover {
       color: #739fff;
-      background-color: #dce4f8;
+      background-color: #e2eafd;
 
       &:after {
-        background-color: #739fff;
+        background-color: #e2eafd;
       }
     }
   }
@@ -50,6 +51,23 @@ export default css`
     font-weight: 700;
     margin-top: 3.5rem;
     margin-bottom: 1.75rem;
+    letter-spacing: -0.05em;
+  }
+
+  h2 {
+    font-size: ${theme.fontSizes['3xl']};
+    line-height: 150%;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.05em;
+  }
+
+  h3 {
+    font-size: ${theme.fontSizes['2xl']};
+    line-height: 150%;
+    font-weight: 700;
+    margin-bottom: 1rem;
     letter-spacing: -0.05em;
   }
 
@@ -181,5 +199,14 @@ export default css`
     border-radius: 0.2rem;
     color: #333;
     padding: 0.15em 0.2em;
+  }
+
+  ul {
+    margin-bottom: 1.75rem;
+  }
+
+  ul li {
+    margin-bottom: 0.875rem;
+    padding-left: 0.25rem;
   }
 `

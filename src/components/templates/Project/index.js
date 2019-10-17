@@ -11,7 +11,8 @@ import FadeIn from '../../molecules/AnimatedBox/FadeIn'
 import { getSliceContent } from '../../../utils/prismic'
 import { formatInvolvment } from '../../../utils/format'
 import { usePageContent } from '../../../context/ContentContext'
-import ProjectContent, {
+import {
+  Video,
   MultiImage,
   ImageWithCaption,
   InfoCard,

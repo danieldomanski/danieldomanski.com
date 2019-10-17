@@ -7,7 +7,7 @@ import Subtitle from '../../atoms/Text/Subtitle'
 
 const BlogSlide = ({ posts, content }) => {
   const [locale] = useContext(LocaleContext)
-  const anyPostReady = posts.some(post => post.node.data.released !== 0)
+  const anyPostReady = posts.some(post => post.node.data.released == 1)
 
   return locale === 'en' || !anyPostReady ? null : (
     <Slide content={content} id="blog" to="/blog">

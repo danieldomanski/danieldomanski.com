@@ -6,7 +6,7 @@ const Subtitle = ({ children, ...rest }) => (
     as="h3"
     display="block"
     fontSize={['lg', 'lg', 'xl', 'xl']}
-    fontWeight="bold"
+    fontWeight="black"
     fontColor="primary.11"
     mb={[8, 8, 12, 12, 16]}
     align="center"

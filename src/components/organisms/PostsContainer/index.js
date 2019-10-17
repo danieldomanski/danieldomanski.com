@@ -15,18 +15,20 @@ const PostsContainer = ({ posts }) => (
         Nie pojawił się jeszcze żaden artykuł :(
       </Text>
     ) : (
-      posts.map((post, idx) => (
-        <PostItem
-          key={`${post.node.uid}`}
-          post={post}
-          pb={idx === posts.length - 1 ? 0 : [8, 4, 8]}
-          pt={idx === 0 ? 0 : [4, 4, 8]}
-          mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
-          borderBottom={
-            idx === posts.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
-          }
-        />
-      ))
+      posts.map((post, idx) =>
+        post.node.data.released == 1 ? (
+          <PostItem
+            key={`${post.node.uid}`}
+            post={post}
+            pb={idx === posts.length - 1 ? 0 : [8, 4, 8]}
+            pt={idx === 0 ? 0 : [4, 4, 0]}
+            mb={idx === posts.length - 1 ? 0 : [4, 4, 8]}
+            borderBottom={
+              idx === posts.length - 1 ? 'none' : '1px solid rgba(0,0,0,0.05)'
+            }
+          />
+        ) : null
+      )
     )}
   </>
 )

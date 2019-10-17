@@ -28,12 +28,13 @@ const Blog = ({ data }) => {
     const updatePosts = () => {
       filterPosts(
         posts.filter(post => {
+          console.log({ post1: post })
           const postTags = post.node.data.tags.map(item => item.tag.slug)
           const { released } = post.node.data
 
           return (
             currentFilters.every(filter => postTags.includes(filter)) &&
-            released !== 0
+            released == 1
           )
         })
       )

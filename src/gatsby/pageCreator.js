@@ -1,6 +1,8 @@
 /* eslint-disable no-nested-ternary */
 const locales = require('../config/locales')
 
+const isReleased = data => (data ? data.node.data.released == true : null)
+
 const getPostSiblings = (posts, currentSlug) =>
   posts.map(post => {
     const locale = post.node.lang
@@ -13,8 +15,8 @@ const getPostSiblings = (posts, currentSlug) =>
     const nextIdx =
       idx - 1 === -1 ? idx + 2 : idx + 1 === posts.length ? idx - 2 : idx + 1
 
-    const previous = posts[previousIdx] ? posts[previousIdx] : null
-    const next = posts[nextIdx] ? posts[nextIdx] : null
+    const previous = isReleased(posts[previousIdx]) ? posts[previousIdx] : null
+    const next = isReleased(posts[nextIdx]) ? posts[nextIdx] : null
 
     return { previous, next }
   })
