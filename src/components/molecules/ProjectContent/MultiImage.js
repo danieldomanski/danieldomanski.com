@@ -7,7 +7,7 @@ const MultiImage = ({ data }) => {
   const withCaption = data.title || data.description
 
   return (
-    <Box display="flex" flexDirection="column" my={[8, 16]}>
+    <Box display="flex" flexDirection="column" mt={[8, 16]}>
       {withCaption ? (
         <Box
           display="flex"

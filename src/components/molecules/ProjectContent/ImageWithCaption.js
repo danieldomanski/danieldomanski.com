@@ -13,7 +13,7 @@ const ImageWithCaption = ({ data, align }) => {
       justifyContent="center"
       flexDirection={align === 'left' ? 'row' : 'row-reverse'}
       flexWrap={['wrap', 'wrap', 'nowrap']}
-      my={[8, 8]}
+      mt={[8, 16]}
     >
       {withCaption ? (
         <Box

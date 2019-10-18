@@ -134,7 +134,7 @@ const Project = ({ data, pageContext }) => {
               </Text>
             </Box>
           </Box>
-          <Video src={video.src} />
+          {video ? <Video src={video.src} /> : null}
           <Box
             display="flex"
             flexDirection="column"
