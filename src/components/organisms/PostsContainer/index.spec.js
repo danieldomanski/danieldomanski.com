@@ -8,12 +8,12 @@ import PostsContainer from './index'
 afterEach(cleanup)
 
 test('<PostsContainer> render different output based on posts', () => {
-  let posts = mockSchema.Posts(3)
+  let posts = mockSchema.Posts(1)
   const { getAllByTestId, getByText, rerender } = render(
     <PostsContainer posts={posts} />
   )
 
-  expect(getAllByTestId('post-item')).toHaveLength(3)
+  expect(getAllByTestId('post-item')).toHaveLength(1)
   //
   posts = mockSchema.Posts(0)
   rerender(<PostsContainer posts={posts} />)

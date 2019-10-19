@@ -8,12 +8,12 @@ import ProjectsContainer from './index'
 afterEach(cleanup)
 
 test('<ProjectsContainer> render different output based on given projects', () => {
-  let projects = mockSchema.Projects(3)
+  let projects = mockSchema.Projects(1)
   const { queryAllByTestId, rerender } = render(
     <ProjectsContainer projects={projects} />
   )
 
-  expect(queryAllByTestId('project-item')).toHaveLength(3)
+  expect(queryAllByTestId('project-item')).toHaveLength(1)
 
   projects = mockSchema.Projects(0)
   rerender(<ProjectsContainer projects={projects} />)

@@ -18,21 +18,19 @@ const Bio = ({ mt, mb }) => (
     mb={mb}
     boxShadow="lg"
   >
-    <Avatar src="profile-picture.jpg" x={120} y={120} mr={[0, 0, 8]} />
     <Box display="flex" flexDirection="column" width={1}>
       <Text
-        fontSize="xl"
+        fontSize="2xl"
         fontWeight="black"
         fontColor="primary.8"
-        mb={[4, 2]}
+        mb={[4, 3]}
         mt={[4, 4, 0]}
       >
         Daniel Domański
       </Text>
       <Text fontSize={['sm', 'base']} lineHeight="relaxed" fontWeight="medium">
-        Jestem wszechstronnym programistą z dużą chęcią do tworzenia
-        nieszablonowych projektów. Zawsze nastawiony na naukę i dzielenie się
-        swoimi doświadczeniami.
+        Jestem programistą z dużą chęcią do tworzenia nieszablonowych projektów.
+        Zawsze nastawiony na naukę i dzielenie się swoimi doświadczeniami.
       </Text>
     </Box>
   </Box>

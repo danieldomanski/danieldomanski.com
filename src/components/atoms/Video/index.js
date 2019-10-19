@@ -23,7 +23,7 @@ const Container = styled.div`
   }
 `
 
-const Video = ({ src, ...rest }) => (
+const Video = ({ src }) => (
   <Container>
     <iframe
       src={src}

@@ -72,6 +72,7 @@ const LocalizedLink = ({
 LocalizedLink.propTypes = {
   fontFamily: PropTypes.string,
   fontSize: PropTypes.oneOf(['base', 'lg', 'xl', '2xl', '4xl', '5xl', '6xl']),
+  justifyContent: PropTypes.string,
   children: PropTypes.node.isRequired,
   fontWeight: PropTypes.oneOf(['base', 'bold', 'black']),
   fontColor: PropTypes.string,
@@ -82,6 +83,7 @@ LocalizedLink.defaultProps = {
   fontSize: 'base',
   fontWeight: 'base',
   fontColor: 'primary.6',
+  justifyContent: 'flex-start',
 }
 
 export default LocalizedLink
