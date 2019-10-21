@@ -21,10 +21,7 @@ const Tag = ({ data, pageContext }) => {
     return (
       <>
         <Box m="auto" px={[6, 6, 12, 16, 24]} pb={8} flexGrow={1}>
-          <Title>
-Posts about
-            {tag}
-          </Title>
+          <Title>Posts about {tag}</Title>
           <BlogPosts>
             <PostsContainer posts={posts} />
           </BlogPosts>
@@ -52,6 +49,7 @@ export const pageQuery = graphql`
           first_publication_date
           last_publication_date
           data {
+            released
             title {
               text
             }
