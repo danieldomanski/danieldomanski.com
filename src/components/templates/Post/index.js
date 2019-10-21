@@ -30,7 +30,8 @@ const BreadcrumbItem = ({ to, title, description, textAlign }) => (
 const Post = ({ data, pageContext }) => {
   if (typeof window !== `undefined`) {
     usePageContent(data)
-    const { title, tags, date } = data.prismicPost.data
+    const { last_publication_date } = data.prismicPost
+    const { title, tags } = data.prismicPost.data
     const { previous, next } = pageContext.data.siblings
 
     const tagsData = tags.map(t => ({
@@ -72,7 +73,9 @@ const Post = ({ data, pageContext }) => {
                   mb={4}
                 >
                   <Box display="flex" alignItems="center">
-                    <Text fontColor="primary.6">{formatDate(date)}</Text>
+                    <Text fontColor="primary.6">
+                      {formatDate(last_publication_date)}
+                    </Text>
                     <Text as="span" fontColor="primary.6" mx={2}>
                       •
                     </Text>
@@ -133,6 +136,7 @@ export default Post
 export const pageQuery = graphql`
   query PostByUid($uid: String!, $locale: String!) {
     prismicPost(uid: { eq: $uid }, lang: { eq: $locale }) {
+      last_publication_date
       data {
         date
         title {
